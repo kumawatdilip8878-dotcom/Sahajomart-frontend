@@ -1,0 +1,69 @@
+.install-pwa {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+}
+
+.install-pwa-content {
+  max-width: 900px;
+  margin: auto;
+  padding: 18px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: #ffffff;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
+}
+
+.install-pwa h3 {
+  margin: 0 0 5px;
+  font-size: 18px;
+}
+
+.install-pwa p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.install-pwa button {
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+
+  background: #16a34a;
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.install-pwa button:hover {
+  background: #15803d;
+}
+
+@media (max-width: 600px) {
+  .install-pwa {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .install-pwa-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .install-pwa button {
+    width: 100%;
+  }
+}

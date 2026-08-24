@@ -1,0 +1,23 @@
+@media (max-width: 1000px) {
+  .container {
+    width: min(100% - 32px, 1180px);
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    width: min(100% - 22px, 1180px);
+  }
+
+  .section {
+    padding-bottom: 40px;
+  }
+
+  .section-head {
+    align-items: center;
+  }
+
+  .section-head p {
+    font-size: 12px;
+  }
+}
