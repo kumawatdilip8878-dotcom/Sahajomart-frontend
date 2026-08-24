@@ -10,16 +10,26 @@ import "./styles/responsive.css";
 import Home from "./pages/Home/Home";
 import CustomerLogin from "./pages/CustomerLogin/CustomerLogin";
 import StoreLogin from "./pages/StoreLogin/StoreLogin";
-import PWAInstall from "./components/PWAInstall/PWAInstall";
 
+import PWAInstall from "./components/PWAInstall/PWAInstall";
+import PWAInstallPrompt from "./components/PWAInstallPrompt";
 
 function App() {
   return (
     <BrowserRouter>
-    <PWAInstall />
+
+      {/* Existing PWA */}
+      <PWAInstall />
+
+      {/* Custom 2-second Install Popup */}
+      <PWAInstallPrompt />
+
       <Routes>
 
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
         <Route
           path="/customer-login"
@@ -49,6 +59,7 @@ function App() {
         />
 
       </Routes>
+
     </BrowserRouter>
   );
 }
