@@ -1,18 +1,27 @@
-<<<<<<< HEAD
 const isLocalhost = Boolean(
-  window.location.hostname === 'localhost' ||
-  window.location.hostname === '[::1]' ||
-  window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
+  window.location.hostname === "localhost" ||
+    window.location.hostname === "[::1]" ||
+    window.location.hostname.match(
+      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+    )
 );
 
 export function register(config) {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-    const publicUrl = new URL(process.env.PUBLIC_URL || '/', window.location.href);
+  if (
+    process.env.NODE_ENV === "production" &&
+    "serviceWorker" in navigator
+  ) {
+    const publicUrl = new URL(
+      process.env.PUBLIC_URL || "/",
+      window.location.href
+    );
 
-    if (publicUrl.origin !== window.location.origin) return;
+    if (publicUrl.origin !== window.location.origin) {
+      return;
+    }
 
-    window.addEventListener('load', () => {
-      const swUrl = `${process.env.PUBLIC_URL || ''}/service-worker.js`;
+    window.addEventListener("load", () => {
+      const swUrl = `${process.env.PUBLIC_URL || ""}/service-worker.js`;
 
       if (isLocalhost) {
         checkValidServiceWorker(swUrl, config);
@@ -29,67 +38,73 @@ function registerValidSW(swUrl, config) {
     .then((registration) => {
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
-        if (!installingWorker) return;
+
+        if (!installingWorker) {
+          return;
+        }
 
         installingWorker.onstatechange = () => {
-          if (installingWorker.state === 'installed') {
+          if (installingWorker.state === "installed") {
             if (navigator.serviceWorker.controller) {
-              console.log('New content is available; refresh to update.');
+              console.log(
+                "New content is available; refresh to update."
+              );
+
               config?.onUpdate?.(registration);
             } else {
-              console.log('Content is cached for offline use.');
+              console.log(
+                "Content is cached for offline use."
+              );
+
               config?.onSuccess?.(registration);
             }
           }
         };
       };
     })
-    .catch((error) => console.error('Service worker registration failed:', error));
+    .catch((error) =>
+      console.error(
+        "Service worker registration failed:",
+        error
+      )
+    );
 }
 
 function checkValidServiceWorker(swUrl, config) {
-  fetch(swUrl, { headers: { 'Service-Worker': 'script' } })
+  fetch(swUrl, {
+    headers: {
+      "Service-Worker": "script",
+    },
+  })
     .then((response) => {
-      const contentType = response.headers.get('content-type');
+      const contentType = response.headers.get("content-type");
 
-      if (response.status === 404 || (contentType && !contentType.includes('javascript'))) {
+      if (
+        response.status === 404 ||
+        (contentType && !contentType.includes("javascript"))
+      ) {
         navigator.serviceWorker.ready.then((registration) => {
-          registration.unregister().then(() => window.location.reload());
+          registration.unregister().then(() => {
+            window.location.reload();
+          });
         });
+
         return;
       }
 
       registerValidSW(swUrl, config);
     })
     .catch(() => {
-      console.log('No internet connection. App can continue from cache when available.');
+      console.log(
+        "No internet connection. App can continue from cache when available."
+      );
     });
 }
 
 export function unregister() {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.ready.then((registration) => registration.unregister());
-  }
-}
-=======
-export function register() {
   if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("/service-worker.js")
-        .then((registration) => {
-          console.log(
-            "SahajoMart Service Worker registered:",
-            registration.scope
-          );
-        })
-        .catch((error) => {
-          console.error(
-            "SahajoMart Service Worker registration failed:",
-            error
-          );
-        });
-    });
+    navigator.serviceWorker.ready.then((registration) =>
+      registration.unregister()
+    );
   }
 }
->>>>>>> b01cfae25f5df4e8d0e6d429207868e84cafd56e
