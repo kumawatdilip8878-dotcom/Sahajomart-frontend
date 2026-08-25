@@ -58,7 +58,7 @@ function App() {
         />
 
       </Routes>
-            <AppInstallOverlay />   {/* ← yeh line end mein daalna */}
+            {/* <AppInstallOverlay />   ← yeh line end mein daalna */}
 
 
     </BrowserRouter>
