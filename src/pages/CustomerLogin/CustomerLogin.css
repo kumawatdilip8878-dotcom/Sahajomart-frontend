@@ -1,0 +1,146 @@
+.login-page {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  padding: 30px 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff4df,
+      #f7f7f5 50%,
+      #e6f5e9
+    );
+}
+
+.login-page-card {
+  width: min(440px, 100%);
+
+  padding: 36px;
+
+  border-radius: 24px;
+
+  background: #fff;
+
+  border: 1px solid var(--border);
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.09);
+}
+
+.back-home {
+  display: inline-block;
+
+  margin-bottom: 25px;
+
+  color: #777;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.back-home:hover {
+  color: var(--primary);
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 28px;
+}
+
+.auth-logo .logo-mark {
+  width: 44px;
+  height: 44px;
+}
+
+.login-page-card h1 {
+  margin-top: 5px;
+
+  font-size: 32px;
+
+  line-height: 1.1;
+}
+
+.login-page-card > p {
+  margin-top: 8px;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+.login-page-card form {
+  margin-top: 25px;
+}
+
+.login-page-card label {
+  display: block;
+
+  margin-bottom: 7px;
+  margin-top: 16px;
+
+  color: #444;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.login-page-card input {
+  width: 100%;
+
+  height: 48px;
+
+  padding: 0 14px;
+
+  border-radius: 10px;
+
+  border: 1px solid #ddd;
+
+  outline: none;
+}
+
+.login-page-card input:focus {
+  border-color: var(--primary);
+}
+
+.auth-submit {
+  width: 100%;
+
+  margin-top: 22px;
+
+  border: 0;
+}
+
+.home-button {
+  width: 100%;
+
+  height: 45px;
+
+  margin-top: 10px;
+
+  border-radius: 10px;
+
+  border: 1px solid #ddd;
+
+  background: #fff;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.home-button:hover {
+  border-color: var(--primary);
+  color: var(--primary-dark);
+}
+
+@media (max-width: 500px) {
+  .login-page-card {
+    padding: 26px 20px;
+  }
+}

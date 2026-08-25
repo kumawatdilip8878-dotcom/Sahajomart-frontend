@@ -1,0 +1,66 @@
+.login-panel {
+  padding: 14px 0 72px;
+}
+
+.login-box {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 1px;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background: #dededb;
+}
+
+.login-side {
+  padding: 40px;
+
+  background: #fff;
+}
+
+.login-side h3 {
+  font-size: 25px;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.7px;
+}
+
+.login-side p {
+  max-width: 470px;
+
+  margin-top: 10px;
+
+  color: #777;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+.login-side .btn {
+  margin-top: 20px;
+}
+
+.store-side {
+  background: #1b1b1b;
+  color: #fff;
+}
+
+.store-side p {
+  color: #aaa;
+}
+
+@media (max-width: 720px) {
+  .login-box {
+    grid-template-columns: 1fr;
+  }
+
+  .login-side {
+    padding: 30px 22px;
+  }
+}

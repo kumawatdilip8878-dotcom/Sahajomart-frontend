@@ -1,0 +1,238 @@
+/* =====================================
+   VIDEO SECTION
+===================================== */
+
+.video-section {
+  padding: 30px 0 54px;
+}
+
+/* Section Heading */
+
+.video-section .section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.video-section .section-kicker {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: #d97800;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.video-section .section-head h2 {
+  font-size: clamp(27px, 4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: #282828;
+}
+
+.video-section .section-head p {
+  max-width: 620px;
+  margin-top: 7px;
+  color: #777777;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =====================================
+   VIDEO GRID
+===================================== */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+/* =====================================
+   VIDEO CARD
+===================================== */
+
+.video-card {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid #e9e9e6;
+  background: #ffffff;
+  transition: 0.25s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================================
+   VIDEO WRAPPER
+===================================== */
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #121212;
+}
+
+.video-wrapper video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #111111;
+}
+
+/* =====================================
+   VIDEO CONTENT
+===================================== */
+
+.video-content {
+  padding: 20px;
+}
+
+.video-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff1dc;
+  color: #bf6300;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.video-content h3 {
+  margin-top: 11px;
+  color: #282828;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.video-content p {
+  margin-top: 8px;
+  color: #777777;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* =====================================
+   VIDEO LINK
+===================================== */
+
+.video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: #d97800;
+  font-size: 12px;
+  font-weight: 900;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.video-link span {
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+.video-link:hover {
+  color: #b85f00;
+}
+
+.video-link:hover span {
+  transform: translateX(4px);
+}
+
+/* =====================================
+   VIDEO CONTROLS
+===================================== */
+
+.video-wrapper video::-webkit-media-controls-panel {
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.8)
+  );
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 1000px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .video-content {
+    padding: 18px;
+  }
+
+  .video-content h3 {
+    font-size: 18px;
+  }
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 720px) {
+  .video-section {
+    padding: 25px 0 40px;
+  }
+
+  .video-section .section-head {
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .video-section .section-head h2 {
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+
+  .video-section .section-head p {
+    margin-top: 8px;
+    font-size: 12px;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .video-card {
+    border-radius: 17px;
+  }
+
+  .video-wrapper {
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-content {
+    padding: 18px;
+  }
+
+  .video-content h3 {
+    font-size: 18px;
+  }
+
+  .video-content p {
+    font-size: 12px;
+  }
+
+  .video-link {
+    margin-top: 14px;
+  }
+}

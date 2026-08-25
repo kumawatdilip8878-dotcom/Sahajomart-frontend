@@ -1,0 +1,51 @@
+.top-bar {
+  background: #171717;
+  color: #fff;
+  font-size: 12px;
+}
+
+.top-bar-inner {
+  min-height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.top-contact {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.language-btn {
+  background: transparent;
+  border: 0;
+
+  color: #fff;
+  opacity: 0.65;
+
+  font-size: 12px;
+}
+
+.language-btn.active {
+  color: #ffb348;
+  opacity: 1;
+  font-weight: 800;
+}
+
+@media (max-width: 720px) {
+  .top-contact span:nth-child(2) {
+    display: none;
+  }
+}
