@@ -10,7 +10,7 @@ import "./styles/responsive.css";
 import Home from "./pages/Home/Home";
 import CustomerLogin from "./pages/CustomerLogin/CustomerLogin";
 import StoreLogin from "./pages/StoreLogin/StoreLogin";
-import AppInstallOverlay from './components/AppInstallOverlay';
+// import AppInstallOverlay from './components/AppInstallOverlay';
 
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 
