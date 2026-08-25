@@ -1,11 +1,15 @@
 {
   "name": "SahajoMart - Nearby Shopping Made Simple",
   "short_name": "SahajoMart",
+<<<<<<< HEAD
   "description": "Shop from your nearby SahajoMart store with easy access to categories, offers and promotions.",
+=======
+>>>>>>> b01cfae25f5df4e8d0e6d429207868e84cafd56e
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+<<<<<<< HEAD
   "display_override": [
     "window-controls-overlay",
     "standalone"
@@ -13,17 +17,29 @@
   "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#f39200",
+=======
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "portrait-primary",
+  "theme_color": "#f39200",
+  "background_color": "#ffffff",
+  "description": "Shop from your nearby SahajoMart store with easy access to categories, offers and promotions.",
+>>>>>>> b01cfae25f5df4e8d0e6d429207868e84cafd56e
   "icons": [
     {
       "src": "/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
+<<<<<<< HEAD
       "purpose": "any"
+=======
+      "purpose": "any maskable"
+>>>>>>> b01cfae25f5df4e8d0e6d429207868e84cafd56e
     },
     {
       "src": "/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
+<<<<<<< HEAD
       "purpose": "any"
     },
     {
@@ -34,3 +50,9 @@
     }
   ]
 }
+=======
+      "purpose": "any maskable"
+    }
+  ]
+}
+>>>>>>> b01cfae25f5df4e8d0e6d429207868e84cafd56e

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
   window.location.hostname === '[::1]' ||
@@ -70,3 +71,25 @@ export function unregister() {
     navigator.serviceWorker.ready.then((registration) => registration.unregister());
   }
 }
+=======
+export function register() {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then((registration) => {
+          console.log(
+            "SahajoMart Service Worker registered:",
+            registration.scope
+          );
+        })
+        .catch((error) => {
+          console.error(
+            "SahajoMart Service Worker registration failed:",
+            error
+          );
+        });
+    });
+  }
+}
+>>>>>>> b01cfae25f5df4e8d0e6d429207868e84cafd56e
