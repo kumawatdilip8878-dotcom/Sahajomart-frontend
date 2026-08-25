@@ -1,17 +1,16 @@
 const CACHE_NAME = "sahajomart-v1";
 
-const FILES_TO_CACHE = [
+const STATIC_ASSETS = [
   "/",
-  "/index.html",
-  "/manifest.json"
+  "/manifest.json",
 ];
 
 self.addEventListener("install", (event) => {
-  console.log("SahajoMart Service Worker installing...");
+  console.log("SahajoMart Service Worker: installing");
 
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(FILES_TO_CACHE);
+      return cache.addAll(STATIC_ASSETS);
     })
   );
 
@@ -19,16 +18,16 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  console.log("SahajoMart Service Worker activated...");
+  console.log("SahajoMart Service Worker: activated");
 
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
+    caches.keys().then((cacheNames) =>
+      Promise.all(
         cacheNames
-          .filter((cacheName) => cacheName !== CACHE_NAME)
-          .map((cacheName) => caches.delete(cacheName))
-      );
-    })
+          .filter((name) => name !== CACHE_NAME)
+          .map((name) => caches.delete(name))
+      )
+    )
   );
 
   self.clients.claim();
@@ -36,8 +35,8 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      return cachedResponse || fetch(event.request);
+    fetch(event.request).catch(() => {
+      return caches.match(event.request);
     })
   );
 });

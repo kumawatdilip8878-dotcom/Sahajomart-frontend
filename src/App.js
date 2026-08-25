@@ -11,7 +11,7 @@ import Home from "./pages/Home/Home";
 import CustomerLogin from "./pages/CustomerLogin/CustomerLogin";
 import StoreLogin from "./pages/StoreLogin/StoreLogin";
 
-import PWAInstall from "./components/PWAInstall/PWAInstall";
+// import PWAInstall from "./components/PWAInstall/PWAInstall";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
 
       {/* Existing PWA */}
-      <PWAInstall />
+      {/* <PWAInstall /> */}
 
       {/* Custom 2-second Install Popup */}
       <PWAInstallPrompt />

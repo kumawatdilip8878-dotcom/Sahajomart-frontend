@@ -41,10 +41,12 @@ const Header = () => {
         <a
           href="#home"
           className="logo"
+          
           onClick={closeMenu}
+          
         >
           <div className="logo-mark">
-            S
+           <img src="https://images.jdmagicbox.com/v2/comp/jaipur/s3/0141px141.x141.240614085559.f5s3/catalogue/sahjo-freight-carrier-vishwakarma-industrial-area-jaipur-transporters-zaxrmu4nyu.jpg" alt="" />
           </div>
 
           <div className="logo-text">

@@ -108,7 +108,7 @@ const beverageItems = [
     description:
       "Chips, namkeen and other snack items.",
     image:
-      "https://images.unsplash.com/photo-1621939514649-280e2aa9454f?auto=format&fit=crop&w=700&q=80",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_qOfu9eRT5orel3T4jNIXldt0UMSKB4A-3Gu0PpJie1mw4BLg1iMULkw&s=10",
     id: "snacks",
   },
   {
