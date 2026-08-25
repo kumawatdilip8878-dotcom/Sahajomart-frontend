@@ -25,7 +25,7 @@ const PWAInstallPrompt = () => {
       // Show our popup after 2 seconds
       setTimeout(() => {
         setShowPopup(true);
-      }, 2000);
+      }, 2);
     };
 
     const handleAppInstalled = () => {
