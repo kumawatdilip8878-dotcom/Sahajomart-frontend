@@ -77,9 +77,10 @@ const PWAInstallPrompt = () => {
     <div className="pwa-overlay">
       <div className="pwa-popup">
         <div className="pwa-app-icon">
-          <img
-            src="/icons/icon-192.png"
-            alt="SahajoMart"
+            <img
+            src='https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg' border='0'
+             alt='img-2-1784471233954-jpg'
+             
           />
         </div>
 
