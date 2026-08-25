@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./LoginPanel.css";
 
@@ -9,6 +8,7 @@ function LoginPanel() {
         <div className="login-box">
 
           <div className="login-side">
+            
             <span className="section-kicker">
               Customer
             </span>

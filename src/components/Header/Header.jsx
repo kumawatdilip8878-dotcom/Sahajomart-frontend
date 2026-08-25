@@ -46,8 +46,7 @@ const Header = () => {
           
         >
           <div className="logo-mark">
-           <img src="https://images.jdmagicbox.com/v2/comp/jaipur/s3/0141px141.x141.240614085559.f5s3/catalogue/sahjo-freight-carrier-vishwakarma-industrial-area-jaipur-transporters-zaxrmu4nyu.jpg" alt="" />
-          </div>
+ < img  className="ahjo" src='https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg' border='0' alt='img-2-1784471233954-jpg'/>        </div>
 
           <div className="logo-text">
             Sahajo<span>Mart</span>
