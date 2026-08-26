@@ -34,7 +34,7 @@ const Header = () => {
       <div className="container nav">
         {/* Logo Section */}
         <a href="#home" className="logo" onClick={closeMenu}>
-          <div className="logo-mark">
+          <div style={{height:"53px"}} className="logo-mark">
             <img 
               className="ahjo" 
               src='https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg' 
