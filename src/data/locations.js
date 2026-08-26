@@ -8,5 +8,5 @@ export const locations = [
   "Tonk",
   "Alwar",
   "Dausa",
-  "jobner"
+  "Jobner"
 ];
