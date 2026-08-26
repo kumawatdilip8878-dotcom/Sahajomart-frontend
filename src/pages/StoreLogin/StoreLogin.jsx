@@ -33,12 +33,12 @@ function StoreLogin() {
         </Link>
 
         <div className="auth-logo">
-          <div  style={{width:"60px"}} className="logo-mark">
+          <div  style={{width:"55px"}} className="logo-mark">
              < img  className="ahjo" src='https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg' border='0' alt='img-2-1784471233954-jpg'/>   
 
           </div>
 
-          <div style={{fontSize:"30px",marginTop:"20px",marginLeft:"10px"}} className="logo-text">
+          <div style={{fontSize:"30px",marginTop:"10px",marginLeft:"10px"}} className="logo-text">
             <span>Sahjo Mart</span>
           </div>
         </div>
