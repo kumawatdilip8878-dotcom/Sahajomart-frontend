@@ -1,81 +1,106 @@
+/* ✅ Location Bar */
 .location-bar {
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
+  padding: 12px 0;
+  background: #f8f8f8;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 .location-inner {
-  min-height: 56px;
-
   display: flex;
   align-items: center;
-
-  gap: 12px;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 0 15px;
 }
 
 .location-title {
-  flex-shrink: 0;
-
-  color: #707070;
-
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
+  color: #333;
+  flex-shrink: 0;
 }
 
 .location-list {
   display: flex;
   align-items: center;
-
-  gap: 8px;
-
-  overflow-x: auto;
-
-  scrollbar-width: none;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.location-list::-webkit-scrollbar {
-  display: none;
-}
-
+/* ✅ Location Chip Buttons */
 .location-chip {
+  padding: 8px 18px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  background: #fff;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
   white-space: nowrap;
-
-  padding: 8px 14px;
-
-  border-radius: 999px;
-
-  border: 1px solid #e7e7e4;
-
-  background: #f7f7f4;
-
-  color: #444;
-
-  font-size: 12px;
-  font-weight: 800;
-
-  transition: 0.2s ease;
 }
 
-.location-chip:hover,
+.location-chip:hover {
+  border-color: #ff6b35;
+  color: #ff6b35;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+}
+
 .location-chip.active {
-  border-color: #f7bd6b;
-
-  background: #fff3e2;
-
-  color: #b85f00;
+  border-color: #ff6b35;
+  background: linear-gradient(135deg, #ff6b35, #e85d2c);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
 }
 
-@media (max-width: 720px) {
+.location-chip.active:hover {
+  background: linear-gradient(135deg, #e85d2c, #d04a1a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
+}
+
+/* ✅ Responsive - Mobile */
+@media (max-width: 768px) {
+  .location-bar {
+    padding: 10px 0;
+  }
+  
   .location-inner {
-    min-height: 52px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
-
+  
   .location-title {
-    font-size: 11px;
+    font-size: 13px;
   }
-
+  
+  .location-list {
+    gap: 8px;
+    width: 100%;
+  }
+  
   .location-chip {
-    padding: 7px 12px;
+    padding: 6px 14px;
+    font-size: 12px;
+    flex: 1 1 auto;
+    min-width: 60px;
+    text-align: center;
+  }
+}
+
+/* ✅ Very Small Screens */
+@media (max-width: 400px) {
+  .location-chip {
+    padding: 5px 12px;
     font-size: 11px;
+    min-width: 50px;
+  }
+  
+  .location-list {
+    gap: 6px;
   }
 }

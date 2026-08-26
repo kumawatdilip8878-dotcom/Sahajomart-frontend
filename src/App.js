@@ -5,6 +5,7 @@ import "./App.css";
 import "./styles/variables.css";
 import "./styles/global.css";
 import "./styles/responsive.css";
+import FloatingVideo from "./components/VideoSection/FloatingVideo";
 
 import Home from "./pages/Home/Home";
 import CustomerLogin from "./pages/CustomerLogin/CustomerLogin";
@@ -42,6 +43,7 @@ function App() {
         />
       </Routes>
             <PWAInstallPrompt />
+      <FloatingVideo />
 
     </BrowserRouter>
   );

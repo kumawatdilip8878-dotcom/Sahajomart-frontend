@@ -2,61 +2,42 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-
   background: rgba(255, 255, 255, 0.96);
-
   backdrop-filter: blur(16px);
-
   border-bottom: 1px solid var(--border);
 }
 
 .nav {
   min-height: 74px;
-
   display: flex;
   align-items: center;
-
   gap: 28px;
 }
 
 .logo {
   display: inline-flex;
   align-items: center;
-
   gap: 10px;
-
   flex-shrink: 0;
 }
 
 .logo-mark {
   width: 60px;
   height: 60px;
-
   display: grid;
   place-items: center;
-
   border-radius: 12px;
-
-  background: linear-gradient(
-    135deg,
-    #ffac34,
-    #f17700
-  );
-
+  background: linear-gradient(135deg, #ffac34, #f17700);
   color: #fff;
-
   font-size: 20px;
   font-weight: 900;
-
-  box-shadow:
-    0 8px 25px rgba(243, 146, 0, 0.22);
+  box-shadow: 0 8px 25px rgba(243, 146, 0, 0.22);
 }
+
 .logo-text {
   font-size: 22px;
   line-height: 1;
-
   letter-spacing: -0.8px;
-
   font-weight: 900;
 }
 
@@ -67,16 +48,13 @@ header {
 .nav-menu {
   display: flex;
   align-items: center;
-
   gap: 28px;
-
   margin-left: auto;
 }
 
 .nav-menu a {
   font-size: 13px;
   font-weight: 700;
-
   transition: 0.2s ease;
 }
 
@@ -87,31 +65,24 @@ header {
 .nav-actions {
   display: flex;
   align-items: center;
-
   gap: 9px;
 }
 
 .mobile-toggle {
   display: none;
-
   width: 42px;
   height: 42px;
-
   border: 0;
   border-radius: 10px;
-
   background: #f2f2ef;
-
   font-size: 22px;
+  cursor: pointer;
 }
 
 .mobile-menu {
   display: none;
-
   background: #fff;
-
   border-top: 1px solid var(--border);
-
   padding: 12px 16px 18px;
 }
 
@@ -121,22 +92,16 @@ header {
 
 .mobile-menu a {
   display: block;
-
   padding: 12px 4px;
-
   border-bottom: 1px solid #efefec;
-
   font-size: 14px;
   font-weight: 700;
 }
 
 .mobile-menu .mobile-login-actions {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 10px;
-
   margin-top: 14px;
 }
 
@@ -169,10 +134,10 @@ header {
   }
 }
 
-.ahjo{
-  width:100%;
+.ahjo {
+  width: 100%;
   height: 50px;
-  border-radius:10px
+  border-radius: 10px;
 }
 
 /* ✅ Online Shopping Text */
@@ -199,6 +164,7 @@ header {
   gap: 8px;
   border: 2px solid #DAA520;
   box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  cursor: pointer;
 }
 
 .btn-whatsapp:hover {
@@ -221,6 +187,7 @@ header {
   gap: 8px;
   border: 2px solid #DAA520;
   box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  cursor: pointer;
 }
 
 .btn-call:hover {
@@ -229,53 +196,33 @@ header {
   box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
 }
 
-/* ✅ Mobile Online Text */
-.mobile-online-text {
-  font-size: 20px;
+/* ✅ Customer Login Button - Hover Effect */
+.btn-outline {
+  background: transparent;
+  color: #333;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
   font-weight: 700;
-  color: #f17700;
-  text-align: center;
-  padding: 15px 0;
-  font-family: 'Hindi', 'Arial', sans-serif;
-  border-bottom: 2px solid #f17700;
-  margin-bottom: 10px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid #ddd;
+  cursor: pointer;
 }
 
-/* ✅ Mobile Menu Actions */
-.mobile-login-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 15px 0;
+.btn-outline:hover {
+  background: linear-gradient(135deg, #ff6b35, #e85d2c);
+  color: #fff;
+  border-color: #ff6b35;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.4);
 }
 
-.mobile-login-actions .btn {
-  width: 100%;
-  text-align: center;
-  padding: 12px;
-}
-
-/* ✅ Responsive */
-@media (max-width: 768px) {
-  .online-shopping-text {
-    display: none;
-  }
-  
-  .nav-actions .btn-whatsapp,
-  .nav-actions .btn-call {
-    display: none;
-  }
-}
-
-@media (min-width: 769px) {
-  .mobile-online-text {
-    display: none;
-  }
-}
-/* ✅ Common Button Style - Store Login Theme */
-.btn-whatsapp,
-.btn-call,
-.btn-store-login {
+/* ✅ Store Login Button - Hover Effect */
+.btn-primary {
   background: linear-gradient(135deg, #ff6b35, #e85d2c);
   color: #fff;
   padding: 8px 18px;
@@ -292,42 +239,10 @@ header {
   cursor: pointer;
 }
 
-.btn-whatsapp:hover,
-.btn-call:hover,
-.btn-store-login:hover {
+.btn-primary:hover {
   background: linear-gradient(135deg, #e85d2c, #d04a1a);
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
-}
-
-/* ✅ Optional: If you have a separate .btn class */
-.btn {
-  background: linear-gradient(135deg, #ff6b35, #e85d2c);
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 13px;
-  border: none;
-  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: linear-gradient(135deg, #e85d2c, #d04a1a);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
-}
-
-/* ✅ Online Shopping Text */
-.online-shopping-text {
-  font-size: 18px;
-  font-weight: 600;
-  color: #f17700;
-  margin: 0 15px;
-  font-family: 'Hindi', 'Arial', sans-serif;
-  letter-spacing: 1px;
 }
 
 /* ✅ Mobile Online Text */
@@ -373,6 +288,7 @@ header {
     display: none;
   }
 }
+
 /* ✅ Simple White Background */
 .online-shopping-banner {
   text-align: center;
@@ -400,4 +316,298 @@ header {
     font-size: 17px;
     padding: 10px 12px;
   }
+}
+
+/* ✅ Common Button Style - All Buttons Same */
+.btn {
+  background: linear-gradient(135deg, #ff6b35, #e85d2c);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #e85d2c, #d04a1a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
+}
+
+/* ✅ WhatsApp Button - Same as Store Login */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #ff6b35, #e85d2c);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
+  cursor: pointer;
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #e85d2c, #d04a1a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
+}
+
+/* ✅ Call Button - Same as Store Login */
+.btn-call {
+  background: linear-gradient(135deg, #ff6b35, #e85d2c);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
+  cursor: pointer;
+}
+
+.btn-call:hover {
+  background: linear-gradient(135deg, #e85d2c, #d04a1a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
+}
+
+/* ✅ Customer Login Button - Same as Store Login */
+.btn-outline {
+  background: linear-gradient(135deg, #ff6b35, #e85d2c);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: linear-gradient(135deg, #e85d2c, #d04a1a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
+}
+
+/* ✅ Store Login Button - Same */
+.btn-primary {
+  background: linear-gradient(135deg, #ff6b35, #e85d2c);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #e85d2c, #d04a1a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
+}
+
+/* ✅ Mobile View - Nav Adjustments */
+@media (max-width: 1000px) {
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 65px;
+    padding: 0 10px;
+  }
+  
+  .logo {
+    flex-shrink: 0;
+  }
+  
+  .logo-text {
+    font-size: 18px;
+  }
+  
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .ahjo {
+    height: 40px;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  .mobile-toggle {
+    display: block;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 10px;
+    background: #f2f2ef;
+    font-size: 22px;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+  
+  .online-shopping-text {
+    display: none;
+  }
+  
+  .nav-actions .btn-whatsapp,
+  .nav-actions .btn-call,
+  .nav-actions .btn-outline,
+  .nav-actions .btn-primary {
+    display: none;
+  }
+}
+
+/* ✅ Mobile View - Logo & Hamburger Same Line */
+@media (max-width: 720px) {
+  .nav {
+    min-height: 60px;
+    padding: 0 8px;
+    gap: 8px;
+  }
+  
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .ahjo {
+    height: 36px;
+  }
+  
+  .logo-text {
+    font-size: 16px;
+  }
+  
+  .logo {
+    gap: 6px;
+  }
+  
+  .mobile-toggle {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+}
+
+/* ✅ Very Small Screens */
+@media (max-width: 400px) {
+  .logo-text {
+    font-size: 14px;
+  }
+  
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .ahjo {
+    height: 32px;
+  }
+  
+  .mobile-toggle {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+}
+
+.logo-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
+color: #b23c0e;  white-space: nowrap;
+}
+
+.action-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.btn-whatsapp,
+.btn-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.whatsapp-icon {
+  font-size: 20px;
+}
+
+.phone-icon {
+  font-size: 16px;
+}
+
+.action-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* WhatsApp Icon */
+.whatsapp-icon {
+  color: #25D366;
+  font-size: 21px;
+}
+
+/* Call Icon */
+.phone-icon {
+  color: #2563eb;
+  font-size: 17px;
+}
+
+.btn-whatsapp,
+.btn-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.online-shopping-text {
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ee7111f8;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
 }

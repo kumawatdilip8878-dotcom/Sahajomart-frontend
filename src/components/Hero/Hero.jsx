@@ -32,12 +32,12 @@ const Hero = () => {
 
             <div className="hero-actions">
 
-              <a
+              {/* <a
                 href="#categories"
                 className="btn btn-primary"
               >
                 Explore Categories →
-              </a>
+              </a> */}
 
               <a
                 href="https://wa.me/919876543210"
@@ -48,7 +48,7 @@ const Hero = () => {
                 WhatsApp Order
               </a>
 
-              <a
+              <a style={{width:"150px"}}
                 href="tel:+919876543210"
                 className="btn btn-outline"
               >
@@ -61,7 +61,7 @@ const Hero = () => {
 
               <span>✓ Nearby Stores</span>
 
-              <span>✓ Hindi & English</span>
+              {/* <span>✓ Hindi & English</span> */}
 
               <span>✓ Offers & Promotions</span>
 

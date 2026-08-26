@@ -7,54 +7,31 @@ const LocationBar = () => {
 
   const handleLocationChange = (location) => {
     setSelectedLocation(location);
-
     console.log("Selected Store Location:", location);
-
-    // Future API:
-    // fetch(`/api/store?city=${location}`)
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     // Update store data
-    //   });
   };
 
   return (
-
     <>
-    <div className="location-bar" id="stores">
-      <div className="container location-inner">
+      <div className="location-bar" id="stores">
+        <div className="container location-inner">
+          <span className="location-title">Our Stores:</span>
 
-        <span className="location-title">
-          Our Stores:
-        </span>
-
-        <div className="location-list">
-          {locations.map((location) => (
-            <button
-              key={location}
-              type="button"
-              className={`location-chip ${
-                selectedLocation === location
-                  ? "active"
-                  : ""
-              }`}
-              onClick={() =>
-                handleLocationChange(location)
-              }
-            >
-              {location}
-            </button>
-          ))}
+          <div className="location-list">
+            {locations.map((location) => (
+              <button
+                key={location}
+                type="button"
+                className={`location-chip ${
+                  selectedLocation === location ? "active" : ""
+                }`}
+                onClick={() => handleLocationChange(location)}
+              >
+                {location}
+              </button>
+            ))}
+          </div>
         </div>
-
       </div>
-    </div>
-{/* <div className="online-shopping-wrapper">
-  <div className="online-shopping-banner">
-    अब करें घर से ऑनलाइन शॉपिंग
-  </div>
-</div> */}
-    
     </>
   );
 };

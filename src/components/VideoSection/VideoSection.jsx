@@ -31,8 +31,13 @@ function VideoSection() {
               <div className="video-wrapper">
                 <video
                   controls
+                   autoPlay
+                   muted
                   preload="metadata"
                   poster={video.poster}
+                    playsInline
+                  
+
                 >
                   <source
                     src={video.video}
