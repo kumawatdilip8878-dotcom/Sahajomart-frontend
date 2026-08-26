@@ -3,7 +3,7 @@ import React from 'react';
 export const videos = [
   {
     label: "Promotion",
-    title: "SahajoMart Special Offers",
+    title: "SahjoMart Special Offers",
     description:
       "Watch the latest SahajoMart promotional video and visit the associated offer page using the link below.",
     video: "https://media.gettyimages.com/id/483716927/video/fruit-and-vegetable-section-of-a-supermarket.mp4?s=mp4-640x640-gi&k=20&c=jckrFhUhSTIG8qGWYV7KR3seKptpqnbhQhtvb1A2b3w=",
@@ -14,7 +14,7 @@ export const videos = [
   },
   {
     label: "Store Update",
-    title: "Visit Your Nearby SahajoMart",
+    title: "Visit Your Nearby SahjoMart",
     description:
       "Promotional or informational videos can be linked directly to a particular store, location or campaign.",
     video: "https://media.gettyimages.com/id/456582358/video/supermarket.mp4?s=mp4-640x640-gi&k=20&c=hE-AKe4GXXbwClS-V1QpK78rkDYrmhNAZMDOstEATyY=",

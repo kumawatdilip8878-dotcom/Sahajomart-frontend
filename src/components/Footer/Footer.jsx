@@ -22,7 +22,7 @@ function Footer() {
                 className="logo-text"
                 style={{ color: "#fff" }}
               >
-                Sahajo<span>Mart</span>
+                <span> Sahjo   Mart</span>
               </div>
             </a>
 

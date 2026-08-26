@@ -18,7 +18,7 @@ function InfoStrip() {
     {
       label: "Service",
       value:
-        "Shop through your nearest SahajoMart store",
+        "Shop through your nearest SahjoMart store",
     },
   ];
 

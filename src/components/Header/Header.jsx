@@ -24,63 +24,65 @@ const Header = () => {
     };
   }, [menuOpen]);
 
+  // ✅ Sirf "Stores" rakha hai
   const menuItems = [
-    ["Home", "#home"],
-    ["Categories", "#categories"],
-    ["Offers", "#offers"],
-    ["Videos", "#videos"],
     ["Stores", "#stores"],
-    ["Contact", "#contact"],
   ];
 
   return (
     <header>
-
       <div className="container nav">
-
-        <a
-          href="#home"
-          className="logo"
-          
-          onClick={closeMenu}
-          
-        >
+        {/* Logo Section */}
+        <a href="#home" className="logo" onClick={closeMenu}>
           <div className="logo-mark">
- < img  className="ahjo" src='https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg' border='0' alt='img-2-1784471233954-jpg'/>     
-    </div>
-
+            <img 
+              className="ahjo" 
+              src='https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg' 
+              border='0' 
+              alt='Sahjo Mart Logo'
+            />     
+          </div>
           <div className="logo-text">
-            Sahajo<span>Mart</span>
+            <span style={{fontSize:"25px"}}>Sahjo Mart</span>
           </div>
         </a>
 
+        {/* ✅ Online Shopping Text - Hindi */}
+        <div className="online-shopping-text">
+         अब करें घर से  ऑनलाइन शॉपिंग
+        </div>
+
+        {/* Desktop Navigation - Sirf Stores */}
         <nav className="nav-menu">
-          {menuItems.map(([name, link]) => (
-            <a
-              href={link}
-              key={name}
-            >
-              {name}
-            </a>
-          ))}
+
         </nav>
 
+        {/* Desktop Actions */}
         <div className="nav-actions">
-
-          <a
-            href="/customer-login"
-            className="btn btn-outline"
+          {/* ✅ Order on WhatsApp Button */}
+          <a 
+            href="https://wa.me/your-number" 
+            className="btn btn-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
           >
+            📱 Order on WhatsApp
+          </a>
+
+          {/* ✅ Call Button */}
+          <a 
+            href="tel:+919876543210" 
+            className="btn btn-call"
+          >
+            📞  Order on Call
+          </a>
+
+          <a href="/customer-login" className="btn btn-outline">
             Customer Login
           </a>
-
-          <a
-            href="/store-login"
-            className="btn btn-primary"
-          >
+          <a href="/store-login" className="btn btn-primary">
             Store Login
           </a>
-
           <button
             className="mobile-toggle"
             onClick={toggleMenu}
@@ -88,49 +90,51 @@ const Header = () => {
           >
             {menuOpen ? "✕" : "☰"}
           </button>
-
         </div>
-
       </div>
 
-      <div
-        className={`mobile-menu ${
-          menuOpen ? "active" : ""
-        }`}
-      >
-
+      {/* Mobile Menu - Sirf Stores */}
+      <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
         {menuItems.map(([name, link]) => (
-          <a
-            href={link}
-            key={name}
-            onClick={closeMenu}
-          >
+          <a href={link} key={name} onClick={closeMenu}>
             {name}
           </a>
         ))}
-
-        <div className="mobile-login-actions">
-
-          <a
-            href="/customer-login"
-            className="btn btn-outline"
-            onClick={closeMenu}
-          >
-            Customer Login
-          </a>
-
-          <a
-            href="/store-login"
-            className="btn btn-primary"
-            onClick={closeMenu}
-          >
-            Store Login
-          </a>
-
+        
+        {/* ✅ Mobile Menu - Online Shopping Text */}
+        <div className="mobile-online-text">
+          ऑनलाइन शॉपिंग
         </div>
 
-      </div>
+        <div className="mobile-login-actions">
+          {/* ✅ Mobile - Order on WhatsApp */}
+          <a 
+            href="https://wa.me/your-number" 
+            className="btn btn-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+          >
+            📱 Order on WhatsApp
+          </a>
 
+          {/* ✅ Mobile - Call Button */}
+          <a 
+            href="tel:+919876543210" 
+            className="btn btn-call"
+            onClick={closeMenu}
+          >
+            📞 Call
+          </a>
+
+          <a href="/customer-login" className="btn btn-outline" onClick={closeMenu}>
+            Customer Login
+          </a>
+          <a href="/store-login" className="btn btn-primary" onClick={closeMenu}>
+            Store Login
+          </a>
+        </div>
+      </div>
     </header>
   );
 };
