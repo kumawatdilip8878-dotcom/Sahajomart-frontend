@@ -145,8 +145,8 @@
 .hero-image {
   height: 410px;
 
-  border-radius: 25px 25px 0 25px;
-
+  border-radius: 25px 25px 25px 25px;
+margin-bottom:20px;
   object-fit: cover;
 
   box-shadow:
@@ -246,6 +246,7 @@
     height: 275px;
 
     border-radius: 17px;
+    margin-bottom:20px
   }
 
   .floating-card {
