@@ -49,7 +49,7 @@ const Header = () => {
 
         {/* ✅ Online Shopping Text - Hindi */}
         <div className="online-shopping-text">
-         अब करें घर से  ऑनलाइन शॉपिंग
+         {/* अब करें घर से  ऑनलाइन शॉपिंग */}
         </div>
 
         {/* Desktop Navigation - Sirf Stores */}
