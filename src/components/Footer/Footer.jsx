@@ -27,7 +27,7 @@ function Footer() {
             </a>
 
             <p>
-              SahajoMart connects customers with nearby
+              SahjoMart connects customers with nearby
               stores through a simple online experience
               while primary store operations are managed
               through the POS system.
