@@ -12,8 +12,10 @@ function Footer() {
           <div className="footer-brand">
 
             <a href="#home" className="logo">
+              
               <div className="logo-mark">
-                S
+                 < img className="foots" src='https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg' border='0' alt='img-2-1784471233954-jpg'/>     
+
               </div>
 
               <div

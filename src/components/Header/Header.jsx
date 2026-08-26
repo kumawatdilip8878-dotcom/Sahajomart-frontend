@@ -46,7 +46,8 @@ const Header = () => {
           
         >
           <div className="logo-mark">
- < img  className="ahjo" src='https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg' border='0' alt='img-2-1784471233954-jpg'/>        </div>
+ < img  className="ahjo" src='https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg' border='0' alt='img-2-1784471233954-jpg'/>     
+    </div>
 
           <div className="logo-text">
             Sahajo<span>Mart</span>
