@@ -9,7 +9,7 @@ import PromoSlider from "../../components/PromoSlider/PromoSlider";
 import CategoryGrid from "../../components/CategoryGrid/CategoryGrid";
 import CategorySlider from "../../components/CategorySlider/CategorySlider";
 import VideoSection from "../../components/VideoSection/VideoSection";
-import LoginPanel from "../../components/LoginPanel/LoginPanel";
+// import LoginPanel from "../../components/LoginPanel/LoginPanel";
 import InfoStrip from "../../components/InfoStrip/InfoStrip";
 import Footer from "../../components/Footer/Footer";
 
@@ -211,7 +211,7 @@ function Home() {
 
         <VideoSection />
 
-        <LoginPanel />
+        {/* <LoginPanel /> */}
 
         <InfoStrip />
       </main>

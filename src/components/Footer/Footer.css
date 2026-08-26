@@ -1,118 +1,205 @@
+/* ✅ Footer - Proper Gap Management */
 footer {
-  padding: 58px 0 22px;
-
+  padding: 20px 0 10px;
   background: #141414;
-
   color: #fff;
 }
 
 .footer-grid {
   display: grid;
+  grid-template-columns: 2fr 1fr 1.2fr;  /* ✅ 3 columns - properly balanced */
+  gap: 40px;  /* ✅ Proper gap between columns */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
 
-  grid-template-columns:
-    1.7fr 1fr 1fr 1.25fr;
-
-  gap: 34px;
+/* ✅ Brand Column - Left Side */
+.footer-brand {
+  max-width: 100%;
 }
 
 .footer-brand p {
-  max-width: 370px;
-
-  margin-top: 14px;
-
+  max-width: 350px;
+  margin-top: 6px;
   color: #999;
-
   font-size: 12px;
+  line-height: 1.5;
+}
 
-  line-height: 1.65;
+/* ✅ Center Column - Login */
+.footer-col {
+  margin-left: 0;  /* ✅ Remove extra margin */
 }
 
 .footer-col h4 {
-  margin-bottom: 14px;
-
-  font-size: 13px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
 }
 
 .footer-col a,
 .footer-col p {
   display: block;
-
-  margin-bottom: 9px;
-
+  margin-bottom: 6px;
   color: #aaa;
-
   font-size: 12px;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .footer-col a:hover {
   color: #fff;
 }
 
+/* ✅ Logo Image */
+.foots {
+  width: 100%;
+  height: 45px;
+  border-radius: 8px;
+}
+
+/* ✅ Logo Text */
+.logo-text {
+  font-size: 16px !important;
+  color: #fff !important;
+}
+
+.logo-mark {
+  width: 45px !important;
+  height: 45px !important;
+}
+
+/* ✅ Footer Bottom */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid #292929;
+  color: #777;
+  font-size: 10px;
+}
+
+/* ✅ Social Icons - Agar Use Karein Toh */
 .socials {
   display: flex;
   align-items: center;
-
-  gap: 8px;
-
-  margin-top: 17px;
+  gap: 6px;
+  margin-top: 10px;
 }
 
 .socials a {
-  width: 38px;
-  height: 38px;
-
+  width: 30px;
+  height: 30px;
   display: grid;
   place-items: center;
-
-  border-radius: 10px;
-
+  border-radius: 6px;
   background: #222;
-
   color: #fff;
-
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 800;
+  text-decoration: none;
 }
 
 .socials a:hover {
   background: var(--primary);
 }
 
-.footer-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 20px;
-
-  flex-wrap: wrap;
-
-  margin-top: 36px;
-
-  padding-top: 20px;
-
-  border-top: 1px solid #292929;
-
-  color: #777;
-
-  font-size: 11px;
-}
-
-@media (max-width: 1000px) {
+/* ✅ Responsive */
+@media (max-width: 1024px) {
   .footer-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: 1.8fr 1fr 1.2fr;
+    gap: 30px;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1.5fr 1fr 1.2fr;
+    gap: 25px;
+  }
+  
+  .footer-brand p {
+    max-width: 280px;
+    font-size: 11px;
   }
 }
 
-.foots{
-  width:100%;
-  height:60px;
-  border-radius:12px
+@media (max-width: 768px) {
+  footer {
+    padding: 15px 0 8px;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;  /* ✅ 2 columns on tablet */
+    gap: 20px;
+    padding: 0 10px;
+  }
+  
+  .footer-brand {
+    grid-column: 1 / -1;  /* ✅ Brand full width */
+  }
+  
+  .footer-brand p {
+    max-width: 100%;
+    font-size: 11px;
+  }
+  
+  .footer-col {
+    margin-left: 0;
+  }
+  
+  .footer-col h4 {
+    font-size: 13px;
+  }
+  
+  .footer-col a,
+  .footer-col p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;  /* ✅ 1 column on mobile */
+    gap: 15px;
+    padding: 0 8px;
+  }
+  
+  footer {
+    padding: 12px 0 6px;
+  }
+  
+  .footer-brand {
+    grid-column: 1;
+  }
+  
+  .footer-col h4 {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  
+  .footer-col a,
+  .footer-col p {
+    font-size: 11px;
+    margin-bottom: 5px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+    font-size: 9px;
+    margin-top: 15px;
+    padding-top: 10px;
+  }
+  
+  .foots {
+    height: 40px;
+  }
 }

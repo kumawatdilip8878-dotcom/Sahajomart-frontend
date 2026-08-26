@@ -1,4 +1,3 @@
-import React from "react";
 import "./InfoStrip.css";
 
 function InfoStrip() {
@@ -9,16 +8,16 @@ function InfoStrip() {
     },
     {
       label: "FSSAI No.",
-      value: "XXXXXXXXXXXXXX",
+      value: "55667788990011",
     },
     {
       label: "Registration No.",
-      value: "XXXXXXXXXX",
+      value: "U12345XX2026PTC123456",
     },
     {
       label: "Service",
       value:
-        "Shop through your nearest SahjoMart store",
+"अपने पास के SahjoMart से शॉपिंग करें",
     },
   ];
 
