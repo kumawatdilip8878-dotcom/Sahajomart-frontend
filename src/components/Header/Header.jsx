@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaPhoneAlt,
+} from "react-icons/fa";
 import "./Header.css";
 
 const Header = () => {
@@ -25,195 +28,156 @@ const Header = () => {
     };
   }, [menuOpen]);
 
-  // Menu Items
-  const menuItems = [
-    ["Stores", "#stores"],
-  ];
-
   return (
-    <>
-      <header>
-        <div className="container nav">
+    <header className="site-header">
 
-          {/* ================================
-              LOGO SECTION
-          ================================= */}
+      <div className="header-container nav">
+
+        {/* ========================================
+            LOGO
+        ======================================== */}
+        <a
+          href="#home"
+          className="logo"
+          onClick={closeMenu}
+        >
+          <div className="logo-mark">
+            <img
+              className="ahjo"
+              src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
+              alt="Sahjo Mart Logo"
+            />
+          </div>
+
+          <div className="logo-text">
+            <span style={{fontSize:"20px"}}>Sahjo Mart</span>
+          </div>
+        </a>
+
+
+        {/* ========================================
+            ONLINE SHOPPING TEXT
+        ======================================== */}
+        <div style={{marginLeft:"50px",gap:"10px"}} className="online-shopping-text">
+          अब करें घर से ऑनलाइन शॉपिंग
+        </div>
+
+
+        {/* ========================================
+            DESKTOP ACTIONS
+        ======================================== */}
+        <div className="nav-actions">
+
+          {/* WhatsApp */}
           <a
-            href="#home"
-            className="logo"
-            onClick={closeMenu}
+            href="https://wa.me/919876543210"
+            className="btn btn-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <div
-              style={{ height: "53px" }}
-              className="logo-mark"
-            >
-              <img
-                className="ahjo"
-                src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
-                alt="Sahjo Mart Logo"
-              />
-            </div>
-
-            <div className="logo-text">
-              <span className="logo-title">
-                Sahjo Mart
-              </span>
-            </div>
+            <FaWhatsapp className="action-icon whatsapp-icon" />
+            <span>Order on WhatsApp</span>
           </a>
 
 
-          {/* ================================
-              ONLINE SHOPPING TEXT
-          ================================= */}
-          <div className="online-shopping-text">
-            अब करें घर से ऑनलाइन शॉपिंग
-          </div>
+          {/* Call */}
+          <a
+            href="tel:+919876543210"
+            className="btn btn-call"
+          >
+            <FaPhoneAlt className="action-icon phone-icon" />
+            <span>Order on Call</span>
+          </a>
 
 
-          {/* ================================
-              DESKTOP NAVIGATION
-          ================================= */}
-          <nav className="nav-menu">
-          </nav>
+          {/* Customer Login */}
+          <a
+            href="/customer-login"
+            className="btn btn-outline"
+          >
+            Customer Login
+          </a>
 
 
-          {/* ================================
-              DESKTOP ACTIONS
-          ================================= */}
-          <div className="nav-actions">
-
-            {/* WhatsApp Button */}
-            <a
-              href="https://wa.me/919876543210"
-              className="btn btn-whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaWhatsapp className="action-icon whatsapp-icon" />
-              <span>Order on WhatsApp</span>
-            </a>
+          {/* Store Login */}
+          <a
+            href="/store-login"
+            className="btn btn-primary"
+          >
+            Store Login
+          </a>
 
 
-            {/* Call Button */}
-            <a
-              href="tel:+919876543210"
-              className="btn btn-call"
-            >
-              <FaPhoneAlt className="action-icon phone-icon" />
-              <span>Order on Call</span>
-            </a>
+          {/* Mobile Menu */}
+          <button
+            className="mobile-toggle"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            type="button"
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
 
-
-            {/* Customer Login */}
-            <a
-              href="/customer-login"
-              className="btn btn-outline"
-            >
-              Customer Login
-            </a>
-
-
-            {/* Store Login */}
-            <a
-              href="/store-login"
-              className="btn btn-primary"
-            >
-              Store Login
-            </a>
-
-
-            {/* Mobile Toggle */}
-            <button
-              className="mobile-toggle"
-              onClick={toggleMenu}
-              aria-label="Toggle menu"
-              type="button"
-            >
-              {menuOpen ? "✕" : "☰"}
-            </button>
-
-          </div>
         </div>
 
+      </div>
 
-        {/* ================================
-            MOBILE MENU
-        ================================= */}
-        <div
-          className={`mobile-menu ${
-            menuOpen ? "active" : ""
-          }`}
+
+      {/* ==========================================
+          MOBILE MENU
+      ========================================== */}
+      <div
+        className={`mobile-menu ${
+          menuOpen ? "active" : ""
+        }`}
+      >
+
+        {/* WhatsApp */}
+        <a
+          href="https://wa.me/919876543210"
+          className="btn btn-whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={closeMenu}
         >
-
-          {/* Menu Items */}
-          {menuItems.map(([name, link]) => (
-            <a
-              href={link}
-              key={name}
-              onClick={closeMenu}
-            >
-              {name}
-            </a>
-          ))}
+          <FaWhatsapp className="action-icon whatsapp-icon" />
+          <span>Order on WhatsApp</span>
+        </a>
 
 
-          {/* Mobile Online Text */}
-          <div className="mobile-online-text">
-            ऑनलाइन शॉपिंग
-          </div>
+        {/* Call */}
+        <a
+          href="tel:+919876543210"
+          className="btn btn-call"
+          onClick={closeMenu}
+        >
+          <FaPhoneAlt className="action-icon phone-icon" />
+          <span>Order on Call</span>
+        </a>
 
 
-          {/* Mobile Login Actions */}
-          <div className="mobile-login-actions">
-
-            {/* WhatsApp */}
-            <a
-              href="https://wa.me/919876543210"
-              className="btn btn-whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={closeMenu}
-            >
-              <FaWhatsapp className="action-icon whatsapp-icon" />
-              <span>Order on WhatsApp</span>
-            </a>
+        {/* Customer Login */}
+        <a
+          href="/customer-login"
+          className="btn btn-outline"
+          onClick={closeMenu}
+        >
+          Customer Login
+        </a>
 
 
-            {/* Call */}
-            <a
-              href="tel:+919876543210"
-              className="btn btn-call"
-              onClick={closeMenu}
-            >
-              <FaPhoneAlt className="action-icon phone-icon" />
-              <span>Call</span>
-            </a>
+        {/* Store Login */}
+        <a
+          href="/store-login"
+          className="btn btn-primary"
+          onClick={closeMenu}
+        >
+          Store Login
+        </a>
 
+      </div>
 
-            {/* Customer Login */}
-            <a
-              href="/customer-login"
-              className="btn btn-outline"
-              onClick={closeMenu}
-            >
-              Customer Login
-            </a>
-
-
-            {/* Store Login */}
-            <a
-              href="/store-login"
-              className="btn btn-primary"
-              onClick={closeMenu}
-            >
-              Store Login
-            </a>
-
-          </div>
-        </div>
-
-      </header>
-    </>
+    </header>
   );
 };
 

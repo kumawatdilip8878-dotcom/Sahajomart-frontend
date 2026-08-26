@@ -28,10 +28,10 @@ const TopBar = () => {
             }`}
             onClick={() => handleLanguage("en")}
           >
-            English
+            {/* English */}
           </button>
 
-          <span>|</span>
+          {/* <span>|</span> */}
 
           <button
             className={`language-btn ${
@@ -39,7 +39,7 @@ const TopBar = () => {
             }`}
             onClick={() => handleLanguage("hi")}
           >
-            हिन्दी
+            {/* हिन्दी */}
           </button>
 
         </div>

@@ -1,613 +1,963 @@
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid #e8e8e5;
+}
+
+
+/* =====================================================
+   HEADER CONTAINER
+===================================================== */
+
+.header-container {
+  width: calc(100% - 100px);
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   NAV
+===================================================== */
+
+.nav {
+  min-height: 70px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+
+  text-decoration: none;
+
+  min-width: 0;
+}
+
+
+/* =====================================================
+   LOGO IMAGE BOX
+===================================================== */
+
+.logo-mark {
+  width: 50px;
+  height: 50px !important;
+
+  flex: 0 0 50px;
+
+  display: grid;
+
+  place-items: center;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: transparent;
+}
+
+
+/* =====================================================
+   LOGO IMAGE
+===================================================== */
+
+.logo-mark .ahjo {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+/* =====================================================
+   LOGO NAME
+===================================================== */
+
+.logo-text {
+  display: flex;
+
+  align-items: center;
+
+  min-width: 0;
+
+  font-family: "Outfit", sans-serif;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  letter-spacing: -0.7px;
+
+  font-weight: 900;
+
+  white-space: nowrap;
+}
+
+.logo-text span {
+  color: #f77e0d;
+}
+
+
+/* =====================================================
+   ONLINE SHOPPING TEXT
+===================================================== */
+
+.online-shopping-text {
+  margin-left: 15px;
+
+  font-family: "Outfit", sans-serif;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  color: #e07116;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   NAV ACTIONS
+===================================================== */
+
+.nav-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-left: auto;
+
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   COMMON BUTTON
+===================================================== */
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 38px;
+
+  padding: 8px 14px;
+
+  border-radius: 8px;
+
+  font-family: "Outfit", sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.action-icon {
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.btn-whatsapp {
+  color: #fff;
+
+  background: #d97900;
+
+  border: 1px solid #d97900;
+}
+
+.whatsapp-icon {
+  color: #25d366;
+
+  font-size: 20px;
+}
+
+.btn-whatsapp:hover {
+  background: #c86e00;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   PHONE
+===================================================== */
+
+.btn-call {
+  color: #fff;
+
+  background: #d97900;
+
+  border: 1px solid #d97900;
+}
+
+.phone-icon {
+  color: #2563eb;
+
+  font-size: 17px;
+}
+
+.btn-call:hover {
+  background: #c86e00;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   CUSTOMER LOGIN
+===================================================== */
+
+.btn-outline {
+  color: #fff;
+
+  background: #c96a36;
+
+  border: 1px solid #c96a36;
+}
+
+.btn-outline:hover {
+  background: #b85c2b;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   STORE LOGIN
+===================================================== */
+
+.btn-primary {
+  color: #fff;
+
+  background: linear-gradient(
+    135deg,
+    #ffac34,
+    #f17700
+  );
+
+  border: 1px solid #f17700;
+
+  box-shadow:
+    0 4px 10px rgba(243, 146, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(
+    135deg,
+    #f59a20,
+    #df6800
+  );
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   MOBILE TOGGLE
+===================================================== */
+
+.mobile-toggle {
+  display: none;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  background: #f2f2ef;
+
+  color: #333;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.mobile-toggle:hover {
+  background: #e9e9e5;
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.mobile-menu {
+  display: none;
+
+  background: #fff;
+
+  border-top: 1px solid #eeeeeb;
+
+  padding: 14px 16px 18px;
+}
+
+.mobile-menu.active {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+
+/* =====================================================
+   MOBILE MENU BUTTONS
+===================================================== */
+
+.mobile-menu .btn {
+  width: 100%;
+
+  min-height: 44px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .online-shopping-text {
+    font-size: 15px;
+
+    margin-left: 8px;
+  }
+
+  .nav-actions {
+    gap: 5px;
+  }
+
+  .btn {
+    padding: 7px 10px;
+
+    font-size: 11px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 720px) {
+
+  .header-container {
+    width: calc(100% - 20px);
+
+    max-width: none;
+  }
+
+
+  .nav {
+    min-height: 58px;
+
+    width: 100%;
+
+    gap: 0;
+
+    justify-content: space-between;
+  }
+
+
+  /* LOGO */
+
+  .logo {
+    gap: 6px;
+
+    max-width: calc(100% - 50px);
+
+    flex-shrink: 1;
+  }
+
+
+  /* LOGO IMAGE */
+
+  .logo-mark {
+    width: 38px;
+
+    height: 38px !important;
+
+    flex: 0 0 38px;
+
+    border-radius: 8px;
+  }
+
+
+  .logo-mark .ahjo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+  }
+
+
+  /* LOGO NAME */
+
+  .logo-text {
+    font-size: 18px;
+
+    overflow: hidden;
+  }
+
+  .logo-text span {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+  }
+
+
+  /* HINDI TEXT HIDE */
+
+  .online-shopping-text {
+    display: none !important;
+  }
+
+
+  /* ACTIONS RIGHT */
+
+  .nav-actions {
+    margin-left: auto;
+
+    gap: 0;
+
+    flex-shrink: 0;
+  }
+
+
+  /* DESKTOP BUTTONS HIDE */
+
+  .nav-actions > .btn {
+    display: none;
+  }
+
+
+  /* HAMBURGER RIGHT */
+
+  .mobile-toggle {
+    display: flex;
+
+    margin-left: 8px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .header-container {
+    width: calc(100% - 16px);
+  }
+
+  .nav {
+    min-height: 55px;
+  }
+
+  .logo {
+    gap: 5px;
+  }
+
+  .logo-mark {
+    width: 36px;
+
+    height: 36px !important;
+
+    flex: 0 0 36px;
+
+    border-radius: 7px;
+  }
+
+  .logo-text {
+    font-size: 17px;
+  }
+
+  .mobile-toggle {
+    width: 36px;
+
+    height: 36px;
+
+    font-size: 20px;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .header-container {
+    width: calc(100% - 12px);
+  }
+
+  .nav {
+    min-height: 52px;
+  }
+
+  .logo-mark {
+    width: 33px;
+
+    height: 33px !important;
+
+    flex: 0 0 33px;
+  }
+
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .mobile-toggle {
+    width: 34px;
+
+    height: 34px;
+
+    font-size: 19px;
+  }
+
+}
+
+
+/* =====================================================
+   BODY LOCK
+===================================================== */
+
+body.menu-open {
+  overflow: hidden;
+}
+/* ========================================
+   HEADER
+======================================== */
+
 header {
   position: sticky;
   top: 0;
   z-index: 1000;
+
+  width: calc(100% - 100px);
+  margin: 0 auto;
+
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
+
   border-bottom: 1px solid var(--border);
 }
 
+
+/* ========================================
+   NAV - CENTERED HEADER
+======================================== */
+
 .nav {
-  min-height: 74px;
+  width: 100%;
+  max-width: 1200px;
+
+  min-height: 62px;
+
+  margin: 0 auto;
+
+  padding: 0 10px;
+
   display: flex;
   align-items: center;
-  gap: 28px;
+
+  gap: 18px;
 }
 
-.logo {
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 720px) {
+
+  header {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+
+    border-radius: 0 0 10px 10px;
+  }
+
+  .nav {
+    min-height: 58px;
+    padding: 0 8px;
+
+    gap: 0;
+
+    justify-content: space-between;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+  header {
+    width: calc(100% - 12px);
+  }
+
+  .nav {
+    min-height: 55px;
+    padding: 0 6px;
+  }
+}
+
+
+/* ========================================
+   COMMON BUTTON
+======================================== */
+
+.btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 8px 13px;
+
+  border-radius: 8px;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* ========================================
+   WHATSAPP
+======================================== */
+
+.btn-whatsapp {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #ffac34,
+    #f17700
+  );
+
+  border: 1.5px solid #f17700;
+
+  box-shadow:
+    0 4px 12px rgba(243, 146, 0, 0.18);
+}
+
+.whatsapp-icon {
+  color: #ffffff;
+  font-size: 19px;
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(
+    135deg,
+    #ff9820,
+    #df6500
+  );
+
+  border-color: #df6500;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px rgba(243, 146, 0, 0.30);
+}
+
+
+/* ========================================
+   CALL
+======================================== */
+
+.btn-call {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #ffac34,
+    #f17700
+  );
+
+  border: 1.5px solid #f17700;
+
+  box-shadow:
+    0 4px 12px rgba(243, 146, 0, 0.18);
+}
+
+.phone-icon {
+  color: #ffffff;
+  font-size: 17px;
+}
+
+.btn-call:hover {
+  background: linear-gradient(
+    135deg,
+    #ff9820,
+    #df6500
+  );
+
+  border-color: #df6500;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px rgba(243, 146, 0, 0.30);
+}
+
+
+/* ========================================
+   CUSTOMER LOGIN
+======================================== */
+
+.btn-outline {
+  color: #f17700;
+
+  background: #ffffff;
+
+  border: 1.5px solid #f17700;
+
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #ffac34,
+    #f17700
+  );
+
+  border-color: #f17700;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px rgba(243, 146, 0, 0.25);
+}
+
+
+/* ========================================
+   STORE LOGIN
+======================================== */
+
+.btn-primary {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #ffac34,
+    #f17700
+  );
+
+  border: 1.5px solid #f17700;
+
+  box-shadow:
+    0 4px 12px rgba(243, 146, 0, 0.22);
+}
+
+.btn-primary:hover {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #ff9820,
+    #df6500
+  );
+
+  border-color: #df6500;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 20px rgba(243, 146, 0, 0.32);
+}
+
+
+/* ========================================
+   ICON
+======================================== */
+
+.action-icon {
   flex-shrink: 0;
 }
 
-.logo-mark {
-  width: 60px;
-  height: 60px;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #ffac34, #f17700);
-  color: #fff;
-  font-size: 20px;
-  font-weight: 900;
-  box-shadow: 0 8px 25px rgba(243, 146, 0, 0.22);
+
+/* ========================================
+   MOBILE MENU BUTTONS
+======================================== */
+
+.mobile-menu .btn {
+  width: 100%;
+  min-height: 44px;
+
+  justify-content: center;
+
+  margin-bottom: 8px;
 }
 
-.logo-text {
-  font-size: 22px;
-  line-height: 1;
-  letter-spacing: -0.8px;
-  font-weight: 900;
+.mobile-menu .btn:last-child {
+  margin-bottom: 0;
 }
 
-.logo-text span {
-  color: var(--primary);
-}
 
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  margin-left: auto;
-}
-
-.nav-menu a {
-  font-size: 13px;
-  font-weight: 700;
-  transition: 0.2s ease;
-}
-
-.nav-menu a:hover {
-  color: var(--primary);
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.mobile-toggle {
-  display: none;
-  width: 42px;
-  height: 42px;
-  border: 0;
-  border-radius: 10px;
-  background: #f2f2ef;
-  font-size: 22px;
-  cursor: pointer;
-}
+/* ========================================
+   MOBILE MENU
+======================================== */
 
 .mobile-menu {
   display: none;
-  background: #fff;
+
+  background: #ffffff;
+
   border-top: 1px solid var(--border);
-  padding: 12px 16px 18px;
+
+  padding: 14px 16px 18px;
 }
 
 .mobile-menu.active {
   display: block;
 }
 
-.mobile-menu a {
-  display: block;
-  padding: 12px 4px;
-  border-bottom: 1px solid #efefec;
-  font-size: 14px;
-  font-weight: 700;
-}
+/* ========================================
+   CUSTOMER LOGIN
+======================================== */
 
-.mobile-menu .mobile-login-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-@media (max-width: 1000px) {
-  .nav-menu {
-    display: none;
-  }
-
-  .mobile-toggle {
-    display: block;
-  }
-}
-
-@media (max-width: 720px) {
-  .nav {
-    min-height: 65px;
-  }
-
-  .logo-mark {
-    width: 40px;
-    height: 40px;
-  }
-
-  .logo-text {
-    font-size: 18px;
-  }
-
-  .nav-actions > .btn {
-    display: none;
-  }
-}
-
-.ahjo {
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-}
-
-/* ✅ Online Shopping Text */
-.online-shopping-text {
-  font-size: 18px;
-  font-weight: 600;
-  color: #f17700;
-  margin: 0 15px;
-  font-family: 'Hindi', 'Arial', sans-serif;
-  letter-spacing: 1px;
-}
-
-/* ✅ WhatsApp Button - Golden */
-.btn-whatsapp {
-  background: linear-gradient(135deg, #FFD700, #F4A900);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 2px solid #DAA520;
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-  cursor: pointer;
-}
-
-.btn-whatsapp:hover {
-  background: linear-gradient(135deg, #F4A900, #DAA520);
-  transform: scale(1.05);
-  box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
-}
-
-/* ✅ Call Button - Golden */
-.btn-call {
-  background: linear-gradient(135deg, #FFD700, #F4A900);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 2px solid #DAA520;
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-  cursor: pointer;
-}
-
-.btn-call:hover {
-  background: linear-gradient(135deg, #F4A900, #DAA520);
-  transform: scale(1.05);
-  box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
-}
-
-/* ✅ Customer Login Button - Hover Effect */
 .btn-outline {
-  background: transparent;
-  color: #333;
-  padding: 8px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 13px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 2px solid #ddd;
-  cursor: pointer;
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #ffac34,
+    #f17700
+  );
+
+  border: 1.5px solid #f17700;
+
+  box-shadow:
+    0 4px 12px rgba(243, 146, 0, 0.22);
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
+
+
+/* CUSTOMER HOVER */
 
 .btn-outline:hover {
-  background: linear-gradient(135deg, #ff6b35, #e85d2c);
-  color: #fff;
-  border-color: #ff6b35;
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #ff9820,
+    #df6500
+  );
+
+  border-color: #df6500;
+
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.4);
-}
 
-/* ✅ Store Login Button - Hover Effect */
-.btn-primary {
-  background: linear-gradient(135deg, #ff6b35, #e85d2c);
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 13px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, #e85d2c, #d04a1a);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
-}
-
-/* ✅ Mobile Online Text */
-.mobile-online-text {
-  font-size: 20px;
-  font-weight: 700;
-  color: #f17700;
-  text-align: center;
-  padding: 15px 0;
-  font-family: 'Hindi', 'Arial', sans-serif;
-  border-bottom: 2px solid #f17700;
-  margin-bottom: 10px;
-}
-
-/* ✅ Mobile Menu Actions */
-.mobile-login-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 15px 0;
-}
-
-.mobile-login-actions .btn {
-  width: 100%;
-  text-align: center;
-  padding: 12px;
-}
-
-/* ✅ Responsive */
-@media (max-width: 768px) {
-  .online-shopping-text {
-    display: none;
-  }
-  
-  .nav-actions .btn-whatsapp,
-  .nav-actions .btn-call {
-    display: none;
-  }
-}
-
-@media (min-width: 769px) {
-  .mobile-online-text {
-    display: none;
-  }
-}
-
-/* ✅ Simple White Background */
-.online-shopping-banner {
-  text-align: center;
-  background: #ffffff;
-  padding: 15px 20px;
-  font-size: 24px;
-  font-weight: 800;
-  color: #1a1a1a;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  margin: 10px auto;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .online-shopping-banner {
-    font-size: 20px;
-    padding: 12px 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .online-shopping-banner {
-    font-size: 17px;
-    padding: 10px 12px;
-  }
-}
-
-/* ✅ Common Button Style - All Buttons Same */
-.btn {
-  background: linear-gradient(135deg, #ff6b35, #e85d2c);
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 13px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: linear-gradient(135deg, #e85d2c, #d04a1a);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
-}
-
-/* ✅ WhatsApp Button - Same as Store Login */
-.btn-whatsapp {
-  background: linear-gradient(135deg, #ff6b35, #e85d2c);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 13px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
-  cursor: pointer;
-}
-
-.btn-whatsapp:hover {
-  background: linear-gradient(135deg, #e85d2c, #d04a1a);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
-}
-
-/* ✅ Call Button - Same as Store Login */
-.btn-call {
-  background: linear-gradient(135deg, #ff6b35, #e85d2c);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 13px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
-  cursor: pointer;
-}
-
-.btn-call:hover {
-  background: linear-gradient(135deg, #e85d2c, #d04a1a);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
-}
-
-/* ✅ Customer Login Button - Same as Store Login */
-.btn-outline {
-  background: linear-gradient(135deg, #ff6b35, #e85d2c);
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 13px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
-  cursor: pointer;
-}
-
-.btn-outline:hover {
-  background: linear-gradient(135deg, #e85d2c, #d04a1a);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
-}
-
-/* ✅ Store Login Button - Same */
-.btn-primary {
-  background: linear-gradient(135deg, #ff6b35, #e85d2c);
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 13px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, #e85d2c, #d04a1a);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
-}
-
-/* ✅ Mobile View - Nav Adjustments */
-@media (max-width: 1000px) {
-  .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    min-height: 65px;
-    padding: 0 10px;
-  }
-  
-  .logo {
-    flex-shrink: 0;
-  }
-  
-  .logo-text {
-    font-size: 18px;
-  }
-  
-  .logo-mark {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .ahjo {
-    height: 40px;
-  }
-  
-  .nav-menu {
-    display: none;
-  }
-  
-  .mobile-toggle {
-    display: block;
-    width: 42px;
-    height: 42px;
-    border: 0;
-    border-radius: 10px;
-    background: #f2f2ef;
-    font-size: 22px;
-    cursor: pointer;
-    flex-shrink: 0;
-    margin-left: auto;
-  }
-  
-  .online-shopping-text {
-    display: none;
-  }
-  
-  .nav-actions .btn-whatsapp,
-  .nav-actions .btn-call,
-  .nav-actions .btn-outline,
-  .nav-actions .btn-primary {
-    display: none;
-  }
-}
-
-/* ✅ Mobile View - Logo & Hamburger Same Line */
-@media (max-width: 720px) {
-  .nav {
-    min-height: 60px;
-    padding: 0 8px;
-    gap: 8px;
-  }
-  
-  .logo-mark {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .ahjo {
-    height: 36px;
-  }
-  
-  .logo-text {
-    font-size: 16px;
-  }
-  
-  .logo {
-    gap: 6px;
-  }
-  
-  .mobile-toggle {
-    width: 38px;
-    height: 38px;
-    font-size: 20px;
-  }
-}
-
-/* ✅ Very Small Screens */
-@media (max-width: 400px) {
-  .logo-text {
-    font-size: 14px;
-  }
-  
-  .logo-mark {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .ahjo {
-    height: 32px;
-  }
-  
-  .mobile-toggle {
-    width: 34px;
-    height: 34px;
-    font-size: 18px;
-  }
-}
-
-.logo-title {
-  font-family: "Outfit", sans-serif;
-  font-size: 27px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  line-height: 1;
-color: #b23c0e;  white-space: nowrap;
-}
-
-.action-icon {
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.btn-whatsapp,
-.btn-call {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.whatsapp-icon {
-  font-size: 20px;
-}
-
-.phone-icon {
-  font-size: 16px;
-}
-
-.action-icon {
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-/* WhatsApp Icon */
-.whatsapp-icon {
-  color: #25D366;
-  font-size: 21px;
-}
-
-/* Call Icon */
-.phone-icon {
-  color: #2563eb;
-  font-size: 17px;
-}
-
-.btn-whatsapp,
-.btn-call {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-.online-shopping-text {
-  font-family: "Outfit", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: #ee7111f8;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
+  box-shadow:
+    0 7px 20px rgba(243, 146, 0, 0.32);
 }

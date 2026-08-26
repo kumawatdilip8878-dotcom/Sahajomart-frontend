@@ -39,7 +39,7 @@ function CustomerLogin() {
 
           </div>
 
-          <div style={{fontSize:"30px",marginTop:"20px",marginLeft:"10px"}} className="logo-text">
+          <div style={{fontSize:"30px",marginTop:"0px",marginLeft:"10px"}} className="logo-text">
             <span>Sahjo Mart</span>
           </div>
         </div>
