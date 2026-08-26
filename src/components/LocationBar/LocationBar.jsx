@@ -19,6 +19,8 @@ const LocationBar = () => {
   };
 
   return (
+
+    <>
     <div className="location-bar" id="stores">
       <div className="container location-inner">
 
@@ -47,6 +49,13 @@ const LocationBar = () => {
 
       </div>
     </div>
+{/* <div className="online-shopping-wrapper">
+  <div className="online-shopping-banner">
+    अब करें घर से ऑनलाइन शॉपिंग
+  </div>
+</div> */}
+    
+    </>
   );
 };
 
