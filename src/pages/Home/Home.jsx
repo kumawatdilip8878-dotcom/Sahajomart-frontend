@@ -8,6 +8,8 @@ import Hero from "../../components/Hero/Hero";
 import PromoSlider from "../../components/PromoSlider/PromoSlider";
 import CategoryGrid from "../../components/CategoryGrid/CategoryGrid";
 import CategorySlider from "../../components/CategorySlider/CategorySlider";
+import FloatingVideo from "../../components/VideoSection/FloatingVideo";
+
 // import VideoSection from "../../components/VideoSection/VideoSection";
 // import LoginPanel from "../../components/LoginPanel/LoginPanel";
 import InfoStrip from "../../components/InfoStrip/InfoStrip";
@@ -217,6 +219,8 @@ function Home() {
       </main>
 
       <Footer />
+            <FloatingVideo />
+
     </>
   );
 }
