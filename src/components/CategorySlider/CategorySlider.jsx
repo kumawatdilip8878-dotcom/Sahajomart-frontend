@@ -7,7 +7,6 @@ function CategorySlider({ id, title, description, items }) {
   const [itemsPerView, setItemsPerView] = useState(4);
   const animationRef = useRef(null);
   const progressRef = useRef(null);
-  const intervalRef = useRef(null)
 
   // Duplicate items for infinite loop
   const extendedItems = [...items, ...items, ...items];
@@ -78,25 +77,8 @@ function CategorySlider({ id, title, description, items }) {
     // 60 = fast
     const speed = 40;
 
-    const initializeSlider = () => {
-      const slideWidth = getSlideWidth();
-
-      if (!slideWidth) return;
-
-      // Start from middle copy
-      slider.scrollLeft =
-        originalLength * slideWidth;
-
-      lastTime = performance.now();
-
-      animationRef.current =
-        requestAnimationFrame(animate);
-    };
-
-
     const animate = (currentTime) => {
-      const deltaTime =
-        currentTime - lastTime;
+      const deltaTime = currentTime - lastTime;
 
       lastTime = currentTime;
 
@@ -108,8 +90,7 @@ function CategorySlider({ id, title, description, items }) {
         (speed * deltaTime) / 1000;
 
 
-      const slideWidth =
-        getSlideWidth();
+      const slideWidth = getSlideWidth();
 
       if (slideWidth) {
         const oneSetWidth =
@@ -128,24 +109,21 @@ function CategorySlider({ id, title, description, items }) {
           slider.scrollLeft >=
           oneSetWidth * 2
         ) {
-          slider.scrollLeft -=
-            oneSetWidth;
+          slider.scrollLeft -= oneSetWidth;
         }
 
 
         if (
           slider.scrollLeft <= 0
         ) {
-          slider.scrollLeft +=
-            oneSetWidth;
+          slider.scrollLeft += oneSetWidth;
         }
 
 
         // Current active dot
         const index =
           Math.floor(
-            slider.scrollLeft /
-              slideWidth
+            slider.scrollLeft / slideWidth
           ) % originalLength;
 
         setCurrentIndex(index);
@@ -153,17 +131,34 @@ function CategorySlider({ id, title, description, items }) {
 
 
       animationRef.current =
-        requestAnimationFrame(
-          animate
-        );
+        requestAnimationFrame(animate);
     };
 
 
-    const timer =
-      setTimeout(
-        initializeSlider,
-        150
-      );
+    // =====================================================
+    // INITIALIZE SLIDER
+    // =====================================================
+
+    const initializeSlider = () => {
+      const slideWidth = getSlideWidth();
+
+      if (!slideWidth) return;
+
+      // Start from middle copy
+      slider.scrollLeft =
+        originalLength * slideWidth;
+
+      lastTime = performance.now();
+
+      animationRef.current =
+        requestAnimationFrame(animate);
+    };
+
+
+    const timer = setTimeout(
+      initializeSlider,
+      150
+    );
 
 
     return () => {
@@ -173,12 +168,12 @@ function CategorySlider({ id, title, description, items }) {
         cancelAnimationFrame(
           animationRef.current
         );
+
+        animationRef.current = null;
       }
     };
-  }, [
-    originalLength,
-    itemsPerView,
-  ]);
+
+  }, [originalLength, itemsPerView]);
 
 
   // =====================================================
@@ -189,10 +184,21 @@ function CategorySlider({ id, title, description, items }) {
     if (!progressRef.current) return;
 
     progressRef.current.style.transition =
-      "width 4s linear";
+      "none";
 
     progressRef.current.style.width =
-      "100%";
+      "0%";
+
+    requestAnimationFrame(() => {
+      if (!progressRef.current) return;
+
+      progressRef.current.style.transition =
+        "width 4s linear";
+
+      progressRef.current.style.width =
+        "100%";
+    });
+
   }, []);
 
 
@@ -209,6 +215,7 @@ function CategorySlider({ id, title, description, items }) {
       getSlideWidth();
 
     if (!slideWidth) return;
+
 
     /*
       Always target the MIDDLE copy.
@@ -230,6 +237,8 @@ function CategorySlider({ id, title, description, items }) {
       cancelAnimationFrame(
         animationRef.current
       );
+
+      animationRef.current = null;
     }
 
 
@@ -254,6 +263,7 @@ function CategorySlider({ id, title, description, items }) {
           1
         );
 
+
       const eased =
         1 -
         Math.pow(
@@ -261,21 +271,26 @@ function CategorySlider({ id, title, description, items }) {
           3
         );
 
+
       slider.scrollLeft =
         startPosition +
         distance * eased;
 
 
       if (progress < 1) {
+
         animationRef.current =
           requestAnimationFrame(
             animateDot
           );
+
       } else {
+
         slider.scrollLeft =
           targetPosition;
 
         setCurrentIndex(index);
+
 
         /*
           Continuous movement restart
@@ -286,13 +301,16 @@ function CategorySlider({ id, title, description, items }) {
 
         const speed = 40;
 
+
         const continueAnimation = (
           currentTime
         ) => {
+
           const delta =
             currentTime - lastTime;
 
           lastTime = currentTime;
+
 
           slider.scrollLeft +=
             (speed * delta) / 1000;
@@ -301,9 +319,12 @@ function CategorySlider({ id, title, description, items }) {
           const width =
             getSlideWidth();
 
+
           if (width) {
+
             const oneSetWidth =
               width * originalLength;
+
 
             if (
               slider.scrollLeft >=
@@ -313,13 +334,24 @@ function CategorySlider({ id, title, description, items }) {
                 oneSetWidth;
             }
 
-            const index =
+
+            if (
+              slider.scrollLeft <= 0
+            ) {
+              slider.scrollLeft +=
+                oneSetWidth;
+            }
+
+
+            const newIndex =
               Math.floor(
-                slider.scrollLeft /
-                  width
+                slider.scrollLeft / width
               ) % originalLength;
 
-            setCurrentIndex(index);
+
+            setCurrentIndex(
+              newIndex
+            );
           }
 
 
@@ -342,6 +374,31 @@ function CategorySlider({ id, title, description, items }) {
       requestAnimationFrame(
         animateDot
       );
+
+
+    // Restart progress bar
+
+    if (progressRef.current) {
+
+      progressRef.current.style.transition =
+        "none";
+
+      progressRef.current.style.width =
+        "0%";
+
+
+      requestAnimationFrame(() => {
+
+        if (!progressRef.current) return;
+
+        progressRef.current.style.transition =
+          "width 4s linear";
+
+        progressRef.current.style.width =
+          "100%";
+
+      });
+    }
   };
 
 
@@ -354,11 +411,14 @@ function CategorySlider({ id, title, description, items }) {
       className="section"
       id={id}
     >
+
       <div className="container">
+
 
         {/* HEADER */}
 
         <div className="section-head">
+
           <div>
 
             <span className="section-kicker">
@@ -367,9 +427,12 @@ function CategorySlider({ id, title, description, items }) {
 
             <h2>{title}</h2>
 
-            <p>{description}</p>
+            <p>
+              {description}
+            </p>
 
           </div>
+
         </div>
 
 
@@ -395,9 +458,11 @@ function CategorySlider({ id, title, description, items }) {
                   draggable="false"
                 />
 
+
                 <div className="slide-content">
 
                   {/* <span className="slide-label">{item.label}</span> */}
+
 
                   {/* <h3>{item.title}</h3>
                     <p>{item.description}</p>
@@ -416,10 +481,12 @@ function CategorySlider({ id, title, description, items }) {
         {/* Progress Bar */}
 
         <div className="progress-bar-container">
+
           <div
             className="progress-bar"
             ref={progressRef}
           ></div>
+
         </div>
 
 
@@ -448,6 +515,7 @@ function CategorySlider({ id, title, description, items }) {
         </div>
 
       </div>
+
     </section>
   );
 }
