@@ -4,50 +4,68 @@ import "./CategoryGrid.css";
 
 function CategoryGrid() {
   const sliderRef = useRef(null);
+  const animationRef = useRef(null);
 
   useEffect(() => {
     const slider = sliderRef.current;
 
     if (!slider) return;
 
-    let animationId;
-    let isPaused = false;
+    let running = true;
+    let lastTime = 0;
+    let currentPosition = 0;
 
-    const moveSlider = () => {
-      if (window.innerWidth <= 720 && !isPaused) {
-        slider.scrollLeft += 0.5;
+    // Smooth speed
+    const speed = 0.04;
 
-        // End par pahunchne ke baad wapas start
-        if (
-          slider.scrollLeft + slider.clientWidth >=
-          slider.scrollWidth - 2
-        ) {
-          slider.scrollLeft = 0;
-        }
+    const animate = (currentTime) => {
+      if (!running) return;
+
+      if (!lastTime) {
+        lastTime = currentTime;
       }
 
-      animationId = requestAnimationFrame(moveSlider);
+      const deltaTime = currentTime - lastTime;
+      lastTime = currentTime;
+
+      // ONLY MOBILE
+      if (window.innerWidth <= 720) {
+        const maxScroll =
+          slider.scrollWidth - slider.clientWidth;
+
+        if (maxScroll > 0) {
+          currentPosition -= deltaTime * speed;
+
+          // Last category ke baad first se start
+          if (Math.abs(currentPosition) >= maxScroll) {
+            currentPosition = 0;
+          }
+
+          // iPhone Safari + Android GPU animation
+          slider.style.transform =
+            `translate3d(${currentPosition}px, 0, 0)`;
+        }
+      } else {
+        // Desktop par normal position
+        currentPosition = 0;
+        slider.style.transform = "translate3d(0, 0, 0)";
+      }
+
+      animationRef.current =
+        requestAnimationFrame(animate);
     };
 
-    // Touch par temporarily pause
-    const pauseSlider = () => {
-      isPaused = true;
-    };
-
-    const resumeSlider = () => {
-      isPaused = false;
-    };
-
-    slider.addEventListener("touchstart", pauseSlider);
-    slider.addEventListener("touchend", resumeSlider);
-
-    animationId = requestAnimationFrame(moveSlider);
+    animationRef.current =
+      requestAnimationFrame(animate);
 
     return () => {
-      cancelAnimationFrame(animationId);
+      running = false;
 
-      slider.removeEventListener("touchstart", pauseSlider);
-      slider.removeEventListener("touchend", resumeSlider);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+
+      slider.style.transform = "";
     };
   }, []);
 

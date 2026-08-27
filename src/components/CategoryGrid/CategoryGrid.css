@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 12px;
+  box-sizing: border-box;
 }
 
 
@@ -15,26 +16,29 @@
 
 .category-tile {
   padding: 11px;
-
   overflow: hidden;
 
   border-radius: 16px;
-
   border: 1px solid var(--border);
 
   background: #fff;
 
   text-align: center;
-
   text-decoration: none;
-
   color: inherit;
 
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease;
+
+  box-sizing: border-box;
 }
+
+
+/* =====================================================
+   DESKTOP HOVER
+===================================================== */
 
 .category-tile:hover {
   transform: translateY(-4px);
@@ -47,12 +51,11 @@
 
 
 /* =====================================================
-   CATEGORY IMAGE
+   IMAGE
 ===================================================== */
 
 .category-tile img {
   width: 100%;
-
   height: 105px;
 
   display: block;
@@ -73,7 +76,6 @@
   padding: 11px 4px 4px;
 
   font-size: 12px;
-
   font-weight: 800;
 
   line-height: 1.3;
@@ -84,262 +86,11 @@
    TABLET
 ===================================================== */
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px) and (min-width: 721px) {
 
   .category-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-}
-
-
-/* =====================================================
-   MOBILE - HORIZONTAL SLIDER
-===================================================== */
-
-@media (max-width: 720px) {
-
-  .category-grid {
-
-    display: flex;
-
     gap: 12px;
-
-    overflow-x: auto;
-
-    overflow-y: hidden;
-
-    padding: 4px 4px 12px;
-
-    scroll-behavior: smooth;
-
-    -webkit-overflow-scrolling: touch;
-
-    /* scrollbar hide */
-    scrollbar-width: none;
-
-    /* cards ko ek line mein rakhega */
-    flex-wrap: nowrap;
-  }
-
-
-  /* Chrome / Edge / Safari scrollbar hide */
-
-  .category-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-
-  /* =================================================
-     MOBILE CARD
-  ================================================= */
-
-  .category-tile {
-
-    flex: 0 0 150px;
-
-    width: 150px;
-
-    min-width: 150px;
-
-    padding: 10px;
-
-    border-radius: 15px;
-  }
-
-
-  .category-tile img {
-
-    width: 100%;
-
-    height: 105px;
-
-    border-radius: 10px;
-
-    object-fit: cover;
-  }
-
-
-  .category-tile span {
-
-    padding: 9px 3px 3px;
-
-    font-size: 12px;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-  }
-
-
-  /* Mobile par hover transform hata diya */
-
-  .category-tile:hover {
-
-    transform: none;
-
-    box-shadow: none;
-  }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media (max-width: 480px) {
-
-  .category-grid {
-    gap: 10px;
-
-    padding-left: 2px;
-    padding-right: 2px;
-  }
-
-
-  .category-tile {
-
-    flex: 0 0 140px;
-
-    width: 140px;
-
-    min-width: 140px;
-
-    padding: 9px;
-  }
-
-
-  .category-tile img {
-
-    height: 95px;
-  }
-
-
-  .category-tile span {
-
-    font-size: 11px;
-
-    padding-top: 8px;
-  }
-
-}
-
-
-/* =====================================================
-   VERY SMALL MOBILE
-===================================================== */
-
-@media (max-width: 360px) {
-
-  .category-tile {
-
-    flex: 0 0 130px;
-
-    width: 130px;
-
-    min-width: 130px;
-  }
-
-
-  .category-tile img {
-
-    height: 88px;
-  }
-
-}
-/* =====================================================
-   CATEGORY GRID
-===================================================== */
-
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-}
-
-
-/* =====================================================
-   CATEGORY TILE
-===================================================== */
-
-.category-tile {
-  padding: 11px;
-
-  overflow: hidden;
-
-  border-radius: 16px;
-
-  border: 1px solid var(--border);
-
-  background: #fff;
-
-  text-align: center;
-
-  text-decoration: none;
-
-  color: inherit;
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.category-tile:hover {
-  transform: translateY(-4px);
-
-  border-color: #f5c37d;
-
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.06);
-}
-
-
-/* =====================================================
-   IMAGE
-===================================================== */
-
-.category-tile img {
-  width: 100%;
-
-  height: 105px;
-
-  display: block;
-
-  border-radius: 11px;
-
-  object-fit: cover;
-}
-
-
-/* =====================================================
-   NAME
-===================================================== */
-
-.category-tile span {
-  display: block;
-
-  padding: 11px 4px 4px;
-
-  font-size: 12px;
-
-  font-weight: 800;
-
-  line-height: 1.3;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 1000px) {
-
-  .category-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 
 }
@@ -347,35 +98,64 @@
 
 /* =====================================================
    MOBILE AUTO SLIDER
+   Android + iPhone Safari
 ===================================================== */
 
-@media (max-width: 720px) {
+@media screen and (max-width: 720px) {
 
   .category-grid {
+
     display: flex;
 
     flex-direction: row;
 
     flex-wrap: nowrap;
 
+    align-items: stretch;
+
+    justify-content: flex-start;
+
     gap: 12px;
 
     width: 100%;
 
-    overflow-x: auto;
+    max-width: 100%;
 
+    overflow: hidden;
+
+    overflow-x: hidden;
     overflow-y: hidden;
 
     padding: 5px 4px 12px;
 
-    scroll-behavior: auto;
+    box-sizing: border-box;
 
-    -webkit-overflow-scrolling: touch;
+    /* IMPORTANT:
+       JS translate3d animation use karega
+    */
+
+    transform: translate3d(0, 0, 0);
+
+    -webkit-transform: translate3d(0, 0, 0);
+
+    will-change: transform;
+
+    -webkit-backface-visibility: hidden;
+
+    backface-visibility: hidden;
+
+    -webkit-perspective: 1000px;
+
+    perspective: 1000px;
+
+    /* Manual scrolling disabled */
+    touch-action: none;
 
     scrollbar-width: none;
 
-    touch-action: pan-x;
+    -ms-overflow-style: none;
   }
+
 
   .category-grid::-webkit-scrollbar {
     display: none;
@@ -394,9 +174,22 @@
 
     min-width: 150px;
 
+    max-width: 150px;
+
     padding: 10px;
 
     border-radius: 15px;
+
+    box-sizing: border-box;
+
+    /* Safari */
+    -webkit-flex-shrink: 0;
+
+    flex-shrink: 0;
+
+    transform: none !important;
+
+    -webkit-transform: none !important;
   }
 
 
@@ -410,9 +203,17 @@
 
     height: 105px;
 
+    display: block;
+
     border-radius: 10px;
 
     object-fit: cover;
+
+    -webkit-user-drag: none;
+
+    user-select: none;
+
+    -webkit-user-select: none;
   }
 
 
@@ -426,6 +227,8 @@
 
     font-size: 12px;
 
+    line-height: 1.3;
+
     white-space: nowrap;
 
     overflow: hidden;
@@ -434,11 +237,15 @@
   }
 
 
-  /* Mobile hover remove */
+  /* =================================================
+     MOBILE HOVER DISABLE
+  ================================================= */
 
   .category-tile:hover {
 
-    transform: none;
+    transform: none !important;
+
+    -webkit-transform: none !important;
 
     box-shadow: none;
   }
@@ -450,15 +257,19 @@
    SMALL MOBILE
 ===================================================== */
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
 
   .category-grid {
+
     gap: 10px;
 
     padding-left: 2px;
 
     padding-right: 2px;
+
+    padding-bottom: 10px;
   }
+
 
   .category-tile {
 
@@ -468,12 +279,21 @@
 
     min-width: 140px;
 
+    max-width: 140px;
+
     padding: 9px;
+
+    border-radius: 14px;
   }
 
+
   .category-tile img {
+
     height: 95px;
+
+    border-radius: 9px;
   }
+
 
   .category-tile span {
 
@@ -486,10 +306,20 @@
 
 
 /* =====================================================
-   VERY SMALL MOBILE
+   VERY SMALL PHONE
 ===================================================== */
 
-@media (max-width: 360px) {
+@media screen and (max-width: 360px) {
+
+  .category-grid {
+
+    gap: 8px;
+
+    padding-left: 2px;
+
+    padding-right: 2px;
+  }
+
 
   .category-tile {
 
@@ -498,10 +328,124 @@
     width: 130px;
 
     min-width: 130px;
+
+    max-width: 130px;
+
+    padding: 8px;
+
+    border-radius: 13px;
   }
 
+
   .category-tile img {
+
     height: 88px;
+
+    border-radius: 8px;
+  }
+
+
+  .category-tile span {
+
+    font-size: 10px;
+
+    padding-top: 7px;
+  }
+
+}
+
+
+/* =====================================================
+   iPHONE / iOS SAFARI
+===================================================== */
+
+@supports (-webkit-touch-callout: none) {
+
+  .category-grid {
+
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: nowrap;
+
+    overflow: hidden !important;
+
+    overflow-x: hidden !important;
+
+    overflow-y: hidden !important;
+
+    /* GPU */
+    -webkit-transform: translate3d(0, 0, 0);
+
+    transform: translate3d(0, 0, 0);
+
+    will-change: transform;
+
+    -webkit-backface-visibility: hidden;
+
+    backface-visibility: hidden;
+
+    -webkit-perspective: 1000px;
+
+    perspective: 1000px;
+
+    /* Manual swipe disabled */
+    touch-action: none;
+
+    -webkit-user-select: none;
+
+    user-select: none;
+
+    -webkit-overflow-scrolling: auto;
+
+    scrollbar-width: none;
+  }
+
+
+  .category-grid::-webkit-scrollbar {
+
+    display: none;
+  }
+
+
+  .category-tile {
+
+    flex-shrink: 0;
+
+    -webkit-flex-shrink: 0;
+
+    transform: none !important;
+
+    -webkit-transform: none !important;
+
+    -webkit-user-select: none;
+
+    user-select: none;
+
+    -webkit-touch-callout: none;
+
+    -webkit-tap-highlight-color: transparent;
+  }
+
+
+  .category-tile img {
+
+    -webkit-user-drag: none;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+  }
+
+
+  .category-tile:hover {
+
+    transform: none !important;
+
+    -webkit-transform: none !important;
+
+    box-shadow: none !important;
   }
 
 }
