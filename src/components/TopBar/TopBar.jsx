@@ -29,7 +29,7 @@ const TopBar = () => {
           <div className="contact-item location-contact">
             <FaMapMarkerAlt className="contact-icon location-icon" />
             <span>
-              Shop from your nearest SahajoMart store
+              Shop from your nearest Sahjo Mart store
             </span>
           </div>
 

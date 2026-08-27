@@ -1,186 +1,492 @@
+/* =====================================================
+   TOP BAR
+===================================================== */
+
 .top-bar {
+  width: 100%;
+
   background: #171717;
-  color: #fff;
+
+  color: #ffffff;
+
+  font-family: "Outfit", sans-serif;
+
   font-size: 12px;
 }
 
+
+/* =====================================================
+   TOP BAR INNER
+===================================================== */
+
 .top-bar-inner {
   min-height: 38px;
+
   display: flex;
+
   align-items: center;
-  justify-content: space-between;
+
+  justify-content: flex-end;
+
   gap: 20px;
+
+  padding: 0 10px;
 }
 
-/* =========================
+
+/* =====================================================
    CONTACT AREA
-========================= */
+===================================================== */
 
 .top-contact {
   display: flex;
+
   align-items: center;
+
+  justify-content: flex-end;
+
   gap: 22px;
+
   flex-wrap: nowrap;
+
+  margin-left: auto;
 }
 
-/* Phone / Location Item */
+
+/* =====================================================
+   PHONE / LOCATION ITEM
+===================================================== */
 
 .contact-item {
   display: flex;
+
   align-items: center;
+
   gap: 7px;
+
   white-space: nowrap;
-}
 
-/* =========================
-   ORIGINAL ICONS
-========================= */
-
-.contact-icon {
-  font-size: 13px;
   flex-shrink: 0;
 }
+
+
+/* =====================================================
+   ICONS
+   PHONE + LOCATION SAME COLOR
+===================================================== */
+
+.contact-icon {
+  color: #ffb348;
+
+  font-size: 13px;
+
+  flex-shrink: 0;
+
+  width: 14px;
+
+  height: 14px;
+}
+
+
+/* Phone */
 
 .phone-icon {
   color: #ffb348;
 }
 
+
+/* Location */
+
 .location-icon {
   color: #ffb348;
 }
 
-/* =========================
+
+/* =====================================================
+   CONTACT TEXT
+===================================================== */
+
+.contact-item span {
+  color: #ffffff;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.1px;
+}
+
+
+/* =====================================================
    LANGUAGE
-========================= */
+===================================================== */
 
 .language-switcher {
   display: flex;
+
   align-items: center;
+
   gap: 7px;
+
+  margin-left: 5px;
 }
+
 
 .language-btn {
   background: transparent;
+
   border: 0;
-  color: #fff;
+
+  color: #ffffff;
+
   opacity: 0.65;
-  font-size: 12px;
+
+  font-size: 11px;
+
   cursor: pointer;
 }
 
+
 .language-btn.active {
   color: #ffb348;
+
   opacity: 1;
+
   font-weight: 800;
 }
 
 
-/* =========================
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .top-bar-inner {
+    min-height: 37px;
+
+    padding: 0 14px;
+  }
+
+
+  .top-contact {
+    gap: 17px;
+  }
+
+
+  .contact-item {
+    gap: 6px;
+  }
+
+
+  .contact-item span {
+    font-size: 10px;
+  }
+
+
+  .contact-icon {
+    width: 13px;
+
+    height: 13px;
+
+    font-size: 12px;
+  }
+
+}
+
+
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media (max-width: 720px) {
 
   .top-bar-inner {
     min-height: 38px;
+
     padding: 0 10px;
+
+    justify-content: flex-end;
   }
 
+
+  /* Contact right side */
+
   .top-contact {
-    width: 100%;
-    gap: 14px;
-    flex-wrap: nowrap;
+    width: auto;
+
+    margin-left: auto;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
     overflow: hidden;
   }
 
+
   .contact-item {
-    gap: 6px;
+    gap: 5px;
+
     flex-shrink: 0;
   }
 
-  .contact-icon {
-    font-size: 12px;
-  }
 
-  /* Mobile number visible */
+  /* Phone number visible */
 
   .contact-item:first-child span {
     display: inline;
+
     font-size: 10px;
+
+    font-weight: 500;
   }
 
-  /* Location line visible */
+
+  /* Location visible */
 
   .location-contact {
     min-width: 0;
-    flex: 1;
-    overflow: hidden;
+
+    max-width: 220px;
+
+    flex-shrink: 1;
   }
+
 
   .location-contact span {
     display: block;
+
+    max-width: 190px;
+
     font-size: 10px;
+
+    font-weight: 500;
+
     overflow: hidden;
+
     text-overflow: ellipsis;
+
     white-space: nowrap;
   }
 
-  /* Language buttons hide because they are empty */
+
+  .contact-icon {
+    width: 12px;
+
+    height: 12px;
+
+    font-size: 11px;
+  }
+
+
+  /* Empty language buttons hide */
 
   .language-switcher {
     display: none;
   }
+
 }
 
 
-/* =========================
+/* =====================================================
    SMALL MOBILE
-========================= */
+===================================================== */
 
 @media (max-width: 480px) {
 
   .top-bar-inner {
     min-height: 36px;
+
     padding: 0 8px;
   }
 
+
   .top-contact {
-    gap: 10px;
+    gap: 9px;
   }
+
+
+  .contact-item {
+    gap: 4px;
+  }
+
 
   .contact-item:first-child span {
     font-size: 9px;
   }
 
+
+  .location-contact {
+    max-width: 175px;
+  }
+
+
   .location-contact span {
+    max-width: 145px;
+
     font-size: 9px;
   }
 
+
   .contact-icon {
-    font-size: 11px;
+    width: 11px;
+
+    height: 11px;
+
+    font-size: 10px;
   }
+
 }
 
 
-/* =========================
+/* =====================================================
    VERY SMALL MOBILE
-========================= */
+===================================================== */
 
 @media (max-width: 360px) {
+
+  .top-bar-inner {
+    padding: 0 6px;
+  }
+
 
   .top-contact {
     gap: 7px;
   }
 
+
   .contact-item:first-child span {
     font-size: 8px;
   }
 
+
+  .location-contact {
+    max-width: 145px;
+  }
+
+
   .location-contact span {
+    max-width: 120px;
+
     font-size: 8px;
   }
 
+
   .contact-icon {
-    font-size: 10px;
+    width: 10px;
+
+    height: 10px;
+
+    font-size: 9px;
+  }
+
+}
+.contact-icon {
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* Phone orange */
+.phone-icon {
+  color: #ffb348;
+}
+
+/* Location white */
+.location-icon {
+  color: #ffffff;
+}
+/* =====================================================
+   CONTACT KO AUR RIGHT SIDE LE JANA
+===================================================== */
+
+.top-bar-inner {
+  justify-content: flex-end;
+  padding-right: 5px;
+}
+
+.top-contact {
+  margin-left: auto;
+  margin-right: 0;
+  justify-content: flex-end;
+}
+
+
+/* Phone orange */
+.phone-icon {
+  color: #ffb348;
+}
+
+
+/* Location white */
+.location-icon {
+  color: #ffffff;
+}
+
+
+/* Text */
+.contact-item span {
+  text-align: right;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 720px) {
+
+  .top-bar-inner {
+    padding-right: 4px;
+  }
+
+  .top-contact {
+    margin-left: auto;
+    margin-right: 0;
+    justify-content: flex-end;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .top-bar-inner {
+    padding-right: 3px;
+  }
+
+  .top-contact {
+    margin-right: 0;
+    justify-content: flex-end;
+  }
+
+}.top-bar-inner {
+  padding-right: 0;
+}
+
+.top-contact {
+  margin-left: auto;
+  margin-right: 0;
+}
+/* Top bar text size */
+.contact-item span {
+  font-size: 14px !important;
+  font-weight: 600;
+}
+@media (max-width: 720px) {
+  .contact-item span {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-item span {
+    font-size: 11px !important;
   }
 }

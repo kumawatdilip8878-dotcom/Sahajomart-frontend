@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import {
   FaWhatsapp,
   FaPhoneAlt,
+  FaUser,
+  FaStore,
 } from "react-icons/fa";
 import "./Header.css";
 
@@ -36,13 +38,19 @@ const Header = () => {
         {/* ========================================
             LOGO
         ======================================== */}
+
         <a
           href="#home"
           className="logo"
           onClick={closeMenu}
         >
-          <div >
-            <img  style={{width:"54px",height:"54px",borderRadius:"11px"}}
+          <div>
+            <img
+              style={{
+                width: "54px",
+                height: "54px",
+                borderRadius: "11px",
+              }}
               className="ahjo"
               src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
               alt="Sahjo Mart Logo"
@@ -50,7 +58,9 @@ const Header = () => {
           </div>
 
           <div className="logo-text">
-            <span style={{fontSize:"20px"}}>Sahjo Mart</span>
+            <span style={{ fontSize: "20px" }}>
+              Sahjo Mart
+            </span>
           </div>
         </a>
 
@@ -58,7 +68,14 @@ const Header = () => {
         {/* ========================================
             ONLINE SHOPPING TEXT
         ======================================== */}
-        <div style={{marginLeft:"50px",gap:"10px"}} className="online-shopping-text">
+
+        <div
+          style={{
+            marginLeft: "50px",
+            gap: "10px",
+          }}
+          className="online-shopping-text"
+        >
           अब करें घर से ऑनलाइन शॉपिंग
         </div>
 
@@ -66,9 +83,11 @@ const Header = () => {
         {/* ========================================
             DESKTOP ACTIONS
         ======================================== */}
+
         <div className="nav-actions">
 
           {/* WhatsApp */}
+
           <a
             href="https://wa.me/919876543210"
             className="btn btn-whatsapp"
@@ -76,39 +95,57 @@ const Header = () => {
             rel="noopener noreferrer"
           >
             <FaWhatsapp className="action-icon whatsapp-icon" />
-            <span>Order on WhatsApp</span>
+
+            <span>
+              Order on WhatsApp
+            </span>
           </a>
 
 
           {/* Call */}
+
           <a
             href="tel:+919876543210"
             className="btn btn-call"
           >
             <FaPhoneAlt className="action-icon phone-icon" />
-            <span>Order on Call</span>
+
+            <span>
+              Order on Call
+            </span>
           </a>
 
 
           {/* Customer Login */}
+
           <a
             href="/customer-login"
             className="btn btn-outline"
           >
-            Customer Login
+            <FaUser className="action-icon login-icon" />
+
+            <span>
+              Customer Login
+            </span>
           </a>
 
 
           {/* Store Login */}
+
           <a
             href="/store-login"
             className="btn btn-primary"
           >
-            Store Login
+            <FaStore className="action-icon store-icon" />
+
+            <span>
+              Store Login
+            </span>
           </a>
 
 
           {/* Mobile Menu */}
+
           <button
             className="mobile-toggle"
             onClick={toggleMenu}
@@ -126,6 +163,7 @@ const Header = () => {
       {/* ==========================================
           MOBILE MENU
       ========================================== */}
+
       <div
         className={`mobile-menu ${
           menuOpen ? "active" : ""
@@ -133,6 +171,7 @@ const Header = () => {
       >
 
         {/* WhatsApp */}
+
         <a
           href="https://wa.me/919876543210"
           className="btn btn-whatsapp"
@@ -141,38 +180,55 @@ const Header = () => {
           onClick={closeMenu}
         >
           <FaWhatsapp className="action-icon whatsapp-icon" />
-          <span>Order on WhatsApp</span>
+
+          <span>
+            Order on WhatsApp
+          </span>
         </a>
 
 
         {/* Call */}
+
         <a
           href="tel:+919876543210"
           className="btn btn-call"
           onClick={closeMenu}
         >
           <FaPhoneAlt className="action-icon phone-icon" />
-          <span>Order on Call</span>
+
+          <span>
+            Order on Call
+          </span>
         </a>
 
 
         {/* Customer Login */}
+
         <a
           href="/customer-login"
           className="btn btn-outline"
           onClick={closeMenu}
         >
-          Customer Login
+          <FaUser className="action-icon login-icon" />
+
+          <span>
+            Customer Login
+          </span>
         </a>
 
 
         {/* Store Login */}
+
         <a
           href="/store-login"
           className="btn btn-primary"
           onClick={closeMenu}
         >
-          Store Login
+          <FaStore className="action-icon store-icon" />
+
+          <span>
+            Store Login
+          </span>
         </a>
 
       </div>

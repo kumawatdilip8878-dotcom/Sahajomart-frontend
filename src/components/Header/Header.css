@@ -1,12 +1,17 @@
 /* =====================================================
    HEADER
 ===================================================== */
+/* ========================================
+   TOPBAR → HEADER GAP
+======================================== */
 
+.site-header {
+  margin-top: 10px;
+}
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-
   width: 100%;
 
   background: rgba(255, 255, 255, 0.97);
@@ -1213,3 +1218,18 @@ header {
 
 
 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.action-icon {
+  flex-shrink: 0;
+}
+
+.login-icon,
+.store-icon {
+  font-size: 15px;
+}

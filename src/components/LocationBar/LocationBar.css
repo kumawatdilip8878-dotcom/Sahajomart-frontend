@@ -1,185 +1,296 @@
-/* ✅ Location Bar */
+/* =====================================================
+   LOCATION BAR
+===================================================== */
+
 .location-bar {
   padding: 12px 0;
+
   background: #f8f8f8;
+
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+
+  overflow: hidden;
 }
+
+
+/* =====================================================
+   INNER
+===================================================== */
 
 .location-inner {
   display: flex;
+
   align-items: center;
+
   gap: 15px;
-  flex-wrap: wrap;
+
   padding: 0 15px;
 }
 
+
+/* =====================================================
+   TITLE
+===================================================== */
+
 .location-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: #333;
   flex-shrink: 0;
-}
 
-.location-list {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+  font-size: 14px;
 
-/* ✅ Location Chip Buttons */
-.location-chip {
-  padding: 8px 18px;
-  border: 2px solid #ddd;
-  border-radius: 20px;
-  background: #fff;
+  font-weight: 700;
+
   color: #333;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+
   white-space: nowrap;
 }
 
+
+/* =====================================================
+   LOCATION LIST
+===================================================== */
+
+.location-list {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =====================================================
+   LOCATION CHIP
+===================================================== */
+
+.location-chip {
+  padding: 8px 18px;
+
+  border: 2px solid #ddd;
+
+  border-radius: 20px;
+
+  background: #fff;
+
+  color: #333;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  white-space: nowrap;
+}
+
+
+/* Hover */
+
 .location-chip:hover {
   border-color: #ff6b35;
+
   color: #ff6b35;
+
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+
+  box-shadow:
+    0 4px 12px rgba(255, 107, 53, 0.15);
 }
+
+
+/* Active */
 
 .location-chip.active {
   border-color: #ff6b35;
-  background: linear-gradient(135deg, #ff6b35, #e85d2c);
+
+  background: linear-gradient(
+    135deg,
+    #ff6b35,
+    #e85d2c
+  );
+
   color: #fff;
-  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
+
+  box-shadow:
+    0 4px 14px rgba(255, 107, 53, 0.35);
 }
+
+
+/* Active Hover */
 
 .location-chip.active:hover {
-  background: linear-gradient(135deg, #e85d2c, #d04a1a);
+  background: linear-gradient(
+    135deg,
+    #e85d2c,
+    #d04a1a
+  );
+
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.5);
+
+  box-shadow:
+    0 6px 24px rgba(255, 107, 53, 0.5);
 }
 
-/* ✅ Responsive - Mobile */
-@media (max-width: 768px) {
-  .location-bar {
-    padding: 10px 0;
-  }
-  
-  .location-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .location-title {
-    font-size: 13px;
-  }
-  
-  .location-list {
-    gap: 8px;
-    width: 100%;
-  }
-  
-  .location-chip {
-    padding: 6px 14px;
-    font-size: 12px;
-    flex: 1 1 auto;
-    min-width: 60px;
-    text-align: center;
-  }
-}
 
-/* ✅ Very Small Screens */
-@media (max-width: 400px) {
-  .location-chip {
-    padding: 5px 12px;
-    font-size: 11px;
-    min-width: 50px;
-  }
-  
-  .location-list {
-    gap: 6px;
-  }
-}
+/* =====================================================
+   MOBILE AUTO SLIDER
+===================================================== */
 
-/* ✅ Responsive - Mobile Slider */
 @media (max-width: 768px) {
 
   .location-bar {
     padding: 10px 0;
+
     overflow: hidden;
   }
 
+
   .location-inner {
     display: flex;
+
     flex-direction: column;
+
     align-items: flex-start;
-    gap: 10px;
+
+    gap: 9px;
+
     padding: 0 15px;
   }
+
 
   .location-title {
     font-size: 13px;
   }
 
-  /* 📱 Horizontal Location Slider */
-  .location-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
 
+  /* ==========================================
+     HORIZONTAL SLIDER
+  ========================================== */
+
+  .location-list {
     width: 100%;
 
-    overflow-x: auto;
-    overflow-y: hidden;
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: nowrap;
+
+    align-items: center;
 
     gap: 8px;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
 
     padding: 3px 2px 8px;
 
     scroll-behavior: smooth;
 
-    /* Hide scrollbar */
     scrollbar-width: none;
+
     -ms-overflow-style: none;
 
     touch-action: pan-x;
   }
 
+
+  /* Chrome / Edge / Safari */
+
   .location-list::-webkit-scrollbar {
     display: none;
   }
 
+
+  /* ==========================================
+     CHIP
+  ========================================== */
+
   .location-chip {
     flex: 0 0 auto;
+
+    min-width: auto;
 
     padding: 7px 16px;
 
     font-size: 12px;
 
-    min-width: auto;
-
-    text-align: center;
+    border-radius: 20px;
 
     white-space: nowrap;
-
-    border-radius: 20px;
   }
+
 }
 
 
-/* ✅ Very Small Screens */
-@media (max-width: 400px) {
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .location-inner {
+    padding: 0 10px;
+
+    gap: 8px;
+  }
+
+
+  .location-title {
+    font-size: 12px;
+  }
+
+
+  .location-list {
+    gap: 7px;
+
+    padding-bottom: 7px;
+  }
+
 
   .location-chip {
     padding: 6px 14px;
+
     font-size: 11px;
   }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .location-inner {
+    padding: 0 8px;
+  }
+
+
+  .location-title {
+    font-size: 11px;
+  }
+
 
   .location-list {
     gap: 6px;
   }
+
+
+  .location-chip {
+    padding: 6px 12px;
+
+    font-size: 10px;
+  }
+
 }
