@@ -1,4 +1,14 @@
 /* =====================================================
+   CATEGORY SECTION
+===================================================== */
+
+.category-section {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
    CATEGORY SLIDER VIEWPORT
 ===================================================== */
 
@@ -7,8 +17,10 @@
   position: relative;
 
   overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 
-  padding: 4px 0 12px;
+  padding: 4px 0 8px;
 
   box-sizing: border-box;
 
@@ -18,21 +30,10 @@
   user-select: none;
   -webkit-user-select: none;
 
-  /*
-    IMPORTANT:
-    No native horizontal scrolling
-  */
-
-  overflow-x: hidden;
-  overflow-y: hidden;
-
   scroll-behavior: auto;
 
   touch-action: pan-y;
 }
-
-
-/* Hide scrollbar */
 
 .category-slider::-webkit-scrollbar {
   display: none;
@@ -46,11 +47,11 @@
 .category-track {
   display: flex;
 
-  align-items: stretch;
-
-  justify-content: flex-start;
-
+  flex-direction: row;
   flex-wrap: nowrap;
+
+  align-items: stretch;
+  justify-content: flex-start;
 
   gap: 15px;
 
@@ -60,9 +61,7 @@
   will-change: transform;
 
   transform: translate3d(0, 0, 0);
-
-  -webkit-transform:
-    translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -73,21 +72,15 @@
 
 
 /* =====================================================
-   CARD
+   DESKTOP CARD
 ===================================================== */
 
 .slide-card {
-  flex: 0 0 calc(
-    (100vw - 30px - 45px) / 4
-  );
+  flex: 0 0 250px;
 
-  width: calc(
-    (100vw - 30px - 45px) / 4
-  );
-
-  min-width: calc(
-    (100vw - 30px - 45px) / 4
-  );
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
 
   overflow: hidden;
 
@@ -100,9 +93,7 @@
   box-sizing: border-box;
 
   transform: translate3d(0, 0, 0);
-
-  -webkit-transform:
-    translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -110,20 +101,18 @@
 
 
 /* =====================================================
-   IMAGE
+   DESKTOP IMAGE
 ===================================================== */
 
 .slide-card img {
   display: block;
 
   width: 100%;
-
-  height: 210px;
+  height: 190px;
 
   object-fit: cover;
 
   user-select: none;
-
   -webkit-user-select: none;
 
   -webkit-user-drag: none;
@@ -131,9 +120,7 @@
   pointer-events: none;
 
   transform: translate3d(0, 0, 0);
-
-  -webkit-transform:
-    translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -141,14 +128,21 @@
 
 
 /* =====================================================
-   CONTENT
+   CARD CONTENT
 ===================================================== */
 
 .slide-content {
-  padding: 14px;
+  width: 100%;
+
+  padding: 12px;
+
   box-sizing: border-box;
 }
 
+
+/* =====================================================
+   LABEL
+===================================================== */
 
 .slide-label {
   display: inline-block;
@@ -156,23 +150,118 @@
   font-size: 11px;
   font-weight: 700;
 
-  margin-bottom: 5px;
+  line-height: 14px;
+
+  margin: 0 0 5px;
 }
 
+
+/* =====================================================
+   TITLE
+===================================================== */
 
 .slide-content h3 {
   margin: 0 0 6px;
 
-  font-size: 17px;
-  line-height: 22px;
+  font-size: 16px;
+
+  line-height: 21px;
+
+  font-weight: 700;
 }
 
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
 
 .slide-content p {
   margin: 0;
 
-  font-size: 13px;
-  line-height: 19px;
+  font-size: 12px;
+
+  line-height: 17px;
+}
+
+
+/* =====================================================
+   LINK
+===================================================== */
+
+.slide-content a {
+  display: inline-block;
+
+  margin-top: 7px;
+
+  font-size: 11px;
+
+  text-decoration: none;
+}
+
+
+/* =====================================================
+   LARGE DESKTOP
+===================================================== */
+
+@media (min-width: 1200px) {
+
+  .category-track {
+    gap: 15px;
+  }
+
+  .slide-card {
+
+    flex: 0 0 250px;
+
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+  }
+
+  .slide-card img {
+    height: 190px;
+  }
+}
+
+
+/* =====================================================
+   DESKTOP / LAPTOP
+===================================================== */
+
+@media (min-width: 1001px) and (max-width: 1199px) {
+
+  .category-track {
+    gap: 14px;
+  }
+
+  .slide-card {
+
+    flex: 0 0 230px;
+
+    width: 230px;
+    min-width: 230px;
+    max-width: 230px;
+
+    border-radius: 17px;
+  }
+
+  .slide-card img {
+    height: 180px;
+  }
+
+  .slide-content {
+    padding: 11px;
+  }
+
+  .slide-content h3 {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .slide-content p {
+    font-size: 12px;
+    line-height: 17px;
+  }
 }
 
 
@@ -180,31 +269,47 @@
    TABLET
 ===================================================== */
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px) and (min-width: 769px) {
+
+  .category-slider {
+    padding: 3px 0 8px;
+  }
 
   .category-track {
     gap: 14px;
   }
 
   .slide-card {
-    flex: 0 0
-      calc(
-        (100vw - 28px - 14px) / 2
-      );
 
-    width:
-      calc(
-        (100vw - 28px - 14px) / 2
-      );
+    flex: 0 0 300px;
 
-    min-width:
-      calc(
-        (100vw - 28px - 14px) / 2
-      );
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+
+    border-radius: 16px;
   }
 
   .slide-card img {
-    height: 200px;
+    height: 180px;
+  }
+
+  .slide-content {
+    padding: 11px;
+  }
+
+  .slide-label {
+    font-size: 10px;
+  }
+
+  .slide-content h3 {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .slide-content p {
+    font-size: 11px;
+    line-height: 16px;
   }
 }
 
@@ -216,48 +321,54 @@
 @media (max-width: 768px) {
 
   .category-slider {
+
     width: 100%;
 
-    overflow: hidden;
+    position: relative;
 
+    overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
 
-    padding: 3px 2px 9px;
+    padding: 3px 2px 7px;
 
     box-sizing: border-box;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
     touch-action: pan-y;
 
     -webkit-overflow-scrolling: auto;
 
-    scrollbar-width: none;
+    user-select: none;
+    -webkit-user-select: none;
   }
 
 
+  /* TRACK */
+
   .category-track {
+
     display: flex;
 
     flex-direction: row;
+
+    flex-wrap: nowrap;
 
     align-items: stretch;
 
     justify-content: flex-start;
 
-    flex-wrap: nowrap;
-
-    gap: 10px;
+    gap: 8px;
 
     width: max-content;
     min-width: max-content;
 
     will-change: transform;
 
-    transform:
-      translate3d(0, 0, 0);
-
-    -webkit-transform:
-      translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
 
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -267,210 +378,280 @@
   }
 
 
-  /*
-    IMPORTANT
-
-    Card chhota rakha hai.
-    Approximately 72% viewport.
-
-    Isse next card ka thoda
-    portion bhi visible rahega.
-  */
+  /* =================================================
+     COMPACT MOBILE CARD
+  ================================================= */
 
   .slide-card {
-    flex: 0 0 72%;
 
-    width: 72%;
+    flex: 0 0 190px !important;
 
-    min-width: 72%;
+    width: 190px !important;
 
-    max-width: 72%;
+    min-width: 190px !important;
 
-    border-radius: 16px;
+    max-width: 190px !important;
 
-    box-sizing: border-box;
+    border-radius: 14px;
 
     overflow: hidden;
 
-    transform:
-      translate3d(0, 0, 0);
+    box-sizing: border-box;
 
-    -webkit-transform:
-      translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
 
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
 
 
+  /* IMAGE */
+
   .slide-card img {
-    width: 100%;
-
-    height: 165px;
-
-    object-fit: cover;
 
     display: block;
 
+    width: 100% !important;
+
+    height: 120px !important;
+
+    object-fit: cover;
+
     pointer-events: none;
+
+    user-select: none;
+    -webkit-user-select: none;
 
     -webkit-user-drag: none;
 
-    transform:
-      translate3d(0, 0, 0);
-
-    -webkit-transform:
-      translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
 
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
 
 
+  /* CONTENT */
+
   .slide-content {
-    padding: 11px;
+    padding: 8px;
   }
 
 
+  /* LABEL */
+
   .slide-label {
+    font-size: 9px;
+
+    line-height: 12px;
+
+    margin-bottom: 3px;
+  }
+
+
+  /* TITLE */
+
+  .slide-content h3 {
+
+    font-size: 13px;
+
+    line-height: 17px;
+
+    margin: 0 0 3px;
+  }
+
+
+  /* DESCRIPTION */
+
+  .slide-content p {
+
     font-size: 10px;
 
     line-height: 14px;
 
-    margin-bottom: 4px;
+    margin: 0;
   }
 
 
-  .slide-content h3 {
-    font-size: 15px;
+  /* LINK */
 
-    line-height: 19px;
+  .slide-content a {
 
-    margin-bottom: 4px;
-  }
+    margin-top: 5px;
 
-
-  .slide-content p {
-    font-size: 11px;
-
-    line-height: 16px;
+    font-size: 10px;
   }
 }
 
 
 /* =====================================================
-   SMALL MOBILE
+   SMALL MOBILE / IPHONE
 ===================================================== */
 
 @media (max-width: 480px) {
 
   .category-slider {
-    padding:
-      2px 2px 8px;
+
+    padding: 2px 2px 6px;
   }
 
 
   .category-track {
-    gap: 8px;
+
+    gap: 7px;
   }
 
 
-  /*
-    Smaller than previous 88%.
-
-    Card ab unnecessarily bada nahi hoga.
-  */
+  /* CARD */
 
   .slide-card {
-    flex: 0 0 76%;
 
-    width: 76%;
+    flex: 0 0 170px !important;
 
-    min-width: 76%;
+    width: 170px !important;
 
-    max-width: 76%;
+    min-width: 170px !important;
 
-    border-radius: 15px;
+    max-width: 170px !important;
+
+    border-radius: 13px;
   }
 
+
+  /* IMAGE */
 
   .slide-card img {
-    height: 150px;
+
+    width: 100% !important;
+
+    height: 105px !important;
   }
 
 
+  /* CONTENT */
+
   .slide-content {
-    padding: 10px;
+
+    padding: 7px;
   }
 
 
   .slide-label {
+
+    font-size: 8px;
+
+    line-height: 11px;
+
+    margin-bottom: 2px;
+  }
+
+
+  .slide-content h3 {
+
+    font-size: 12px;
+
+    line-height: 15px;
+
+    margin-bottom: 2px;
+  }
+
+
+  .slide-content p {
+
     font-size: 9px;
 
     line-height: 13px;
   }
 
 
-  .slide-content h3 {
-    font-size: 14px;
+  .slide-content a {
 
-    line-height: 18px;
-  }
+    font-size: 9px;
 
-
-  .slide-content p {
-    font-size: 10px;
-
-    line-height: 15px;
+    margin-top: 4px;
   }
 }
 
 
 /* =====================================================
-   VERY SMALL MOBILE
+   VERY SMALL IPHONE
 ===================================================== */
 
 @media (max-width: 360px) {
 
   .category-track {
-    gap: 7px;
+
+    gap: 6px;
   }
 
+
+  /* CARD */
 
   .slide-card {
-    flex: 0 0 78%;
 
-    width: 78%;
+    flex: 0 0 155px !important;
 
-    min-width: 78%;
+    width: 155px !important;
 
-    max-width: 78%;
+    min-width: 155px !important;
 
-    border-radius: 14px;
+    max-width: 155px !important;
+
+    border-radius: 12px;
   }
 
+
+  /* IMAGE */
 
   .slide-card img {
-    height: 135px;
+
+    width: 100% !important;
+
+    height: 95px !important;
   }
 
 
+  /* CONTENT */
+
   .slide-content {
-    padding: 9px;
+
+    padding: 6px;
+  }
+
+
+  .slide-label {
+
+    font-size: 8px;
+
+    line-height: 10px;
   }
 
 
   .slide-content h3 {
-    font-size: 13px;
 
-    line-height: 17px;
+    font-size: 11px;
+
+    line-height: 14px;
+
+    margin-bottom: 2px;
   }
 
 
   .slide-content p {
-    font-size: 10px;
 
-    line-height: 14px;
+    font-size: 8px;
+
+    line-height: 12px;
+  }
+
+
+  .slide-content a {
+
+    font-size: 8px;
+
+    margin-top: 3px;
   }
 }
 
@@ -482,11 +663,13 @@
 @supports (-webkit-touch-callout: none) {
 
   .category-slider {
+
     width: 100%;
 
     overflow: hidden;
 
     overflow-x: hidden;
+
     overflow-y: hidden;
 
     touch-action: pan-y;
@@ -497,12 +680,16 @@
 
     scrollbar-width: none;
 
+    -ms-overflow-style: none;
+
     -webkit-backface-visibility: hidden;
+
     backface-visibility: hidden;
   }
 
 
   .category-track {
+
     display: flex;
 
     width: max-content;
@@ -513,11 +700,9 @@
 
     will-change: transform;
 
-    -webkit-transform:
-      translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 
-    transform:
-      translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
 
     -webkit-backface-visibility: hidden;
 
@@ -530,6 +715,7 @@
 
 
   .slide-card {
+
     flex-shrink: 0;
 
     -webkit-user-select: none;
@@ -545,110 +731,11 @@
 
 
   .slide-card img {
+
     -webkit-user-drag: none;
 
     -webkit-backface-visibility: hidden;
 
     backface-visibility: hidden;
   }
-}
-
-
-/* =====================================================
-   PROGRESS BAR
-===================================================== */
-
-.progress-bar-container {
-  width: 100%;
-
-  height: 3px;
-
-  margin-top: 8px;
-
-  overflow: hidden;
-
-  border-radius: 5px;
-
-  background: #eee;
-}
-
-
-.progress-bar {
-  width: 30%;
-
-  height: 100%;
-
-  border-radius: inherit;
-
-  background:
-    linear-gradient(
-      90deg,
-      #ff6b35,
-      #e85d2c
-    );
-
-  animation:
-    categoryProgress 4s
-    linear infinite;
-}
-
-
-@keyframes categoryProgress {
-
-  from {
-    transform:
-      translateX(-100%);
-  }
-
-  to {
-    transform:
-      translateX(350%);
-  }
-}
-
-
-/* =====================================================
-   DOTS
-===================================================== */
-
-.dots-container {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 6px;
-
-  margin-top: 10px;
-}
-
-
-.dot {
-  width: 7px;
-
-  height: 7px;
-
-  padding: 0;
-
-  border: 0;
-
-  border-radius: 50%;
-
-  background: #ccc;
-
-  cursor: pointer;
-
-  transition:
-    width 0.25s ease,
-    background 0.25s ease;
-}
-
-
-.dot.active {
-  width: 20px;
-
-  border-radius: 10px;
-
-  background: #ff6b35;
 }

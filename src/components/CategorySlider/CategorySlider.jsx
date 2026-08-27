@@ -369,9 +369,7 @@ function CategorySlider({
           </div>
         </div>
 
-        <div className="progress-bar-container">
-          <div className="progress-bar" />
-        </div>
+        
 
         <div className="dots-container">
           {items.map(
