@@ -1,3 +1,8 @@
+import {
+  FaWhatsapp,
+  FaPhoneAlt,
+} from "react-icons/fa";
+
 import "./Hero.css";
 
 const Hero = () => {
@@ -30,29 +35,27 @@ const Hero = () => {
               अब करें घर से ही ऑनलाइन शॉपिंग
             </p>
 
+            {/* BUTTONS */}
             <div className="hero-actions">
 
-              {/* <a
-                href="#categories"
-                className="btn btn-primary"
-              >
-                Explore Categories →
-              </a> */}
-
+              {/* WhatsApp */}
               <a
                 href="https://wa.me/919876543210"
                 target="_blank"
-                rel="noreferrer"
-                className="btn btn-whatsapp"
+                rel="noopener noreferrer"
+                className="btn hero-order-btn hero-whatsapp-btn"
               >
-                WhatsApp Order
+                <FaWhatsapp className="hero-btn-icon" />
+                <span>WhatsApp Order</span>
               </a>
 
-              <a style={{width:"150px"}}
+              {/* Call */}
+              <a
                 href="tel:+919876543210"
-                className="btn btn-outline"
+                className="btn hero-order-btn hero-call-btn"
               >
-                Call Store
+                <FaPhoneAlt className="hero-btn-icon" />
+                <span>Call Store</span>
               </a>
 
             </div>
@@ -60,11 +63,7 @@ const Hero = () => {
             <div className="hero-features">
 
               <span>✓ Nearby Stores</span>
-
-              {/* <span>✓ Hindi & English</span> */}
-
               <span>✓ Offers & Promotions</span>
-
               <span>✓ Direct Store Access</span>
 
             </div>

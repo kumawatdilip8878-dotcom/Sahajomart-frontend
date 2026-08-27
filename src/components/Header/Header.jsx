@@ -41,8 +41,8 @@ const Header = () => {
           className="logo"
           onClick={closeMenu}
         >
-          <div className="logo-mark">
-            <img
+          <div >
+            <img  style={{width:"54px",height:"54px",borderRadius:"11px"}}
               className="ahjo"
               src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
               alt="Sahjo Mart Logo"

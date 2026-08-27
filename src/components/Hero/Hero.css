@@ -254,3 +254,111 @@ margin-bottom:20px;
     bottom: 28px;
   }
 }
+
+/* ========================================
+   HERO ORDER BUTTONS
+======================================== */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.hero-order-btn {
+  width: 160px;
+  height: 50px;
+  min-height: 50px;
+
+  padding: 0 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  box-sizing: border-box;
+
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+}
+
+/* ========================================
+   BUTTON ICON
+======================================== */
+
+.hero-btn-icon {
+  width: 19px;
+  height: 19px;
+
+  flex-shrink: 0;
+}
+
+/* ========================================
+   WHATSAPP BUTTON
+======================================== */
+
+.hero-whatsapp-btn {
+  color: #fff;
+
+  background: #25d366;
+
+  border: 1px solid #25d366;
+
+  box-shadow:
+    0 5px 15px rgba(37, 211, 102, 0.22);
+}
+
+.hero-whatsapp-btn:hover {
+  background: #20bd5a;
+
+  border-color: #20bd5a;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(37, 211, 102, 0.30);
+}
+
+/* ========================================
+   CALL BUTTON
+======================================== */
+
+.hero-call-btn {
+  color: #fff;
+
+  background: linear-gradient(
+    135deg,
+    #ffac34,
+    #f17700
+  );
+
+  border: 1px solid #f17700;
+
+  box-shadow:
+    0 5px 15px rgba(243, 146, 0, 0.22);
+}
+
+.hero-call-btn:hover {
+  background: linear-gradient(
+    135deg,
+    #ff9820,
+    #df6500
+  );
+
+  border-color: #df6500;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(243, 146, 0, 0.30);
+}

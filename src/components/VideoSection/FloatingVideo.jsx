@@ -93,7 +93,7 @@ const FloatingVideo = () => {
 
           {/* Overlay */}
           <div className="video-overlay">
-            <span>Special Offer</span>
+            {/* <span>Special Offer</span> */}
           </div>
 
         </div>

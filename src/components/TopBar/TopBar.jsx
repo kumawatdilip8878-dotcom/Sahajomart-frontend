@@ -1,6 +1,11 @@
 import { useState } from "react";
 import "./TopBar.css";
 
+import {
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+
 const TopBar = () => {
   const [language, setLanguage] = useState("en");
 
@@ -13,11 +18,21 @@ const TopBar = () => {
       <div className="container top-bar-inner">
 
         <div className="top-contact">
-          <span>📞 +91 98765 43210</span>
 
-          <span>
-            📍 Shop from your nearest SahajoMart store
-          </span>
+          {/* 📞 Phone */}
+          <div className="contact-item">
+            <FaPhoneAlt className="contact-icon phone-icon" />
+            <span>+91 98765 43210</span>
+          </div>
+
+          {/* 📍 Location */}
+          <div className="contact-item location-contact">
+            <FaMapMarkerAlt className="contact-icon location-icon" />
+            <span>
+              Shop from your nearest SahajoMart store
+            </span>
+          </div>
+
         </div>
 
         <div className="language-switcher">
@@ -28,10 +43,7 @@ const TopBar = () => {
             }`}
             onClick={() => handleLanguage("en")}
           >
-            {/* English */}
           </button>
-
-          {/* <span>|</span> */}
 
           <button
             className={`language-btn ${
@@ -39,7 +51,6 @@ const TopBar = () => {
             }`}
             onClick={() => handleLanguage("hi")}
           >
-            {/* हिन्दी */}
           </button>
 
         </div>
