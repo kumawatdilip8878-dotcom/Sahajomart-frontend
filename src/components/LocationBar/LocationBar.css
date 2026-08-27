@@ -12,6 +12,7 @@
   box-sizing: border-box;
 }
 
+
 /* =====================================================
    INNER
 ===================================================== */
@@ -26,42 +27,85 @@
   box-sizing: border-box;
 }
 
+
 /* =====================================================
    TITLE
 ===================================================== */
 
 .location-title {
   flex: 0 0 auto;
+
   font-size: 14px;
   font-weight: 700;
+
   color: #333;
+
   white-space: nowrap;
 }
 
+
 /* =====================================================
-   LOCATION LIST
+   LOCATION VIEWPORT
 ===================================================== */
 
 .location-list {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: nowrap;
-  overflow: hidden;
+  flex: 0 1 auto;
+
+  width: auto;
   max-width: calc(100% - 150px);
-  padding: 4px 5px 8px;
+
+  overflow: hidden;
+
   box-sizing: border-box;
+
+  padding: 4px 5px 8px;
+
   scrollbar-width: none;
   -ms-overflow-style: none;
-  will-change: transform;
-  transform: translateX(0px);
+
+  position: relative;
 }
+
+
+/* Hide scrollbar */
 
 .location-list::-webkit-scrollbar {
   display: none;
 }
+
+
+/* =====================================================
+   MOVING TRACK
+===================================================== */
+
+.location-track {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  gap: 10px;
+
+  flex-wrap: nowrap;
+
+  width: max-content;
+
+  min-width: max-content;
+
+  will-change: transform;
+
+  transform: translate3d(0, 0, 0);
+
+  -webkit-transform: translate3d(0, 0, 0);
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
 
 /* =====================================================
    LOCATION BUTTON
@@ -69,49 +113,88 @@
 
 .location-chip {
   flex: 0 0 auto;
+
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   padding: 8px 18px;
+
   min-height: 38px;
+
   border: 2px solid #ddd;
+
   border-radius: 25px;
+
   background: #fff;
+
   color: #333;
+
   font-family: inherit;
+
   font-size: 13px;
   font-weight: 600;
+
   white-space: nowrap;
+
   cursor: pointer;
+
   outline: none;
+
   user-select: none;
   -webkit-user-select: none;
+
   -webkit-touch-callout: none;
+
   -webkit-tap-highlight-color: transparent;
+
   touch-action: manipulation;
-  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+
 /* =====================================================
-   HOVER (Desktop only)
+   DESKTOP HOVER
 ===================================================== */
 
 @media (min-width: 769px) {
+
   .location-chip:hover {
     border-color: #ff6b35;
+
     color: #ff6b35;
+
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+
+    box-shadow:
+      0 4px 12px rgba(255, 107, 53, 0.15);
   }
 
   .location-chip.active:hover {
     border-color: #e85d2c;
-    background: linear-gradient(135deg, #e85d2c, #d04a1a);
+
+    background:
+      linear-gradient(
+        135deg,
+        #e85d2c,
+        #d04a1a
+      );
+
     color: #fff;
+
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+
+    box-shadow:
+      0 6px 20px rgba(255, 107, 53, 0.4);
   }
 }
+
 
 /* =====================================================
    ACTIVE
@@ -119,10 +202,20 @@
 
 .location-chip.active {
   border-color: #ff6b35;
-  background: linear-gradient(135deg, #ff6b35, #e85d2c);
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff6b35,
+      #e85d2c
+    );
+
   color: #fff;
-  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
+
+  box-shadow:
+    0 4px 14px rgba(255, 107, 53, 0.35);
 }
+
 
 /* =====================================================
    CLICK
@@ -132,11 +225,13 @@
   transform: scale(0.96);
 }
 
+
 /* =====================================================
-   TABLET (No auto-slide)
+   TABLET
 ===================================================== */
 
 @media (max-width: 1024px) and (min-width: 769px) {
+
   .location-inner {
     gap: 12px;
     padding: 0 12px;
@@ -147,86 +242,188 @@
   }
 
   .location-list {
-    gap: 8px;
     max-width: calc(100% - 130px);
+  }
+
+  .location-track {
+    gap: 8px;
   }
 
   .location-chip {
     padding: 7px 15px;
+
     font-size: 12px;
+
     min-height: 36px;
   }
 }
 
+
 /* =====================================================
-   MOBILE - Auto-slider active
+   MOBILE
 ===================================================== */
 
 @media (max-width: 768px) {
+
   .location-bar {
     width: 100%;
+
     padding: 10px 0;
+
     overflow: hidden;
   }
+
+
+  /* INNER */
 
   .location-inner {
     width: 100%;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: flex-start;
+
     justify-content: flex-start;
+
     gap: 8px;
+
     padding: 0 12px;
+
     box-sizing: border-box;
   }
+
+
+  /* TITLE */
 
   .location-title {
     width: 100%;
+
     font-size: 13px;
+
     line-height: 18px;
   }
+
+
+  /* VIEWPORT */
 
   .location-list {
     width: 100%;
+
     max-width: none;
+
     flex: 0 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    gap: 8px;
+
     overflow: hidden;
-    will-change: transform;
-    transform: translateX(0px);
-    box-sizing: border-box;
+
     padding: 3px 2px 8px;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    /*
+      IMPORTANT:
+      No native scrolling
+    */
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    touch-action: none;
+
+    -webkit-overflow-scrolling: auto;
+
     scrollbar-width: none;
-    -ms-overflow-style: none;
   }
 
-  .location-list::-webkit-scrollbar {
-    display: none;
+
+  /* TRACK */
+
+  .location-track {
+    width: max-content;
+
+    min-width: max-content;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    flex-wrap: nowrap;
+
+    gap: 8px;
+
+    will-change: transform;
+
+    /*
+      Safari GPU
+    */
+
+    -webkit-transform:
+      translate3d(0, 0, 0);
+
+    transform:
+      translate3d(0, 0, 0);
+
+    -webkit-backface-visibility: hidden;
+
+    backface-visibility: hidden;
+
+    -webkit-perspective: 1000px;
+
+    perspective: 1000px;
   }
+
+
+  /* BUTTON */
 
   .location-chip {
     flex: 0 0 auto;
+
     width: max-content;
+
     min-width: max-content;
+
     min-height: 36px;
+
     padding: 7px 16px;
+
     font-size: 12px;
+
     line-height: 18px;
+
     border-radius: 22px;
+
     white-space: nowrap;
-    touch-action: manipulation;
+
+    /*
+      Prevent Safari weird interaction
+    */
+
+    -webkit-user-select: none;
+
+    user-select: none;
+
+    -webkit-touch-callout: none;
+
     -webkit-tap-highlight-color: transparent;
-    /* ✅ Mobile par hover disable */
+
+    touch-action: manipulation;
+
     transform: none !important;
   }
 
+
+  /* MOBILE HOVER OFF */
+
   .location-chip:hover {
     transform: none !important;
+
     box-shadow: none !important;
   }
 
@@ -234,167 +431,196 @@
     transform: none !important;
   }
 }
+
 
 /* =====================================================
    SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 480px) {
+
   .location-bar {
     padding: 9px 0;
   }
 
   .location-inner {
     padding: 0 10px;
+
     gap: 7px;
   }
 
   .location-title {
     font-size: 12px;
+
     line-height: 17px;
   }
 
   .location-list {
     width: 100%;
-    gap: 7px;
+
     padding: 2px 2px 7px;
-    will-change: transform;
-    transform: translateX(0px);
+  }
+
+  .location-track {
+    gap: 7px;
   }
 
   .location-chip {
     min-height: 34px;
+
     padding: 6px 14px;
+
     font-size: 11px;
+
     border-width: 2px;
+
     border-radius: 20px;
   }
 }
+
 
 /* =====================================================
    VERY SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 360px) {
+
   .location-inner {
     padding: 0 8px;
+
     gap: 6px;
   }
 
   .location-title {
     font-size: 11px;
+
     line-height: 16px;
   }
 
   .location-list {
+    width: 100%;
+
+    padding: 2px 2px 6px;
+  }
+
+  .location-track {
     gap: 6px;
-    padding: 2px 2px 6px 2px;
-    will-change: transform;
-    transform: translateX(0px);
   }
 
   .location-chip {
     min-height: 32px;
+
     padding: 6px 12px;
+
     font-size: 10px;
+
     border-radius: 18px;
   }
 }
 
+
 /* =====================================================
-   IPHONE / IOS SPECIFIC
+   IPHONE / SAFARI
 ===================================================== */
 
 @supports (-webkit-touch-callout: none) {
+
   .location-bar {
     overflow: hidden;
   }
 
+
+  /*
+    Fixed viewport
+  */
+
   .location-list {
     width: 100%;
+
     overflow: hidden;
-    transform: translateX(0px);
-    -webkit-transform: translateX(0px);
-    will-change: transform;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+
+    overflow-x: hidden;
+
+    overflow-y: hidden;
+
+    /*
+      IMPORTANT:
+      No manual scroll
+    */
+
     touch-action: none;
+
+    -webkit-overflow-scrolling: auto;
+
     overscroll-behavior: none;
-  }
 
-  .location-chip {
-    flex-shrink: 0;
-    -webkit-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    transform: none !important;
-  }
+    scrollbar-width: none;
 
-  .location-chip:hover {
-    transform: none !important;
-    box-shadow: none !important;
-  }
-
-  .location-chip.active:hover {
-    transform: none !important;
-  }
-}
-
-@supports (-webkit-touch-callout: none) {
-  .location-bar {
-    overflow: hidden;
-  }
-
-  .location-list {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    transform: translateX(0px);
-    -webkit-transform: translateX(0px);
-    will-change: scroll-position;
     -webkit-backface-visibility: hidden;
+
+    backface-visibility: hidden;
+  }
+
+
+  /*
+    Moving content
+  */
+
+  .location-track {
+    display: flex;
+
+    width: max-content;
+
+    min-width: max-content;
+
+    flex-wrap: nowrap;
+
+    will-change: transform;
+
+    -webkit-transform:
+      translate3d(0, 0, 0);
+
+    transform:
+      translate3d(0, 0, 0);
+
+    -webkit-backface-visibility: hidden;
+
     backface-visibility: hidden;
 
-    /* IMPORTANT */
-    touch-action: pan-x;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
+    -webkit-perspective: 1000px;
 
-    scrollbar-width: none;
+    perspective: 1000px;
   }
 
-  .location-list::-webkit-scrollbar {
-    display: none;
-  }
+
+  /*
+    Buttons
+  */
 
   .location-chip {
     flex-shrink: 0;
+
     -webkit-user-select: none;
+
     user-select: none;
+
     -webkit-touch-callout: none;
+
     -webkit-tap-highlight-color: transparent;
+
     touch-action: manipulation;
+
     transform: none !important;
   }
 
+
   .location-chip:hover {
     transform: none !important;
+
     box-shadow: none !important;
   }
 
   .location-chip.active:hover {
     transform: none !important;
-  }
-}
-@media (max-width: 768px) {
-  .location-list {
-    
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
-    scrollbar-width: none;
   }
 }

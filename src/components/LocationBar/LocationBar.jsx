@@ -7,9 +7,8 @@ const LocationBar = () => {
     useState("Jaipur");
 
   const locationListRef = useRef(null);
-
+  const locationTrackRef = useRef(null);
   const animationRef = useRef(null);
-  const pausedRef = useRef(false);
 
   /* =====================================================
      LOCATION CLICK
@@ -21,201 +20,91 @@ const LocationBar = () => {
     console.log("Selected Store Location:", location);
   };
 
-
   /* =====================================================
      MOBILE AUTO SLIDER
   ===================================================== */
 
   useEffect(() => {
-    const slider = locationListRef.current;
+    const viewport = locationListRef.current;
+    const track = locationTrackRef.current;
 
-    if (!slider) return;
+    if (!viewport || !track) return;
 
     let running = true;
     let lastTime = 0;
+    let currentPosition = 0;
 
     /*
       Speed:
-      0.04 = slow and smooth
+      0.04 = slow
+      0.06 = medium
+      0.08 = fast
     */
     const speed = 0.04;
 
-
-    /* =====================================================
-       ANIMATION
-    ===================================================== */
-
     const animate = (currentTime) => {
-
       if (!running) return;
 
-      /*
-        First frame
-      */
       if (!lastTime) {
         lastTime = currentTime;
       }
 
-      const deltaTime =
-        currentTime - lastTime;
-
+      const deltaTime = currentTime - lastTime;
       lastTime = currentTime;
-
 
       /*
         ONLY MOBILE
       */
-      if (
-        window.innerWidth <= 768 &&
-        !pausedRef.current
-      ) {
+      if (window.innerWidth <= 768) {
+        const maxScroll =
+          track.scrollWidth - viewport.clientWidth;
 
-       slider.scrollLeft =
-  slider.scrollLeft + (deltaTime * speed);
+        if (maxScroll > 0) {
+          currentPosition += deltaTime * speed;
 
+          /*
+            End par pahunchne ke baad
+            first position par wapas
+          */
+          if (currentPosition >= maxScroll) {
+            currentPosition = 0;
+          }
 
+          /*
+            iPhone Safari GPU animation
+          */
+          track.style.transform =
+            `translate3d(${-currentPosition}px, 0, 0)`;
+        }
+      } else {
         /*
-          Last location ke baad
-          first location par wapas
+          Desktop par position reset
         */
-
-        if (
-          slider.scrollLeft +
-            slider.clientWidth >=
-          slider.scrollWidth - 1
-        ) {
-          slider.scrollLeft = 0;
+        if (currentPosition !== 0) {
+          currentPosition = 0;
+          track.style.transform =
+            "translate3d(0, 0, 0)";
         }
       }
-
 
       animationRef.current =
         requestAnimationFrame(animate);
     };
 
-
-    /*
-      Start
-    */
-
     animationRef.current =
       requestAnimationFrame(animate);
 
-
-    /* =====================================================
-       TOUCH START
-    ===================================================== */
-
-    const handleTouchStart = () => {
-      pausedRef.current = true;
-    };
-
-
-    /* =====================================================
-       TOUCH END
-    ===================================================== */
-
-    const handleTouchEnd = () => {
-
-      /*
-        User ko swipe karne ka time do
-      */
-
-      setTimeout(() => {
-        pausedRef.current = false;
-      }, 700);
-    };
-
-
-    /* =====================================================
-       MOUSE ENTER
-    ===================================================== */
-
-    const handleMouseEnter = () => {
-
-      if (window.innerWidth <= 768) {
-        pausedRef.current = true;
-      }
-    };
-
-
-    /* =====================================================
-       MOUSE LEAVE
-    ===================================================== */
-
-    const handleMouseLeave = () => {
-
-      if (window.innerWidth <= 768) {
-        pausedRef.current = false;
-      }
-    };
-
-
-    /* =====================================================
-       EVENTS
-    ===================================================== */
-
-    slider.addEventListener(
-      "touchstart",
-      handleTouchStart,
-      { passive: true }
-    );
-
-    slider.addEventListener(
-      "touchend",
-      handleTouchEnd,
-      { passive: true }
-    );
-
-    slider.addEventListener(
-      "mouseenter",
-      handleMouseEnter
-    );
-
-    slider.addEventListener(
-      "mouseleave",
-      handleMouseLeave
-    );
-
-
-    /* =====================================================
-       CLEANUP
-    ===================================================== */
-
     return () => {
-
       running = false;
 
       if (animationRef.current) {
-        cancelAnimationFrame(
-          animationRef.current
-        );
+        cancelAnimationFrame(animationRef.current);
       }
 
-
-      slider.removeEventListener(
-        "touchstart",
-        handleTouchStart
-      );
-
-      slider.removeEventListener(
-        "touchend",
-        handleTouchEnd
-      );
-
-      slider.removeEventListener(
-        "mouseenter",
-        handleMouseEnter
-      );
-
-      slider.removeEventListener(
-        "mouseleave",
-        handleMouseLeave
-      );
+      track.style.transform =
+        "translate3d(0, 0, 0)";
     };
-
   }, []);
-
 
   /* =====================================================
      UI
@@ -226,50 +115,47 @@ const LocationBar = () => {
       className="location-bar"
       id="stores"
     >
-
       <div className="container location-inner">
 
-        {/* ==========================================
-            TITLE
-        ========================================== */}
+        {/* TITLE */}
 
         <span className="location-title">
           Our Stores:
         </span>
 
-
-        {/* ==========================================
-            LOCATION SLIDER
-        ========================================== */}
+        {/* SLIDER VIEWPORT */}
 
         <div
           className="location-list"
           ref={locationListRef}
         >
 
-          {locations.map((location) => (
+          {/* MOVING TRACK */}
 
-            <button
-              key={location}
-              type="button"
-              className={`location-chip ${
-                selectedLocation === location
-                  ? "active"
-                  : ""
-              }`}
-              onClick={() =>
-                handleLocationChange(location)
-              }
-            >
-              {location}
-            </button>
-
-          ))}
+          <div
+            className="location-track"
+            ref={locationTrackRef}
+          >
+            {locations.map((location) => (
+              <button
+                key={location}
+                type="button"
+                className={`location-chip ${
+                  selectedLocation === location
+                    ? "active"
+                    : ""
+                }`}
+                onClick={() =>
+                  handleLocationChange(location)
+                }
+              >
+                {location}
+              </button>
+            ))}
+          </div>
 
         </div>
-
       </div>
-
     </section>
   );
 };
