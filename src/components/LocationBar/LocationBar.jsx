@@ -1,139 +1,212 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { locations } from "../../data/locations";
 import "./LocationBar.css";
 
-const locations = [
-  "Jaipur",
-  "Jodhpur",
-  "Kota",
-  "Ajmer",
-  "Udaipur",
-  "Bikaner",
-  "Alwar",
-  "Sikar",
-  "Bharatpur",
-  "Chittorgarh",
-];
-
 const LocationBar = () => {
-  const sliderRef = useRef(null);
+  const [selectedLocation, setSelectedLocation] = useState("Jaipur");
 
-  // Selected location
-  const [activeLocation, setActiveLocation] = useState("Jaipur");
+  const locationListRef = useRef(null);
+
+  const animationRef = useRef(null);
+  const isPausedRef = useRef(false);
+
+  /* ========================================
+     LOCATION CLICK
+  ======================================== */
+
+  const handleLocationChange = (location) => {
+    setSelectedLocation(location);
+
+    console.log("Selected Store Location:", location);
+  };
+
+  /* ========================================
+     MOBILE CONTINUOUS AUTO SLIDER
+  ======================================== */
 
   useEffect(() => {
-    const slider = sliderRef.current;
+    const slider = locationListRef.current;
 
     if (!slider) return;
 
-    let animationFrame;
-    let paused = false;
+    let running = true;
 
-    const speed = 0.45;
+    const speed = 0.5;
 
-    const moveSlider = () => {
-      if (!paused) {
+    /* -------------------------------
+       ANIMATION
+    -------------------------------- */
+
+    const animate = () => {
+      if (!running) return;
+
+      /*
+        Sirf mobile par auto slider chalega
+      */
+
+      if (
+        window.innerWidth <= 768 &&
+        !isPausedRef.current
+      ) {
         slider.scrollLeft += speed;
 
-        const halfWidth = slider.scrollWidth / 2;
+        /*
+          Last ke paas pahunchne par
+          smoothly beginning par aa jao
+        */
 
-        if (halfWidth > 0 && slider.scrollLeft >= halfWidth) {
-          slider.scrollLeft -= halfWidth;
+        if (
+          slider.scrollLeft + slider.clientWidth >=
+          slider.scrollWidth - 1
+        ) {
+          slider.scrollLeft = 0;
         }
       }
 
-      animationFrame = requestAnimationFrame(moveSlider);
+      animationRef.current =
+        requestAnimationFrame(animate);
     };
 
-    const handleMouseEnter = () => {
-      paused = true;
-    };
-
-    const handleMouseLeave = () => {
-      paused = false;
-    };
+    /* ========================================
+       PAUSE ON TOUCH
+    ======================================== */
 
     const handleTouchStart = () => {
-      paused = true;
+      isPausedRef.current = true;
     };
 
     const handleTouchEnd = () => {
-      paused = false;
+      /*
+        Thoda delay taaki user ki swipe complete ho
+      */
+
+      setTimeout(() => {
+        isPausedRef.current = false;
+      }, 800);
     };
 
-    slider.addEventListener("mouseenter", handleMouseEnter);
-    slider.addEventListener("mouseleave", handleMouseLeave);
+    /* ========================================
+       PAUSE ON MOUSE
+       Useful for testing mobile mode
+    ======================================== */
 
-    slider.addEventListener("touchstart", handleTouchStart, {
-      passive: true,
-    });
+    const handleMouseEnter = () => {
+      if (window.innerWidth <= 768) {
+        isPausedRef.current = true;
+      }
+    };
 
-    slider.addEventListener("touchend", handleTouchEnd, {
-      passive: true,
-    });
+    const handleMouseLeave = () => {
+      if (window.innerWidth <= 768) {
+        isPausedRef.current = false;
+      }
+    };
 
-    animationFrame = requestAnimationFrame(moveSlider);
+    slider.addEventListener(
+      "touchstart",
+      handleTouchStart,
+      { passive: true }
+    );
+
+    slider.addEventListener(
+      "touchend",
+      handleTouchEnd,
+      { passive: true }
+    );
+
+    slider.addEventListener(
+      "mouseenter",
+      handleMouseEnter
+    );
+
+    slider.addEventListener(
+      "mouseleave",
+      handleMouseLeave
+    );
+
+    /*
+      Start animation
+    */
+
+    animationRef.current =
+      requestAnimationFrame(animate);
+
+    /* ========================================
+       CLEANUP
+    ======================================== */
 
     return () => {
-      cancelAnimationFrame(animationFrame);
+      running = false;
 
-      slider.removeEventListener("mouseenter", handleMouseEnter);
-      slider.removeEventListener("mouseleave", handleMouseLeave);
+      if (animationRef.current) {
+        cancelAnimationFrame(
+          animationRef.current
+        );
+      }
 
-      slider.removeEventListener("touchstart", handleTouchStart);
-      slider.removeEventListener("touchend", handleTouchEnd);
+      slider.removeEventListener(
+        "touchstart",
+        handleTouchStart
+      );
+
+      slider.removeEventListener(
+        "touchend",
+        handleTouchEnd
+      );
+
+      slider.removeEventListener(
+        "mouseenter",
+        handleMouseEnter
+      );
+
+      slider.removeEventListener(
+        "mouseleave",
+        handleMouseLeave
+      );
     };
   }, []);
 
-  const handleLocationClick = (location) => {
-    setActiveLocation(location);
-
-    console.log("Selected Location:", location);
-  };
-
   return (
-    <section className="location-bar">
-      <div className="location-inner">
+    <section
+      className="location-bar"
+      id="stores"
+    >
+      <div className="container location-inner">
 
-        {/* TITLE */}
-        <div className="location-title">
-          Shop by Location
-        </div>
+        {/* ========================================
+            TITLE
+        ======================================== */}
 
-        {/* SLIDER */}
+        <span style={{fontSize:"20px"}} className="location-title">
+          Our Stores:
+        </span>
+
+        {/* ========================================
+            LOCATION LIST
+        ======================================== */}
+
         <div
           className="location-list"
-          ref={sliderRef}
+          ref={locationListRef}
         >
-
-          {/* FIRST SET */}
-          {locations.map((location, index) => (
+          {locations.map((location) => (
             <button
+              key={location}
               type="button"
-              key={`first-${index}`}
               className={`location-chip ${
-                activeLocation === location ? "active" : ""
+                selectedLocation === location
+                  ? "active"
+                  : ""
               }`}
-              onClick={() => handleLocationClick(location)}
+              onClick={() =>
+                handleLocationChange(location)
+              }
             >
               {location}
             </button>
           ))}
-
-          {/* DUPLICATE SET */}
-          {locations.map((location, index) => (
-            <button
-              type="button"
-              key={`second-${index}`}
-              className={`location-chip ${
-                activeLocation === location ? "active" : ""
-              }`}
-              onClick={() => handleLocationClick(location)}
-            >
-              {location}
-            </button>
-          ))}
-
         </div>
+
       </div>
     </section>
   );
