@@ -1,11 +1,17 @@
+/* =====================================================
+   CATEGORY GRID
+===================================================== */
+
 .category-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(6, 1fr);
-
+  grid-template-columns: repeat(6, 1fr);
   gap: 12px;
 }
+
+
+/* =====================================================
+   CATEGORY TILE
+===================================================== */
 
 .category-tile {
   padding: 11px;
@@ -20,7 +26,14 @@
 
   text-align: center;
 
-  transition: 0.25s ease;
+  text-decoration: none;
+
+  color: inherit;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .category-tile:hover {
@@ -32,13 +45,27 @@
     0 15px 35px rgba(0, 0, 0, 0.06);
 }
 
+
+/* =====================================================
+   CATEGORY IMAGE
+===================================================== */
+
 .category-tile img {
+  width: 100%;
+
   height: 105px;
+
+  display: block;
 
   border-radius: 11px;
 
   object-fit: cover;
 }
+
+
+/* =====================================================
+   CATEGORY NAME
+===================================================== */
 
 .category-tile span {
   display: block;
@@ -46,23 +73,180 @@
   padding: 11px 4px 4px;
 
   font-size: 12px;
+
   font-weight: 800;
+
+  line-height: 1.3;
 }
+
+
+/* =====================================================
+   TABLET
+===================================================== */
 
 @media (max-width: 1000px) {
+
   .category-grid {
-    grid-template-columns:
-      repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
+
 }
 
+
+/* =====================================================
+   MOBILE - HORIZONTAL SLIDER
+===================================================== */
+
 @media (max-width: 720px) {
+
   .category-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+
+    display: flex;
+
+    gap: 12px;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    padding: 4px 4px 12px;
+
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+
+    /* scrollbar hide */
+    scrollbar-width: none;
+
+    /* cards ko ek line mein rakhega */
+    flex-wrap: nowrap;
   }
 
+
+  /* Chrome / Edge / Safari scrollbar hide */
+
+  .category-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /* =================================================
+     MOBILE CARD
+  ================================================= */
+
+  .category-tile {
+
+    flex: 0 0 150px;
+
+    width: 150px;
+
+    min-width: 150px;
+
+    padding: 10px;
+
+    border-radius: 15px;
+  }
+
+
   .category-tile img {
+
+    width: 100%;
+
+    height: 105px;
+
+    border-radius: 10px;
+
+    object-fit: cover;
+  }
+
+
+  .category-tile span {
+
+    padding: 9px 3px 3px;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+  }
+
+
+  /* Mobile par hover transform hata diya */
+
+  .category-tile:hover {
+
+    transform: none;
+
+    box-shadow: none;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .category-grid {
+    gap: 10px;
+
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+
+  .category-tile {
+
+    flex: 0 0 140px;
+
+    width: 140px;
+
+    min-width: 140px;
+
+    padding: 9px;
+  }
+
+
+  .category-tile img {
+
     height: 95px;
   }
+
+
+  .category-tile span {
+
+    font-size: 11px;
+
+    padding-top: 8px;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .category-tile {
+
+    flex: 0 0 130px;
+
+    width: 130px;
+
+    min-width: 130px;
+  }
+
+
+  .category-tile img {
+
+    height: 88px;
+  }
+
 }
