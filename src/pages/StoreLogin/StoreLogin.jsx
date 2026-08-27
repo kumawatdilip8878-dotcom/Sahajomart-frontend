@@ -29,7 +29,7 @@ function StoreLogin() {
     <div className="store-login-page">
       <div className="store-login-card">
         <Link to="/" className="back-home">
-          ← Back to SahajoMart
+          ← Back to Sahjo Mart
         </Link>
 
         <div className="auth-logo">

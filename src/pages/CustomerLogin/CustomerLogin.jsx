@@ -30,7 +30,7 @@ function CustomerLogin() {
       <div className="login-page-card">
 
         <Link to="/" className="back-home">
-          ← Back to SahajoMart
+          ← Back to Sahjo Mart
         </Link>
 
         <div className="auth-logo">
@@ -52,7 +52,7 @@ function CustomerLogin() {
         <h1>Customer Login</h1>
 
         <p>
-          Login to access your SahajoMart customer account.
+          Login to access your Sahjo Mart customer account.
         </p>
 
         <form onSubmit={handleSubmit}>

@@ -17,7 +17,7 @@ function InfoStrip() {
     {
       label: "Service",
       value:
-"अपने पास के SahjoMart से शॉपिंग करें",
+"Easy Shopping from Your Nearest Sahjo Mart",
     },
   ];
 

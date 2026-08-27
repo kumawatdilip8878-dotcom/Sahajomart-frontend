@@ -84,7 +84,7 @@ const PWAInstallPrompt = () => {
           />
         </div>
 
-        <h2>Install SahajoMart</h2>
+        <h2>Install Sahjo Mart</h2>
 
         <p>
           Install our app for a faster and better
