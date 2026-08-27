@@ -2,12 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import "./FloatingVideo.css";
 
 const FloatingVideo = () => {
-  const [position, setPosition] = useState(100);
+  const [position, setPosition] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
   const videoRef = useRef(null);
 
-  // Video autoplay
+  // ========================================
+  // VIDEO AUTOPLAY
+  // ========================================
+
   useEffect(() => {
     if (videoRef.current && isVisible) {
       videoRef.current.play().catch((err) => {
@@ -16,26 +19,39 @@ const FloatingVideo = () => {
     }
   }, [isVisible]);
 
+
   // ========================================
   // CONTINUOUS RIGHT → LEFT MOVEMENT
   // ========================================
+
   useEffect(() => {
     if (!isVisible) return;
 
     let animationId;
 
-    let currentPosition = 100;
+    let currentPosition = window.innerWidth;
 
-    // Speed
-    const speed = 0.150;
+    const speed = 0.5;
 
     const animate = () => {
+
       currentPosition -= speed;
 
-      // Left side par completely bahar jaane ke baad
-      // right side se dobara enter karega
-      if (currentPosition <= -5) {
-        currentPosition = 100;
+      /*
+       * Video completely left side se bahar hone ke baad
+       * dobara right side se start hoga.
+       */
+      const videoWidth =
+        window.innerWidth <= 360
+          ? 130
+          : window.innerWidth <= 480
+          ? 150
+          : window.innerWidth <= 768
+          ? 180
+          : 260;
+
+      if (currentPosition <= -videoWidth) {
+        currentPosition = window.innerWidth;
       }
 
       setPosition(currentPosition);
@@ -50,13 +66,20 @@ const FloatingVideo = () => {
     };
   }, [isVisible]);
 
+
+  // ========================================
+  // CLOSE
+  // ========================================
+
   const handleClose = () => {
     setIsVisible(false);
   };
 
+
   if (!isVisible) {
     return null;
   }
+
 
   return (
     <div className="floating-video-wrapper">
@@ -64,15 +87,16 @@ const FloatingVideo = () => {
       <div
         className="floating-video-container"
         style={{
-          left: `${position}%`,
-          transform: "translateX(-100%)",
+          left: `${position}px`,
         }}
       >
 
         <div className="floating-video-box">
 
-          {/* Close Button */}
+          {/* CLOSE BUTTON */}
+
           <button
+            type="button"
             className="video-close-btn"
             onClick={handleClose}
             aria-label="Close video"
@@ -80,7 +104,9 @@ const FloatingVideo = () => {
             ✕
           </button>
 
-          {/* Video */}
+
+          {/* VIDEO */}
+
           <video
             ref={videoRef}
             src="https://media.gettyimages.com/id/483716927/video/fruit-and-vegetable-section-of-a-supermarket.mp4?s=mp4-640x640-gi&k=20&c=jckrFhUhSTIG8qGWYV7KR3seKptpqnbhQhtvb1A2b3w="
@@ -88,13 +114,14 @@ const FloatingVideo = () => {
             autoPlay
             loop
             playsInline
+            preload="auto"
             className="floating-video"
           />
 
-          {/* Overlay */}
-          <div className="video-overlay">
-            {/* <span>Special Offer</span> */}
-          </div>
+
+          {/* OVERLAY */}
+
+          <div className="video-overlay"></div>
 
         </div>
 

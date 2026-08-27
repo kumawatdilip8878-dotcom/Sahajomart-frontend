@@ -1,88 +1,141 @@
-import { useEffect, useRef, useState } from "react";
-import { locations } from "../../data/locations";
+import React, { useEffect, useRef, useState } from "react";
 import "./LocationBar.css";
 
+const locations = [
+  "Jaipur",
+  "Jodhpur",
+  "Kota",
+  "Ajmer",
+  "Udaipur",
+  "Bikaner",
+  "Alwar",
+  "Sikar",
+  "Bharatpur",
+  "Chittorgarh",
+];
+
 const LocationBar = () => {
-  const [selectedLocation, setSelectedLocation] = useState("Jaipur");
-  const locationListRef = useRef(null);
+  const sliderRef = useRef(null);
 
-  const handleLocationChange = (location) => {
-    setSelectedLocation(location);
-    console.log("Selected Store Location:", location);
-  };
+  // Selected location
+  const [activeLocation, setActiveLocation] = useState("Jaipur");
 
-  /* ========================================
-     MOBILE AUTO SLIDER
-  ======================================== */
   useEffect(() => {
-    const slider = locationListRef.current;
+    const slider = sliderRef.current;
 
     if (!slider) return;
 
-    const startSlider = () => {
-      if (window.innerWidth > 768) return;
+    let animationFrame;
+    let paused = false;
 
-      const scrollAmount = 1;
+    const speed = 0.45;
 
-      const interval = setInterval(() => {
-        if (!slider) return;
+    const moveSlider = () => {
+      if (!paused) {
+        slider.scrollLeft += speed;
 
-        slider.scrollLeft += scrollAmount;
+        const halfWidth = slider.scrollWidth / 2;
 
-        /*
-          End par pahunchne ke baad
-          slider ko wapas beginning par le aao
-        */
-        if (
-          slider.scrollLeft + slider.clientWidth >=
-          slider.scrollWidth - 2
-        ) {
-          slider.scrollLeft = 0;
+        if (halfWidth > 0 && slider.scrollLeft >= halfWidth) {
+          slider.scrollLeft -= halfWidth;
         }
-      }, 30);
+      }
 
-      return interval;
+      animationFrame = requestAnimationFrame(moveSlider);
     };
 
-    const interval = startSlider();
+    const handleMouseEnter = () => {
+      paused = true;
+    };
+
+    const handleMouseLeave = () => {
+      paused = false;
+    };
+
+    const handleTouchStart = () => {
+      paused = true;
+    };
+
+    const handleTouchEnd = () => {
+      paused = false;
+    };
+
+    slider.addEventListener("mouseenter", handleMouseEnter);
+    slider.addEventListener("mouseleave", handleMouseLeave);
+
+    slider.addEventListener("touchstart", handleTouchStart, {
+      passive: true,
+    });
+
+    slider.addEventListener("touchend", handleTouchEnd, {
+      passive: true,
+    });
+
+    animationFrame = requestAnimationFrame(moveSlider);
 
     return () => {
-      if (interval) clearInterval(interval);
+      cancelAnimationFrame(animationFrame);
+
+      slider.removeEventListener("mouseenter", handleMouseEnter);
+      slider.removeEventListener("mouseleave", handleMouseLeave);
+
+      slider.removeEventListener("touchstart", handleTouchStart);
+      slider.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
 
+  const handleLocationClick = (location) => {
+    setActiveLocation(location);
+
+    console.log("Selected Location:", location);
+  };
+
   return (
-    <div className="location-bar" id="stores">
-      <div className="container location-inner">
+    <section className="location-bar">
+      <div className="location-inner">
 
-        <span className="location-title">
-          Our Stores:
-        </span>
+        {/* TITLE */}
+        <div className="location-title">
+          Shop by Location
+        </div>
 
+        {/* SLIDER */}
         <div
           className="location-list"
-          ref={locationListRef}
+          ref={sliderRef}
         >
-          {locations.map((location) => (
+
+          {/* FIRST SET */}
+          {locations.map((location, index) => (
             <button
-              key={location}
               type="button"
+              key={`first-${index}`}
               className={`location-chip ${
-                selectedLocation === location
-                  ? "active"
-                  : ""
+                activeLocation === location ? "active" : ""
               }`}
-              onClick={() =>
-                handleLocationChange(location)
-              }
+              onClick={() => handleLocationClick(location)}
             >
               {location}
             </button>
           ))}
-        </div>
 
+          {/* DUPLICATE SET */}
+          {locations.map((location, index) => (
+            <button
+              type="button"
+              key={`second-${index}`}
+              className={`location-chip ${
+                activeLocation === location ? "active" : ""
+              }`}
+              onClick={() => handleLocationClick(location)}
+            >
+              {location}
+            </button>
+          ))}
+
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

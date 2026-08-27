@@ -3,6 +3,7 @@
 ===================================================== */
 
 .location-bar {
+  width: 100%;
   padding: 12px 0;
 
   background: #f8f8f8;
@@ -19,6 +20,7 @@
 ===================================================== */
 
 .location-inner {
+  width: 100%;
   display: flex;
 
   align-items: center;
@@ -26,6 +28,8 @@
   gap: 15px;
 
   padding: 0 15px;
+
+  box-sizing: border-box;
 }
 
 
@@ -34,7 +38,7 @@
 ===================================================== */
 
 .location-title {
-  flex-shrink: 0;
+  flex: 0 0 auto;
 
   font-size: 14px;
 
@@ -47,17 +51,46 @@
 
 
 /* =====================================================
-   LOCATION LIST
+   LOCATION LIST - DESKTOP SLIDER
 ===================================================== */
 
 .location-list {
+  flex: 1;
+
+  min-width: 0;
+
   display: flex;
 
   align-items: center;
 
   gap: 10px;
 
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+
+  overflow-x: auto;
+
+  overflow-y: hidden;
+
+  padding: 4px 5px 8px;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+
+  cursor: grab;
+
+  touch-action: pan-x;
+
+  overscroll-behavior-x: contain;
+}
+
+
+/* Chrome / Edge / Safari */
+
+.location-list::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -66,6 +99,8 @@
 ===================================================== */
 
 .location-chip {
+  flex: 0 0 auto;
+
   padding: 8px 18px;
 
   border: 2px solid #ddd;
@@ -82,17 +117,20 @@
 
   cursor: pointer;
 
-  transition:
-    border-color 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-
   white-space: nowrap;
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
 
-/* Hover */
+/* =====================================================
+   HOVER
+===================================================== */
 
 .location-chip:hover {
   border-color: #ff6b35;
@@ -106,7 +144,9 @@
 }
 
 
-/* Active */
+/* =====================================================
+   ACTIVE
+===================================================== */
 
 .location-chip.active {
   border-color: #ff6b35;
@@ -124,7 +164,9 @@
 }
 
 
-/* Active Hover */
+/* =====================================================
+   ACTIVE HOVER
+===================================================== */
 
 .location-chip.active:hover {
   background: linear-gradient(
@@ -133,50 +175,58 @@
     #d04a1a
   );
 
+  color: #fff;
+
   transform: translateY(-2px);
 
   box-shadow:
-    0 6px 24px rgba(255, 107, 53, 0.5);
+    0 6px 20px rgba(255, 107, 53, 0.35);
 }
 
 
 /* =====================================================
-   MOBILE AUTO SLIDER
+   MOBILE
 ===================================================== */
 
 @media (max-width: 768px) {
 
   .location-bar {
     padding: 10px 0;
-
-    overflow: hidden;
   }
 
 
-  .location-inner {
-    display: flex;
+  /* -----------------------------------------
+     INNER
+  ----------------------------------------- */
 
+  .location-inner {
     flex-direction: column;
 
     align-items: flex-start;
 
-    gap: 9px;
+    gap: 8px;
 
-    padding: 0 15px;
+    padding: 0 12px;
   }
 
+
+  /* -----------------------------------------
+     TITLE
+  ----------------------------------------- */
 
   .location-title {
     font-size: 13px;
   }
 
 
-  /* ==========================================
-     HORIZONTAL SLIDER
-  ========================================== */
+  /* -----------------------------------------
+     MOBILE SLIDER
+  ----------------------------------------- */
 
   .location-list {
     width: 100%;
+
+    flex: none;
 
     display: flex;
 
@@ -200,33 +250,31 @@
 
     -ms-overflow-style: none;
 
+    cursor: grab;
+
     touch-action: pan-x;
+
+    box-sizing: border-box;
   }
 
-
-  /* Chrome / Edge / Safari */
 
   .location-list::-webkit-scrollbar {
     display: none;
   }
 
 
-  /* ==========================================
-     CHIP
-  ========================================== */
+  /* -----------------------------------------
+     MOBILE CHIP
+  ----------------------------------------- */
 
   .location-chip {
     flex: 0 0 auto;
-
-    min-width: auto;
 
     padding: 7px 16px;
 
     font-size: 12px;
 
     border-radius: 20px;
-
-    white-space: nowrap;
   }
 
 }
@@ -241,7 +289,7 @@
   .location-inner {
     padding: 0 10px;
 
-    gap: 8px;
+    gap: 7px;
   }
 
 
@@ -253,7 +301,372 @@
   .location-list {
     gap: 7px;
 
-    padding-bottom: 7px;
+    padding: 2px 2px 7px;
+  }
+
+
+  .location-chip {
+    padding: 6px 14px;
+
+    font-size: 11px;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .location-inner {
+    padding: 0 8px;
+  }
+
+
+  .location-title {
+    font-size: 11px;
+  }
+
+
+  .location-list {
+    gap: 6px;
+  }
+
+
+  .location-chip {
+    padding: 6px 12px;
+
+    font-size: 10px;
+  }
+
+}
+.location-list {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: nowrap;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 4px 5px 8px;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  cursor: grab;
+
+  touch-action: pan-x;
+
+  overscroll-behavior-x: contain;
+
+  scroll-behavior: auto;
+}
+
+.location-list::-webkit-scrollbar {
+  display: none;
+}
+
+.location-chip {
+  flex: 0 0 auto;
+}
+/* =====================================================
+   LOCATION BAR
+===================================================== */
+
+.location-bar {
+  width: 100%;
+
+  padding: 12px 0;
+
+  background: #f8f8f8;
+
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   INNER
+===================================================== */
+
+.location-inner {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 0 15px;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.location-title {
+  flex: 0 0 auto;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #333;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   LOCATION SLIDER
+===================================================== */
+
+.location-list {
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: nowrap;
+
+  overflow-x: auto;
+
+  overflow-y: hidden;
+
+  padding: 4px 5px 8px;
+
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+
+  scroll-behavior: auto;
+
+  cursor: grab;
+
+  touch-action: pan-x;
+
+  overscroll-behavior-x: contain;
+
+  box-sizing: border-box;
+}
+
+
+/* Chrome / Edge / Safari */
+
+.location-list::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =====================================================
+   LOCATION BUTTON
+===================================================== */
+
+.location-chip {
+  flex: 0 0 auto;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 8px 18px;
+
+  border: 2px solid #ddd;
+
+  border-radius: 25px;
+
+  background: #fff;
+
+  color: #333;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  outline: none;
+
+  user-select: none;
+
+  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =====================================================
+   BUTTON HOVER
+===================================================== */
+
+.location-chip:hover {
+  border-color: #ff6b35;
+
+  color: #ff6b35;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 4px 12px rgba(255, 107, 53, 0.15);
+}
+
+
+/* =====================================================
+   ACTIVE BUTTON
+===================================================== */
+
+.location-chip.active {
+  border-color: #ff6b35;
+
+  background: linear-gradient(
+    135deg,
+    #ff6b35,
+    #e85d2c
+  );
+
+  color: #fff;
+
+  box-shadow:
+    0 4px 14px rgba(255, 107, 53, 0.35);
+}
+
+
+/* =====================================================
+   ACTIVE HOVER
+===================================================== */
+
+.location-chip.active:hover {
+  border-color: #e85d2c;
+
+  background: linear-gradient(
+    135deg,
+    #e85d2c,
+    #d04a1a
+  );
+
+  color: #fff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+
+/* =====================================================
+   CLICK EFFECT
+===================================================== */
+
+.location-chip:active {
+  transform: scale(0.96);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .location-bar {
+    padding: 10px 0;
+  }
+
+
+  .location-inner {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    padding: 0 12px;
+  }
+
+
+  .location-title {
+    font-size: 13px;
+  }
+
+
+  .location-list {
+    width: 100%;
+
+    flex: none;
+
+    gap: 8px;
+
+    padding: 3px 2px 8px;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+  }
+
+
+  .location-chip {
+    padding: 7px 16px;
+
+    font-size: 12px;
+
+    border-radius: 22px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .location-inner {
+    padding: 0 10px;
+
+    gap: 7px;
+  }
+
+
+  .location-title {
+    font-size: 12px;
+  }
+
+
+  .location-list {
+    gap: 7px;
+
+    padding: 2px 2px 7px;
   }
 
 

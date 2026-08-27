@@ -252,3 +252,230 @@
     right: 4px;
   }
 }
+/* =====================================================
+   FLOATING VIDEO WRAPPER
+===================================================== */
+
+.floating-video-wrapper {
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 99999;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   FLOATING VIDEO CONTAINER
+===================================================== */
+
+.floating-video-container {
+  position: absolute;
+
+  bottom: 20px;
+
+  width: 260px;
+
+  pointer-events: auto;
+
+  will-change: left;
+
+  transform: none !important;
+}
+
+
+/* =====================================================
+   VIDEO BOX
+===================================================== */
+
+.floating-video-box {
+  position: relative;
+
+  width: 260px;
+  height: 150px;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background: #000;
+
+  border: 3px solid #ff6b35;
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================================
+   VIDEO
+===================================================== */
+
+.floating-video {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.video-close-btn {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  z-index: 10;
+
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  color: #fff;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.video-overlay {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 35%;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0, 0, 0, 0.75)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+  .floating-video-container {
+    width: 180px;
+
+    bottom: 15px;
+  }
+
+  .floating-video-box {
+    width: 180px;
+    height: 110px;
+
+    border-radius: 14px;
+
+    border-width: 2px;
+  }
+
+  .video-close-btn {
+    width: 24px;
+    height: 24px;
+
+    top: 7px;
+    right: 7px;
+
+    font-size: 12px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media screen and (max-width: 480px) {
+
+  .floating-video-container {
+    width: 150px;
+
+    bottom: 10px;
+  }
+
+  .floating-video-box {
+    width: 150px;
+    height: 90px;
+
+    border-radius: 12px;
+
+    border-width: 2px;
+  }
+
+  .video-close-btn {
+    width: 22px;
+    height: 22px;
+
+    top: 5px;
+    right: 5px;
+
+    font-size: 10px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONE
+===================================================== */
+
+@media screen and (max-width: 360px) {
+
+  .floating-video-container {
+    width: 130px;
+
+    bottom: 8px;
+  }
+
+  .floating-video-box {
+    width: 130px;
+    height: 75px;
+
+    border-radius: 10px;
+  }
+
+  .video-close-btn {
+    width: 20px;
+    height: 20px;
+
+    top: 4px;
+    right: 4px;
+
+    font-size: 9px;
+  }
+}
