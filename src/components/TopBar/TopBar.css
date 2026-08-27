@@ -490,3 +490,314 @@
     font-size: 11px !important;
   }
 }
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.top-bar {
+  width: 100%;
+  background: #171717;
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   TOP BAR INNER
+===================================================== */
+
+.top-bar-inner {
+  min-height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 10px;
+}
+
+
+/* =====================================================
+   CONTACT AREA
+===================================================== */
+
+.top-contact {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+/* =====================================================
+   CONTACT ITEM
+===================================================== */
+
+.contact-item {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   PHONE
+===================================================== */
+
+.contact-item:first-child {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+
+/* =====================================================
+   LOCATION
+===================================================== */
+
+.location-contact {
+  margin-left: auto;
+  margin-right: 0;
+
+  text-align: right;
+}
+
+
+/* =====================================================
+   ICONS
+===================================================== */
+
+.contact-icon {
+  width: 14px;
+  height: 14px;
+
+  font-size: 13px;
+
+  flex-shrink: 0;
+}
+
+
+/* Phone orange */
+
+.phone-icon {
+  color: #ffb348;
+}
+
+
+/* Location white */
+
+.location-icon {
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+.contact-item span {
+  color: #ffffff;
+
+  font-size: 14px !important;
+  font-weight: 600;
+
+  line-height: 1;
+}
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+.language-switcher {
+  display: none;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .top-bar-inner {
+    min-height: 37px;
+    padding: 0 14px;
+  }
+
+  .top-contact {
+    gap: 17px;
+  }
+
+  .contact-item {
+    gap: 6px;
+  }
+
+  .contact-item span {
+    font-size: 12px !important;
+  }
+
+  .contact-icon {
+    width: 13px;
+    height: 13px;
+    font-size: 12px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 720px) {
+
+  .top-bar-inner {
+    min-height: 38px;
+    padding: 0 10px;
+  }
+
+  .top-contact {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+  }
+
+
+  /* LEFT PHONE */
+
+  .contact-item:first-child {
+    flex: 0 0 auto;
+
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+
+  /* RIGHT LOCATION */
+
+  .location-contact {
+    flex: 0 1 auto;
+
+    max-width: 55%;
+
+    margin-left: auto;
+    margin-right: 0;
+
+    justify-content: flex-end;
+  }
+
+
+  .location-contact span {
+    max-width: 100%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    text-align: right;
+  }
+
+
+  .contact-item span {
+    font-size: 12px !important;
+    font-weight: 600;
+  }
+
+
+  .contact-icon {
+    width: 12px;
+    height: 12px;
+
+    font-size: 11px;
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .top-bar-inner {
+    min-height: 36px;
+    padding: 0 8px;
+  }
+
+  .top-contact {
+    gap: 8px;
+  }
+
+
+  /* LEFT PHONE */
+
+  .contact-item:first-child {
+    gap: 4px;
+  }
+
+
+  /* RIGHT LOCATION */
+
+  .location-contact {
+    max-width: 52%;
+    gap: 4px;
+  }
+
+
+  .contact-item span {
+    font-size: 11px !important;
+  }
+
+
+  .contact-icon {
+    width: 11px;
+    height: 11px;
+
+    font-size: 10px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .top-bar-inner {
+    padding: 0 6px;
+  }
+
+  .top-contact {
+    gap: 6px;
+  }
+
+
+  .contact-item span {
+    font-size: 10px !important;
+  }
+
+
+  .location-contact {
+    max-width: 50%;
+  }
+
+
+  .contact-icon {
+    width: 10px;
+    height: 10px;
+
+    font-size: 9px;
+  }
+}

@@ -461,12 +461,12 @@ function CategorySlider({ id, title, description, items }) {
 
                 <div className="slide-content">
 
-                  {/* <span className="slide-label">{item.label}</span> */}
+                   <span className="slide-label">{item.label}</span> 
 
 
-                  {/* <h3>{item.title}</h3>
+                   <h3>{item.title}</h3>
                     <p>{item.description}</p>
-                    <a href={item.link || "#"}></a> */}
+                    <a href={item.link || "#"}> </a> 
 
                 </div>
 
