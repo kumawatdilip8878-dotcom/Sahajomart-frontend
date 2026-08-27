@@ -3,16 +3,17 @@ import { locations } from "../../data/locations";
 import "./LocationBar.css";
 
 const LocationBar = () => {
-  const [selectedLocation, setSelectedLocation] = useState("Jaipur");
+  const [selectedLocation, setSelectedLocation] =
+    useState("Jaipur");
 
   const locationListRef = useRef(null);
 
   const animationRef = useRef(null);
-  const isPausedRef = useRef(false);
+  const pausedRef = useRef(false);
 
-  /* ========================================
+  /* =====================================================
      LOCATION CLICK
-  ======================================== */
+  ===================================================== */
 
   const handleLocationChange = (location) => {
     setSelectedLocation(location);
@@ -20,9 +21,10 @@ const LocationBar = () => {
     console.log("Selected Store Location:", location);
   };
 
-  /* ========================================
-     MOBILE CONTINUOUS AUTO SLIDER
-  ======================================== */
+
+  /* =====================================================
+     MOBILE AUTO SLIDER
+  ===================================================== */
 
   useEffect(() => {
     const slider = locationListRef.current;
@@ -30,77 +32,128 @@ const LocationBar = () => {
     if (!slider) return;
 
     let running = true;
+    let lastTime = 0;
 
-    const speed = 0.5;
+    /*
+      Speed:
+      0.04 = slow and smooth
+    */
+    const speed = 0.04;
 
-    /* -------------------------------
+
+    /* =====================================================
        ANIMATION
-    -------------------------------- */
+    ===================================================== */
 
-    const animate = () => {
+    const animate = (currentTime) => {
+
       if (!running) return;
 
       /*
-        Sirf mobile par auto slider chalega
+        First frame
       */
+      if (!lastTime) {
+        lastTime = currentTime;
+      }
 
+      const deltaTime =
+        currentTime - lastTime;
+
+      lastTime = currentTime;
+
+
+      /*
+        ONLY MOBILE
+      */
       if (
         window.innerWidth <= 768 &&
-        !isPausedRef.current
+        !pausedRef.current
       ) {
-        slider.scrollLeft += speed;
+
+        slider.scrollLeft +=
+          deltaTime * speed;
+
 
         /*
-          Last ke paas pahunchne par
-          smoothly beginning par aa jao
+          Last location ke baad
+          first location par wapas
         */
 
         if (
-          slider.scrollLeft + slider.clientWidth >=
+          slider.scrollLeft +
+            slider.clientWidth >=
           slider.scrollWidth - 1
         ) {
           slider.scrollLeft = 0;
         }
       }
 
+
       animationRef.current =
         requestAnimationFrame(animate);
     };
 
-    /* ========================================
-       PAUSE ON TOUCH
-    ======================================== */
+
+    /*
+      Start
+    */
+
+    animationRef.current =
+      requestAnimationFrame(animate);
+
+
+    /* =====================================================
+       TOUCH START
+    ===================================================== */
 
     const handleTouchStart = () => {
-      isPausedRef.current = true;
+      pausedRef.current = true;
     };
 
+
+    /* =====================================================
+       TOUCH END
+    ===================================================== */
+
     const handleTouchEnd = () => {
+
       /*
-        Thoda delay taaki user ki swipe complete ho
+        User ko swipe karne ka time do
       */
 
       setTimeout(() => {
-        isPausedRef.current = false;
-      }, 800);
+        pausedRef.current = false;
+      }, 700);
     };
 
-    /* ========================================
-       PAUSE ON MOUSE
-       Useful for testing mobile mode
-    ======================================== */
+
+    /* =====================================================
+       MOUSE ENTER
+    ===================================================== */
 
     const handleMouseEnter = () => {
+
       if (window.innerWidth <= 768) {
-        isPausedRef.current = true;
+        pausedRef.current = true;
       }
     };
 
+
+    /* =====================================================
+       MOUSE LEAVE
+    ===================================================== */
+
     const handleMouseLeave = () => {
+
       if (window.innerWidth <= 768) {
-        isPausedRef.current = false;
+        pausedRef.current = false;
       }
     };
+
+
+    /* =====================================================
+       EVENTS
+    ===================================================== */
 
     slider.addEventListener(
       "touchstart",
@@ -124,18 +177,13 @@ const LocationBar = () => {
       handleMouseLeave
     );
 
-    /*
-      Start animation
-    */
 
-    animationRef.current =
-      requestAnimationFrame(animate);
-
-    /* ========================================
+    /* =====================================================
        CLEANUP
-    ======================================== */
+    ===================================================== */
 
     return () => {
+
       running = false;
 
       if (animationRef.current) {
@@ -143,6 +191,7 @@ const LocationBar = () => {
           animationRef.current
         );
       }
+
 
       slider.removeEventListener(
         "touchstart",
@@ -164,32 +213,42 @@ const LocationBar = () => {
         handleMouseLeave
       );
     };
+
   }, []);
+
+
+  /* =====================================================
+     UI
+  ===================================================== */
 
   return (
     <section
       className="location-bar"
       id="stores"
     >
+
       <div className="container location-inner">
 
-        {/* ========================================
+        {/* ==========================================
             TITLE
-        ======================================== */}
+        ========================================== */}
 
-        <span style={{fontSize:"20px"}} className="location-title">
+        <span className="location-title">
           Our Stores:
         </span>
 
-        {/* ========================================
-            LOCATION LIST
-        ======================================== */}
+
+        {/* ==========================================
+            LOCATION SLIDER
+        ========================================== */}
 
         <div
           className="location-list"
           ref={locationListRef}
         >
+
           {locations.map((location) => (
+
             <button
               key={location}
               type="button"
@@ -204,10 +263,13 @@ const LocationBar = () => {
             >
               {location}
             </button>
+
           ))}
+
         </div>
 
       </div>
+
     </section>
   );
 };
