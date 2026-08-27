@@ -1,162 +1,153 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./CategorySlider.css";
 
-function CategorySlider({ id, title, description, items = [] }) {
-  const sliderRef = useRef(null);
+function CategorySlider({
+  id,
+  title,
+  description,
+  items = [],
+}) {
+  const trackRef = useRef(null);
+  const positionRef = useRef(0);
   const animationRef = useRef(null);
-  const progressRef = useRef(null);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] =
+    useState(0);
 
   const originalLength = items.length;
 
-  /*
-   * Duplicate nahi kar rahe.
-   * Real items ko hi continuously move karenge.
-   */
+  const extendedItems = [
+    ...items,
+    ...items,
+    ...items,
+  ];
 
-  /* =====================================================
-     GET CARD WIDTH
-  ===================================================== */
+  const getSlideWidth = () => {
+    const track = trackRef.current;
 
-  const getCardWidth = () => {
-    const slider = sliderRef.current;
+    if (!track) return 0;
 
-    if (!slider) return 0;
-
-    const card = slider.querySelector(".slide-card");
+    const card =
+      track.querySelector(".slide-card");
 
     if (!card) return 0;
 
-    const cardWidth = card.getBoundingClientRect().width;
+    const cardWidth =
+      card.getBoundingClientRect().width;
 
-    const style = window.getComputedStyle(slider);
-
-    const gap = parseFloat(style.columnGap || style.gap) || 0;
+    const gap =
+      parseFloat(
+        window.getComputedStyle(track).gap
+      ) || 0;
 
     return cardWidth + gap;
   };
 
-  /* =====================================================
-     AUTO SLIDER
-  ===================================================== */
-
   useEffect(() => {
-    const slider = sliderRef.current;
+    const track = trackRef.current;
 
-    if (!slider || originalLength <= 1) {
-      return undefined;
+    if (!track || !originalLength) {
+      return;
     }
 
     let running = true;
     let lastTime = performance.now();
 
-    /*
-     * Speed in pixels per second
-     */
-    const speed = 35;
+    const speed = 20;
 
-    const animate = (currentTime) => {
+    const animate = (time) => {
       if (!running) return;
 
-      const deltaTime = currentTime - lastTime;
+      const delta =
+        time - lastTime;
 
-      lastTime = currentTime;
+      lastTime = time;
 
-      /*
-       * Very large delta avoid
-       */
-      const safeDelta = Math.min(deltaTime, 50);
+      const width =
+        getSlideWidth();
 
-      /*
-       * Move continuously
-       */
-      slider.scrollLeft +=
-        (speed * safeDelta) / 1000;
+      if (width) {
+        const oneSetWidth =
+          width * originalLength;
 
-      const cardWidth = getCardWidth();
-
-      if (cardWidth > 0) {
-        /*
-         * Current visible card
-         */
-        const rawIndex =
-          Math.round(slider.scrollLeft / cardWidth);
-
-        const newIndex =
-          rawIndex % originalLength;
-
-        setCurrentIndex(newIndex);
-
-        /*
-         * IMPORTANT
-         *
-         * Jab last ke paas pahunch jaye
-         * to first par smoothly reset.
-         */
-
-        const maxScroll =
-          slider.scrollWidth -
-          slider.clientWidth;
+        positionRef.current +=
+          (speed * delta) / 1000;
 
         if (
-          maxScroll > 0 &&
-          slider.scrollLeft >= maxScroll - 1
+          positionRef.current >=
+          oneSetWidth * 2
         ) {
-          slider.scrollLeft = 0;
-          setCurrentIndex(0);
+          positionRef.current -=
+            oneSetWidth;
         }
+
+        if (
+          positionRef.current <
+          0
+        ) {
+          positionRef.current +=
+            oneSetWidth;
+        }
+
+        track.style.transform =
+          `translate3d(${-positionRef.current}px, 0, 0)`;
+
+        const index =
+          Math.floor(
+            positionRef.current /
+              width
+          ) % originalLength;
+
+        setCurrentIndex(
+          index < 0
+            ? 0
+            : index
+        );
       }
 
       animationRef.current =
-        requestAnimationFrame(animate);
-    };
-
-    /*
-     * Start animation
-     */
-    animationRef.current =
-      requestAnimationFrame(animate);
-
-    /*
-     * Cleanup
-     */
-    return () => {
-      running = false;
-
-      if (animationRef.current) {
-        cancelAnimationFrame(
-          animationRef.current
+        requestAnimationFrame(
+          animate
         );
-
-        animationRef.current = null;
-      }
     };
-  }, [originalLength]);
 
-  /* =====================================================
-     RESIZE
-  ===================================================== */
+    const initialize = () => {
+      const width =
+        getSlideWidth();
 
-  useEffect(() => {
+      if (!width) return;
+
+      positionRef.current =
+        width * originalLength;
+
+      track.style.transform =
+        `translate3d(${-positionRef.current}px, 0, 0)`;
+
+      lastTime =
+        performance.now();
+
+      animationRef.current =
+        requestAnimationFrame(
+          animate
+        );
+    };
+
+    const timer = setTimeout(
+      initialize,
+      100
+    );
+
     const handleResize = () => {
-      const slider = sliderRef.current;
+      const width =
+        getSlideWidth();
 
-      if (!slider) return;
+      if (!width) return;
 
-      /*
-       * Resize ke baad position safe rakho
-       */
-      const maxScroll =
-        slider.scrollWidth -
-        slider.clientWidth;
+      positionRef.current =
+        width * originalLength;
 
-      if (
-        maxScroll <= 0 ||
-        slider.scrollLeft > maxScroll
-      ) {
-        slider.scrollLeft = 0;
-      }
+      track.style.transform =
+        `translate3d(${-positionRef.current}px, 0, 0)`;
     };
 
     window.addEventListener(
@@ -165,187 +156,155 @@ function CategorySlider({ id, title, description, items = [] }) {
     );
 
     return () => {
+      running = false;
+
+      clearTimeout(timer);
+
       window.removeEventListener(
         "resize",
         handleResize
       );
+
+      if (
+        animationRef.current
+      ) {
+        cancelAnimationFrame(
+          animationRef.current
+        );
+      }
+
+      track.style.transform =
+        "translate3d(0, 0, 0)";
     };
-  }, []);
-
-  /* =====================================================
-     PROGRESS BAR
-  ===================================================== */
-
-  useEffect(() => {
-    const progress = progressRef.current;
-
-    if (!progress) return;
-
-    progress.style.transition = "none";
-    progress.style.width = "0%";
-
-    const frame = requestAnimationFrame(() => {
-      if (!progress) return;
-
-      progress.style.transition =
-        "width 4s linear";
-
-      progress.style.width = "100%";
-    });
-
-    return () => {
-      cancelAnimationFrame(frame);
-    };
-  }, [currentIndex]);
-
-  /* =====================================================
-     GO TO SLIDE
-  ===================================================== */
+  }, [originalLength]);
 
   const goToSlide = (index) => {
-    const slider = sliderRef.current;
+    const track =
+      trackRef.current;
 
-    if (!slider) return;
+    if (!track) return;
 
-    const cardWidth = getCardWidth();
+    const width =
+      getSlideWidth();
 
-    if (!cardWidth) return;
+    if (!width) return;
 
-    /*
-     * Auto animation temporarily stop
-     */
-    if (animationRef.current) {
+    if (
+      animationRef.current
+    ) {
       cancelAnimationFrame(
         animationRef.current
       );
-
-      animationRef.current = null;
     }
 
-    const targetPosition =
-      index * cardWidth;
+    const start =
+      positionRef.current;
 
-    const startPosition =
-      slider.scrollLeft;
+    const target =
+      (originalLength + index) *
+      width;
 
     const distance =
-      targetPosition - startPosition;
+      target - start;
 
     const duration = 600;
 
     const startTime =
       performance.now();
 
-    let running = true;
-
-    const animateToSlide = (currentTime) => {
-      if (!running) return;
-
-      const progress = Math.min(
-        (currentTime - startTime) /
-          duration,
-        1
-      );
-
-      const eased =
-        1 -
-        Math.pow(1 - progress, 3);
-
-      slider.scrollLeft =
-        startPosition +
-        distance * eased;
-
-      if (progress < 1) {
-        animationRef.current =
-          requestAnimationFrame(
-            animateToSlide
+    const animateTo =
+      (time) => {
+        const progress =
+          Math.min(
+            (time - startTime) /
+              duration,
+            1
           );
-      } else {
-        slider.scrollLeft =
-          targetPosition;
 
-        setCurrentIndex(index);
+        const eased =
+          1 -
+          Math.pow(
+            1 - progress,
+            3
+          );
 
-        /*
-         * Restart auto slider
-         */
-        let lastTime =
-          performance.now();
+        positionRef.current =
+          start +
+          distance * eased;
 
-        const continueAnimation =
-          (time) => {
-            if (!running) return;
+        track.style.transform =
+          `translate3d(${-positionRef.current}px, 0, 0)`;
 
-            const delta =
-              Math.min(
-                time - lastTime,
-                50
-              );
+        if (progress < 1) {
+          animationRef.current =
+            requestAnimationFrame(
+              animateTo
+            );
+        } else {
+          setCurrentIndex(index);
 
-            lastTime = time;
+          let last =
+            performance.now();
 
-            slider.scrollLeft +=
-              (35 * delta) / 1000;
+          const continueAnimation =
+            (currentTime) => {
+              const delta =
+                currentTime - last;
 
-            const maxScroll =
-              slider.scrollWidth -
-              slider.clientWidth;
+              last = currentTime;
 
-            if (
-              maxScroll > 0 &&
-              slider.scrollLeft >=
-                maxScroll - 1
-            ) {
-              slider.scrollLeft = 0;
-              setCurrentIndex(0);
-            } else {
-              const width =
-                getCardWidth();
+              const currentWidth =
+                getSlideWidth();
 
-              if (width > 0) {
-                const newIndex =
-                  Math.round(
-                    slider.scrollLeft /
-                      width
-                  ) % originalLength;
+              if (currentWidth) {
+                const setWidth =
+                  currentWidth *
+                  originalLength;
 
-                setCurrentIndex(
-                  newIndex
-                );
+                positionRef.current +=
+                  (20 * delta) / 1000;
+
+                if (
+                  positionRef.current >=
+                  setWidth * 2
+                ) {
+                  positionRef.current -=
+                    setWidth;
+                }
+
+                track.style.transform =
+                  `translate3d(${-positionRef.current}px, 0, 0)`;
               }
-            }
 
-            animationRef.current =
-              requestAnimationFrame(
-                continueAnimation
-              );
-          };
+              animationRef.current =
+                requestAnimationFrame(
+                  continueAnimation
+                );
+            };
 
-        animationRef.current =
-          requestAnimationFrame(
-            continueAnimation
-          );
-      }
-    };
+          animationRef.current =
+            requestAnimationFrame(
+              continueAnimation
+            );
+        }
+      };
 
     animationRef.current =
       requestAnimationFrame(
-        animateToSlide
+        animateTo
       );
   };
 
-  /* =====================================================
-     RENDER
-  ===================================================== */
+  if (!items.length) {
+    return null;
+  }
 
   return (
     <section
-      className="section category-slider-section"
+      className="section category-section"
       id={id}
     >
       <div className="container">
-
-        {/* HEADER */}
 
         <div className="section-head">
           <div>
@@ -355,78 +314,71 @@ function CategorySlider({ id, title, description, items = [] }) {
 
             <h2>{title}</h2>
 
-            <p>
-              {description}
-            </p>
+            <p>{description}</p>
           </div>
         </div>
 
-        {/* SLIDER */}
+        <div className="category-slider">
+          <div
+            className="category-track"
+            ref={trackRef}
+          >
+            {extendedItems.map(
+              (item, index) => (
+                <article
+                  className="slide-card"
+                  key={`${
+                    item.title || "item"
+                  }-${index}`}
+                >
+                  <img
+                    src={item.image}
+                    alt={
+                      item.title ||
+                      "Category"
+                    }
+                    draggable="false"
+                  />
 
-        <div
-          className="category-slider"
-          id={`${id}-slider`}
-          ref={sliderRef}
-        >
-          {items.map((item, index) => (
-            <article
-              className="slide-card"
-              key={
-                item.id ||
-                `${item.title || "item"}-${index}`
-              }
-            >
-              <img
-                src={item.image}
-                alt={item.title || "Category"}
-                draggable="false"
-              />
+                  <div className="slide-content">
+                    {item.label && (
+                      <span className="slide-label">
+                        {item.label}
+                      </span>
+                    )}
 
-              <div className="slide-content">
-                {item.label && (
-                  <span className="slide-label">
-                    {item.label}
-                  </span>
-                )}
+                    <h3>
+                      {item.title}
+                    </h3>
 
-                <h3>
-                  {item.title}
-                </h3>
+                    {item.description && (
+                      <p>
+                        {item.description}
+                      </p>
+                    )}
 
-                {item.description && (
-                  <p>
-                    {item.description}
-                  </p>
-                )}
-
-                {item.link && (
-                  <a
-                    href={item.link}
-                    aria-label={item.title}
-                  >
-                    View
-                  </a>
-                )}
-              </div>
-            </article>
-          ))}
+                    {item.link && (
+                      <a href={item.link}>
+                        View
+                      </a>
+                    )}
+                  </div>
+                </article>
+              )
+            )}
+          </div>
         </div>
 
-        {/* PROGRESS */}
+        <div className="progress-bar-container">
+          <div className="progress-bar" />
+        </div>
 
-      
-
-        {/* DOTS */}
-
-        {items.length > 1 && (
-          <div className="dots-container">
-            {items.map((_, index) => (
+        <div className="dots-container">
+          {items.map(
+            (_, index) => (
               <button
                 key={index}
                 type="button"
-                aria-label={`Go to slide ${
-                  index + 1
-                }`}
                 className={`dot ${
                   index === currentIndex
                     ? "active"
@@ -436,9 +388,9 @@ function CategorySlider({ id, title, description, items = [] }) {
                   goToSlide(index)
                 }
               />
-            ))}
-          </div>
-        )}
+            )
+          )}
+        </div>
 
       </div>
     </section>
