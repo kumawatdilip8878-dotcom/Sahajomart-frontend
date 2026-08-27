@@ -3,65 +3,54 @@ import { categories } from "../../data/categories";
 import "./CategoryGrid.css";
 
 function CategoryGrid() {
-  const sliderRef = useRef(null);
+  const trackRef = useRef(null);
   const animationRef = useRef(null);
 
   useEffect(() => {
-    const slider = sliderRef.current;
+    const track = trackRef.current;
 
-    if (!slider) return;
+    if (!track) return;
 
+    let position = 0;
+    let lastTime = performance.now();
     let running = true;
-    let lastTime = 0;
 
-    // Speed
-    const speed = 0.035;
+    const speed = 35; // pixels per second
 
     const animate = (time) => {
       if (!running) return;
 
-      if (!lastTime) {
-        lastTime = time;
-      }
-
       const delta = time - lastTime;
       lastTime = time;
 
-      // MOBILE ONLY
+      // Mobile + iPhone + Safari
       if (window.innerWidth <= 720) {
-        const firstCard = slider.firstElementChild;
+        position -= (speed * delta) / 1000;
 
-        if (firstCard) {
-          slider.scrollLeft += delta * speed;
+        /*
+         * Original categories ki exact width.
+         * Duplicate ke baad isi position par
+         * animation seamlessly continue hogi.
+         */
+        const originalWidth = track.scrollWidth / 2;
 
-          /*
-           * First card completely viewport ke
-           * left side se bahar chala gaya
-           */
-          const cardWidth = firstCard.offsetWidth;
-
-          const gap = parseFloat(
-            window.getComputedStyle(slider).columnGap ||
-            window.getComputedStyle(slider).gap ||
-            0
-          );
-
-          if (slider.scrollLeft >= cardWidth + gap) {
-            /*
-             * Current scroll position ko adjust karo
-             * taaki jump na dikhe
-             */
-            slider.scrollLeft -= cardWidth + gap;
-
-            /*
-             * First card ko last mein move karo.
-             * DUPLICATE NAHI BAN RAHA.
-             */
-            slider.appendChild(firstCard);
-          }
+        if (originalWidth > 0 && Math.abs(position) >= originalWidth) {
+          position += originalWidth;
         }
+
+        track.style.transform =
+          `translate3d(${position}px, 0, 0)`;
+
+        track.style.webkitTransform =
+          `translate3d(${position}px, 0, 0)`;
       } else {
-        slider.scrollLeft = 0;
+        position = 0;
+
+        track.style.transform =
+          "translate3d(0, 0, 0)";
+
+        track.style.webkitTransform =
+          "translate3d(0, 0, 0)";
       }
 
       animationRef.current =
@@ -77,15 +66,25 @@ function CategoryGrid() {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
+
+      track.style.transform = "";
+      track.style.webkitTransform = "";
     };
   }, []);
 
+  const loopCategories = [
+    ...categories,
+    ...categories,
+  ];
+
   return (
     <section className="section" id="categories">
+
       <div className="container">
 
         <div className="section-head">
           <div>
+
             <span className="section-kicker">
               Browse
             </span>
@@ -96,31 +95,54 @@ function CategoryGrid() {
               Select a category to quickly browse available
               product images and store promotions.
             </p>
+
           </div>
         </div>
 
-        <div
-          className="category-grid"
-          ref={sliderRef}
-        >
-          {categories.map((category) => (
-            <a
-              href={category.link}
-              className="category-tile"
-              key={category.name}
-            >
-              <img
-                src={category.image}
-                alt={category.name}
-                draggable="false"
-              />
 
-              <span>{category.name}</span>
-            </a>
-          ))}
+        {/* ===============================
+            VIEWPORT
+        =============================== */}
+
+        <div className="category-grid">
+
+          {/* ===============================
+              MOVING TRACK
+          =============================== */}
+
+          <div
+            className="category-track"
+            ref={trackRef}
+          >
+
+            {loopCategories.map((category, index) => (
+
+              <a
+                href={category.link}
+                className="category-tile"
+                key={`${category.name}-${index}`}
+              >
+
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  draggable="false"
+                />
+
+                <span>
+                  {category.name}
+                </span>
+
+              </a>
+
+            ))}
+
+          </div>
+
         </div>
 
       </div>
+
     </section>
   );
 }
