@@ -79,6 +79,10 @@
 
   scrollbar-width: none;
   -ms-overflow-style: none;
+
+  /* ✅ Transform ke liye (iPhone Fix) */
+  will-change: transform;
+  transform: translateX(0px);
 }
 
 
@@ -298,7 +302,6 @@
   ========================================== */
 
   .location-list {
-
     width: 100%;
 
     max-width: none;
@@ -363,6 +366,10 @@
     -ms-overflow-style: none;
 
     cursor: grab;
+
+    /* ✅ Transform ke liye (iPhone Fix) */
+    will-change: transform;
+    transform: translateX(0px);
   }
 
 
@@ -378,7 +385,6 @@
   ========================================== */
 
   .location-chip {
-
     flex: 0 0 auto;
 
     width: max-content;
@@ -404,6 +410,20 @@
     touch-action: manipulation;
 
     -webkit-tap-highlight-color: transparent;
+
+    /* ✅ Button transform reset */
+    transform: none !important;
+  }
+
+  /* ✅ Active button hover disable on mobile */
+  .location-chip.active:hover {
+    transform: none !important;
+  }
+
+  /* ✅ Hover disable on mobile */
+  .location-chip:hover {
+    transform: none !important;
+    box-shadow: none !important;
   }
 }
 
@@ -434,7 +454,6 @@
 
 
   .location-list {
-
     width: 100%;
 
     gap: 7px;
@@ -448,11 +467,14 @@
     -webkit-overflow-scrolling: touch;
 
     touch-action: pan-x;
+
+    /* ✅ Transform keep */
+    will-change: transform;
+    transform: translateX(0px);
   }
 
 
   .location-chip {
-
     min-height: 34px;
 
     padding: 6px 14px;
@@ -462,6 +484,18 @@
     border-width: 2px;
 
     border-radius: 20px;
+
+    /* ✅ Reset hover */
+    transform: none !important;
+  }
+
+  .location-chip:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .location-chip.active:hover {
+    transform: none !important;
   }
 }
 
@@ -494,11 +528,14 @@
       2px
       6px
       2px;
+
+    /* ✅ Transform keep */
+    will-change: transform;
+    transform: translateX(0px);
   }
 
 
   .location-chip {
-
     min-height: 32px;
 
     padding: 6px 12px;
@@ -506,6 +543,14 @@
     font-size: 10px;
 
     border-radius: 18px;
+
+    /* ✅ Reset hover */
+    transform: none !important;
+  }
+
+  .location-chip:hover {
+    transform: none !important;
+    box-shadow: none !important;
   }
 }
 
@@ -527,7 +572,6 @@
 
 
   .location-list {
-
     width: 100%;
 
     overflow-x: scroll;
@@ -539,11 +583,22 @@
     touch-action: pan-x;
 
     scroll-behavior: auto;
+
+    /* ✅ iPhone ke liye transform fix */
+    will-change: transform;
+    transform: translateX(0px);
+
+    /* ✅ Hardware acceleration */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+
+    /* ✅ Prevent flicker */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
 
   .location-chip {
-
     flex-shrink: 0;
 
     -webkit-user-select: none;
@@ -555,5 +610,35 @@
     -webkit-tap-highlight-color: transparent;
 
     touch-action: manipulation;
+
+    /* ✅ iPhone hover reset */
+    transform: none !important;
+  }
+
+  .location-chip:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .location-chip.active:hover {
+    transform: none !important;
+  }
+
+  /* ✅ Active state tap feedback */
+  .location-chip:active {
+    transform: scale(0.95) !important;
+    transition: transform 0.1s ease;
+  }
+}
+
+
+/* =====================================================
+   ANDROID SPECIFIC (Optional)
+===================================================== */
+
+@supports not (-webkit-touch-callout: none) {
+  /* Android specific styles if needed */
+  .location-list {
+    scroll-behavior: smooth;
   }
 }
