@@ -13,42 +13,55 @@ function CategoryGrid() {
 
     let running = true;
     let lastTime = 0;
-    let currentPosition = 0;
 
-    // Smooth speed
-    const speed = 0.04;
+    // Speed
+    const speed = 0.035;
 
-    const animate = (currentTime) => {
+    const animate = (time) => {
       if (!running) return;
 
       if (!lastTime) {
-        lastTime = currentTime;
+        lastTime = time;
       }
 
-      const deltaTime = currentTime - lastTime;
-      lastTime = currentTime;
+      const delta = time - lastTime;
+      lastTime = time;
 
-      // ONLY MOBILE
+      // MOBILE ONLY
       if (window.innerWidth <= 720) {
-        const maxScroll =
-          slider.scrollWidth - slider.clientWidth;
+        const firstCard = slider.firstElementChild;
 
-        if (maxScroll > 0) {
-          currentPosition -= deltaTime * speed;
+        if (firstCard) {
+          slider.scrollLeft += delta * speed;
 
-          // Last category ke baad first se start
-          if (Math.abs(currentPosition) >= maxScroll) {
-            currentPosition = 0;
+          /*
+           * First card completely viewport ke
+           * left side se bahar chala gaya
+           */
+          const cardWidth = firstCard.offsetWidth;
+
+          const gap = parseFloat(
+            window.getComputedStyle(slider).columnGap ||
+            window.getComputedStyle(slider).gap ||
+            0
+          );
+
+          if (slider.scrollLeft >= cardWidth + gap) {
+            /*
+             * Current scroll position ko adjust karo
+             * taaki jump na dikhe
+             */
+            slider.scrollLeft -= cardWidth + gap;
+
+            /*
+             * First card ko last mein move karo.
+             * DUPLICATE NAHI BAN RAHA.
+             */
+            slider.appendChild(firstCard);
           }
-
-          // iPhone Safari + Android GPU animation
-          slider.style.transform =
-            `translate3d(${currentPosition}px, 0, 0)`;
         }
       } else {
-        // Desktop par normal position
-        currentPosition = 0;
-        slider.style.transform = "translate3d(0, 0, 0)";
+        slider.scrollLeft = 0;
       }
 
       animationRef.current =
@@ -64,8 +77,6 @@ function CategoryGrid() {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
-
-      slider.style.transform = "";
     };
   }, []);
 
@@ -101,6 +112,7 @@ function CategoryGrid() {
               <img
                 src={category.image}
                 alt={category.name}
+                draggable="false"
               />
 
               <span>{category.name}</span>

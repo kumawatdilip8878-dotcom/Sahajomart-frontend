@@ -739,3 +739,55 @@
     backface-visibility: hidden;
   }
 }
+
+
+
+/* =====================================================
+   CATEGORY LISTS - MINIMUM GAP
+===================================================== */
+
+.category-section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 1px !important;
+}
+
+.category-section + .category-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+
+/* =====================================================
+   MOBILE - ALMOST NO GAP
+===================================================== */
+
+@media (max-width: 768px) {
+  .category-section {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .category-section + .category-section {
+    margin: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  .category-section {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .category-section + .category-section {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}

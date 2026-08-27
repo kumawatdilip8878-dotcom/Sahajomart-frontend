@@ -49,7 +49,7 @@ const Header = () => {
               style={{
                 width: "54px",
                 height: "54px",
-                borderRadius: "11px",
+                borderRadius: "3px",
               }}
               className="ahjo"
               src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
@@ -58,9 +58,21 @@ const Header = () => {
           </div>
 
           <div className="logo-text">
-            <span style={{ fontSize: "20px" }}>
-              Sahjo Mart
-            </span>
+           <span >
+  SAHJO
+  <br />
+
+  <span
+    style={{
+      fontWeight: "400",
+      color: "#000000",
+      fontSize: "15px",
+      lineHeight: "1",
+    }}
+  >
+    Mart
+  </span>
+</span>
           </div>
         </a>
 
