@@ -3,19 +3,26 @@ import { locations } from "../../data/locations";
 import "./LocationBar.css";
 
 const LocationBar = () => {
-  const [selectedLocation, setSelectedLocation] = useState("Jaipur");
+  const [selectedLocation, setSelectedLocation] =
+    useState("Jaipur");
 
   const locationListRef = useRef(null);
   const locationTrackRef = useRef(null);
   const animationRef = useRef(null);
 
-  // ✅ Infinite slider ke liye duplicate
-  const sliderLocations = [...locations, ...locations];
+  /* =====================================================
+     LOCATION CLICK
+  ===================================================== */
 
   const handleLocationChange = (location) => {
     setSelectedLocation(location);
+
     console.log("Selected Store Location:", location);
   };
+
+  /* =====================================================
+     MOBILE AUTO SLIDER
+  ===================================================== */
 
   useEffect(() => {
     const viewport = locationListRef.current;
@@ -23,12 +30,17 @@ const LocationBar = () => {
 
     if (!viewport || !track) return;
 
-    let currentPosition = 0;
-    let lastTime = 0;
     let running = true;
+    let lastTime = 0;
+    let currentPosition = 0;
 
-    // speed
-    const speed = 0.035;
+    /*
+      Speed:
+      0.04 = slow
+      0.06 = medium
+      0.08 = fast
+    */
+    const speed = 0.04;
 
     const animate = (currentTime) => {
       if (!running) return;
@@ -40,37 +52,39 @@ const LocationBar = () => {
       const deltaTime = currentTime - lastTime;
       lastTime = currentTime;
 
+      /*
+        ONLY MOBILE
+      */
       if (window.innerWidth <= 768) {
-        /*
-          Track me locations 2 baar hain.
-          Isliye total width / 2 = first set ki width
-        */
-        const singleSetWidth = track.scrollWidth / 2;
+        const maxScroll =
+          track.scrollWidth - viewport.clientWidth;
 
-        currentPosition += deltaTime * speed;
+        if (maxScroll > 0) {
+          currentPosition += deltaTime * speed;
 
-        /*
-          IMPORTANT:
-          0 par reset nahi karna.
-          Sirf first set ki width minus karni hai.
-          
-          Visually same items second copy me already present hain,
-          isliye koi jump nahi dikhega.
-        */
-        if (currentPosition >= singleSetWidth) {
-          currentPosition -= singleSetWidth;
+          /*
+            End par pahunchne ke baad
+            first position par wapas
+          */
+          if (currentPosition >= maxScroll) {
+            currentPosition = 0;
+          }
+
+          /*
+            iPhone Safari GPU animation
+          */
+          track.style.transform =
+            `translate3d(${-currentPosition}px, 0, 0)`;
         }
-
-        track.style.transform = `translate3d(
-          ${-currentPosition}px,
-          0,
-          0
-        )`;
       } else {
-        currentPosition = 0;
-
-        track.style.transform =
-          "translate3d(0, 0, 0)";
+        /*
+          Desktop par position reset
+        */
+        if (currentPosition !== 0) {
+          currentPosition = 0;
+          track.style.transform =
+            "translate3d(0, 0, 0)";
+        }
       }
 
       animationRef.current =
@@ -92,25 +106,39 @@ const LocationBar = () => {
     };
   }, []);
 
+  /* =====================================================
+     UI
+  ===================================================== */
+
   return (
-    <section className="location-bar" id="stores">
+    <section
+      className="location-bar"
+      id="stores"
+    >
       <div className="container location-inner">
+
+        {/* TITLE */}
 
         <span className="location-title">
           Our Stores:
         </span>
 
+        {/* SLIDER VIEWPORT */}
+
         <div
           className="location-list"
           ref={locationListRef}
         >
+
+          {/* MOVING TRACK */}
+
           <div
             className="location-track"
             ref={locationTrackRef}
           >
-            {sliderLocations.map((location, index) => (
+            {locations.map((location) => (
               <button
-                key={`${location}-${index}`}
+                key={location}
                 type="button"
                 className={`location-chip ${
                   selectedLocation === location
@@ -125,8 +153,8 @@ const LocationBar = () => {
               </button>
             ))}
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   );
