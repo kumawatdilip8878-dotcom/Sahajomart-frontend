@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   FaWhatsapp,
   FaPhoneAlt,
-  FaStore,
 } from "react-icons/fa";
 
 import "./Header.css";
