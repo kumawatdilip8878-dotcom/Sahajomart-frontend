@@ -1,6 +1,15 @@
+/* =====================================================
+   INFO STRIP
+===================================================== */
+
 .info-strip {
-  padding: 0 0 70px;
+  padding: 10px 0 70px;
 }
+
+
+/* =====================================================
+   GRID
+===================================================== */
 
 .info-grid {
   display: grid;
@@ -8,51 +17,394 @@
   grid-template-columns:
     repeat(4, 1fr);
 
-  gap: 12px;
+  gap: 14px;
 }
 
-.info-card {
-  min-height: 120px;
 
-  padding: 20px;
+/* =====================================================
+   CARD
+===================================================== */
+
+.info-card {
+  min-height: 125px;
+
+  padding: 18px;
 
   border-radius: 16px;
 
-  border: 1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  background: #fff;
+  background: #ffffff;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.info-card span {
-  color: #999;
+
+/* =====================================================
+   CLICKABLE CARD
+===================================================== */
+
+.info-card-link {
+  display: block;
+
+  text-decoration: none;
+
+  color: inherit;
+
+  cursor: pointer;
+}
+
+
+.info-card-link:visited {
+  color: inherit;
+}
+
+
+.info-card-link:hover {
+  text-decoration: none;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.info-card:hover {
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(
+      241,
+      119,
+      0,
+      0.35
+    );
+
+  box-shadow:
+    0 10px 25px
+    rgba(
+      0,
+      0,
+      0,
+      0.08
+    );
+}
+
+
+/* =====================================================
+   CONTACT CLICK EFFECT
+===================================================== */
+
+.info-card-link:active {
+  transform:
+    scale(0.98);
+}
+
+
+/* =====================================================
+   TOP ROW
+===================================================== */
+
+.info-card-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+
+/* =====================================================
+   COMMON LOGO
+===================================================== */
+
+.info-logo {
+  width: 40px;
+
+  height: 40px;
+
+  flex:
+    0 0 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 10px;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-logo {
+  background:
+    rgba(
+      37,
+      99,
+      235,
+      0.10
+    );
+
+  color: #2563eb;
+
+  font-size: 18px;
+}
+
+
+/* =====================================================
+   FSSAI
+===================================================== */
+
+.fssai-logo {
+  background:
+    rgba(
+      22,
+      163,
+      74,
+      0.10
+    );
+
+  color: #16a34a;
+
+  font-size: 22px;
+}
+
+
+/* =====================================================
+   REGISTRATION
+===================================================== */
+
+.registration-logo {
+  background:
+    rgba(
+      124,
+      58,
+      237,
+      0.10
+    );
+
+  color: #7c3aed;
+
+  font-size: 18px;
+}
+
+
+/* =====================================================
+   SAHJO MART LOGO
+===================================================== */
+
+.sahjo-logo {
+  padding: 2px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border:
+    1px solid
+    rgba(
+      241,
+      119,
+      0,
+      0.25
+    );
+}
+
+
+.sahjo-logo img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.info-label {
+  color: #999999;
 
   font-size: 10px;
+
   font-weight: 800;
 
   text-transform: uppercase;
+
+  letter-spacing: 0.5px;
 }
+
+
+/* =====================================================
+   VALUE
+===================================================== */
 
 .info-card strong {
   display: block;
 
-  margin-top: 8px;
+  margin-top: 4px;
 
   color: #262626;
 
   font-size: 14px;
 
   line-height: 1.5;
+
+  font-weight: 700;
+
+  word-break: break-word;
 }
 
+
+/* =====================================================
+   CONTACT CARD SPECIAL
+===================================================== */
+
+.info-card-link strong {
+  color: #2563eb;
+}
+
+
+.info-card-link:hover strong {
+  text-decoration: underline;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
 @media (max-width: 1000px) {
+
   .info-grid {
     grid-template-columns:
       repeat(2, 1fr);
   }
+
 }
 
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media (max-width: 720px) {
+
+  .info-strip {
+    padding:
+      8px 0 35px;
+  }
+
+
+  .info-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+
+  .info-card {
+    min-height: 112px;
+
+    padding: 13px;
+
+    border-radius: 13px;
+  }
+
+
+  .info-logo {
+    width: 34px;
+
+    height: 34px;
+
+    flex:
+      0 0 34px;
+
+    border-radius: 8px;
+  }
+
+
+  .contact-logo,
+  .registration-logo {
+    font-size: 15px;
+  }
+
+
+  .fssai-logo {
+    font-size: 18px;
+  }
+
+
+  .info-card-top {
+    gap: 7px;
+
+    margin-bottom: 8px;
+  }
+
+
+  .info-label {
+    font-size: 8px;
+  }
+
+
+  .info-card strong {
+    font-size: 11px;
+
+    line-height: 1.4;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL PHONE
+===================================================== */
+
+@media (max-width: 420px) {
+
   .info-grid {
     grid-template-columns: 1fr;
   }
+
+
+  .info-card {
+    min-height: auto;
+
+    padding: 13px 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+  }
+
+
+  .info-card strong {
+    font-size: 12px;
+  }
+
 }

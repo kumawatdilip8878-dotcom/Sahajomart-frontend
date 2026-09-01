@@ -19,38 +19,68 @@ const TopBar = () => {
 
         <div className="top-contact">
 
-          {/* 📞 Phone */}
-          <div className="contact-item">
+          {/* PHONE */}
+          <a
+            href="tel:+919876543210"
+            className="contact-item contact-link"
+            aria-label="Call Sahjo Mart"
+          >
             <FaPhoneAlt className="contact-icon phone-icon" />
-            <span>+91 98765 43210</span>
-          </div>
 
-          {/* 📍 Location */}
-          <div className="contact-item location-contact">
+            <span>
+              +91 98765 43210
+            </span>
+          </a>
+
+
+          {/* LOCATION */}
+          <a
+            href="#locations"
+            className="contact-item location-contact contact-link"
+            aria-label="View Sahjo Mart locations"
+          >
             <FaMapMarkerAlt className="contact-icon location-icon" />
+
             <span>
               Shop from your nearest Sahjo Mart store
             </span>
-          </div>
+          </a>
 
         </div>
+
+
+        {/* LANGUAGE */}
 
         <div className="language-switcher">
 
           <button
             className={`language-btn ${
-              language === "en" ? "active" : ""
+              language === "en"
+                ? "active"
+                : ""
             }`}
-            onClick={() => handleLanguage("en")}
+            onClick={() =>
+              handleLanguage("en")
+            }
+            type="button"
+            aria-label="English"
           >
+            EN
           </button>
 
           <button
             className={`language-btn ${
-              language === "hi" ? "active" : ""
+              language === "hi"
+                ? "active"
+                : ""
             }`}
-            onClick={() => handleLanguage("hi")}
+            onClick={() =>
+              handleLanguage("hi")
+            }
+            type="button"
+            aria-label="Hindi"
           >
+            हिं
           </button>
 
         </div>

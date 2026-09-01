@@ -123,7 +123,7 @@ const Header = () => {
 
 
           {/* Store Login */}
-
+{/* 
           <a
             href="/store-login"
             className="btn btn-primary"
@@ -133,7 +133,7 @@ const Header = () => {
             <span>
               Store Login
             </span>
-          </a>
+          </a> */}
 
 
           {/* MOBILE MENU BUTTON */}
@@ -195,7 +195,7 @@ const Header = () => {
 
 
         {/* Store Login */}
-
+{/* 
         <a
           href="/store-login"
           className="btn btn-primary"
@@ -206,7 +206,7 @@ const Header = () => {
           <span>
             Store Login
           </span>
-        </a>
+        </a> */}
 
       </div>
 

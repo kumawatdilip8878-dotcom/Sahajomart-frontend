@@ -509,3 +509,91 @@
     bottom: 90px;
   }
 }
+/* =====================================================
+   FINAL FLOATING 3D BOX POSITION
+===================================================== */
+
+.floating-3d-wrapper {
+  position: fixed !important;
+
+  left: 35px !important;
+  right: auto !important;
+
+  bottom: 55px !important;
+
+  width: 120px;
+  height: 120px;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  visibility: visible !important;
+  opacity: 1;
+
+  z-index: 99998;
+
+  cursor: pointer;
+
+  animation:
+    floatingBoxSoftFade
+    5s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .floating-3d-wrapper {
+    left: 20px !important;
+    right: auto !important;
+
+    bottom: 28px !important;
+
+    width: 90px !important;
+    height: 90px !important;
+
+    display: flex !important;
+    visibility: visible !important;
+  }
+}
+
+
+/* =====================================================
+   SMALL IPHONE
+===================================================== */
+
+@media (max-width: 380px) {
+
+  .floating-3d-wrapper {
+    left: 14px !important;
+
+    bottom: 24px !important;
+
+    width: 82px !important;
+    height: 82px !important;
+  }
+}
+
+
+/* =====================================================
+   SOFT FADE
+===================================================== */
+
+@keyframes floatingBoxSoftFade {
+
+  0% {
+    opacity: 0.82;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.82;
+  }
+}

@@ -7,8 +7,8 @@ import "./styles/global.css";
 import "./styles/responsive.css";
 
 import Home from "./pages/Home/Home";
-import CustomerLogin from "./pages/CustomerLogin/CustomerLogin";
-import StoreLogin from "./pages/StoreLogin/StoreLogin";
+// import CustomerLogin from "./pages/CustomerLogin/CustomerLogin";
+// import StoreLogin from "./pages/StoreLogin/StoreLogin";
 
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 
@@ -20,9 +20,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="/customer-login" element={<CustomerLogin />} />
+        {/* <Route path="/customer-login" element={<CustomerLogin />} /> */}
 
-        <Route path="/store-login" element={<StoreLogin />} />
+        {/* <Route path="/store-login" element={<StoreLogin />} /> */}
 
         <Route
           path="*"

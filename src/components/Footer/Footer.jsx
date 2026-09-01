@@ -1,5 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import "./Footer.css";
 
 function Footer() {
@@ -9,69 +7,114 @@ function Footer() {
 
         <div className="footer-grid">
 
+          {/* =====================================
+              BRAND
+          ===================================== */}
+
           <div className="footer-brand">
 
-            <a href="#home" className="logo">
-              <div >
+            <a
+              href="#home"
+              className="footer-logo"
+              aria-label="Go to home"
+            >
+              <div className="footer-logo-image">
                 <img
-                style={{width:"54px",height:"54px",borderRadius:"11px"}} className="foots" src='https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg' border='0' alt='img-2-1784471233954-jpg'/>     
+                  src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
+                  alt="Sahjo Mart Logo"
+                />
               </div>
-              <div className="logo-text" style={{ color: "#fff" }}>
-                <span>Sahjo Mart</span>
+
+              <div className="footer-logo-text">
+                <span className="footer-sahjo">
+                  Sahjo
+                </span>
+
+                <span className="footer-mart">
+                  Mart
+                </span>
               </div>
             </a>
 
-            <p style={{fontSize:"13px", lineHeight:"1.5", maxWidth:"320px"}}>
-              Shop from your favorite local stores online with SahjoMart. 
-              Find products near you, order in seconds, and let store owners 
-              handle the rest with our integrated POS system.
+
+            <p className="footer-description">
+              Shop from your favorite local stores online
+              with SahjoMart. Find products near you,
+              order in seconds, and let store owners
+              handle the rest with our integrated POS
+              system.
             </p>
 
-            {/* <div className="socials">
-              <a href="https://facebook.com/" target="_blank" rel="noreferrer">FB</a>
-              <a href="https://instagram.com/" target="_blank" rel="noreferrer">IG</a>
-              <a href="https://youtube.com/" target="_blank" rel="noreferrer">YT</a>
-              <a href="https://x.com/" target="_blank" rel="noreferrer">X</a>
-            </div> */}
           </div>
 
-          {/* 
-          <div className="footer-col">
-            <h4>Quick Links</h4>
-            <a href="#home">Home</a>
-            <a href="#categories">Categories</a>
-            <a href="#offers">Offers</a>
-            <a href="#videos">Videos</a>
-            <a href="#stores">Stores</a>
-          </div> */}
 
-          <div className="footer-col">
-            <h4 style={{fontSize:"16px", marginTop:"10px"}}>Login</h4>
-            <div style={{marginTop:"15px"}}>
-              <Link style={{fontSize:"13px"}} to="/customer-login">
-                Customer Login
-              </Link>
-              <Link style={{fontSize:"13px"}} to="/store-login">
-                Store / POS Login
-              </Link>
-            </div>
-          </div>
+          {/* =====================================
+              BUSINESS DETAILS
+          ===================================== */}
 
-          <div className="footer-col">
-            <h4 style={{fontSize:"16px", marginTop:"10px"}}>Business Details</h4>
-            <div style={{marginTop:"15px"}}>
-              <p style={{fontSize:"12px"}}>FSSAI No: 55667788990011</p>
-    <p style={{fontSize:"12px"}}>Reg. No: U12345XX2026PTC123456</p>
-    <p style={{fontSize:"12px"}}>Phone: +91 98765 43210</p>
-    <p style={{fontSize:"12px"}}>Address: 123, Main Road, City</p>
+          <div className="footer-col business-details">
+
+            <h4>
+              Business Details
+            </h4>
+
+            <div className="business-info">
+
+              <p>
+                <strong>
+                  FSSAI No:
+                </strong>{" "}
+                55667788990011
+              </p>
+
+
+              <p>
+                <strong>
+                  Reg. No:
+                </strong>{" "}
+                U12345XX2026PTC123456
+              </p>
+
+
+              <p>
+                <strong>
+                  Phone:
+                </strong>{" "}
+
+                <a href="tel:+919876543210">
+                  +91 98765 43210
+                </a>
+              </p>
+
+
+              <p>
+                <strong>
+                  Address:
+                </strong>{" "}
+                123, Main Road, City
+              </p>
+
             </div>
+
           </div>
 
         </div>
 
+
+        {/* =====================================
+            FOOTER BOTTOM
+        ===================================== */}
+
         <div className="footer-bottom">
-          <span>© 2026 SahjoMart.com. All rights reserved.</span>
-          <span>Nearby shopping made simple.</span>
+
+          <span>
+            © 2026 SahjoMart.com. All rights reserved.
+          </span>
+
+          <span>
+            Nearby shopping made simple.
+          </span>
+
         </div>
 
       </div>
