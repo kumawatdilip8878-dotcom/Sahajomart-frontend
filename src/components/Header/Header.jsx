@@ -77,7 +77,7 @@ const Header = () => {
 
             {/* HINDI TEXT */}
 
-            <div style={{fontSize:"15px"}} className="shopping-tagline">
+            <div style={{fontSize:"12px"}} className="shopping-tagline">
               अब करें घर से ऑनलाइन शॉपिंग
             </div>
 

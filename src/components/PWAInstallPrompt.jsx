@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { MdInstallMobile } from "react-icons/md";
 import "./PWAInstallPrompt.css";
 
 const PWAInstallPrompt = () => {
@@ -10,13 +11,21 @@ const PWAInstallPrompt = () => {
   const hideTimerRef = useRef(null);
 
   useEffect(() => {
+    // ==========================================
+    // CHECK IF APP ALREADY INSTALLED
+    // ==========================================
     const isStandalone =
       window.matchMedia("(display-mode: standalone)").matches ||
       window.navigator.standalone === true;
 
-    if (isStandalone) return;
+    if (isStandalone) {
+      return;
+    }
 
-    const userAgent = navigator.userAgent;
+    // ==========================================
+    // DETECT IOS
+    // ==========================================
+    const userAgent = window.navigator.userAgent;
 
     const ios =
       /iPhone|iPad|iPod/i.test(userAgent) ||
@@ -38,7 +47,7 @@ const PWAInstallPrompt = () => {
     }, 6000);
 
     // ==========================================
-    // ANDROID INSTALL EVENT
+    // ANDROID / CHROME INSTALL EVENT
     // ==========================================
     const handleBeforeInstallPrompt = (event) => {
       event.preventDefault();
@@ -86,21 +95,29 @@ const PWAInstallPrompt = () => {
     };
   }, []);
 
+  // ==========================================
+  // INSTALL BUTTON CLICK
+  // ==========================================
   const installApp = async () => {
-    // Stop auto-hide when user clicks
     if (hideTimerRef.current) {
       clearTimeout(hideTimerRef.current);
     }
 
-    // iPhone / iPad
+    // ==========================================
+    // IOS / SAFARI
+    // ==========================================
     if (isIOS) {
       setShowButton(false);
       setShowIOSPopup(true);
+
       return;
     }
 
-    // Android
+    // ==========================================
+    // ANDROID / CHROME
+    // ==========================================
     if (!deferredPrompt) {
+      console.log("Install prompt not available.");
       return;
     }
 
@@ -111,7 +128,7 @@ const PWAInstallPrompt = () => {
         await deferredPrompt.userChoice;
 
       console.log(
-        "SahajoMart install:",
+        "SahajoMart install result:",
         outcome
       );
 
@@ -127,25 +144,33 @@ const PWAInstallPrompt = () => {
 
   return (
     <>
-      {showButton && (
-        <button
-          className="pwa-floating-install"
-          onClick={installApp}
-          type="button"
-        >
-          <span className="pwa-mobile-symbol">
-            ▣
-          </span>
+      {/* ======================================
+          INSTALL BUTTON
+      ====================================== */}
 
-          <span>
-            ऐप इंस्टॉल करें
-          </span>
-        </button>
+      {showButton && (
+      <button
+  className="pwa-floating-install"
+  onClick={installApp}
+  type="button"
+  aria-label="Install SahajoMart App"
+>
+  <MdInstallMobile className="pwa-install-icon" />
+  <span>Install</span>
+</button>
       )}
+
+
+      {/* ======================================
+          IOS INSTALL POPUP
+      ====================================== */}
 
       {showIOSPopup && (
         <div className="ios-install-overlay">
+
           <div className="ios-install-popup">
+
+            {/* CLOSE BUTTON */}
 
             <button
               className="ios-popup-close"
@@ -153,9 +178,13 @@ const PWAInstallPrompt = () => {
                 setShowIOSPopup(false)
               }
               type="button"
+              aria-label="Close"
             >
               ✕
             </button>
+
+
+            {/* LOGO */}
 
             <div className="ios-app-logo">
               <img
@@ -164,49 +193,82 @@ const PWAInstallPrompt = () => {
               />
             </div>
 
+
+            {/* TITLE */}
+
             <h3>
               Install SahajoMart
             </h3>
 
+
             <p>
-              Add SahajoMart to your Home Screen.
+              Add SahajoMart to your
+              iPhone Home Screen.
             </p>
+
+
+            {/* STEPS */}
 
             <div className="ios-steps">
 
+              {/* STEP 1 */}
+
               <div className="ios-step">
+
                 <span className="step-number">
                   1
                 </span>
 
                 <span>
-                  Tap the <strong>Share ⬆</strong> button in Safari
+                  Tap the{" "}
+                  <strong>
+                    Share ⬆
+                  </strong>{" "}
+                  button in Safari
                 </span>
+
               </div>
 
+
+              {/* STEP 2 */}
+
               <div className="ios-step">
+
                 <span className="step-number">
                   2
                 </span>
 
                 <span>
-                  Select <strong>Add to Home Screen</strong>
+                  Select{" "}
+                  <strong>
+                    Add to Home Screen
+                  </strong>
                 </span>
+
               </div>
 
+
+              {/* STEP 3 */}
+
               <div className="ios-step">
+
                 <span className="step-number">
                   3
                 </span>
 
                 <span>
-                  Tap <strong>Add</strong>
+                  Tap{" "}
+                  <strong>
+                    Add
+                  </strong>
                 </span>
+
               </div>
 
             </div>
 
           </div>
+
         </div>
       )}
     </>

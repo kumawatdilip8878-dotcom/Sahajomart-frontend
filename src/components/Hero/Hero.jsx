@@ -34,41 +34,59 @@ const Hero = () => {
               अब करें घर से ही ऑनलाइन शॉपिंग
             </p>
 
-            {/* BUTTONS */}
+
+            {/* ==============================
+                BUTTONS
+            ============================== */}
+
             <div className="hero-actions">
 
               {/* WhatsApp */}
+
               <a
                 href="https://wa.me/919876543210"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn hero-order-btn hero-whatsapp-btn"
               >
-                <span>WhatsApp Order</span>
+                <span>
+                  WhatsApp Order
+                </span>
+
                 <FaWhatsapp className="hero-btn-icon" />
               </a>
 
-              {/* Call */}
-              {/* <a
-                href="tel:+919876543210"
-                className="btn hero-order-btn hero-call-btn"
-              >
-                <FaPhoneAlt className="hero-btn-icon" />
-                <span>Call Store</span>
-              </a> */}
-
             </div>
+
+
+            {/* ==============================
+                FEATURES
+            ============================== */}
 
             <div className="hero-features">
 
-              <span>✓ Nearby Stores</span>
-              <span>✓ Offers & Promotions</span>
-              <span>✓ Direct Store Access</span>
+              <span>
+                ✓ Nearby Stores
+              </span>
+
+              <span>
+                ✓ Offers & Promotions
+              </span>
+
+              <span>
+                ✓ Direct Store Access
+              </span>
 
             </div>
 
           </div>
 
+
+          {/* ==========================================
+              HERO IMAGE SECTION COMMENTED
+          ========================================== */}
+
+          {/*
           <div className="hero-image-wrap">
 
             <img
@@ -76,6 +94,7 @@ const Hero = () => {
               src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1300&q=85"
               alt="SahajoMart Store"
             />
+
 
             <div className="floating-card">
 
@@ -90,6 +109,7 @@ const Hero = () => {
             </div>
 
           </div>
+          */}
 
         </div>
 

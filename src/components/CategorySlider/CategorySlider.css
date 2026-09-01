@@ -791,3 +791,1463 @@
     padding: 0 !important;
   }
 }
+
+/* =====================================================
+   DESKTOP CLICK PAUSE / RESUME
+===================================================== */
+
+@media (min-width: 769px) {
+
+  .category-slider {
+    cursor: pointer;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE / IPHONE / SAFARI
+   ONE BY ONE FADE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .category-slider {
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 4px 8px 8px;
+
+    box-sizing: border-box;
+
+    touch-action: pan-y;
+  }
+
+
+  /* =========================================
+     FADE WRAPPER
+  ========================================= */
+
+  .mobile-fade-slide {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    animation:
+      mobileCategoryFade
+      3s ease-in-out;
+  }
+
+
+  /* =========================================
+     ONLY ONE CARD
+  ========================================= */
+
+  .category-slider
+  .mobile-fade-card {
+
+    flex:
+      0 0 100% !important;
+
+    width:
+      100% !important;
+
+    min-width:
+      0 !important;
+
+    max-width:
+      390px !important;
+
+    margin:
+      0 auto !important;
+
+    border-radius:
+      16px;
+
+    transform:
+      none !important;
+
+    -webkit-transform:
+      none !important;
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+  }
+
+
+  /* =========================================
+     IMAGE
+  ========================================= */
+
+  .category-slider
+  .mobile-fade-card
+  img {
+
+    width:
+      100% !important;
+
+    height:
+      190px !important;
+
+    display:
+      block;
+
+    object-fit:
+      cover;
+
+    transform:
+      none !important;
+
+    -webkit-transform:
+      none !important;
+  }
+
+
+  /* =========================================
+     CONTENT
+  ========================================= */
+
+  .category-slider
+  .mobile-fade-card
+  .slide-content {
+
+    padding:
+      12px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  .slide-label {
+
+    font-size:
+      10px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  h3 {
+
+    font-size:
+      15px;
+
+    line-height:
+      20px;
+
+    margin-bottom:
+      5px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  p {
+
+    font-size:
+      11px;
+
+    line-height:
+      16px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  a {
+
+    font-size:
+      10px;
+  }
+
+}
+
+
+/* =====================================================
+   FADE IN → STAY → FADE OUT
+===================================================== */
+
+@keyframes mobileCategoryFade {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      scale(0.985);
+  }
+
+
+  12% {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+
+
+  88% {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+
+
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(0.99);
+  }
+
+}
+
+
+/* =====================================================
+   IPHONE / SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .category-slider {
+    padding:
+      3px 6px 7px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card {
+
+    width:
+      100% !important;
+
+    min-width:
+      0 !important;
+
+    max-width:
+      350px !important;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  img {
+
+    width:
+      100% !important;
+
+    height:
+      165px !important;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  .slide-content {
+
+    padding:
+      10px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  h3 {
+
+    font-size:
+      14px;
+
+    line-height:
+      18px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  p {
+
+    font-size:
+      10px;
+
+    line-height:
+      15px;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL IPHONE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .category-slider
+  .mobile-fade-card {
+
+    width:
+      100% !important;
+
+    min-width:
+      0 !important;
+
+    max-width:
+      315px !important;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  img {
+
+    height:
+      145px !important;
+  }
+
+}
+
+
+/* =====================================================
+   SAFARI / IOS SMOOTHNESS
+===================================================== */
+
+@supports (-webkit-touch-callout: none) {
+
+  .mobile-fade-slide {
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+  }
+
+
+  .mobile-fade-card {
+    -webkit-transform:
+      translateZ(0);
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+  }
+
+}
+
+/* =====================================================
+   FINAL DESKTOP + MOBILE SLIDER BEHAVIOR
+===================================================== */
+
+
+/* =====================================================
+   DESKTOP
+   CLICK = PAUSE / RESUME
+===================================================== */
+
+@media (min-width: 769px) {
+
+  .category-slider {
+    cursor: pointer;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE / IPHONE / SAFARI
+   ONE CARD AT A TIME
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .category-slider {
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 4px 8px 8px;
+
+    box-sizing: border-box;
+
+    touch-action: pan-y;
+
+    -webkit-tap-highlight-color:
+      transparent;
+  }
+
+
+  /* =================================================
+     FADE SLIDE WRAPPER
+  ================================================= */
+
+  .mobile-fade-slide {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    /*
+      Har new card mount hote waqt
+      fade in hoga.
+    */
+
+    animation:
+      mobileCategoryFadeIn
+      0.6s ease both;
+
+    -webkit-animation:
+      mobileCategoryFadeIn
+      0.6s ease both;
+  }
+
+
+  /* =================================================
+     MOBILE CARD
+  ================================================= */
+
+  .category-slider
+  .mobile-fade-card {
+
+    display: block !important;
+
+    flex:
+      0 0 100% !important;
+
+    width:
+      100% !important;
+
+    min-width:
+      0 !important;
+
+    max-width:
+      390px !important;
+
+    margin:
+      0 auto !important;
+
+    overflow:
+      hidden;
+
+    border-radius:
+      16px;
+
+    box-sizing:
+      border-box;
+
+    cursor:
+      pointer;
+
+
+    /*
+      Purane slider transforms remove
+    */
+
+    transform:
+      none !important;
+
+    -webkit-transform:
+      none !important;
+
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+  }
+
+
+  /* =================================================
+     IMAGE
+  ================================================= */
+
+  .category-slider
+  .mobile-fade-card
+  img {
+
+    display:
+      block;
+
+    width:
+      100% !important;
+
+    height:
+      190px !important;
+
+    object-fit:
+      cover;
+
+    pointer-events:
+      none;
+
+    user-select:
+      none;
+
+    -webkit-user-select:
+      none;
+
+    -webkit-user-drag:
+      none;
+
+    transform:
+      none !important;
+
+    -webkit-transform:
+      none !important;
+  }
+
+
+  /* =================================================
+     CONTENT
+  ================================================= */
+
+  .category-slider
+  .mobile-fade-card
+  .slide-content {
+
+    width:
+      100%;
+
+    padding:
+      12px;
+
+    box-sizing:
+      border-box;
+  }
+
+
+  /* LABEL */
+
+  .category-slider
+  .mobile-fade-card
+  .slide-label {
+
+    font-size:
+      10px;
+
+    line-height:
+      13px;
+  }
+
+
+  /* TITLE */
+
+  .category-slider
+  .mobile-fade-card
+  h3 {
+
+    margin:
+      0 0 5px;
+
+    font-size:
+      15px;
+
+    line-height:
+      20px;
+  }
+
+
+  /* DESCRIPTION */
+
+  .category-slider
+  .mobile-fade-card
+  p {
+
+    margin:
+      0;
+
+    font-size:
+      11px;
+
+    line-height:
+      16px;
+  }
+
+
+  /* LINK */
+
+  .category-slider
+  .mobile-fade-card
+  a {
+
+    display:
+      inline-block;
+
+    margin-top:
+      6px;
+
+    font-size:
+      10px;
+  }
+
+}
+
+
+/* =====================================================
+   FADE EFFECT
+===================================================== */
+
+@keyframes mobileCategoryFadeIn {
+
+  from {
+    opacity:
+      0;
+
+    transform:
+      scale(0.97);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      scale(1);
+  }
+
+}
+
+
+@-webkit-keyframes mobileCategoryFadeIn {
+
+  from {
+    opacity:
+      0;
+
+    -webkit-transform:
+      scale(0.97);
+  }
+
+  to {
+    opacity:
+      1;
+
+    -webkit-transform:
+      scale(1);
+  }
+
+}
+
+
+/* =====================================================
+   PAUSED MOBILE CARD
+===================================================== */
+
+@media (max-width: 768px) {
+
+  /*
+    Pause hone par card fully visible
+    hi rahe.
+  */
+
+  .category-slider.slider-paused
+  .mobile-fade-slide {
+
+    opacity:
+      1;
+  }
+
+
+  .category-slider.slider-paused
+  .mobile-fade-card {
+
+    opacity:
+      1;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE / IPHONE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .category-slider {
+    padding:
+      3px 6px 7px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card {
+
+    width:
+      100% !important;
+
+    min-width:
+      0 !important;
+
+    max-width:
+      350px !important;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  img {
+
+    width:
+      100% !important;
+
+    height:
+      165px !important;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  .slide-content {
+
+    padding:
+      10px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  .slide-label {
+
+    font-size:
+      9px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  h3 {
+
+    font-size:
+      14px;
+
+    line-height:
+      18px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  p {
+
+    font-size:
+      10px;
+
+    line-height:
+      15px;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL IPHONE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .category-slider {
+    padding:
+      2px 4px 6px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card {
+
+    width:
+      100% !important;
+
+    max-width:
+      315px !important;
+
+    min-width:
+      0 !important;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  img {
+
+    height:
+      145px !important;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  .slide-content {
+
+    padding:
+      9px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  h3 {
+
+    font-size:
+      13px;
+
+    line-height:
+      17px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  p {
+
+    font-size:
+      9px;
+
+    line-height:
+      14px;
+  }
+
+}
+
+
+/* =====================================================
+   IPHONE / SAFARI FIX
+===================================================== */
+
+@supports (-webkit-touch-callout: none) {
+
+  .mobile-fade-slide {
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+
+    -webkit-transform:
+      translateZ(0);
+
+    transform:
+      translateZ(0);
+  }
+
+
+  .category-slider
+  .mobile-fade-card {
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+
+    -webkit-font-smoothing:
+      antialiased;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  img {
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+  }
+
+}
+
+/* =====================================================
+   FINAL CATEGORY SLIDER
+   DESKTOP PAUSE + MOBILE SLOW CROSS FADE
+===================================================== */
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 769px) {
+
+  .category-slider {
+    cursor: pointer;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE / TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .category-slider {
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 4px 8px 8px;
+
+    box-sizing: border-box;
+
+    touch-action: pan-y;
+
+    -webkit-tap-highlight-color:
+      transparent;
+
+    cursor: pointer;
+  }
+
+
+  /* =================================================
+     FADE STAGE
+  ================================================= */
+
+  .mobile-fade-stage {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    align-items: stretch;
+
+    justify-items: center;
+
+    position: relative;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =================================================
+     ALL MOBILE CARDS
+  ================================================= */
+
+  .category-slider
+  .mobile-fade-card {
+
+    grid-column: 1;
+
+    grid-row: 1;
+
+    display: block !important;
+
+    flex: none !important;
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    max-width: 390px !important;
+
+    margin: 0 auto !important;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    box-sizing: border-box;
+
+
+    /* Hidden by default */
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+
+    /*
+      Slow professional fade
+    */
+
+    transition:
+      opacity 1.6s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+      visibility 1.6s
+        ease;
+
+    -webkit-transition:
+      opacity 1.6s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+      visibility 1.6s
+        ease;
+
+
+    /* Old transforms remove */
+
+    transform:
+      translateZ(0) !important;
+
+    -webkit-transform:
+      translateZ(0) !important;
+
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+
+    will-change:
+      opacity;
+  }
+
+
+  /* =================================================
+     ACTIVE CARD
+  ================================================= */
+
+  .category-slider
+  .mobile-fade-card.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    z-index: 2;
+  }
+
+
+  /* =================================================
+     IMAGE
+  ================================================= */
+
+  .category-slider
+  .mobile-fade-card
+  img {
+
+    display: block;
+
+    width:
+      100% !important;
+
+    height:
+      190px !important;
+
+    object-fit: cover;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-select:
+      none;
+
+    -webkit-user-drag:
+      none;
+
+    transform:
+      none !important;
+
+    -webkit-transform:
+      none !important;
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+  }
+
+
+  /* =================================================
+     CONTENT
+  ================================================= */
+
+  .category-slider
+  .mobile-fade-card
+  .slide-content {
+
+    width: 100%;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* LABEL */
+
+  .category-slider
+  .mobile-fade-card
+  .slide-label {
+
+    font-size: 10px;
+
+    line-height: 13px;
+
+    margin-bottom: 4px;
+  }
+
+
+  /* TITLE */
+
+  .category-slider
+  .mobile-fade-card
+  h3 {
+
+    margin:
+      0 0 5px;
+
+    font-size: 15px;
+
+    line-height: 20px;
+  }
+
+
+  /* DESCRIPTION */
+
+  .category-slider
+  .mobile-fade-card
+  p {
+
+    margin: 0;
+
+    font-size: 11px;
+
+    line-height: 16px;
+  }
+
+
+  /* LINK */
+
+  .category-slider
+  .mobile-fade-card
+  a {
+
+    display: inline-block;
+
+    margin-top: 6px;
+
+    font-size: 10px;
+  }
+
+}
+
+
+/* =====================================================
+   PAUSE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  /*
+    Pause hone par active card
+    wahi visible rahega.
+  */
+
+  .category-slider.slider-paused
+  .mobile-fade-card.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE / IPHONE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .category-slider {
+
+    padding:
+      3px 6px 7px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card {
+
+    width:
+      100% !important;
+
+    min-width:
+      0 !important;
+
+    max-width:
+      350px !important;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  img {
+
+    width:
+      100% !important;
+
+    height:
+      165px !important;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  .slide-content {
+
+    padding: 10px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  .slide-label {
+
+    font-size: 9px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  h3 {
+
+    font-size: 14px;
+
+    line-height: 18px;
+
+    margin-bottom: 4px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  p {
+
+    font-size: 10px;
+
+    line-height: 15px;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL IPHONE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .category-slider {
+
+    padding:
+      2px 4px 6px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card {
+
+    width:
+      100% !important;
+
+    min-width:
+      0 !important;
+
+    max-width:
+      315px !important;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  img {
+
+    height:
+      145px !important;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  .slide-content {
+
+    padding: 9px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  h3 {
+
+    font-size: 13px;
+
+    line-height: 17px;
+  }
+
+
+  .category-slider
+  .mobile-fade-card
+  p {
+
+    font-size: 9px;
+
+    line-height: 14px;
+  }
+
+}
+
+
+/* =====================================================
+   IPHONE / SAFARI
+===================================================== */
+
+@supports (-webkit-touch-callout: none) {
+
+  .mobile-fade-stage {
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+
+    transform:
+      translateZ(0);
+
+    -webkit-transform:
+      translateZ(0);
+  }
+
+
+  .category-slider
+  .mobile-fade-card {
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+
+    -webkit-font-smoothing:
+      antialiased;
+  }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+
+  .category-slider
+  .mobile-fade-card {
+
+    transition:
+      opacity 0.2s ease;
+
+    -webkit-transition:
+      opacity 0.2s ease;
+  }
+
+}
+.floating-3d-wrapper {
+  position: fixed;
+
+  left: 45px;
+  right: auto;
+
+  bottom: 90px;
+
+  z-index: 99999;
+
+  width: 120px;
+  height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+
+  /* SOFT FADE */
+  animation: floatingBoxFade 5s ease-in-out infinite;
+}
+/* =========================================
+   SOFT FADE EFFECT
+========================================= */
+
+@keyframes floatingBoxFade {
+  0% {
+    opacity: 0.72;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.72;
+  }
+}
+
+@-webkit-keyframes floatingBoxFade {
+  0% {
+    opacity: 0.72;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.72;
+  }
+}

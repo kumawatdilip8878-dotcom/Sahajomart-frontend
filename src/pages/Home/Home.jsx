@@ -11,7 +11,7 @@ import CategorySlider from "../../components/CategorySlider/CategorySlider";
 import FloatingVideo from "../../components/VideoSection/FloatingVideo";
 import InfoStrip from "../../components/InfoStrip/InfoStrip";
 import Footer from "../../components/Footer/Footer";
-
+import Floating3DBox from "./../../components/Floating3DBox";
 import "./Home.css";
 
 
@@ -253,6 +253,7 @@ function Home() {
 
 
         <InfoStrip />
+  <Floating3DBox />
 
       </main>
 
