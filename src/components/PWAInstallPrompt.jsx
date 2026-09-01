@@ -1,27 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./PWAInstallPrompt.css";
 
 const PWAInstallPrompt = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  const [showIOSPopup, setShowIOSPopup] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
 
+  const hideTimerRef = useRef(null);
+
   useEffect(() => {
-    // ==========================================
-    // CHECK INSTALLED / STANDALONE
-    // ==========================================
     const isStandalone =
       window.matchMedia("(display-mode: standalone)").matches ||
       window.navigator.standalone === true;
 
-    if (isStandalone) {
-      return;
-    }
+    if (isStandalone) return;
 
-    // ==========================================
-    // DETECT iPHONE / iPAD / iOS SAFARI
-    // ==========================================
-    const userAgent = window.navigator.userAgent;
+    const userAgent = navigator.userAgent;
 
     const ios =
       /iPhone|iPad|iPod/i.test(userAgent) ||
@@ -31,33 +26,37 @@ const PWAInstallPrompt = () => {
     setIsIOS(ios);
 
     // ==========================================
-    // iOS / SAFARI
-    // Safari does NOT support beforeinstallprompt
+    // SHOW BUTTON IMMEDIATELY
     // ==========================================
-    if (ios) {
-      const timer = setTimeout(() => {
-        setShowPopup(true);
-      }, 2000);
-
-      return () => clearTimeout(timer);
-    }
+    setShowButton(true);
 
     // ==========================================
-    // ANDROID / CHROME
+    // HIDE AFTER 6 SECONDS
+    // ==========================================
+    hideTimerRef.current = setTimeout(() => {
+      setShowButton(false);
+    }, 6000);
+
+    // ==========================================
+    // ANDROID INSTALL EVENT
     // ==========================================
     const handleBeforeInstallPrompt = (event) => {
       event.preventDefault();
 
       setDeferredPrompt(event);
-
-      setTimeout(() => {
-        setShowPopup(true);
-      }, 2000);
     };
 
+    // ==========================================
+    // APP INSTALLED
+    // ==========================================
     const handleAppInstalled = () => {
       setDeferredPrompt(null);
-      setShowPopup(false);
+      setShowButton(false);
+      setShowIOSPopup(false);
+
+      if (hideTimerRef.current) {
+        clearTimeout(hideTimerRef.current);
+      }
     };
 
     window.addEventListener(
@@ -80,96 +79,125 @@ const PWAInstallPrompt = () => {
         "appinstalled",
         handleAppInstalled
       );
+
+      if (hideTimerRef.current) {
+        clearTimeout(hideTimerRef.current);
+      }
     };
   }, []);
 
-  // ==========================================
-  // ANDROID INSTALL
-  // ==========================================
   const installApp = async () => {
+    // Stop auto-hide when user clicks
+    if (hideTimerRef.current) {
+      clearTimeout(hideTimerRef.current);
+    }
+
+    // iPhone / iPad
+    if (isIOS) {
+      setShowButton(false);
+      setShowIOSPopup(true);
+      return;
+    }
+
+    // Android
     if (!deferredPrompt) {
       return;
     }
 
-    deferredPrompt.prompt();
+    try {
+      await deferredPrompt.prompt();
 
-    const { outcome } =
-      await deferredPrompt.userChoice;
+      const { outcome } =
+        await deferredPrompt.userChoice;
 
-    console.log(
-      "SahajoMart install result:",
-      outcome
-    );
+      console.log(
+        "SahajoMart install:",
+        outcome
+      );
 
-    setDeferredPrompt(null);
-    setShowPopup(false);
+      setDeferredPrompt(null);
+      setShowButton(false);
+    } catch (error) {
+      console.error(
+        "PWA install error:",
+        error
+      );
+    }
   };
-
-  // ==========================================
-  // CLOSE
-  // ==========================================
-  const closePopup = () => {
-    setShowPopup(false);
-  };
-
-  // ==========================================
-  // NOTHING TO SHOW
-  // ==========================================
-  if (!showPopup) {
-    return null;
-  }
 
   return (
-    <div className="pwa-overlay">
-      <div className="pwa-popup">
+    <>
+      {showButton && (
+        <button
+          className="pwa-floating-install"
+          onClick={installApp}
+          type="button"
+        >
+          <span className="pwa-mobile-symbol">
+            ▣
+          </span>
 
-        {/* APP ICON */}
-        <div className="pwa-app-icon">
-          <img
-            src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
-            alt="SahajoMart"
-          />
-        </div>
+          <span>
+            ऐप इंस्टॉल करें
+          </span>
+        </button>
+      )}
 
-        {/* ================================= */}
-        {/* iOS / SAFARI */}
-        {/* ================================= */}
+      {showIOSPopup && (
+        <div className="ios-install-overlay">
+          <div className="ios-install-popup">
 
-        {isIOS ? (
-          <>
-            <h2>Install SahajoMart</h2>
+            <button
+              className="ios-popup-close"
+              onClick={() =>
+                setShowIOSPopup(false)
+              }
+              type="button"
+            >
+              ✕
+            </button>
 
-            <p className="pwa-ios-text">
-              Add SahajoMart to your iPhone
-              Home Screen for a faster
-              shopping experience.
+            <div className="ios-app-logo">
+              <img
+                src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
+                alt="SahajoMart"
+              />
+            </div>
+
+            <h3>
+              Install SahajoMart
+            </h3>
+
+            <p>
+              Add SahajoMart to your Home Screen.
             </p>
 
-            <div className="ios-install-steps">
+            <div className="ios-steps">
 
               <div className="ios-step">
-                <span className="ios-number">1</span>
+                <span className="step-number">
+                  1
+                </span>
 
                 <span>
-                  Tap the{" "}
-                  <strong>Share</strong>{" "}
-                  button in Safari
+                  Tap the <strong>Share ⬆</strong> button in Safari
                 </span>
               </div>
 
               <div className="ios-step">
-                <span className="ios-number">2</span>
+                <span className="step-number">
+                  2
+                </span>
 
                 <span>
-                  Select{" "}
-                  <strong>
-                    Add to Home Screen
-                  </strong>
+                  Select <strong>Add to Home Screen</strong>
                 </span>
               </div>
 
               <div className="ios-step">
-                <span className="ios-number">3</span>
+                <span className="step-number">
+                  3
+                </span>
 
                 <span>
                   Tap <strong>Add</strong>
@@ -178,43 +206,10 @@ const PWAInstallPrompt = () => {
 
             </div>
 
-            <button
-              className="pwa-later-button pwa-close-button"
-              onClick={closePopup}
-            >
-              Maybe Later
-            </button>
-          </>
-        ) : (
-          /* ================================= */
-          /* ANDROID / CHROME */
-          /* ================================= */
-          <>
-            <h2>Install SahajoMart</h2>
-
-            <p>
-              Install our app for a faster
-              and better shopping experience.
-            </p>
-
-            <button
-              className="pwa-install-button"
-              onClick={installApp}
-            >
-              Install App
-            </button>
-
-            <button
-              className="pwa-later-button"
-              onClick={closePopup}
-            >
-              Maybe Later
-            </button>
-          </>
-        )}
-
-      </div>
-    </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

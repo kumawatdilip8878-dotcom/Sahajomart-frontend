@@ -1,274 +1,106 @@
 /* =====================================================
-   PWA OVERLAY
+   SAHAJOMART FLOATING PWA INSTALL BUTTON
 ===================================================== */
 
-.pwa-overlay {
+.pwa-floating-install {
   position: fixed;
-  inset: 0;
+
+  right: 0;
+
+  top: 38%;
 
   z-index: 999999;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
-  padding: 20px;
+  gap: 9px;
 
-  background: rgba(0, 0, 0, 0.45);
+  min-width: 170px;
 
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  height: 52px;
 
-  box-sizing: border-box;
-}
-
-
-/* =====================================================
-   POPUP
-===================================================== */
-
-.pwa-popup {
-  width: 100%;
-  max-width: 360px;
-
-  padding: 30px 24px;
-
-  background: #fff;
-
-  border-radius: 24px;
-
-  text-align: center;
-
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.25);
-
-  box-sizing: border-box;
-
-  animation: pwaPopup 0.3s ease;
-}
-
-
-/* =====================================================
-   APP ICON
-===================================================== */
-
-.pwa-app-icon {
-  width: 75px;
-  height: 75px;
-
-  margin: 0 auto 18px;
-
-  overflow: hidden;
-
-  border-radius: 18px;
-
-  box-shadow:
-    0 5px 18px rgba(0, 0, 0, 0.12);
-}
-
-.pwa-app-icon img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-}
-
-
-/* =====================================================
-   TITLE
-===================================================== */
-
-.pwa-popup h2 {
-  margin: 0 0 10px;
-
-  font-size: 23px;
-
-  line-height: 1.25;
-
-  color: #222;
-}
-
-
-/* =====================================================
-   DESCRIPTION
-===================================================== */
-
-.pwa-popup p {
-  margin: 0 0 22px;
-
-  font-size: 15px;
-
-  line-height: 1.5;
-
-  color: #666;
-}
-
-
-/* =====================================================
-   ANDROID INSTALL BUTTON
-===================================================== */
-
-.pwa-install-button {
-  width: 100%;
-
-  padding: 14px;
+  padding: 0 20px;
 
   border: none;
 
-  border-radius: 12px;
+  border-radius: 28px 0 0 28px;
 
-  background: #000;
+  background: #287be0;
 
-  color: #fff;
+  color: #ffffff;
+
+  font-family: "Outfit", sans-serif;
 
   font-size: 16px;
 
-  font-weight: 600;
+  font-weight: 700;
+
+  line-height: 1;
 
   cursor: pointer;
 
-  -webkit-tap-highlight-color: transparent;
-}
-
-.pwa-install-button:active {
-  transform: scale(0.98);
-}
-
-
-/* =====================================================
-   MAYBE LATER
-===================================================== */
-
-.pwa-later-button {
-  margin-top: 14px;
-
-  padding: 8px;
-
-  border: none;
-
-  background: transparent;
-
-  color: #777;
-
-  font-size: 14px;
-
-  cursor: pointer;
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.22);
 
   -webkit-tap-highlight-color: transparent;
+
+  animation:
+    pwaSlideIn 0.4s ease;
 }
 
 
 /* =====================================================
-   iOS INSTALL STEPS
+   PHONE ICON
 ===================================================== */
 
-.ios-install-steps {
-  width: 100%;
-
-  margin: 20px 0 5px;
-
-  text-align: left;
-}
-
-
-/* =====================================================
-   iOS STEP
-===================================================== */
-
-.ios-step {
+.pwa-phone-icon {
   display: flex;
 
   align-items: center;
 
-  gap: 12px;
-
-  margin-bottom: 13px;
-
-  padding: 11px 12px;
-
-  border-radius: 12px;
-
-  background: #f6f6f6;
-
-  color: #444;
-
-  font-size: 13px;
-
-  line-height: 1.35;
-
-  box-sizing: border-box;
-}
-
-
-/* =====================================================
-   STEP NUMBER
-===================================================== */
-
-.ios-number {
-  flex: 0 0 26px;
-
-  width: 26px;
-  height: 26px;
-
-  display: flex;
-
-  align-items: center;
   justify-content: center;
 
-  border-radius: 50%;
+  width: 18px;
 
-  background: #000;
+  height: 22px;
 
-  color: #fff;
+  font-size: 15px;
 
-  font-size: 12px;
-
-  font-weight: 700;
+  color: #ffffff;
 }
 
 
 /* =====================================================
-   IOS CLOSE BUTTON
+   CLICK
 ===================================================== */
 
-.pwa-close-button {
-  width: 100%;
-
-  margin-top: 12px;
-
-  padding: 11px;
-
-  border-radius: 10px;
-
-  background: #f5f5f5;
-
-  color: #555;
+.pwa-floating-install:active {
+  transform: scale(0.97);
 }
 
 
 /* =====================================================
-   ANIMATION
+   ENTRY ANIMATION
 ===================================================== */
 
-@keyframes pwaPopup {
+@keyframes pwaSlideIn {
 
   from {
     opacity: 0;
 
-    transform:
-      translateY(20px)
-      scale(0.96);
+    transform: translateX(100%);
   }
 
   to {
     opacity: 1;
 
-    transform:
-      translateY(0)
-      scale(1);
+    transform: translateX(0);
   }
+
 }
 
 
@@ -278,47 +110,52 @@
 
 @media (max-width: 480px) {
 
-  .pwa-overlay {
-    padding: 16px;
+  .pwa-floating-install {
+    top: 68%;
+
+    min-width: 160px;
+
+    height: 50px;
+
+    padding: 0 17px;
+
+    gap: 8px;
+
+    border-radius: 26px 0 0 26px;
+
+    font-size: 15px;
   }
 
-  .pwa-popup {
-    max-width: 350px;
-
-    padding: 26px 20px;
-
-    border-radius: 22px;
-  }
-
-  .pwa-app-icon {
-    width: 70px;
-    height: 70px;
-
-    margin-bottom: 15px;
-  }
-
-  .pwa-popup h2 {
-    font-size: 21px;
-  }
-
-  .pwa-popup p {
-    font-size: 14px;
-  }
-
-  .ios-step {
-    font-size: 12px;
-    padding: 10px;
-  }
 }
 
 
 /* =====================================================
-   DESKTOP
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .pwa-floating-install {
+    min-width: 145px;
+
+    height: 46px;
+
+    padding: 0 14px;
+
+    font-size: 14px;
+  }
+
+}
+
+
+/* =====================================================
+   DESKTOP HIDE
 ===================================================== */
 
 @media (min-width: 768px) {
 
-  .pwa-overlay {
+  .pwa-floating-install {
     display: none;
   }
+
 }

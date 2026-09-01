@@ -120,7 +120,7 @@ const LocationBar = () => {
         {/* TITLE */}
 
         <span className="location-title">
-          Our Stores:
+          Home Delivery for
         </span>
 
         {/* SLIDER VIEWPORT */}

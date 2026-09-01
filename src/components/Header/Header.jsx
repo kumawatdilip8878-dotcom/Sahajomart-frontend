@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import {
   FaWhatsapp,
   FaPhoneAlt,
-  FaUser,
   FaStore,
 } from "react-icons/fa";
+
 import "./Header.css";
 
 const Header = () => {
@@ -35,66 +35,60 @@ const Header = () => {
 
       <div className="header-container nav">
 
-        {/* ========================================
-            LOGO
-        ======================================== */}
+        {/* ==============================
+            LOGO + BRAND
+        ============================== */}
 
         <a
           href="#home"
           className="logo"
           onClick={closeMenu}
         >
-          <div>
-            <img
-              style={{
-                width: "54px",
-                height: "54px",
-                borderRadius: "3px",
-              }}
-              className="ahjo"
+
+          {/* LOGO IMAGE */}
+
+          <div className="logo-mark">
+            <img style={{height:"55px",width:"55px"}}
+              // className="ahjo"
               src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
               alt="Sahjo Mart Logo"
             />
           </div>
 
-          <div className="logo-text">
-           <span >
-  SAHJO
-  <br />
 
-  <span
-    style={{
-      fontWeight: "400",
-      color: "#000000",
-      fontSize: "15px",
-      lineHeight: "1",
-    }}
-  >
-    Mart
-  </span>
-</span>
+          {/* BRAND TEXT */}
+
+          <div className="brand-copy">
+
+            {/* SAHJO MART ONE LINE */}
+
+            <div className="logo-text">
+
+              <span className="sahjo-text">
+                SAHJO
+              </span>
+
+              <span   className="mart-text">
+                Mart
+              </span>
+
+            </div>
+
+
+            {/* HINDI TEXT */}
+
+            <div style={{fontSize:"15px"}} className="shopping-tagline">
+              अब करें घर से ऑनलाइन शॉपिंग
+            </div>
+
           </div>
+
         </a>
 
 
-        {/* ========================================
-            ONLINE SHOPPING TEXT
-        ======================================== */}
-
-        <div
-          style={{
-            marginLeft: "50px",
-            gap: "10px",
-          }}
-          className="online-shopping-text"
-        >
-          अब करें घर से ऑनलाइन शॉपिंग
-        </div>
-
-
-        {/* ========================================
-            DESKTOP ACTIONS
-        ======================================== */}
+        {/* ==============================
+            ACTION BUTTONS
+        ============================== */}
 
         <div className="nav-actions">
 
@@ -128,20 +122,6 @@ const Header = () => {
           </a>
 
 
-          {/* Customer Login */}
-
-          <a
-            href="/customer-login"
-            className="btn btn-outline"
-          >
-            <FaUser className="action-icon login-icon" />
-
-            <span>
-              Customer Login
-            </span>
-          </a>
-
-
           {/* Store Login */}
 
           <a
@@ -156,7 +136,7 @@ const Header = () => {
           </a>
 
 
-          {/* Mobile Menu */}
+          {/* MOBILE MENU BUTTON */}
 
           <button
             className="mobile-toggle"
@@ -172,9 +152,9 @@ const Header = () => {
       </div>
 
 
-      {/* ==========================================
+      {/* ==============================
           MOBILE MENU
-      ========================================== */}
+      ============================== */}
 
       <div
         className={`mobile-menu ${
@@ -210,21 +190,6 @@ const Header = () => {
 
           <span>
             Order on Call
-          </span>
-        </a>
-
-
-        {/* Customer Login */}
-
-        <a
-          href="/customer-login"
-          className="btn btn-outline"
-          onClick={closeMenu}
-        >
-          <FaUser className="action-icon login-icon" />
-
-          <span>
-            Customer Login
           </span>
         </a>
 

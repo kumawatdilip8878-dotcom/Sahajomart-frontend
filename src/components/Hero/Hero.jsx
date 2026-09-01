@@ -45,18 +45,18 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 className="btn hero-order-btn hero-whatsapp-btn"
               >
-                <FaWhatsapp className="hero-btn-icon" />
                 <span>WhatsApp Order</span>
+                <FaWhatsapp className="hero-btn-icon" />
               </a>
 
               {/* Call */}
-              <a
+              {/* <a
                 href="tel:+919876543210"
                 className="btn hero-order-btn hero-call-btn"
               >
                 <FaPhoneAlt className="hero-btn-icon" />
                 <span>Call Store</span>
-              </a>
+              </a> */}
 
             </div>
 
