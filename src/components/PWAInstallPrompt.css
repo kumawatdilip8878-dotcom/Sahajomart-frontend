@@ -571,3 +571,154 @@
     display: none;
   }
 }
+
+/* =====================================================
+   FINAL MOBILE INSTALL BUTTON - BIG + PREMIUM
+   KEEP THIS AT THE VERY END OF CSS
+===================================================== */
+
+@media (max-width: 767px) {
+
+  .pwa-floating-install {
+    position: fixed !important;
+
+    right: 14px !important;
+    top: 66% !important;
+
+    width: 132px !important;
+    min-width: 132px !important;
+    height: 46px !important;
+
+    padding: 0 17px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 8px !important;
+
+    border: none !important;
+
+    border-radius: 999px !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        #3b8df5,
+        #1769cc
+      ) !important;
+
+    color: #ffffff !important;
+
+    font-size: 13px !important;
+    font-weight: 800 !important;
+
+    line-height: 1 !important;
+
+    box-sizing: border-box !important;
+
+    box-shadow:
+      0 7px 20px
+      rgba(32, 112, 215, 0.38) !important;
+
+    z-index: 999999 !important;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+  }
+
+
+  .pwa-floating-install span {
+    font-size: 13px !important;
+    font-weight: 800 !important;
+
+    white-space: nowrap;
+  }
+
+
+  .pwa-floating-install
+  .pwa-install-icon {
+    width: 21px !important;
+    height: 21px !important;
+
+    font-size: 21px !important;
+
+    flex: 0 0 21px !important;
+
+    color: #ffffff !important;
+  }
+
+
+  .pwa-floating-install:active {
+    transform: scale(0.96);
+  }
+}
+
+
+/* =====================================================
+   NORMAL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .pwa-floating-install {
+    right: 12px !important;
+
+    width: 126px !important;
+    min-width: 126px !important;
+
+    height: 44px !important;
+
+    padding: 0 15px !important;
+
+    font-size: 12.5px !important;
+  }
+
+
+  .pwa-floating-install span {
+    font-size: 12.5px !important;
+  }
+
+
+  .pwa-floating-install
+  .pwa-install-icon {
+    width: 20px !important;
+    height: 20px !important;
+
+    font-size: 20px !important;
+  }
+}
+
+
+/* =====================================================
+   SMALL IPHONE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .pwa-floating-install {
+    right: 10px !important;
+
+    width: 120px !important;
+    min-width: 120px !important;
+
+    height: 42px !important;
+
+    padding: 0 14px !important;
+  }
+
+
+  .pwa-floating-install span {
+    font-size: 12px !important;
+  }
+
+
+  .pwa-floating-install
+  .pwa-install-icon {
+    width: 19px !important;
+    height: 19px !important;
+
+    font-size: 19px !important;
+  }
+}

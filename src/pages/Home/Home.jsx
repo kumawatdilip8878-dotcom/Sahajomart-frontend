@@ -8,7 +8,7 @@ import Hero from "../../components/Hero/Hero";
 import PromoSlider from "../../components/PromoSlider/PromoSlider";
 // import CategoryGrid from "../../components/CategoryGrid/CategoryGrid";
 import CategorySlider from "../../components/CategorySlider/CategorySlider";
-import FloatingVideo from "../../components/VideoSection/FloatingVideo";
+// import FloatingVideo from "../../components/VideoSection/FloatingVideo";
 import InfoStrip from "../../components/InfoStrip/InfoStrip";
 import Footer from "../../components/Footer/Footer";
 import Floating3DBox from "./../../components/Floating3DBox";
@@ -259,7 +259,7 @@ function Home() {
 
       <Footer />
 
-      <FloatingVideo />
+      {/* <FloatingVideo /> */}
 
     </>
   );

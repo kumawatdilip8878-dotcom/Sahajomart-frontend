@@ -479,7 +479,7 @@
     left: 14px;
     right: auto;
 
-    bottom: 85px;
+    bottom: 50px;
   }
 }
 @media (max-width: 380px) {
@@ -487,17 +487,17 @@
     left: 10px;
     right: auto;
 
-    bottom: 75px;
+    bottom:50px;
   }
 }
 
 .floating-3d-wrapper {
   position: fixed;
 
-  left: 70px;
+  left: 45px;
   right: auto;
 
-  bottom: 100px;
+  bottom: 50px;
 
   z-index: 99999;
 }
@@ -506,14 +506,6 @@
     left: 22px;
     right: auto;
 
-    bottom: 110px;
-  }
-}
-@media (max-width: 380px) {
-  .floating-3d-wrapper {
-    left: 18px;
-    right: auto;
-
-    bottom: 95px;
+    bottom: 90px;
   }
 }

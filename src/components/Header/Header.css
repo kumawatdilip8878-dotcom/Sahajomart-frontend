@@ -1074,8 +1074,8 @@ header {
   }
 
   .logo-mark {
-    width: 60px;
-    height: 60px !important;
+    /* width: 60px;
+    height: 60px !important; */
 
     flex: 0 0 60px;
 
