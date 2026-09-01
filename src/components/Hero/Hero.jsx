@@ -1,6 +1,5 @@
 import {
   FaWhatsapp,
-  FaPhoneAlt,
 } from "react-icons/fa";
 
 import "./Hero.css";
