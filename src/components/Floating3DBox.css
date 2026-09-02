@@ -5,22 +5,62 @@
 .floating-3d-wrapper {
   position: fixed;
 
-  right: 28px;
+  right: 25px;
   bottom: 30px;
 
-  z-index: 99999;
+  width: 130px;
+  height: 130px;
 
-  width: 120px;
-  height: 120px;
+  z-index: 9999;
 
   display: flex;
+  align-items: center;
+  justify-content: center;
 
+  perspective: 900px;
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.cube-close-btn {
+  position: absolute;
+
+  top: -18px;
+  right: -5px;
+
+  width: 30px;
+  height: 30px;
+
+  border: 3px solid #fff;
+  border-radius: 50%;
+
+  background: #e00017;
+  color: #fff;
+
+  font-size: 25px;
+  font-weight: 900;
+
+  line-height: 22px;
+
+  display: flex;
   align-items: center;
   justify-content: center;
 
   cursor: pointer;
 
-  -webkit-tap-highlight-color: transparent;
+  z-index: 99999;
+
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.25);
+
+  transition: 0.25s ease;
+}
+
+.cube-close-btn:hover {
+  transform: scale(1.12);
 }
 
 
@@ -29,15 +69,12 @@
 ===================================================== */
 
 .floating-3d-scene {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
 
-  perspective: 800px;
+  perspective: 900px;
 
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
+  cursor: pointer;
 }
 
 
@@ -48,291 +85,279 @@
 .floating-cube {
   position: relative;
 
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
 
   transform-style: preserve-3d;
 
-  -webkit-transform-style: preserve-3d;
+  transform:
+    rotateX(-15deg)
+    rotateY(25deg);
 
   animation:
-    floatingCubeRotate
-    14s
+    cube360Rotation 12s
     linear
     infinite;
 
-  -webkit-animation:
-    floatingCubeRotate
-    14s
-    linear
-    infinite;
+  will-change: transform;
+}
+
+
+/* Pause / slow feeling on hover */
+
+.floating-3d-scene:hover .floating-cube {
+  animation-play-state: paused;
 }
 
 
 /* =====================================================
-   ALL SIDES
+   ALL CUBE FACES
 ===================================================== */
 
 .cube-face {
   position: absolute;
 
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
 
-  display: flex;
+  overflow: hidden;
 
-  flex-direction: column;
+  background: #e00017;
 
-  align-items: center;
-  justify-content: center;
+  border: 2px solid #ffffff;
 
   box-sizing: border-box;
 
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.4);
-
-  border-radius: 12px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffac34,
-      #f17700
-    );
-
-  color: #ffffff;
-
-  text-align: center;
-
-  box-shadow:
-    inset 0 0 16px
-    rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   backface-visibility: visible;
 
-  -webkit-backface-visibility: visible;
+  box-shadow:
+    inset 0 0 18px rgba(0, 0, 0, 0.08);
 }
 
 
 /* =====================================================
-   FRONT
+   BIG LETTER
 ===================================================== */
 
-.cube-front {
-  transform:
-    translateZ(45px);
+.cube-big-letter {
+  font-size: 62px;
+  line-height: 1;
 
-  -webkit-transform:
-    translateZ(45px);
-}
+  color: #ffffff;
 
-
-/* =====================================================
-   BACK
-===================================================== */
-
-.cube-back {
-  transform:
-    rotateY(180deg)
-    translateZ(45px);
-
-  -webkit-transform:
-    rotateY(180deg)
-    translateZ(45px);
-}
-
-
-/* =====================================================
-   RIGHT
-===================================================== */
-
-.cube-right {
-  transform:
-    rotateY(90deg)
-    translateZ(45px);
-
-  -webkit-transform:
-    rotateY(90deg)
-    translateZ(45px);
-}
-
-
-/* =====================================================
-   LEFT
-===================================================== */
-
-.cube-left {
-  transform:
-    rotateY(-90deg)
-    translateZ(45px);
-
-  -webkit-transform:
-    rotateY(-90deg)
-    translateZ(45px);
-}
-
-
-/* =====================================================
-   TOP
-===================================================== */
-
-.cube-top {
-  transform:
-    rotateX(90deg)
-    translateZ(45px);
-
-  -webkit-transform:
-    rotateX(90deg)
-    translateZ(45px);
-}
-
-
-/* =====================================================
-   BOTTOM
-===================================================== */
-
-.cube-bottom {
-  transform:
-    rotateX(-90deg)
-    translateZ(45px);
-
-  -webkit-transform:
-    rotateX(-90deg)
-    translateZ(45px);
-}
-
-
-/* =====================================================
-   TEXT
-===================================================== */
-
-.cube-icon {
-  margin-bottom: 4px;
-
-  font-size: 23px;
-}
-
-
-.cube-face strong {
   font-family:
-    "Outfit",
+    Arial,
+    Helvetica,
     sans-serif;
 
+  font-weight: 900;
+
+  letter-spacing: -5px;
+
+  transform: translateY(-8px);
+
+  text-shadow:
+    1px 1px 0 rgba(255,255,255,.2);
+}
+
+.sahjo-letter {
+  letter-spacing: 0;
+}
+
+
+/* =====================================================
+   BOTTOM WHITE STRIP
+===================================================== */
+
+.cube-face-bottom {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 28px;
+
+  background: #ffffff;
+
+  color: #111111;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-size: 13px;
+  font-weight: 800;
 
-  font-weight: 900;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  letter-spacing: 0.2px;
+
+  border-top: 2px solid #e00017;
 }
 
 
-.cube-face small {
-  margin-top: 3px;
+/* =====================================================
+   TOP / BOTTOM TEXT
+===================================================== */
 
-  font-size: 9px;
+.top-text {
+  color: #ffffff;
 
-  font-weight: 600;
-}
-
-
-.cube-right span,
-.cube-left span,
-.cube-top span,
-.cube-bottom span {
-  font-size: 12px;
-
+  font-size: 20px;
   font-weight: 900;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
   letter-spacing: 1px;
 }
 
 
 /* =====================================================
-   SLOW 360 ROTATION
+   CUBE 3D POSITIONS
+
+   Cube size = 110px
+   Half = 55px
 ===================================================== */
 
-@keyframes floatingCubeRotate {
 
-  0% {
-    transform:
-      rotateX(-10deg)
-      rotateY(0deg);
-  }
+/* FRONT */
 
-
-  25% {
-    transform:
-      rotateX(10deg)
-      rotateY(90deg);
-  }
-
-
-  50% {
-    transform:
-      rotateX(-10deg)
-      rotateY(180deg);
-  }
-
-
-  75% {
-    transform:
-      rotateX(10deg)
-      rotateY(270deg);
-  }
-
-
-  100% {
-    transform:
-      rotateX(-10deg)
-      rotateY(360deg);
-  }
+.cube-front {
+  transform:
+    rotateY(0deg)
+    translateZ(55px);
 }
 
 
-@-webkit-keyframes floatingCubeRotate {
+/* BACK */
 
-  0% {
-    -webkit-transform:
-      rotateX(-10deg)
-      rotateY(0deg);
-  }
-
-
-  25% {
-    -webkit-transform:
-      rotateX(10deg)
-      rotateY(90deg);
-  }
+.cube-back {
+  transform:
+    rotateY(180deg)
+    translateZ(55px);
+}
 
 
-  50% {
-    -webkit-transform:
-      rotateX(-10deg)
-      rotateY(180deg);
-  }
+/* RIGHT */
+
+.cube-right {
+  transform:
+    rotateY(90deg)
+    translateZ(55px);
+}
 
 
-  75% {
-    -webkit-transform:
-      rotateX(10deg)
-      rotateY(270deg);
-  }
+/* LEFT */
+
+.cube-left {
+  transform:
+    rotateY(-90deg)
+    translateZ(55px);
+}
 
 
-  100% {
-    -webkit-transform:
-      rotateX(-10deg)
-      rotateY(360deg);
-  }
+/* TOP */
+
+.cube-top {
+  transform:
+    rotateX(90deg)
+    translateZ(55px);
+}
+
+
+/* BOTTOM */
+
+.cube-bottom {
+  transform:
+    rotateX(-90deg)
+    translateZ(55px);
 }
 
 
 /* =====================================================
-   CLICK EFFECT
+   360° MULTI-DIRECTION ROTATION
 ===================================================== */
 
-.floating-3d-wrapper:active
-.floating-3d-scene {
-  transform: scale(0.93);
+@keyframes cube360Rotation {
+
+  0% {
+    transform:
+      rotateX(-15deg)
+      rotateY(0deg)
+      rotateZ(0deg);
+  }
+
+  20% {
+    transform:
+      rotateX(-25deg)
+      rotateY(90deg)
+      rotateZ(2deg);
+  }
+
+  40% {
+    transform:
+      rotateX(20deg)
+      rotateY(180deg)
+      rotateZ(0deg);
+  }
+
+  60% {
+    transform:
+      rotateX(-20deg)
+      rotateY(270deg)
+      rotateZ(-2deg);
+  }
+
+  80% {
+    transform:
+      rotateX(20deg)
+      rotateY(330deg)
+      rotateZ(0deg);
+  }
+
+  100% {
+    transform:
+      rotateX(-15deg)
+      rotateY(360deg)
+      rotateZ(0deg);
+  }
+
+}
+
+
+/* =====================================================
+   SHADOW
+===================================================== */
+
+.floating-3d-wrapper::after {
+  content: "";
+
+  position: absolute;
+
+  width: 90px;
+  height: 17px;
+
+  bottom: -8px;
+
+  background:
+    rgba(0, 0, 0, 0.16);
+
+  border-radius: 50%;
+
+  filter: blur(7px);
+
+  z-index: -1;
 }
 
 
@@ -344,256 +369,192 @@
 
   .floating-3d-wrapper {
     right: 14px;
+    bottom: 25px;
 
-    bottom: 85px;
+    width: 105px;
+    height: 105px;
+  }
 
+  .floating-3d-scene {
     width: 90px;
-
     height: 90px;
   }
 
-
-  .floating-3d-scene {
-    width: 75px;
-
-    height: 75px;
-
-    perspective: 650px;
-  }
-
-
   .floating-cube {
-    width: 66px;
-
-    height: 66px;
+    width: 90px;
+    height: 90px;
   }
-
 
   .cube-face {
-    width: 66px;
-
-    height: 66px;
-
-    border-radius: 9px;
+    width: 90px;
+    height: 90px;
   }
 
+  /*
+     Mobile cube half size:
+     90 / 2 = 45px
+  */
 
   .cube-front {
     transform:
-      translateZ(33px);
+      rotateY(0deg)
+      translateZ(45px);
   }
-
 
   .cube-back {
     transform:
       rotateY(180deg)
-      translateZ(33px);
+      translateZ(45px);
   }
-
 
   .cube-right {
     transform:
       rotateY(90deg)
-      translateZ(33px);
+      translateZ(45px);
   }
-
 
   .cube-left {
     transform:
       rotateY(-90deg)
-      translateZ(33px);
+      translateZ(45px);
   }
-
 
   .cube-top {
     transform:
       rotateX(90deg)
-      translateZ(33px);
+      translateZ(45px);
   }
-
 
   .cube-bottom {
     transform:
       rotateX(-90deg)
-      translateZ(33px);
+      translateZ(45px);
   }
 
+  .cube-big-letter {
+    font-size: 48px;
 
-  .cube-icon {
-    font-size: 17px;
-
-    margin-bottom: 2px;
+    transform:
+      translateY(-7px);
   }
 
+  .cube-face-bottom {
+    height: 24px;
 
-  .cube-face strong {
-    font-size: 10px;
+    font-size: 11px;
   }
 
-
-  .cube-face small {
-    font-size: 7px;
+  .top-text {
+    font-size: 16px;
   }
 
+  .cube-close-btn {
+    width: 27px;
+    height: 27px;
 
-  .cube-right span,
-  .cube-left span,
-  .cube-top span,
-  .cube-bottom span {
+    top: -15px;
+    right: -6px;
+
+    font-size: 21px;
+  }
+
+}
+
+
+.cube-face {
+  background: linear-gradient(
+    135deg,
+    #f77e0d,
+    #ff9a2e,
+    #f39200,
+    #d96500
+  );
+
+  border: 2px solid #ffffff;
+}
+.cube-close-btn {
+  background: #f77e0d;
+  color: white;
+}
+
+@media (max-width: 768px) {
+
+  .floating-3d-wrapper {
+    right: 30px;   /* right se thoda left shift */
+    bottom: 22px;
+
+    width: 85px;
+    height: 85px;
+  }
+
+  .floating-3d-scene {
+    width: 72px;
+    height: 72px;
+  }
+
+  .floating-cube {
+    width: 72px;
+    height: 72px;
+  }
+
+  .cube-face {
+    width: 72px;
+    height: 72px;
+  }
+
+  /* 72 / 2 = 36px */
+
+  .cube-front {
+    transform: rotateY(0deg) translateZ(36px);
+  }
+
+  .cube-back {
+    transform: rotateY(180deg) translateZ(36px);
+  }
+
+  .cube-right {
+    transform: rotateY(90deg) translateZ(36px);
+  }
+
+  .cube-left {
+    transform: rotateY(-90deg) translateZ(36px);
+  }
+
+  .cube-top {
+    transform: rotateX(90deg) translateZ(36px);
+  }
+
+  .cube-bottom {
+    transform: rotateX(-90deg) translateZ(36px);
+  }
+
+  .cube-big-letter {
+    font-size: 37px;
+    letter-spacing: -2px;
+    transform: translateY(-5px);
+  }
+
+  .cube-face-bottom {
+    height: 19px;
     font-size: 8px;
+    font-weight: 800;
   }
 
-}
-
-
-/* =====================================================
-   SMALL IPHONE
-===================================================== */
-
-@media (max-width: 380px) {
-
-  .floating-3d-wrapper {
-    right: 10px;
-
-    bottom: 75px;
-
-    width: 80px;
-
-    height: 80px;
+  .top-text {
+    font-size: 11px;
   }
 
-}
+  .cube-close-btn {
+    width: 23px;
+    height: 23px;
 
-.floating-3d-wrapper {
-  position: fixed;
+    top: -10px;
+    right: -4px;
 
-  left: 28px;
-  right: auto;
+    font-size: 18px;
+    line-height: 18px;
 
-  bottom: 30px;
-
-  z-index: 99999;
-}
-@media (max-width: 768px) {
-  .floating-3d-wrapper {
-    left: 14px;
-    right: auto;
-
-    bottom: 50px;
-  }
-}
-@media (max-width: 380px) {
-  .floating-3d-wrapper {
-    left: 10px;
-    right: auto;
-
-    bottom:50px;
-  }
-}
-
-.floating-3d-wrapper {
-  position: fixed;
-
-  left: 45px;
-  right: auto;
-
-  bottom: 50px;
-
-  z-index: 99999;
-}
-@media (max-width: 768px) {
-  .floating-3d-wrapper {
-    left: 22px;
-    right: auto;
-
-    bottom: 90px;
-  }
-}
-/* =====================================================
-   FINAL FLOATING 3D BOX POSITION
-===================================================== */
-
-.floating-3d-wrapper {
-  position: fixed !important;
-
-  left: 35px !important;
-  right: auto !important;
-
-  bottom: 55px !important;
-
-  width: 120px;
-  height: 120px;
-
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-
-  visibility: visible !important;
-  opacity: 1;
-
-  z-index: 99998;
-
-  cursor: pointer;
-
-  animation:
-    floatingBoxSoftFade
-    5s ease-in-out infinite;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 768px) {
-
-  .floating-3d-wrapper {
-    left: 20px !important;
-    right: auto !important;
-
-    bottom: 28px !important;
-
-    width: 90px !important;
-    height: 90px !important;
-
-    display: flex !important;
-    visibility: visible !important;
-  }
-}
-
-
-/* =====================================================
-   SMALL IPHONE
-===================================================== */
-
-@media (max-width: 380px) {
-
-  .floating-3d-wrapper {
-    left: 14px !important;
-
-    bottom: 24px !important;
-
-    width: 82px !important;
-    height: 82px !important;
-  }
-}
-
-
-/* =====================================================
-   SOFT FADE
-===================================================== */
-
-@keyframes floatingBoxSoftFade {
-
-  0% {
-    opacity: 0.82;
+    border-width: 2px;
   }
 
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.82;
-  }
 }

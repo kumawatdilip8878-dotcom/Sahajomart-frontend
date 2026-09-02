@@ -50,7 +50,7 @@ const Hero = () => {
                 className="btn hero-order-btn hero-whatsapp-btn"
               >
                 <span>
-                  WhatsApp Order
+                  WhatsApp से ऑर्डर करें
                 </span>
 
                 <FaWhatsapp className="hero-btn-icon" />
