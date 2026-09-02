@@ -601,64 +601,6 @@ function CategorySlider({
      DOT CLICK
   ===================================================== */
 
-  const goToSlide = (
-    index
-  ) => {
-    /* =================================================
-       MOBILE
-    ================================================= */
-
-    if (isMobile) {
-      firstFadeRef.current =
-        false;
-
-      updateCurrentIndex(
-        index
-      );
-
-      return;
-    }
-
-
-    /* =================================================
-       DESKTOP
-    ================================================= */
-
-    const track =
-      trackRef.current;
-
-    if (!track) {
-      return;
-    }
-
-
-    const width =
-      getSlideWidth();
-
-    if (!width) {
-      return;
-    }
-
-
-    positionRef.current =
-      (
-        originalLength +
-        index
-      ) *
-      width;
-
-
-    track.style.transform =
-      `translate3d(${
-        -positionRef.current
-      }px, 0, 0)`;
-
-
-    updateCurrentIndex(
-      index
-    );
-  };
-
 
   /* =====================================================
      EMPTY
