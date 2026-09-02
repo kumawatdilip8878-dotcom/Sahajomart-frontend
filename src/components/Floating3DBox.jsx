@@ -17,7 +17,9 @@ const Floating3DBox = () => {
   return (
     <div className="floating-3d-wrapper">
 
-      {/* CLOSE BUTTON */}
+      {/* =========================
+          CLOSE BUTTON
+      ========================= */}
       <button
         className="cube-close-btn"
         onClick={(e) => {
@@ -29,7 +31,10 @@ const Floating3DBox = () => {
         ×
       </button>
 
-      {/* 3D SCENE */}
+
+      {/* =========================
+          3D SCENE
+      ========================= */}
       <div
         className="floating-3d-scene"
         onClick={openLink}
@@ -42,10 +47,16 @@ const Floating3DBox = () => {
           }
         }}
       >
+
         <div className="floating-cube">
 
-          {/* FRONT */}
+
+          {/* =========================
+              1. FRONT
+              RADHASWAMI
+          ========================= */}
           <div className="cube-face cube-front">
+
             <span className="cube-big-letter">
               R.
             </span>
@@ -53,10 +64,33 @@ const Floating3DBox = () => {
             <div className="cube-face-bottom">
               Radhaswami
             </div>
+
           </div>
 
-          {/* BACK */}
+
+          {/* =========================
+              2. RIGHT
+              SATSANG
+          ========================= */}
+          <div className="cube-face cube-right">
+
+            <span className="cube-big-letter">
+              S.
+            </span>
+
+            <div className="cube-face-bottom">
+              Satsang
+            </div>
+
+          </div>
+
+
+          {/* =========================
+              3. BACK
+              SAHJO
+          ========================= */}
           <div className="cube-face cube-back">
+
             <span className="cube-big-letter">
               S.
             </span>
@@ -64,45 +98,54 @@ const Floating3DBox = () => {
             <div className="cube-face-bottom">
               Sahjo
             </div>
+
           </div>
 
-          {/* RIGHT - SAHJO MART LOGO */}
-          <div className="cube-face cube-right cube-logo-face">
+
+          {/* =========================
+              4. LEFT
+              SAHJO MART LOGO
+          ========================= */}
+          <div className="cube-face cube-left cube-logo-face">
+
             <img
               src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
               alt="Sahjo Mart"
               className="cube-sahjo-logo"
               draggable="false"
             />
+
           </div>
 
-          {/* LEFT */}
-          <div className="cube-face cube-left">
-            <span className="cube-big-letter">
-              S.
-            </span>
 
-            <div className="cube-face-bottom">
-            Satsang
-            </div>
-          </div>
-
-          {/* TOP */}
+          {/* =========================
+              TOP
+          ========================= */}
           <div className="cube-face cube-top">
+
             <span className="top-text">
               SAHJO MART
             </span>
+
           </div>
 
-          {/* BOTTOM */}
+
+          {/* =========================
+              BOTTOM
+          ========================= */}
           <div className="cube-face cube-bottom">
+
             <span className="top-text">
               SHOP NOW
             </span>
+
           </div>
 
+
         </div>
+
       </div>
+
     </div>
   );
 };

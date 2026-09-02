@@ -1121,3 +1121,40 @@
   user-select: none;
   pointer-events: none;
 }
+@keyframes cube360Rotation {
+  0% {
+    transform:
+      rotateX(-15deg)
+      rotateY(0deg);
+  }
+
+  20% {
+    transform:
+      rotateX(-25deg)
+      rotateY(-90deg);
+  }
+
+  40% {
+    transform:
+      rotateX(15deg)
+      rotateY(-180deg);
+  }
+
+  60% {
+    transform:
+      rotateX(-20deg)
+      rotateY(-270deg);
+  }
+
+  80% {
+    transform:
+      rotateX(20deg)
+      rotateY(-330deg);
+  }
+
+  100% {
+    transform:
+      rotateX(-15deg)
+      rotateY(-360deg);
+  }
+}
