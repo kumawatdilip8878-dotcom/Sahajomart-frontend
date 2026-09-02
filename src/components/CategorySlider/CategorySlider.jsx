@@ -923,7 +923,7 @@ function CategorySlider({
         {/* ==========================================
             DOTS
         ========================================== */}
-
+{/* 
         <div className="dots-container">
 
           {items.map(
@@ -954,7 +954,7 @@ function CategorySlider({
             )
           )}
 
-        </div>
+        </div> */}
 
       </div>
 
