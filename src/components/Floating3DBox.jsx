@@ -44,11 +44,8 @@ const Floating3DBox = () => {
       >
         <div className="floating-cube">
 
-          {/* =========================
-              FRONT
-          ========================== */}
+          {/* FRONT */}
           <div className="cube-face cube-front">
-
             <span className="cube-big-letter">
               R.
             </span>
@@ -56,15 +53,10 @@ const Floating3DBox = () => {
             <div className="cube-face-bottom">
               Radhaswami
             </div>
-
           </div>
 
-
-          {/* =========================
-              BACK
-          ========================== */}
+          {/* BACK */}
           <div className="cube-face cube-back">
-
             <span className="cube-big-letter">
               S.
             </span>
@@ -72,67 +64,45 @@ const Floating3DBox = () => {
             <div className="cube-face-bottom">
               Satsang
             </div>
-
           </div>
 
-
-          {/* =========================
-              RIGHT - SAHJO MART LOGO
-          ========================== */}
+          {/* RIGHT - SAHJO MART LOGO */}
           <div className="cube-face cube-right cube-logo-face">
-
             <img
               src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
               alt="Sahjo Mart"
               className="cube-sahjo-logo"
               draggable="false"
             />
-
           </div>
 
-
-          {/* =========================
-              LEFT
-          ========================== */}
+          {/* LEFT */}
           <div className="cube-face cube-left">
-
             <span className="cube-big-letter">
-              R.
+              S.
             </span>
 
             <div className="cube-face-bottom">
-              Radhaswami
+              Sahjo
             </div>
-
           </div>
 
-
-          {/* =========================
-              TOP
-          ========================== */}
+          {/* TOP */}
           <div className="cube-face cube-top">
-
             <span className="top-text">
               SAHJO MART
             </span>
-
           </div>
 
-
-          {/* =========================
-              BOTTOM
-          ========================== */}
+          {/* BOTTOM */}
           <div className="cube-face cube-bottom">
-
             <span className="top-text">
-              SATSANG
+              SHOP NOW
             </span>
-
           </div>
 
         </div>
       </div>
-
     </div>
   );
 };
