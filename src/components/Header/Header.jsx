@@ -47,7 +47,7 @@ const Header = () => {
           {/* LOGO IMAGE */}
 
           <div  >
-            <img style={{height:"55px",width:"55px",borderRadius:"8px"}}
+            <img style={{height:"55px",width:"55px",borderRadius:"2px"}}
               className="ahjo"
               src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
               alt="Sahjo Mart Logo"
