@@ -29,6 +29,7 @@ const Floating3DBox = () => {
         ×
       </button>
 
+      {/* 3D SCENE */}
       <div
         className="floating-3d-scene"
         onClick={openLink}
@@ -43,37 +44,11 @@ const Floating3DBox = () => {
       >
         <div className="floating-cube">
 
-          {/* FRONT */}
+          {/* =========================
+              FRONT
+          ========================== */}
           <div className="cube-face cube-front">
-            <span className="cube-big-letter">R.</span>
 
-            <div className="cube-face-bottom">
-              Radhaswami
-            </div>
-          </div>
-
-          {/* BACK */}
-          <div className="cube-face cube-back">
-            <span className="cube-big-letter">S.</span>
-
-            <div className="cube-face-bottom">
-              Satsang
-            </div>
-          </div>
-
-          {/* RIGHT */}
-          <div className="cube-face cube-right">
-            <span className="cube-big-letter sahjo-letter">
-              S
-            </span>
-
-            <div className="cube-face-bottom">
-              SAHJO
-            </div>
-          </div>
-
-          {/* LEFT */}
-          <div className="cube-face cube-left">
             <span className="cube-big-letter">
               R.
             </span>
@@ -81,20 +56,78 @@ const Floating3DBox = () => {
             <div className="cube-face-bottom">
               Radhaswami
             </div>
+
           </div>
 
-          {/* TOP */}
-          <div className="cube-face cube-top">
-            <span className="top-text">
-              SAHJO
+
+          {/* =========================
+              BACK
+          ========================== */}
+          <div className="cube-face cube-back">
+
+            <span className="cube-big-letter">
+              S.
             </span>
+
+            <div className="cube-face-bottom">
+              Satsang
+            </div>
+
           </div>
 
-          {/* BOTTOM */}
+
+          {/* =========================
+              RIGHT - SAHJO MART LOGO
+          ========================== */}
+          <div className="cube-face cube-right cube-logo-face">
+
+            <img
+              src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
+              alt="Sahjo Mart"
+              className="cube-sahjo-logo"
+              draggable="false"
+            />
+
+          </div>
+
+
+          {/* =========================
+              LEFT
+          ========================== */}
+          <div className="cube-face cube-left">
+
+            <span className="cube-big-letter">
+              R.
+            </span>
+
+            <div className="cube-face-bottom">
+              Radhaswami
+            </div>
+
+          </div>
+
+
+          {/* =========================
+              TOP
+          ========================== */}
+          <div className="cube-face cube-top">
+
+            <span className="top-text">
+              SAHJO MART
+            </span>
+
+          </div>
+
+
+          {/* =========================
+              BOTTOM
+          ========================== */}
           <div className="cube-face cube-bottom">
+
             <span className="top-text">
               SATSANG
             </span>
+
           </div>
 
         </div>
