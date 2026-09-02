@@ -1,27 +1,32 @@
 {
-  "name": "SahajoMart - Nearby Shopping Made Simple",
-  "short_name": "SahajoMart",
+  "name": "Sahjo Mart",
+  "short_name": "Sahjo Mart",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone"],
   "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#f39200",
-  "description": "Shop from your nearby SahajoMart store with easy access to categories, offers and promotions.",
+
   "icons": [
     {
-      "src": "/icons/icon-192.png",
+      "src": "/icons/sahjo-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/icons/sahjo-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/sahjo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
