@@ -1,6 +1,6 @@
 {
-  "name": "SahajoMart - Nearby Shopping Made Simple",
-  "short_name": "SahajoMart",
+  "name": "sahjoMart - Nearby Shopping Made Simple",
+  "short_name": "sahjoMart",
   "id": "/",
   "start_url": "/",
   "scope": "/",
@@ -9,7 +9,7 @@
   "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#f39200",
-  "description": "Shop from your nearby SahajoMart store with easy access to categories, offers and promotions.",
+  "description": "Shop from your nearby sahjoMart store with easy access to categories, offers and promotions.",
   "icons": [
     {
       "src": "/icons/icon-192.png",

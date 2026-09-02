@@ -38,7 +38,7 @@
 
 //             <p>
 //               Store users can login from here and enter the
-//               actual SahajoMart POS, billing and inventory
+//               actual sahjoMart POS, billing and inventory
 //               management application.
 //             </p>
 

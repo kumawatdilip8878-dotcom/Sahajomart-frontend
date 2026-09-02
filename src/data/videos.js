@@ -5,7 +5,7 @@ export const videos = [
     label: "Promotion",
     title: "SahjoMart Special Offers",
     description:
-      "Watch the latest SahajoMart promotional video and visit the associated offer page using the link below.",
+      "Watch the latest sahjoMart promotional video and visit the associated offer page using the link below.",
     video: "https://media.gettyimages.com/id/483716927/video/fruit-and-vegetable-section-of-a-supermarket.mp4?s=mp4-640x640-gi&k=20&c=jckrFhUhSTIG8qGWYV7KR3seKptpqnbhQhtvb1A2b3w=",
     poster:
       "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=85",
@@ -34,7 +34,7 @@ function App() {
       fontFamily: "Arial, sans-serif"
     }}>
       <h1 style={{ textAlign: "center", marginBottom: "30px" }}>
-        SahajoMart Videos
+        sahjoMart Videos
       </h1>
       
       <div style={{

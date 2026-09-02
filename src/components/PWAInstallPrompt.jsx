@@ -128,7 +128,7 @@ const PWAInstallPrompt = () => {
         await deferredPrompt.userChoice;
 
       console.log(
-        "SahajoMart install result:",
+        "sahjoMart install result:",
         outcome
       );
 
@@ -153,7 +153,7 @@ const PWAInstallPrompt = () => {
   className="pwa-floating-install"
   onClick={installApp}
   type="button"
-  aria-label="Install SahajoMart App"
+  aria-label="Install sahjoMart App"
 >
   <MdInstallMobile className="pwa-install-icon" />
   <span>Install</span>
@@ -189,7 +189,7 @@ const PWAInstallPrompt = () => {
             <div className="ios-app-logo">
               <img
                 src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
-                alt="SahajoMart"
+                alt="sahjoMart"
               />
             </div>
 

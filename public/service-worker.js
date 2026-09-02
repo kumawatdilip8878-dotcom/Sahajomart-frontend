@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sahajomart-v3';
+const CACHE_NAME = 'sahjomart-v3';
 const APP_SHELL = [
   '/',
   '/index.html',

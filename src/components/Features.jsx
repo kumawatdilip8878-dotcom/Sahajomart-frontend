@@ -18,7 +18,7 @@ const features = [
     icon: "🏪",
     title: "Shop from Nearby Stores",
     description:
-      "Browse products from your local SahajoMart store with ease.",
+      "Browse products from your local sahjoMart store with ease.",
   },
   {
     icon: "🚚",

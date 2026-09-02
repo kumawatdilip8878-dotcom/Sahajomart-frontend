@@ -25,7 +25,7 @@ const Hero = () => {
 
             <p className="hero-subtitle">
               Explore products and offers from your nearby
-              SahajoMart store. Browse category-wise images
+              sahjoMart store. Browse category-wise images
               and connect directly with the store for simple
               and convenient shopping.
             </p>
@@ -92,7 +92,7 @@ const Hero = () => {
             <img
               className="hero-image"
               src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1300&q=85"
-              alt="SahajoMart Store"
+              alt="sahjoMart Store"
             />
 
 

@@ -84,7 +84,7 @@ const defaultHomeData = {
     title: "Fruits & Vegetables",
 
     description:
-      "Fresh product images and promotional banners for your selected SahajoMart location.",
+      "Fresh product images and promotional banners for your selected sahjoMart location.",
 
     items: [
       {
@@ -166,7 +166,7 @@ const defaultHomeData = {
     title: "Household Essentials",
 
     description:
-      "Images shown here are examples. You can replace them with actual SahajoMart promotional images.",
+      "Images shown here are examples. You can replace them with actual sahjoMart promotional images.",
 
     items: [
       {

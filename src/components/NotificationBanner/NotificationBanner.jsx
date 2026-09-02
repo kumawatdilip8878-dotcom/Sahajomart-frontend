@@ -3,11 +3,11 @@ import "./NotificationBanner.css";
 const NotificationBanner = () => {
   const notifications = [
     {
-      text: "🔥 Today's SahajoMart special offers are now live",
+      text: "🔥 Today's sahjoMart special offers are now live",
       link: "#offers",
     },
     {
-      text: "📍 New SahajoMart store now available in Jaipur",
+      text: "📍 New sahjoMart store now available in Jaipur",
       link: "#stores",
     },
     {
