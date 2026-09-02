@@ -162,9 +162,6 @@ function Footer() {
             © 2026 SahjoMart.com. All rights reserved.
           </span>
 
-          <span>
-            Nearby shopping made simple.
-          </span>
 
         </div>
 
