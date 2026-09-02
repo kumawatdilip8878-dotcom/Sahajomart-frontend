@@ -1,536 +1,621 @@
-/* ✅ Footer - Proper Gap Management */
-footer {
-  padding: 20px 0 10px;
-  background: #141414;
-  color: #fff;
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  background: #111827;
+  color: #ffffff;
+  padding: 30px 0 0;
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1.2fr;  /* ✅ 3 columns - properly balanced */
-  gap: 40px;  /* ✅ Proper gap between columns */
-  max-width: 1200px;
+.footer .container {
+  width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 0 15px;
-}
-
-/* ✅ Brand Column - Left Side */
-.footer-brand {
-  max-width: 100%;
-}
-
-.footer-brand p {
-  max-width: 350px;
-  margin-top: 6px;
-  color: #999;
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-/* ✅ Center Column - Login */
-.footer-col {
-  margin-left: 0;  /* ✅ Remove extra margin */
-}
-
-.footer-col h4 {
-  margin-bottom: 10px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.footer-col a,
-.footer-col p {
-  display: block;
-  margin-bottom: 6px;
-  color: #aaa;
-  font-size: 12px;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-col a:hover {
-  color: #fff;
-}
-
-/* ✅ Logo Image */
-.foots {
-  width: 100%;
-  height: 45px;
-  border-radius: 8px;
-}
-
-/* ✅ Logo Text */
-.logo-text {
-  font-size: 16px !important;
-  color: #fff !important;
-}
-
-.logo-mark {
-  width: 45px !important;
-  height: 45px !important;
-}
-
-/* ✅ Footer Bottom */
-.footer-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  padding-top: 12px;
-  border-top: 1px solid #292929;
-  color: #777;
-  font-size: 10px;
-}
-
-/* ✅ Social Icons - Agar Use Karein Toh */
-.socials {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-}
-
-.socials a {
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-items: center;
-  border-radius: 6px;
-  background: #222;
-  color: #fff;
-  font-size: 9px;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.socials a:hover {
-  background: var(--primary);
-}
-
-/* ✅ Responsive */
-@media (max-width: 1024px) {
-  .footer-grid {
-    grid-template-columns: 1.8fr 1fr 1.2fr;
-    gap: 30px;
-  }
-}
-
-@media (max-width: 900px) {
-  .footer-grid {
-    grid-template-columns: 1.5fr 1fr 1.2fr;
-    gap: 25px;
-  }
-  
-  .footer-brand p {
-    max-width: 280px;
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 768px) {
-  footer {
-    padding: 15px 0 8px;
-  }
-  
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;  /* ✅ 2 columns on tablet */
-    gap: 20px;
-    padding: 0 10px;
-  }
-  
-  .footer-brand {
-    grid-column: 1 / -1;  /* ✅ Brand full width */
-  }
-  
-  .footer-brand p {
-    max-width: 100%;
-    font-size: 11px;
-  }
-  
-  .footer-col {
-    margin-left: 0;
-  }
-  
-  .footer-col h4 {
-    font-size: 13px;
-  }
-  
-  .footer-col a,
-  .footer-col p {
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-grid {
-    grid-template-columns: 1fr;  /* ✅ 1 column on mobile */
-    gap: 15px;
-    padding: 0 8px;
-  }
-  
-  footer {
-    padding: 12px 0 6px;
-  }
-  
-  .footer-brand {
-    grid-column: 1;
-  }
-  
-  .footer-col h4 {
-    font-size: 13px;
-    margin-bottom: 8px;
-  }
-  
-  .footer-col a,
-  .footer-col p {
-    font-size: 11px;
-    margin-bottom: 5px;
-  }
-  
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 5px;
-    font-size: 9px;
-    margin-top: 15px;
-    padding-top: 10px;
-  }
-  
-  .foots {
-    height: 40px;
-  }
-}
-
-/* =====================================================
-   FOOTER GRID AFTER LOGIN REMOVED
-===================================================== */
-
-.footer-grid {
-  display: grid;
-
-  grid-template-columns:
-    minmax(280px, 1.4fr)
-    minmax(240px, 1fr);
-
-  justify-content: space-between;
-
-  align-items: start;
-
-  gap: 60px;
 }
 
 
-/* BUSINESS DETAILS RIGHT */
-
-.business-details {
-  justify-self: end;
-
-  width: 100%;
-
-  max-width: 300px;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 768px) {
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-
-    gap: 30px;
-  }
-
-
-  .business-details {
-    justify-self: end;
-  }
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 600px) {
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-
-    gap: 25px;
-  }
-
-
-  .business-details {
-    justify-self: start;
-
-    max-width: 100%;
-  }
-
-}
-
-/* =====================================================
-   FOOTER FINAL FIX
-===================================================== */
-
-footer {
-  width: 100%;
-}
-
-
-/* =====================================================
+/* =========================================
    GRID
-===================================================== */
+========================================= */
 
 .footer-grid {
   display: grid;
-
-  grid-template-columns:
-    minmax(280px, 1.4fr)
-    minmax(250px, 1fr);
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
 
   align-items: start;
 
-  justify-content: space-between;
-
-  gap: 60px;
+  padding-bottom: 25px;
 }
 
 
-/* =====================================================
-   FOOTER LOGO
-===================================================== */
+/* =========================================
+   BRAND
+========================================= */
+
+.footer-brand {
+  max-width: 460px;
+}
 
 .footer-logo {
   display: inline-flex;
-
   align-items: center;
 
-  gap: 10px;
+  gap: 9px;
 
   text-decoration: none;
 
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
-
 
 .footer-logo-image {
-  width: 54px;
-  height: 54px;
-
-  flex: 0 0 54px;
-
-  overflow: hidden;
-
-  border-radius: 11px;
+  width: 44px;
+  height: 44px;
 }
 
-
 .footer-logo-image img {
-  display: block;
-
   width: 100%;
   height: 100%;
 
-  object-fit: contain;
+  object-fit: cover;
+
+  border-radius: 8px;
 }
-
-
-/* =====================================================
-   LOGO TEXT
-===================================================== */
 
 .footer-logo-text {
   display: flex;
-
   align-items: baseline;
 
-  gap: 5px;
-
-  font-family:
-    "Outfit",
-    sans-serif;
-
-  white-space: nowrap;
-}
-
-
-.footer-sahjo {
-  color: #f17700;
+  gap: 3px;
 
   font-size: 22px;
-
   font-weight: 900;
 }
 
+.footer-sahjo {
+  color: #f77e0d;
+}
 
 .footer-mart {
   color: #ffffff;
-
-  font-size: 19px;
-
-  font-weight: 600;
 }
 
-
-/* =====================================================
-   DESCRIPTION
-===================================================== */
-
 .footer-description {
-  max-width: 340px;
-
   margin: 0;
 
-  font-size: 13px;
+  color: #b9c1ce;
 
+  font-size: 13px;
   line-height: 1.6;
 }
 
 
-/* =====================================================
-   BUSINESS DETAILS
-===================================================== */
+/* =========================================
+   BUSINESS
+========================================= */
 
-.business-details {
-  width: 100%;
-
-  max-width: 330px;
-
-  justify-self: end;
-}
-
-
-.business-details h4 {
-  margin:
-    10px 0 15px;
+.footer-col h4 {
+  margin: 0 0 14px;
 
   font-size: 16px;
-}
+  font-weight: 800;
 
+  color: #ffffff;
+}
 
 .business-info {
-  display: flex;
+  display: grid;
 
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px 25px;
+}
+
+
+/* =========================================
+   ITEM
+========================================= */
+
+.business-item {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+/* =========================================
+   REAL LOGOS
+
+   NO BACKGROUND
+   NO BORDER
+   NO BOX
+========================================= */
+
+.business-logo {
+  width: 35px;
+  height: 35px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+
+  padding: 0;
+}
+
+.business-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  background: transparent;
+
+  border: none;
+  box-shadow: none;
+}
+
+
+/* FSSAI/MCA */
+
+.real-logo {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* =========================================
+   NORMAL ICONS
+========================================= */
+
+.business-icon {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #f77e0d;
+
+  font-size: 15px;
+
+  background: transparent;
+  border: none;
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
+.business-text {
+  display: flex;
   flex-direction: column;
 
-  gap: 8px;
+  gap: 2px;
+
+  min-width: 0;
 }
 
+.business-text strong {
+  color: #94a3b8;
 
-.business-info p {
-  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.business-text a {
+  color: #f8fafc;
 
   font-size: 12px;
-
-  line-height: 1.5;
-}
-
-
-.business-info strong {
-  font-weight: 700;
-}
-
-
-/* =====================================================
-   PHONE LINK
-===================================================== */
-
-.business-info a {
-  color: inherit;
+  font-weight: 600;
 
   text-decoration: none;
 
-  transition:
-    color 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.business-text a:hover {
+  color: #f77e0d;
 }
 
 
-.business-info a:hover {
-  color: #f17700;
+/* =========================================
+   BOTTOM
+========================================= */
 
-  text-decoration: underline;
+.footer-bottom {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  padding: 14px 0;
+}
+
+.footer-bottom span {
+  color: #94a3b8;
+
+  font-size: 11px;
 }
 
 
-/* =====================================================
+/* =========================================
    TABLET
-===================================================== */
+========================================= */
 
-@media (max-width: 768px) {
-
-  .footer-grid {
-    grid-template-columns:
-      1fr 1fr;
-
-    gap: 30px;
-  }
-
-
-  .business-details {
-    justify-self: end;
-  }
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 600px) {
+@media (max-width: 850px) {
 
   .footer-grid {
     grid-template-columns: 1fr;
 
-    gap: 28px;
+    gap: 25px;
   }
 
+  .footer-brand {
+    max-width: 650px;
+  }
+}
 
-  .business-details {
-    justify-self: start;
 
-    max-width: 100%;
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .footer {
+    padding-top: 25px;
   }
 
+  .footer .container {
+    width: calc(100% - 28px);
+  }
+
+  .business-info {
+    grid-template-columns: 1fr;
+
+    gap: 13px;
+  }
 
   .footer-logo-image {
-    width: 48px;
-    height: 48px;
-
-    flex: 0 0 48px;
+    width: 40px;
+    height: 40px;
   }
 
-
-  .footer-sahjo {
-    font-size: 19px;
+  .footer-logo-text {
+    font-size: 20px;
   }
-
-
-  .footer-mart {
-    font-size: 17px;
-  }
-
 
   .footer-description {
-    max-width: 100%;
-
     font-size: 12px;
   }
 
-
-  .footer-bottom {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 6px;
+  .business-logo {
+    width: 31px;
+    height: 31px;
   }
 
+  .business-icon {
+    width: 31px;
+    height: 31px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+
+    padding: 12px 0;
+  }
+}/* =========================================
+   MANUAL FSSAI STYLE LOGO
+========================================= */
+
+.manual-fssai-logo {
+  width: 34px;
+  height: 34px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #f77e0d;
+
+  background: transparent;
+  border: none;
+}
+
+.fssai-f {
+  font-size: 25px;
+  font-weight: 900;
+
+  line-height: 1;
+}
+
+.fssai-check {
+  position: absolute;
+
+  right: 1px;
+  bottom: 1px;
+
+  width: 15px;
+  height: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #16a34a;
+  color: #ffffff;
+
+  font-size: 9px;
+  font-weight: 900;
+}
+
+
+/* =========================================
+   MANUAL REGISTRATION / GOVERNMENT LOGO
+========================================= */
+
+.manual-register-logo {
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+
+/* Triangle roof */
+
+.register-roof {
+  width: 0;
+  height: 0;
+
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+
+  border-bottom: 9px solid #f77e0d;
+
+  margin-bottom: 2px;
+}
+
+
+/* Columns */
+
+.register-columns {
+  width: 27px;
+  height: 16px;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.register-columns span {
+  width: 5px;
+
+  background: #f77e0d;
+
+  border-radius: 1px;
+}
+
+
+/* Bottom line */
+
+.register-base {
+  width: 31px;
+  height: 4px;
+
+  margin-top: 2px;
+
+  background: #f77e0d;
+
+  border-radius: 2px;
+}
+
+.business-icon,
+.manual-fssai-logo,
+.manual-register-logo {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* PHONE + ADDRESS ICON SIZE */
+.business-icon {
+  font-size: 18px;
+  color: #f77e0d;
+}
+
+
+/* FSSAI MANUAL LOGO */
+.manual-fssai-logo {
+  position: relative;
+  color: #f77e0d;
+}
+
+.fssai-f {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.fssai-check {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  width: 14px;
+  height: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #16a34a;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: 900;
+}
+
+
+/* REGISTRATION MANUAL LOGO */
+.manual-register-logo {
+  flex-direction: column;
+}
+
+.register-roof {
+  width: 0;
+  height: 0;
+
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-bottom: 8px solid #f77e0d;
+
+  margin-bottom: 2px;
+}
+
+.register-columns {
+  width: 24px;
+  height: 14px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.register-columns span {
+  width: 4px;
+
+  background: #f77e0d;
+
+  border-radius: 1px;
+}
+
+.register-base {
+  width: 27px;
+  height: 3px;
+
+  margin-top: 2px;
+
+  background: #f77e0d;
+
+  border-radius: 2px;
+}
+@media (max-width: 600px) {
+  .business-icon,
+  .manual-fssai-logo,
+  .manual-register-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .business-icon {
+    font-size: 16px;
+  }
+}
+/* Sab icon wrappers same size */
+.business-icon,
+.manual-fssai-logo,
+.manual-register-logo {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Phone + Location icon ko bada karo */
+.business-icon {
+  color: #f77e0d;
+  font-size: 24px;
+}
+
+/* React Icons ke SVG par direct size */
+.business-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* FSSAI */
+.fssai-f {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Registration */
+.manual-register-logo {
+  flex-direction: column;
+}
+.footer-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.footer-brand-name {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.footer-sahjo {
+  color: #f77e0d;
+}
+
+.footer-mart {
+  color: #ffffff;
+}
+
+.footer-hindi-line {
+  color: #f77e0d;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
 }

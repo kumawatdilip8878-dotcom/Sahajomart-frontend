@@ -1,16 +1,18 @@
 import "./Footer.css";
 
+import {
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+
 function Footer() {
   return (
-    <footer id="contact">
+    <footer id="contact" className="footer">
       <div className="container">
 
         <div className="footer-grid">
 
-          {/* =====================================
-              BRAND
-          ===================================== */}
-
+          {/* BRAND */}
           <div className="footer-brand">
 
             <a
@@ -25,74 +27,126 @@ function Footer() {
                 />
               </div>
 
-              <div className="footer-logo-text">
-                <span className="footer-sahjo">
-                  Sahjo
-                </span>
+             <div className="footer-logo-text">
+  <div className="footer-brand-name">
+    <span className="footer-sahjo">Sahjo</span>
+    <span className="footer-mart">Mart</span>
+  </div>
 
-                <span className="footer-mart">
-                  Mart
-                </span>
-              </div>
+  <span className="footer-hindi-line">
+    अब करें घर से ऑनलाइन शॉपिंग
+  </span>
+</div>
+              
             </a>
 
-
             <p className="footer-description">
-              Shop from your favorite local stores online
-              with SahjoMart. Find products near you,
-              order in seconds, and let store owners
-              handle the rest with our integrated POS
-              system.
+              Shop from your favorite local stores online with SahjoMart.
+              Find products near you, order in seconds, and enjoy convenient
+              shopping from the comfort of your home.
             </p>
 
           </div>
 
 
-          {/* =====================================
-              BUSINESS DETAILS
-          ===================================== */}
-
+          {/* BUSINESS DETAILS */}
           <div className="footer-col business-details">
 
-            <h4>
-              Business Details
-            </h4>
+            <h4>Business Details</h4>
 
             <div className="business-info">
 
-              <p>
-                <strong>
-                  FSSAI No:
-                </strong>{" "}
-                55667788990011
-              </p>
+              {/* FSSAI */}
+              <div className="business-item">
+
+                <div className="manual-fssai-logo">
+                  <span className="fssai-f">F</span>
+                  <span className="fssai-check">✓</span>
+                </div>
+
+                <div className="business-text">
+                  <strong>FSSAI No:</strong>
+
+                  <a
+                    href="https://foscos.fssai.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    55667788990011
+                  </a>
+                </div>
+
+              </div>
 
 
-              <p>
-                <strong>
-                  Reg. No:
-                </strong>{" "}
-                U12345XX2026PTC123456
-              </p>
+              {/* REGISTRATION */}
+              <div className="business-item">
+
+                <div className="manual-register-logo">
+                  <span className="register-roof"></span>
+
+                  <div className="register-columns">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+
+                  <span className="register-base"></span>
+                </div>
+
+                <div className="business-text">
+                  <strong>Reg. No:</strong>
+
+                  <a
+                    href="https://www.mca.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    U12345XX2026PTC123456
+                  </a>
+                </div>
+
+              </div>
 
 
-              <p>
-                <strong>
-                  Phone:
-                </strong>{" "}
+              {/* PHONE */}
+              <div className="business-item">
 
-                <a href="tel:+919876543210">
-                  +91 98765 43210
-                </a>
-              </p>
+                <div className="business-icon">
+                  <FaPhoneAlt />
+                </div>
+
+                <div className="business-text">
+                  <strong>Phone:</strong>
+
+                  <a href="tel:+919876543210">
+                    +91 98765 43210
+                  </a>
+                </div>
+
+              </div>
 
 
-              <p>
-                <strong>
-                  Address:
-                </strong>{" "}
-                123, Main Road, City
-              </p>
+              {/* ADDRESS */}
+              <div className="business-item">
+
+                <div className="business-icon">
+                  <FaMapMarkerAlt />
+                </div>
+
+                <div className="business-text">
+                  <strong>Address:</strong>
+
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=123+Main+Road+City"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    123, Main Road, City
+                  </a>
+                </div>
+
+              </div>
 
             </div>
 
@@ -100,10 +154,6 @@ function Footer() {
 
         </div>
 
-
-        {/* =====================================
-            FOOTER BOTTOM
-        ===================================== */}
 
         <div className="footer-bottom">
 

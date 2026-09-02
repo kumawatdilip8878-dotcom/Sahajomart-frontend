@@ -62,7 +62,7 @@ const Floating3DBox = () => {
             </span>
 
             <div className="cube-face-bottom">
-              Satsang
+              Sahjo
             </div>
           </div>
 
@@ -83,7 +83,7 @@ const Floating3DBox = () => {
             </span>
 
             <div className="cube-face-bottom">
-              Sahjo
+            Satsang
             </div>
           </div>
 
