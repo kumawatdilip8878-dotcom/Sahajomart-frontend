@@ -197,12 +197,12 @@ const PWAInstallPrompt = () => {
             {/* TITLE */}
 
             <h3>
-              Install SahajoMart
+              Install SahjoMart
             </h3>
 
 
             <p>
-              Add SahajoMart to your
+              Add SahjoMart to your
               iPhone Home Screen.
             </p>
 
