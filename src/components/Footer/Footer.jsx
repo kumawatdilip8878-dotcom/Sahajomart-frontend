@@ -7,7 +7,7 @@ import {
 
 function Footer() {
   return (
-    <footer id="contact" className="footer">
+    <footer style={{backgroundColor:"black"}} id="contact" className="footer">
       <div className="container">
 
         <div className="footer-grid">
@@ -41,8 +41,9 @@ function Footer() {
             </a>
 
             <p className="footer-description">
-              Shop from your favorite local stores online with SahjoMart.
-              Find products near you, order in seconds, and enjoy convenient
+              Shop from your favorite local stores online
+               with SahjoMart.
+               order in seconds, and enjoy convenient
               shopping from the comfort of your home.
             </p>
 
