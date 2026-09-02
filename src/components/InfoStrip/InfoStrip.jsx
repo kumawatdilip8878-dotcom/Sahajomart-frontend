@@ -30,12 +30,11 @@ function InfoStrip() {
       type: "registration",
     },
 
-    {
-      label: "Service",
-      value:
-        "Easy Shopping from Your Nearest Sahjo Mart",
-      type: "service",
-    },
+    // {
+    //   label: "Service",
+    //   value: "Easy Shopping from Your Nearest Sahjo Mart",
+    //   type: "service",
+    // },
   ];
 
   const renderLogo = (type) => {
@@ -61,15 +60,15 @@ function InfoStrip() {
           </div>
         );
 
-      case "service":
-        return (
-          <div className="info-logo sahjo-logo">
-            <img
-              src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
-              alt="Sahjo Mart"
-            />
-          </div>
-        );
+      // case "service":
+      //   return (
+      //     <div className="info-logo sahjo-logo">
+      //       <img
+      //         src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
+      //         alt="Sahjo Mart"
+      //       />
+      //     </div>
+      //   );
 
       default:
         return null;
@@ -102,7 +101,6 @@ function InfoStrip() {
             );
 
             return item.link ? (
-
               <a
                 href={item.link}
                 className="info-card info-card-link"
@@ -111,16 +109,13 @@ function InfoStrip() {
               >
                 {cardContent}
               </a>
-
             ) : (
-
               <div
                 className="info-card"
                 key={item.label}
               >
                 {cardContent}
               </div>
-
             );
           })}
 
