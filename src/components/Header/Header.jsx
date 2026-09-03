@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   FaWhatsapp,
   FaPhoneAlt,
@@ -7,59 +6,38 @@ import {
 import "./Header.css";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const whatsappNumber = "919876543210";
 
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-  };
-
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
-
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.classList.add("menu-open");
-    } else {
-      document.body.classList.remove("menu-open");
-    }
-
-    return () => {
-      document.body.classList.remove("menu-open");
-    };
-  }, [menuOpen]);
+  const whatsappLink =
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      "Hello Sahjo Mart, I want to place an order."
+    )}`;
 
   return (
     <header className="site-header">
 
       <div className="header-container nav">
 
-        {/* ==============================
-            LOGO + BRAND
-        ============================== */}
+        {/* ==========================================
+            LOGO
+        ========================================== */}
 
         <a
           href="#home"
           className="logo"
-          onClick={closeMenu}
         >
-
-          {/* LOGO IMAGE */}
-
-          <div  >
-            <img style={{height:"55px",width:"55px",borderRadius:"2px"}}
-              className="ahjo"
+          <div className="header-logo-image">
+            <img
+              className="sahjo-logo-img"
               src="https://i.postimg.cc/c4y0j5vN/img-2-1784471233954-jpg.jpg"
               alt="Sahjo Mart Logo"
             />
           </div>
 
 
-          {/* BRAND TEXT */}
+          {/* BRAND */}
 
           <div className="brand-copy">
-
-            {/* SAHJO MART ONE LINE */}
 
             <div className="logo-text">
 
@@ -67,16 +45,14 @@ const Header = () => {
                 SAHJO
               </span>
 
-              <span   className="mart-text">
+              <span className="mart-text">
                 Mart
               </span>
 
             </div>
 
 
-            {/* HINDI TEXT */}
-
-            <div style={{fontSize:"12px"}} className="shopping-tagline">
+            <div className="shopping-tagline">
               अब करें घर से ऑनलाइन शॉपिंग
             </div>
 
@@ -85,17 +61,17 @@ const Header = () => {
         </a>
 
 
-        {/* ==============================
-            ACTION BUTTONS
-        ============================== */}
+        {/* ==========================================
+            DESKTOP ACTIONS
+        ========================================== */}
 
         <div className="nav-actions">
 
-          {/* WhatsApp */}
+          {/* DESKTOP WHATSAPP */}
 
           <a
-            href="https://wa.me/919876543210"
-            className="btn btn-whatsapp"
+            href={whatsappLink}
+            className="btn btn-whatsapp desktop-action"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -107,11 +83,11 @@ const Header = () => {
           </a>
 
 
-          {/* Call */}
+          {/* DESKTOP CALL */}
 
           <a
             href="tel:+919876543210"
-            className="btn btn-call"
+            className="btn btn-call desktop-action"
           >
             <FaPhoneAlt className="action-icon phone-icon" />
 
@@ -121,91 +97,40 @@ const Header = () => {
           </a>
 
 
-          {/* Store Login */}
-{/* 
+          {/* ========================================
+              PHONE WHATSAPP BUTTON
+
+              ☰ / 3 DOT KI JAGAH YE DIKHEGA
+          ======================================== */}
+
           <a
-            href="/store-login"
-            className="btn btn-primary"
+            href={whatsappLink}
+            className="mobile-whatsapp-order"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Order on WhatsApp"
           >
-            <FaStore className="action-icon store-icon" />
 
-            <span>
-              Store Login
-            </span>
-          </a> */}
+            <div className="mobile-whatsapp-text">
+
+              <span className="mobile-order-hindi">
+                अभी ऑर्डर करें
+              </span>
+
+              <span className="mobile-order-whatsapp">
+                WhatsApp पर
+              </span>
+
+            </div>
 
 
-          {/* MOBILE MENU BUTTON */}
+            <FaWhatsapp
+              className="mobile-whatsapp-icon"
+            />
 
-          <button
-            className="mobile-toggle"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-            type="button"
-          >
-            {menuOpen ? "✕" : "☰"}
-          </button>
+          </a>
 
         </div>
-
-      </div>
-
-
-      {/* ==============================
-          MOBILE MENU
-      ============================== */}
-
-      <div
-        className={`mobile-menu ${
-          menuOpen ? "active" : ""
-        }`}
-      >
-
-        {/* WhatsApp */}
-
-        <a
-          href="https://wa.me/919876543210"
-          className="btn btn-whatsapp"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={closeMenu}
-        >
-          <FaWhatsapp className="action-icon whatsapp-icon" />
-
-          <span>
-            Order on WhatsApp
-          </span>
-        </a>
-
-
-        {/* Call */}
-
-        <a
-          href="tel:+919876543210"
-          className="btn btn-call"
-          onClick={closeMenu}
-        >
-          <FaPhoneAlt className="action-icon phone-icon" />
-
-          <span>
-            Order on Call
-          </span>
-        </a>
-
-
-        {/* Store Login */}
-{/* 
-        <a
-          href="/store-login"
-          className="btn btn-primary"
-          onClick={closeMenu}
-        >
-          <FaStore className="action-icon store-icon" />
-
-          <span>
-            Store Login
-          </span>
-        </a> */}
 
       </div>
 

@@ -4,11 +4,16 @@
 
 .location-bar {
   width: 100%;
+
   padding: 12px 0;
+
   background: #f8f8f8;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+
   overflow: hidden;
+
   box-sizing: border-box;
 }
 
@@ -19,12 +24,20 @@
 
 .location-inner {
   width: 100%;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   gap: 15px;
+
   padding: 0 15px;
+
   box-sizing: border-box;
+
+  min-width: 0;
 }
 
 
@@ -36,38 +49,46 @@
   flex: 0 0 auto;
 
   font-size: 14px;
+
   font-weight: 700;
 
-  color: #333;
+  color: #333333;
 
   white-space: nowrap;
 }
 
 
 /* =====================================================
-   LOCATION VIEWPORT
+   VIEWPORT
 ===================================================== */
 
 .location-list {
   flex: 0 1 auto;
 
   width: auto;
-  max-width: calc(100% - 150px);
+
+  max-width:
+    calc(100% - 150px);
+
+  position: relative;
 
   overflow: hidden;
+
+  overflow-x: hidden;
+
+  overflow-y: hidden;
 
   box-sizing: border-box;
 
   padding: 4px 5px 8px;
 
   scrollbar-width: none;
+
   -ms-overflow-style: none;
 
-  position: relative;
+  min-width: 0;
 }
 
-
-/* Hide scrollbar */
 
 .location-list::-webkit-scrollbar {
   display: none;
@@ -75,11 +96,18 @@
 
 
 /* =====================================================
-   MOVING TRACK
+   TRACK
+
+   IMPORTANT:
+   DO SETS EK LINE ME RAHENGE
 ===================================================== */
 
 .location-track {
   display: flex;
+
+  flex-direction: row;
+
+  flex-wrap: nowrap;
 
   align-items: center;
 
@@ -87,23 +115,62 @@
 
   gap: 10px;
 
+  width: max-content;
+
+  min-width: max-content;
+
+  margin: 0;
+
+  padding: 0;
+
+  will-change: transform;
+
+  -webkit-transform:
+    translate3d(0, 0, 0);
+
+  transform:
+    translate3d(0, 0, 0);
+
+  -webkit-backface-visibility:
+    hidden;
+
+  backface-visibility:
+    hidden;
+
+  -webkit-transform-style:
+    preserve-3d;
+
+  transform-style:
+    preserve-3d;
+}
+
+
+/* =====================================================
+   EACH COMPLETE LOCATION SET
+===================================================== */
+
+.location-set {
+  display: flex;
+
+  flex-direction: row;
+
   flex-wrap: nowrap;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  gap: 10px;
 
   width: max-content;
 
   min-width: max-content;
 
-  will-change: transform;
+  flex: 0 0 auto;
 
-  transform: translate3d(0, 0, 0);
+  margin: 0;
 
-  -webkit-transform: translate3d(0, 0, 0);
-
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
+  padding: 0;
 }
 
 
@@ -117,24 +184,30 @@
   display: inline-flex;
 
   align-items: center;
-  justify-content: center;
 
-  padding: 8px 18px;
+  justify-content: center;
 
   min-height: 38px;
 
-  border: 2px solid #ddd;
+  padding: 8px 18px;
+
+  box-sizing: border-box;
+
+  border: 2px solid #dddddd;
 
   border-radius: 25px;
 
-  background: #fff;
+  background: #ffffff;
 
-  color: #333;
+  color: #333333;
 
   font-family: inherit;
 
   font-size: 13px;
+
   font-weight: 600;
+
+  line-height: 1;
 
   white-space: nowrap;
 
@@ -143,11 +216,13 @@
   outline: none;
 
   user-select: none;
+
   -webkit-user-select: none;
 
   -webkit-touch-callout: none;
 
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color:
+    transparent;
 
   touch-action: manipulation;
 
@@ -155,7 +230,8 @@
     border-color 0.25s ease,
     color 0.25s ease,
     background 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
 
@@ -163,20 +239,31 @@
    DESKTOP HOVER
 ===================================================== */
 
-@media (min-width: 769px) {
+@media screen and
+(min-width: 769px) {
 
   .location-chip:hover {
     border-color: #ff6b35;
 
     color: #ff6b35;
 
-    transform: translateY(-2px);
+    transform:
+      translateY(-2px);
 
     box-shadow:
-      0 4px 12px rgba(255, 107, 53, 0.15);
+      0 4px 12px
+      rgba(
+        255,
+        107,
+        53,
+        0.15
+      );
   }
 
+
   .location-chip.active:hover {
+    color: #ffffff;
+
     border-color: #e85d2c;
 
     background:
@@ -185,14 +272,8 @@
         #e85d2c,
         #d04a1a
       );
-
-    color: #fff;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-      0 6px 20px rgba(255, 107, 53, 0.4);
   }
+
 }
 
 
@@ -201,6 +282,8 @@
 ===================================================== */
 
 .location-chip.active {
+  color: #ffffff;
+
   border-color: #ff6b35;
 
   background:
@@ -210,19 +293,14 @@
       #e85d2c
     );
 
-  color: #fff;
-
   box-shadow:
-    0 4px 14px rgba(255, 107, 53, 0.35);
-}
-
-
-/* =====================================================
-   CLICK
-===================================================== */
-
-.location-chip:active {
-  transform: scale(0.96);
+    0 4px 14px
+    rgba(
+      255,
+      107,
+      53,
+      0.35
+    );
 }
 
 
@@ -230,32 +308,46 @@
    TABLET
 ===================================================== */
 
-@media (max-width: 1024px) and (min-width: 769px) {
+@media screen and
+(max-width: 1024px) and
+(min-width: 769px) {
 
   .location-inner {
     gap: 12px;
-    padding: 0 12px;
+
+    padding:
+      0 12px;
   }
+
 
   .location-title {
     font-size: 13px;
   }
 
+
   .location-list {
-    max-width: calc(100% - 130px);
+    max-width:
+      calc(
+        100% - 130px
+      );
   }
 
-  .location-track {
+
+  .location-track,
+  .location-set {
     gap: 8px;
   }
 
+
   .location-chip {
-    padding: 7px 15px;
+    min-height: 36px;
+
+    padding:
+      7px 15px;
 
     font-size: 12px;
-
-    min-height: 36px;
   }
+
 }
 
 
@@ -263,18 +355,22 @@
    MOBILE
 ===================================================== */
 
-@media (max-width: 768px) {
+@media screen and
+(max-width: 768px) {
 
   .location-bar {
     width: 100%;
 
-    padding: 10px 0;
+    padding:
+      10px 0;
 
     overflow: hidden;
   }
 
 
-  /* INNER */
+  /* ===================================================
+     INNER
+  =================================================== */
 
   .location-inner {
     width: 100%;
@@ -285,17 +381,24 @@
 
     align-items: flex-start;
 
-    justify-content: flex-start;
+    justify-content:
+      flex-start;
 
     gap: 8px;
 
-    padding: 0 12px;
+    padding:
+      0 12px;
 
-    box-sizing: border-box;
+    box-sizing:
+      border-box;
+
+    min-width: 0;
   }
 
 
-  /* TITLE */
+  /* ===================================================
+     TITLE
+  =================================================== */
 
   .location-title {
     width: 100%;
@@ -306,81 +409,129 @@
   }
 
 
-  /* VIEWPORT */
+  /* ===================================================
+     VIEWPORT
+  =================================================== */
 
   .location-list {
     width: 100%;
 
     max-width: none;
 
-    flex: 0 0 auto;
-
-    overflow: hidden;
-
-    padding: 3px 2px 8px;
-
-    box-sizing: border-box;
+    flex:
+      0 0 auto;
 
     position: relative;
 
-    /*
-      IMPORTANT:
-      No native scrolling
-    */
+    overflow: hidden;
 
     overflow-x: hidden;
+
     overflow-y: hidden;
 
-    touch-action: none;
+    padding:
+      3px 2px 8px;
 
-    -webkit-overflow-scrolling: auto;
+    box-sizing:
+      border-box;
 
-    scrollbar-width: none;
+    /*
+      Vertical page scrolling
+      iPhone par band nahi hogi.
+    */
+
+    touch-action: pan-y;
+
+    -webkit-overflow-scrolling:
+      auto;
+
+    scrollbar-width:
+      none;
+
+    -ms-overflow-style:
+      none;
+
+    -webkit-transform:
+      translateZ(0);
+
+    transform:
+      translateZ(0);
   }
 
 
-  /* TRACK */
+  /* ===================================================
+     TRACK
+  =================================================== */
 
   .location-track {
-    width: max-content;
-
-    min-width: max-content;
-
     display: flex;
 
     flex-direction: row;
 
+    flex-wrap: nowrap;
+
     align-items: center;
 
-    justify-content: flex-start;
+    justify-content:
+      flex-start;
 
-    flex-wrap: nowrap;
+    width: max-content;
+
+    min-width: max-content;
 
     gap: 8px;
 
-    will-change: transform;
-
-    /*
-      Safari GPU
-    */
+    will-change:
+      transform;
 
     -webkit-transform:
-      translate3d(0, 0, 0);
+      translate3d(
+        0,
+        0,
+        0
+      );
 
     transform:
-      translate3d(0, 0, 0);
+      translate3d(
+        0,
+        0,
+        0
+      );
 
-    -webkit-backface-visibility: hidden;
+    -webkit-backface-visibility:
+      hidden;
 
-    backface-visibility: hidden;
-
-    -webkit-perspective: 1000px;
-
-    perspective: 1000px;
+    backface-visibility:
+      hidden;
   }
 
 
-  /* BUTTON */
+  /* ===================================================
+     SET
+  =================================================== */
+
+  .location-set {
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+    gap: 8px;
+
+    width: max-content;
+
+    min-width: max-content;
+
+    flex-shrink: 0;
+  }
+
+
+  /* ===================================================
+     BUTTON
+  =================================================== */
 
   .location-chip {
     flex: 0 0 auto;
@@ -391,45 +542,44 @@
 
     min-height: 36px;
 
-    padding: 7px 16px;
+    padding:
+      7px 16px;
+
+    border-radius: 22px;
 
     font-size: 12px;
 
     line-height: 18px;
 
-    border-radius: 22px;
-
     white-space: nowrap;
 
-    /*
-      Prevent Safari weird interaction
-    */
+    -webkit-user-select:
+      none;
 
-    -webkit-user-select: none;
+    user-select:
+      none;
 
-    user-select: none;
+    -webkit-touch-callout:
+      none;
 
-    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color:
+      transparent;
 
-    -webkit-tap-highlight-color: transparent;
-
-    touch-action: manipulation;
-
-    transform: none !important;
+    touch-action:
+      manipulation;
   }
 
 
-  /* MOBILE HOVER OFF */
+  /*
+    Mobile par hover transform nahi
+  */
 
   .location-chip:hover {
-    transform: none !important;
+    transform: none;
 
-    box-shadow: none !important;
+    box-shadow: none;
   }
 
-  .location-chip.active:hover {
-    transform: none !important;
-  }
 }
 
 
@@ -437,17 +587,22 @@
    SMALL MOBILE
 ===================================================== */
 
-@media (max-width: 480px) {
+@media screen and
+(max-width: 480px) {
 
   .location-bar {
-    padding: 9px 0;
+    padding:
+      9px 0;
   }
 
+
   .location-inner {
-    padding: 0 10px;
+    padding:
+      0 10px;
 
     gap: 7px;
   }
+
 
   .location-title {
     font-size: 12px;
@@ -455,27 +610,30 @@
     line-height: 17px;
   }
 
-  .location-list {
-    width: 100%;
 
-    padding: 2px 2px 7px;
+  .location-list {
+    padding:
+      2px 2px 7px;
   }
 
-  .location-track {
+
+  .location-track,
+  .location-set {
     gap: 7px;
   }
+
 
   .location-chip {
     min-height: 34px;
 
-    padding: 6px 14px;
+    padding:
+      6px 14px;
 
     font-size: 11px;
 
-    border-width: 2px;
-
     border-radius: 20px;
   }
+
 }
 
 
@@ -483,13 +641,16 @@
    VERY SMALL MOBILE
 ===================================================== */
 
-@media (max-width: 360px) {
+@media screen and
+(max-width: 360px) {
 
   .location-inner {
-    padding: 0 8px;
+    padding:
+      0 8px;
 
     gap: 6px;
   }
+
 
   .location-title {
     font-size: 11px;
@@ -497,25 +658,30 @@
     line-height: 16px;
   }
 
-  .location-list {
-    width: 100%;
 
-    padding: 2px 2px 6px;
+  .location-list {
+    padding:
+      2px 2px 6px;
   }
 
-  .location-track {
+
+  .location-track,
+  .location-set {
     gap: 6px;
   }
+
 
   .location-chip {
     min-height: 32px;
 
-    padding: 6px 12px;
+    padding:
+      6px 12px;
 
     font-size: 10px;
 
     border-radius: 18px;
   }
+
 }
 
 
@@ -523,104 +689,62 @@
    IPHONE / SAFARI
 ===================================================== */
 
-@supports (-webkit-touch-callout: none) {
+@supports
+(-webkit-touch-callout: none) {
 
   .location-bar {
     overflow: hidden;
   }
 
 
-  /*
-    Fixed viewport
-  */
-
   .location-list {
-    width: 100%;
-
     overflow: hidden;
 
     overflow-x: hidden;
 
     overflow-y: hidden;
 
-    /*
-      IMPORTANT:
-      No manual scroll
-    */
+    touch-action: pan-y;
 
-    touch-action: none;
+    -webkit-overflow-scrolling:
+      auto;
 
-    -webkit-overflow-scrolling: auto;
+    -webkit-backface-visibility:
+      hidden;
 
-    overscroll-behavior: none;
-
-    scrollbar-width: none;
-
-    -webkit-backface-visibility: hidden;
-
-    backface-visibility: hidden;
+    backface-visibility:
+      hidden;
   }
 
 
-  /*
-    Moving content
-  */
+  .location-track,
+  .location-set {
+    -webkit-backface-visibility:
+      hidden;
 
-  .location-track {
-    display: flex;
+    backface-visibility:
+      hidden;
 
-    width: max-content;
+    -webkit-transform-style:
+      preserve-3d;
 
-    min-width: max-content;
-
-    flex-wrap: nowrap;
-
-    will-change: transform;
-
-    -webkit-transform:
-      translate3d(0, 0, 0);
-
-    transform:
-      translate3d(0, 0, 0);
-
-    -webkit-backface-visibility: hidden;
-
-    backface-visibility: hidden;
-
-    -webkit-perspective: 1000px;
-
-    perspective: 1000px;
+    transform-style:
+      preserve-3d;
   }
 
-
-  /*
-    Buttons
-  */
 
   .location-chip {
-    flex-shrink: 0;
+    -webkit-user-select:
+      none;
 
-    -webkit-user-select: none;
+    user-select:
+      none;
 
-    user-select: none;
+    -webkit-touch-callout:
+      none;
 
-    -webkit-touch-callout: none;
-
-    -webkit-tap-highlight-color: transparent;
-
-    touch-action: manipulation;
-
-    transform: none !important;
+    -webkit-tap-highlight-color:
+      transparent;
   }
 
-
-  .location-chip:hover {
-    transform: none !important;
-
-    box-shadow: none !important;
-  }
-
-  .location-chip.active:hover {
-    transform: none !important;
-  }
 }

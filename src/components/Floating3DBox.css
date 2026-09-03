@@ -1158,3 +1158,49 @@
       rotateY(-360deg);
   }
 }
+/* =====================================================
+   FLOATING 3D BOX - COMPLETE LEFT SIDE
+   PC + PHONE
+===================================================== */
+
+.floating-3d-wrapper {
+  left: 20px !important;
+  right: auto !important;
+
+  bottom: 30px;
+}
+
+
+/* =====================================================
+   TABLET / PHONE
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+  .floating-3d-wrapper {
+    left: 15px !important;
+    right: auto !important;
+
+    bottom: 25px;
+
+    width: 82px;
+    height: 82px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL IPHONE
+===================================================== */
+
+@media screen and (max-width: 390px) {
+
+  .floating-3d-wrapper {
+    left: 10px !important;
+    right: auto !important;
+
+    bottom: 22px;
+  }
+
+}

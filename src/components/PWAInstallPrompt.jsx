@@ -156,7 +156,7 @@ const PWAInstallPrompt = () => {
   aria-label="Install sahjoMart App"
 >
   <MdInstallMobile className="pwa-install-icon" />
-  <span>Install</span>
+  <span>Install App</span>
 </button>
       )}
 

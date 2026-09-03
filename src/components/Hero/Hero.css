@@ -434,3 +434,13 @@
   }
 
 }
+
+/* =====================================================
+   HIDE HERO COMPLETELY ON PHONE
+===================================================== */
+
+@media screen and (max-width: 720px) {
+  .hero {
+    display: none !important;
+  }
+}

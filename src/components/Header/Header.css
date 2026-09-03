@@ -1,24 +1,24 @@
 /* =====================================================
    HEADER
 ===================================================== */
-/* ========================================
-   TOPBAR → HEADER GAP
-======================================== */
 
-.site-header {
-  margin-top: 10px;
-}
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
+
   width: 100%;
 
-  background: rgba(255, 255, 255, 0.97);
+  margin: 0;
 
-  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.98);
 
-  border-bottom: 1px solid #e8e8e5;
+  border-bottom: 1px solid #eeeeee;
+
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+
+  box-sizing: border-box;
 }
 
 
@@ -27,11 +27,13 @@
 ===================================================== */
 
 .header-container {
-  width: calc(100% - 100px);
+  width: calc(100% - 50px);
 
   max-width: 1400px;
 
   margin: 0 auto;
+
+  box-sizing: border-box;
 }
 
 
@@ -39,1230 +41,29 @@
    NAV
 ===================================================== */
 
-.nav {
-  min-height: 70px;
+.header-container.nav {
+  min-height: 72px;
 
-  display: flex;
-
-  align-items: center;
-
-  gap: 20px;
-}
-
-
-/* =====================================================
-   LOGO
-===================================================== */
-
-.logo {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  flex-shrink: 0;
-
-  text-decoration: none;
-
-  min-width: 0;
-}
-
-
-/* =====================================================
-   LOGO IMAGE BOX
-===================================================== */
-
-.logo-mark {
-  width: 50px;
-  height: 50px !important;
-
-  flex: 0 0 50px;
-
-  display: grid;
-
-  place-items: center;
-
-  overflow: hidden;
-
-  border-radius: 10px;
-
-  background: transparent;
-}
-
-
-/* =====================================================
-   LOGO IMAGE
-===================================================== */
-
-.logo-mark .ahjo {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: contain;
-
-  object-position: center;
-
-  max-width: 100%;
-  max-height: 100%;
-}
-
-
-/* =====================================================
-   LOGO NAME
-===================================================== */
-
-.logo-text {
-  display: flex;
-
-  align-items: center;
-
-  min-width: 0;
-
-  font-family: "Outfit", sans-serif;
-
-  letter-spacing: -0.7px;
-
-  font-weight: 900;
-
-  white-space: nowrap;
-}
-
-.logo-text span {
-  color: #f77e0d;
-}
-
-
-/* =====================================================
-   ONLINE SHOPPING TEXT
-===================================================== */
-
-.online-shopping-text {
-  margin-left: 15px;
-
-  font-family: "Outfit", sans-serif;
-
-  font-size: 18px;
-
-  font-weight: 700;
-
-  color: #e07116;
-
-  white-space: nowrap;
-}
-
-
-/* =====================================================
-   NAV ACTIONS
-===================================================== */
-
-.nav-actions {
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  margin-left: auto;
-
-  flex-shrink: 0;
-}
-
-
-/* =====================================================
-   COMMON BUTTON
-===================================================== */
-
-.btn {
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 7px;
-
-  min-height: 38px;
-
-  padding: 8px 14px;
-
-  border-radius: 8px;
-
-  font-family: "Outfit", sans-serif;
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  line-height: 1;
-
-  text-decoration: none;
-
-  white-space: nowrap;
-
-  cursor: pointer;
-
-  transition: all 0.2s ease;
-}
-
-
-/* =====================================================
-   ICON
-===================================================== */
-
-.action-icon {
-  flex-shrink: 0;
-}
-
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-.btn-whatsapp {
-  color: #fff;
-
-  background: #d97900;
-
-  border: 1px solid #d97900;
-}
-
-.whatsapp-icon {
-  color: #25d366;
-
-  font-size: 20px;
-}
-
-.btn-whatsapp:hover {
-  background: #c86e00;
-
-  transform: translateY(-1px);
-}
-
-
-/* =====================================================
-   PHONE
-===================================================== */
-
-.btn-call {
-  color: #fff;
-
-  background: #d97900;
-
-  border: 1px solid #d97900;
-}
-
-.phone-icon {
-  color: #2563eb;
-
-  font-size: 17px;
-}
-
-.btn-call:hover {
-  background: #c86e00;
-
-  transform: translateY(-1px);
-}
-
-
-/* =====================================================
-   CUSTOMER LOGIN
-===================================================== */
-
-.btn-outline {
-  color: #fff;
-
-  background: #c96a36;
-
-  border: 1px solid #c96a36;
-}
-
-.btn-outline:hover {
-  background: #b85c2b;
-
-  transform: translateY(-1px);
-}
-
-
-/* =====================================================
-   STORE LOGIN
-===================================================== */
-
-.btn-primary {
-  color: #fff;
-
-  background: linear-gradient(
-    135deg,
-    #ffac34,
-    #f17700
-  );
-
-  border: 1px solid #f17700;
-
-  box-shadow:
-    0 4px 10px rgba(243, 146, 0, 0.2);
-}
-
-.btn-primary:hover {
-  background: linear-gradient(
-    135deg,
-    #f59a20,
-    #df6800
-  );
-
-  transform: translateY(-1px);
-}
-
-
-/* =====================================================
-   MOBILE TOGGLE
-===================================================== */
-
-.mobile-toggle {
-  display: none;
-
-  width: 40px;
-  height: 40px;
-
-  padding: 0;
-
-  border: 0;
-
-  border-radius: 8px;
-
-  background: #f2f2ef;
-
-  color: #333;
-
-  font-size: 22px;
-
-  cursor: pointer;
-
-  align-items: center;
-
-  justify-content: center;
-
-  flex-shrink: 0;
-}
-
-.mobile-toggle:hover {
-  background: #e9e9e5;
-}
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-.mobile-menu {
-  display: none;
-
-  background: #fff;
-
-  border-top: 1px solid #eeeeeb;
-
-  padding: 14px 16px 18px;
-}
-
-.mobile-menu.active {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 10px;
-}
-
-
-/* =====================================================
-   MOBILE MENU BUTTONS
-===================================================== */
-
-.mobile-menu .btn {
-  width: 100%;
-
-  min-height: 44px;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 1000px) {
-
-  .online-shopping-text {
-    font-size: 15px;
-
-    margin-left: 8px;
-  }
-
-  .nav-actions {
-    gap: 5px;
-  }
-
-  .btn {
-    padding: 7px 10px;
-
-    font-size: 11px;
-  }
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 720px) {
-
-  .header-container {
-    width: calc(100% - 20px);
-
-    max-width: none;
-  }
-
-
-  .nav {
-    min-height: 58px;
-
-    width: 100%;
-
-    gap: 0;
-
-    justify-content: space-between;
-  }
-
-
-  /* LOGO */
-
-  .logo {
-    gap: 6px;
-
-    max-width: calc(100% - 50px);
-
-    flex-shrink: 1;
-  }
-
-
-  /* LOGO IMAGE */
-
-  .logo-mark {
-    width: 38px;
-
-    height: 38px !important;
-
-    flex: 0 0 38px;
-
-    border-radius: 8px;
-  }
-
-
-  .logo-mark .ahjo {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-  }
-
-
-  /* LOGO NAME */
-
-  .logo-text {
-    font-size: 18px;
-
-    overflow: hidden;
-  }
-
-  .logo-text span {
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-
-    white-space: nowrap;
-  }
-
-
-  /* HINDI TEXT HIDE */
-
-  .online-shopping-text {
-    display: none !important;
-  }
-
-
-  /* ACTIONS RIGHT */
-
-  .nav-actions {
-    margin-left: auto;
-
-    gap: 0;
-
-    flex-shrink: 0;
-  }
-
-
-  /* DESKTOP BUTTONS HIDE */
-
-  .nav-actions > .btn {
-    display: none;
-  }
-
-
-  /* HAMBURGER RIGHT */
-
-  .mobile-toggle {
-    display: flex;
-
-    margin-left: 8px;
-  }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media (max-width: 480px) {
-
-  .header-container {
-    width: calc(100% - 16px);
-  }
-
-  .nav {
-    min-height: 55px;
-  }
-
-  .logo {
-    gap: 5px;
-  }
-
-  .logo-mark {
-    width: 36px;
-
-    height: 36px !important;
-
-    flex: 0 0 36px;
-
-    border-radius: 7px;
-  }
-
-  .logo-text {
-    font-size: 17px;
-  }
-
-  .mobile-toggle {
-    width: 36px;
-
-    height: 36px;
-
-    font-size: 20px;
-  }
-
-}
-
-
-/* =====================================================
-   VERY SMALL MOBILE
-===================================================== */
-
-@media (max-width: 360px) {
-
-  .header-container {
-    width: calc(100% - 12px);
-  }
-
-  .nav {
-    min-height: 52px;
-  }
-
-  .logo-mark {
-    width: 33px;
-
-    height: 33px !important;
-
-    flex: 0 0 33px;
-  }
-
-  .logo-text {
-    font-size: 16px;
-  }
-
-  .mobile-toggle {
-    width: 34px;
-
-    height: 34px;
-
-    font-size: 19px;
-  }
-
-}
-
-
-/* =====================================================
-   BODY LOCK
-===================================================== */
-
-body.menu-open {
-  overflow: hidden;
-}
-/* ========================================
-   HEADER
-======================================== */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  width: calc(100% - 100px);
-  margin: 0 auto;
-
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(16px);
-
-  border-bottom: 1px solid var(--border);
-}
-
-
-/* ========================================
-   NAV - CENTERED HEADER
-======================================== */
-
-.nav {
-  width: 100%;
-  max-width: 1200px;
-
-  min-height: 62px;
-
-  margin: 0 auto;
-
-  padding: 0 10px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 18px;
-}
-
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 720px) {
-
-  header {
-    width: calc(100% - 20px);
-    margin: 0 auto;
-
-    border-radius: 0 0 10px 10px;
-  }
-
-  .nav {
-    min-height: 58px;
-    padding: 0 8px;
-
-    gap: 0;
-
-    justify-content: space-between;
-  }
-}
-
-
-/* ========================================
-   SMALL MOBILE
-======================================== */
-
-@media (max-width: 480px) {
-
-  header {
-    width: calc(100% - 12px);
-  }
-
-  .nav {
-    min-height: 55px;
-    padding: 0 6px;
-  }
-}
-
-
-/* ========================================
-   COMMON BUTTON
-======================================== */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-
-  padding: 8px 13px;
-
-  border-radius: 8px;
-
-  font-family: "Outfit", sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-
-  line-height: 1;
-  text-decoration: none;
-  white-space: nowrap;
-
-  cursor: pointer;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-
-/* ========================================
-   WHATSAPP
-======================================== */
-
-.btn-whatsapp {
-  color: #ffffff;
-
-  background: linear-gradient(
-    135deg,
-    #ffac34,
-    #f17700
-  );
-
-  border: 1.5px solid #f17700;
-
-  box-shadow:
-    0 4px 12px rgba(243, 146, 0, 0.18);
-}
-
-.whatsapp-icon {
-  color: #ffffff;
-  font-size: 19px;
-}
-
-.btn-whatsapp:hover {
-  background: linear-gradient(
-    135deg,
-    #ff9820,
-    #df6500
-  );
-
-  border-color: #df6500;
-
-  color: #ffffff;
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 7px 18px rgba(243, 146, 0, 0.30);
-}
-
-
-/* ========================================
-   CALL
-======================================== */
-
-.btn-call {
-  color: #ffffff;
-
-  background: linear-gradient(
-    135deg,
-    #ffac34,
-    #f17700
-  );
-
-  border: 1.5px solid #f17700;
-
-  box-shadow:
-    0 4px 12px rgba(243, 146, 0, 0.18);
-}
-
-.phone-icon {
-  color: #ffffff;
-  font-size: 17px;
-}
-
-.btn-call:hover {
-  background: linear-gradient(
-    135deg,
-    #ff9820,
-    #df6500
-  );
-
-  border-color: #df6500;
-
-  color: #ffffff;
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 7px 18px rgba(243, 146, 0, 0.30);
-}
-
-
-/* ========================================
-   CUSTOMER LOGIN
-======================================== */
-
-.btn-outline {
-  color: #f17700;
-
-  background: #ffffff;
-
-  border: 1.5px solid #f17700;
-
-  box-shadow: none;
-}
-
-.btn-outline:hover {
-  color: #ffffff;
-
-  background: linear-gradient(
-    135deg,
-    #ffac34,
-    #f17700
-  );
-
-  border-color: #f17700;
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 7px 18px rgba(243, 146, 0, 0.25);
-}
-
-
-/* ========================================
-   STORE LOGIN
-======================================== */
-
-.btn-primary {
-  color: #ffffff;
-
-  background: linear-gradient(
-    135deg,
-    #ffac34,
-    #f17700
-  );
-
-  border: 1.5px solid #f17700;
-
-  box-shadow:
-    0 4px 12px rgba(243, 146, 0, 0.22);
-}
-
-.btn-primary:hover {
-  color: #ffffff;
-
-  background: linear-gradient(
-    135deg,
-    #ff9820,
-    #df6500
-  );
-
-  border-color: #df6500;
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 7px 20px rgba(243, 146, 0, 0.32);
-}
-
-
-/* ========================================
-   ICON
-======================================== */
-
-.action-icon {
-  flex-shrink: 0;
-}
-
-
-/* ========================================
-   MOBILE MENU BUTTONS
-======================================== */
-
-.mobile-menu .btn {
-  width: 100%;
-  min-height: 44px;
-
-  justify-content: center;
-
-  margin-bottom: 8px;
-}
-
-.mobile-menu .btn:last-child {
-  margin-bottom: 0;
-}
-
-
-/* ========================================
-   MOBILE MENU
-======================================== */
-
-.mobile-menu {
-  display: none;
-
-  background: #ffffff;
-
-  border-top: 1px solid var(--border);
-
-  padding: 14px 16px 18px;
-}
-
-.mobile-menu.active {
-  display: block;
-}
-
-/* ========================================
-   CUSTOMER LOGIN
-======================================== */
-
-.btn-outline {
-  color: #ffffff;
-
-  background: linear-gradient(
-    135deg,
-    #ffac34,
-    #f17700
-  );
-
-  border: 1.5px solid #f17700;
-
-  box-shadow:
-    0 4px 12px rgba(243, 146, 0, 0.22);
-
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-}
-
-
-/* CUSTOMER HOVER */
-
-.btn-outline:hover {
-  color: #ffffff;
-
-  background: linear-gradient(
-    135deg,
-    #ff9820,
-    #df6500
-  );
-
-  border-color: #df6500;
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 7px 20px rgba(243, 146, 0, 0.32);
-}
-
-/* =====================================================
-   FINAL LOGO FIX
-   Logo height + equal border + clean spacing
-===================================================== */
-
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  flex-shrink: 0;
-  min-width: 0;
-
-  text-decoration: none;
-}
-
-
-/* =====================================================
-   LOGO BOX
-===================================================== */
-
-.logo-mark {
-  width: 64px;
-  height: 64px !important;
-
-  flex: 0 0 64px;
-
-  /* box-sizing: border-box; */
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 3px;
-
-  background: #ffffff;
-
-  /* Equal border on all 4 sides */
-  border: 2px solid #f17700;
-
-  border-radius: 12px;
-
-  overflow: hidden;
-
-  /* Soft professional shadow */
-  box-shadow:
-    0 2px 8px rgba(241, 119, 0, 0.18);
-}
-
-
-/* =====================================================
-   LOGO IMAGE
-===================================================== */
-
-.logo-mark .ahjo {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: contain;
-  object-position: center;
-
-  max-width: 100%;
-  max-height: 100%;
-
-  border-radius: 8px;
-}
-
-
-/* =====================================================
-   LOGO TEXT
-===================================================== */
-
-.logo-text {
-  display: flex;
-  align-items: center;
-
-  min-width: 0;
-
-  font-family: "Outfit", sans-serif;
-
-  font-size: 23px;
-
-  line-height: 1;
-
-  font-weight: 900;
-
-  letter-spacing: -0.6px;
-
-  white-space: nowrap;
-}
-
-.logo-text span {
-  color: #f17700;
-
-  font-size: 23px !important;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 1000px) {
-
-  .logo {
-    gap: 9px;
-  }
-
-  .logo-mark {
-    /* width: 60px;
-    height: 60px !important; */
-
-    flex: 0 0 60px;
-
-    padding: 3px;
-
-    border: 2px solid #f17700;
-
-    border-radius: 11px;
-  }
-
-  .logo-text {
-    font-size: 21px;
-  }
-
-  .logo-text span {
-    font-size: 21px !important;
-  }
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 720px) {
-
-  .logo {
-    gap: 8px;
-
-    max-width: calc(100% - 55px);
-
-    flex-shrink: 1;
-  }
-
-  .logo-mark {
-    width: 52px;
-    height: 52px !important;
-
-    flex: 0 0 52px;
-
-    padding: 2px;
-
-    border: 2px solid #f17700;
-
-    border-radius: 10px;
-
-    box-shadow:
-      0 2px 7px rgba(241, 119, 0, 0.16);
-  }
-
-  .logo-mark .ahjo {
-    border-radius: 7px;
-  }
-
-  .logo-text {
-    font-size: 19px;
-
-    overflow: hidden;
-  }
-
-  .logo-text span {
-    font-size: 19px !important;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media (max-width: 480px) {
-
-  .logo {
-    gap: 7px;
-  }
-
-  .logo-mark {
-    width: 48px;
-    height: 48px !important;
-
-    flex: 0 0 48px;
-
-    padding: 2px;
-
-    border: 1.8px solid #f17700;
-
-    border-radius: 9px;
-  }
-
-  .logo-text {
-    font-size: 18px;
-  }
-
-  .logo-text span {
-    font-size: 18px !important;
-  }
-}
-
-
-/* =====================================================
-   VERY SMALL MOBILE
-===================================================== */
-
-@media (max-width: 360px) {
-
-  .logo {
-    gap: 6px;
-  }
-
-  .logo-mark {
-    width: 44px;
-    height: 44px !important;
-
-    flex: 0 0 44px;
-
-    padding: 2px;
-
-    border: 1.5px solid #f17700;
-
-    border-radius: 8px;
-  }
-
-  .logo-text {
-    font-size: 17px;
-  }
-
-  .logo-text span {
-    font-size: 17px !important;
-  }
-}
-
-
-
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.action-icon {
-  flex-shrink: 0;
-}
-
-.login-icon,
-.store-icon {
-  font-size: 15px;
-}
-
-
-/* =====================================================
-   FINAL SAHJO MART BRAND RESPONSIVE FIX
-===================================================== */
-
-
-/* =========================
-   NAV
-========================= */
-
-.site-header .nav {
   display: flex;
 
   align-items: center;
 
   justify-content: space-between;
 
-  gap: 20px;
-
-  min-height: 78px;
+  gap: 18px;
 }
 
 
-/* =========================
-   LOGO AREA
-========================= */
+/* =====================================================
+   LOGO LEFT
+===================================================== */
 
-.site-header .logo {
+.logo {
   display: flex;
 
   align-items: center;
 
-  gap: 10px;
+  gap: 9px;
 
   min-width: 0;
 
@@ -1272,63 +73,39 @@ header {
 }
 
 
-/* =========================
-   LOGO IMAGE BOX
-========================= */
+/* =====================================================
+   LOGO IMAGE
+===================================================== */
 
-.site-header .logo-mark {
-  width: 58px;
-  height: 58px !important;
-
-  flex: 0 0 58px;
-
+.header-logo-image {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  padding: 3px;
-
-  box-sizing: border-box;
-
-  background: #ffffff;
-
-  border: 2px solid #f17700;
-
-  border-radius: 10px;
-
-  overflow: hidden;
-
-  box-shadow:
-    0 2px 8px rgba(241, 119, 0, 0.16);
+  flex-shrink: 0;
 }
 
 
-/* =========================
-   LOGO IMAGE
-========================= */
-
-.site-header .logo-mark .ahjo {
+.sahjo-logo-img {
   display: block;
 
-  width: 100% !important;
-  height: 100% !important;
+  width: 55px;
 
-  max-width: 100%;
+  height: 55px;
 
-  object-fit: contain;
+  object-fit: cover;
 
-  object-position: center;
-
-  border-radius: 6px;
+  border-radius: 3px;
 }
 
 
-/* =========================
+/* =====================================================
    BRAND COPY
-========================= */
+===================================================== */
 
-.site-header .brand-copy {
+.brand-copy {
   display: flex;
 
   flex-direction: column;
@@ -1343,91 +120,77 @@ header {
 }
 
 
-/* =========================
+/* =====================================================
    SAHJO MART
-========================= */
+===================================================== */
 
-.site-header .logo-text {
-  display: flex !important;
+.logo-text {
+  display: flex;
 
-  flex-direction: row !important;
+  flex-direction: row;
 
-  flex-wrap: nowrap !important;
+  flex-wrap: nowrap;
 
   align-items: baseline;
 
   gap: 5px;
 
-  width: auto;
-
-  overflow: visible !important;
-
-  white-space: nowrap !important;
-
   line-height: 1;
+
+  white-space: nowrap;
+
+  overflow: visible;
 }
 
 
 /* SAHJO */
 
-.site-header .logo-text .sahjo-text {
+.sahjo-text {
   display: inline-block;
-
-  color: #f17700 !important;
 
   font-family: "Outfit", sans-serif;
 
-  font-size: 22px !important;
+  font-size: 27px;
 
   font-weight: 900;
 
   line-height: 1;
 
-  white-space: nowrap !important;
+  letter-spacing: -0.5px;
 
-  overflow: visible !important;
+  color: #f17700;
 
-  text-overflow: unset !important;
+  white-space: nowrap;
 }
 
 
 /* MART */
 
-.site-header .logo-text .mart-text {
+.mart-text {
   display: inline-block;
-
-  color: #111111 !important;
 
   font-family: "Outfit", sans-serif;
 
-  font-size: 20px !important;
+  font-size: 21px;
 
-  font-weight: 500;
+  font-weight: 600;
 
   line-height: 1;
 
-  letter-spacing: 0;
+  color: #171717;
 
-  white-space: nowrap !important;
-
-  overflow: visible !important;
-
-  text-overflow: unset !important;
+  white-space: nowrap;
 }
 
 
-/* =========================
+/* =====================================================
    HINDI TAGLINE
-========================= */
+===================================================== */
 
-.site-header .shopping-tagline {
-  display: block;
-
+.shopping-tagline {
   margin: 0;
 
   padding: 0;
-
-  color: #e07116;
 
   font-family: "Outfit", sans-serif;
 
@@ -1435,20 +198,24 @@ header {
 
   font-weight: 700;
 
-  line-height: 1.2;
+  line-height: 1.15;
+
+  color: #e07116;
 
   white-space: nowrap;
 }
 
 
-/* =========================
-   ACTIONS
-========================= */
+/* =====================================================
+   RIGHT ACTIONS
+===================================================== */
 
-.site-header .nav-actions {
+.nav-actions {
   display: flex;
 
   align-items: center;
+
+  justify-content: flex-end;
 
   gap: 8px;
 
@@ -1459,234 +226,539 @@ header {
 
 
 /* =====================================================
+   COMMON DESKTOP BUTTON
+===================================================== */
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 40px;
+
+  padding: 8px 14px;
+
+  box-sizing: border-box;
+
+  border-radius: 8px;
+
+  font-family: "Outfit", sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* =====================================================
+   DESKTOP WHATSAPP
+===================================================== */
+
+.btn-whatsapp {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #ffac34,
+    #f17700
+  );
+
+  border: none;
+}
+
+
+.btn-whatsapp:hover {
+  background: linear-gradient(
+    135deg,
+    #ff9820,
+    #df6500
+  );
+
+  transform: translateY(-1px);
+}
+
+
+.whatsapp-icon {
+  font-size: 20px;
+
+  color: #ffffff;
+
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   DESKTOP CALL
+===================================================== */
+
+.btn-call {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #ffac34,
+    #f17700
+  );
+
+  border: none;
+}
+
+
+.btn-call:hover {
+  background: linear-gradient(
+    135deg,
+    #ff9820,
+    #df6500
+  );
+
+  transform: translateY(-1px);
+}
+
+
+.phone-icon {
+  font-size: 17px;
+
+  color: #ffffff;
+
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   MOBILE WHATSAPP
+   DESKTOP PAR HIDE
+===================================================== */
+
+.mobile-whatsapp-order {
+  display: none;
+}
+
+
+/* =====================================================
    TABLET
 ===================================================== */
 
-@media (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
 
-  .site-header .logo-mark {
-    width: 52px;
-
-    height: 52px !important;
-
-    flex: 0 0 52px;
+  .header-container {
+    width: calc(100% - 30px);
   }
 
 
-  .site-header .logo-text .sahjo-text {
-    font-size: 20px !important;
+  .sahjo-text {
+    font-size: 25px;
   }
 
 
-  .site-header .logo-text .mart-text {
-    font-size: 16px !important;
+  .mart-text {
+    font-size: 19px;
   }
 
 
-  .site-header .shopping-tagline {
+  .btn {
+    padding: 7px 10px;
+
     font-size: 11px;
-  }
-
-
-  .site-header .nav {
-    gap: 12px;
   }
 
 }
 
 
 /* =====================================================
-   PHONE
+   PHONE / IPHONE
 ===================================================== */
 
-@media (max-width: 720px) {
+@media screen and (max-width: 768px) {
 
-  .site-header .nav {
-    min-height: 66px;
-
+  .site-header {
     width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 8px;
   }
 
 
-  /* BRAND LEFT SIDE */
+  .header-container {
+    width: calc(100% - 16px);
 
-  .site-header .logo {
-    display: flex;
+    max-width: none;
+  }
 
-    align-items: center;
 
-    gap: 7px;
+  .header-container.nav {
+    width: 100%;
+
+    min-height: 68px;
+
+    gap: 5px;
+  }
+
+
+  /* ===================================================
+     LEFT LOGO
+  =================================================== */
+
+  .logo {
+    gap: 6px;
+
+    min-width: 0;
 
     flex: 1 1 auto;
 
-    max-width: calc(100% - 48px);
+    overflow: visible;
+  }
 
+
+  .header-logo-image {
+    flex: 0 0 auto;
+  }
+
+
+  .sahjo-logo-img {
+    width: 50px;
+
+    height: 50px;
+  }
+
+
+  /* ===================================================
+     BRAND
+  =================================================== */
+
+  .brand-copy {
     min-width: 0;
-  }
 
-
-  /* SMALLER PHONE LOGO */
-
-  .site-header .logo-mark {
-    width: 45px;
-
-    height: 45px !important;
-
-    flex: 0 0 45px;
-
-    padding: 2px;
-
-    border-width: 1.5px;
-
-    border-radius: 8px;
-  }
-
-
-  .site-header .logo-mark .ahjo {
-    border-radius: 5px;
-  }
-
-
-  /* TEXT */
-
-  .site-header .brand-copy {
     gap: 3px;
 
-    min-width: 0;
-
     overflow: visible;
   }
 
 
-  /* SAHJO + MART SAME LINE */
+  .logo-text {
+    display: flex;
 
-  .site-header .logo-text {
-    display: flex !important;
+    flex-wrap: nowrap;
 
-    flex-direction: row !important;
+    align-items: baseline;
 
-    flex-wrap: nowrap !important;
+    gap: 3px;
 
-    gap: 4px;
-
-    white-space: nowrap !important;
-
-    overflow: visible !important;
-  }
-
-
-  .site-header .logo-text .sahjo-text {
-    font-size: 17px !important;
-
-    white-space: nowrap !important;
-  }
-
-
-  .site-header .logo-text .mart-text {
-    font-size: 14px !important;
-
-    white-space: nowrap !important;
-  }
-
-
-  /* HINDI EXACTLY BELOW SAHJO MART */
-
-  .site-header .shopping-tagline {
-    display: block !important;
-
-    font-size: 9.5px;
-
-    line-height: 1.15;
+    overflow: visible;
 
     white-space: nowrap;
+  }
+
+
+  /* MOBILE ME SAHJO BADA */
+
+  .sahjo-text {
+    font-size: 28px !important;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    letter-spacing: -0.8px;
 
     overflow: visible;
-
-    margin: 0;
   }
 
 
-  /* DESKTOP BUTTONS HIDE */
+  /* MOBILE ME MART BADA */
 
-  .site-header .nav-actions > .btn {
-    display: none;
+  .mart-text {
+    font-size: 20px !important;
+
+    font-weight: 600;
+
+    line-height: 1;
+
+    overflow: visible;
   }
 
 
-  /* HAMBURGER */
+  .shopping-tagline {
+    font-size: 11px !important;
 
-  .site-header .mobile-toggle {
+    font-weight: 700;
+
+    margin-top: 2px;
+
+    line-height: 1.1;
+
+    white-space: nowrap;
+  }
+
+
+  /* ===================================================
+     DESKTOP BUTTONS PHONE PAR HIDE
+  =================================================== */
+
+  .desktop-action {
+    display: none !important;
+  }
+
+
+  /* ===================================================
+     RIGHT SIDE
+  =================================================== */
+
+  .nav-actions {
+    margin-left: auto;
+
+    flex: 0 0 auto;
+
+    gap: 0;
+  }
+
+
+  /* ===================================================
+     MOBILE WHATSAPP ORDER
+     NO BORDER
+  =================================================== */
+
+  .mobile-whatsapp-order {
     display: flex;
 
     align-items: center;
 
     justify-content: center;
 
-    width: 38px;
+    gap: 6px;
 
-    height: 38px;
+    min-width: 137px;
 
-    flex: 0 0 38px;
+    min-height: 50px;
 
-    margin-left: 4px;
+    padding: 4px 5px;
 
-    padding: 0;
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    /* BORDER COMPLETELY REMOVED */
+    border: none !important;
+
+    outline: none !important;
+
+    box-shadow: none !important;
+
+    border-radius: 0;
+
+    text-decoration: none;
+
+    -webkit-tap-highlight-color: transparent;
+  }
+
+
+  /* ===================================================
+     WHATSAPP TEXT
+  =================================================== */
+
+  .mobile-whatsapp-text {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    min-width: 0;
+
+    line-height: 1;
+
+    white-space: nowrap;
+  }
+
+
+  .mobile-order-hindi {
+    font-family: "Outfit", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1.05;
+
+    color: #e84c99;
+
+    white-space: nowrap;
+  }
+
+
+  .mobile-order-whatsapp {
+    margin-top: 4px;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    color: #d44290;
+
+    white-space: nowrap;
+  }
+
+
+  /* ===================================================
+     WHATSAPP ICON
+  =================================================== */
+
+  .mobile-whatsapp-icon {
+    flex: 0 0 auto;
+
+    font-size: 35px;
+
+    color: #25d366;
   }
 
 }
 
 
 /* =====================================================
-   SMALL PHONE
+   SMALL PHONE / IPHONE
 ===================================================== */
 
-@media (max-width: 480px) {
+@media screen and (max-width: 430px) {
 
-  .site-header .nav {
-    min-height: 62px;
+  .header-container {
+    width: calc(100% - 12px);
   }
 
 
-  .site-header .logo-mark {
-    width: 42px;
-
-    height: 42px !important;
-
-    flex: 0 0 42px;
+  .header-container.nav {
+    min-height: 65px;
   }
 
 
-  .site-header .logo-text .sahjo-text {
-    font-size: 16px !important;
+  .sahjo-logo-img {
+    width: 48px;
+
+    height: 48px;
   }
 
 
-  .site-header .logo-text .mart-text {
-    font-size: 13px !important;
+  .sahjo-text {
+    font-size: 26px !important;
   }
 
 
-  .site-header .shopping-tagline {
-    font-size: 8.5px;
+  .mart-text {
+    font-size: 19px !important;
   }
 
 
-  .site-header .mobile-toggle {
-    width: 36px;
+  .shopping-tagline {
+    font-size: 10px !important;
+  }
 
-    height: 36px;
 
-    flex: 0 0 36px;
+  .mobile-whatsapp-order {
+    min-width: 132px;
 
-    font-size: 20px;
+    min-height: 48px;
+
+    padding: 3px 4px;
+
+    gap: 4px;
+
+    border: none !important;
+  }
+
+
+  .mobile-order-hindi {
+    font-size: 12px;
+  }
+
+
+  .mobile-order-whatsapp {
+    font-size: 15px;
+  }
+
+
+  .mobile-whatsapp-icon {
+    font-size: 32px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL IPHONE 390
+===================================================== */
+
+@media screen and (max-width: 390px) {
+
+  .header-container {
+    width: calc(100% - 8px);
+  }
+
+
+  .logo {
+    gap: 4px;
+  }
+
+
+  .sahjo-logo-img {
+    width: 45px;
+
+    height: 45px;
+  }
+
+
+  .sahjo-text {
+    font-size: 24px !important;
+  }
+
+
+  .mart-text {
+    font-size: 18px !important;
+  }
+
+
+  .shopping-tagline {
+    font-size: 9px !important;
+  }
+
+
+  .mobile-whatsapp-order {
+    min-width: 124px;
+
+    min-height: 46px;
+
+    padding: 2px 3px;
+
+    border: none !important;
+  }
+
+
+  .mobile-order-hindi {
+    font-size: 11px;
+  }
+
+
+  .mobile-order-whatsapp {
+    font-size: 14px;
+  }
+
+
+  .mobile-whatsapp-icon {
+    font-size: 30px;
   }
 
 }
@@ -1696,48 +768,485 @@ header {
    VERY SMALL PHONE
 ===================================================== */
 
-@media (max-width: 360px) {
+@media screen and (max-width: 350px) {
 
-  .site-header .logo {
-    gap: 5px;
+  .sahjo-logo-img {
+    width: 41px;
+
+    height: 41px;
   }
 
 
-  .site-header .logo-mark {
-    width: 38px;
-
-    height: 38px !important;
-
-    flex: 0 0 38px;
+  .sahjo-text {
+    font-size: 21px !important;
   }
 
 
-  .site-header .logo-text {
-    gap: 3px;
-  }
-
-
-  .site-header .logo-text .sahjo-text {
-    font-size: 14px !important;
-  }
-
-
-  .site-header .logo-text .mart-text {
+  .mart-text {
     font-size: 16px !important;
   }
 
 
+  .shopping-tagline {
+    font-size: 8px !important;
+  }
+
+
+  .mobile-whatsapp-order {
+    min-width: 112px;
+  }
+
+
+  .mobile-order-hindi {
+    font-size: 10px;
+  }
+
+
+  .mobile-order-whatsapp {
+    font-size: 13px;
+  }
+
+
+  .mobile-whatsapp-icon {
+    font-size: 27px;
+  }
+
+}
+.site-header {
+  width: calc(100% - 180px);
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.header-container {
+  width: calc(100% - 24px);
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .site-header {
+    width: calc(100% - 80px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .site-header {
+    width: calc(100% - 30px);
+  }
+
+  .header-container {
+    width: calc(100% - 8px);
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .site-header {
+    width: calc(100% - 20px);
+  }
+}
+/* =====================================================
+   FINAL MOBILE HEADER FIX
+   NO LEFT / RIGHT CUT
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+  /* OUTER HEADER */
+
+  .site-header {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+
+    box-sizing: border-box !important;
+
+    overflow: visible !important;
+  }
+
+
+  /* INNER CONTAINER */
+
+  .site-header .header-container {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    overflow: visible !important;
+  }
+
+
+  /* NAV */
+
+  .site-header .header-container.nav {
+    width: 100% !important;
+
+    min-height: 64px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: space-between !important;
+
+    gap: 5px !important;
+
+    box-sizing: border-box !important;
+
+    overflow: visible !important;
+  }
+
+
+  /* =====================================================
+     LEFT LOGO AREA
+  ===================================================== */
+
+  .site-header .logo {
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 5px !important;
+
+    flex: 1 1 0 !important;
+
+    min-width: 0 !important;
+
+    max-width: none !important;
+
+    overflow: visible !important;
+
+    text-decoration: none;
+  }
+
+
+  /* LOGO IMAGE */
+
+  .site-header .header-logo-image {
+    flex: 0 0 44px !important;
+
+    width: 44px !important;
+
+    height: 44px !important;
+  }
+
+
+  .site-header .sahjo-logo-img {
+    width: 44px !important;
+
+    height: 44px !important;
+
+    display: block;
+
+    object-fit: cover;
+  }
+
+
+  /* =====================================================
+     BRAND TEXT
+  ===================================================== */
+
+  .site-header .brand-copy {
+    flex: 1 1 auto !important;
+
+    min-width: 0 !important;
+
+    overflow: visible !important;
+  }
+
+
+  .site-header .logo-text {
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    flex-wrap: nowrap !important;
+
+    align-items: baseline !important;
+
+    gap: 3px !important;
+
+    width: auto !important;
+
+    min-width: 0 !important;
+
+    overflow: visible !important;
+
+    white-space: nowrap !important;
+  }
+
+
+  .site-header .sahjo-text {
+    font-size: 23px !important;
+
+    font-weight: 900 !important;
+
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+
+    overflow: visible !important;
+  }
+
+
+  .site-header .mart-text {
+    font-size: 17px !important;
+
+    font-weight: 600 !important;
+
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+
+    overflow: visible !important;
+  }
+
+
   .site-header .shopping-tagline {
-    font-size: 7.5px;
+    display: block !important;
+
+    margin-top: 3px !important;
+
+    font-size: 9px !important;
+
+    line-height: 1.1 !important;
+
+    white-space: nowrap !important;
+
+    overflow: visible !important;
   }
 
 
-  .site-header .mobile-toggle {
-    width: 34px;
+  /* =====================================================
+     RIGHT AREA
+  ===================================================== */
 
-    height: 34px;
+  .site-header .nav-actions {
+    display: flex !important;
 
-    flex: 0 0 34px;
+    align-items: center !important;
+
+    justify-content: flex-end !important;
+
+    flex: 0 0 auto !important;
+
+    min-width: 0 !important;
+
+    margin-left: 3px !important;
+
+    overflow: visible !important;
   }
 
+
+  /* DESKTOP BUTTON HIDE */
+
+  .site-header .desktop-action {
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     MOBILE WHATSAPP
+  ===================================================== */
+
+  .site-header .mobile-whatsapp-order {
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    flex: 0 0 112px !important;
+
+    width: 112px !important;
+
+    min-width: 112px !important;
+
+    max-width: 112px !important;
+
+    min-height: 44px !important;
+
+    padding: 2px !important;
+
+    gap: 3px !important;
+
+    box-sizing: border-box !important;
+
+    border: none !important;
+
+    outline: none !important;
+
+    box-shadow: none !important;
+
+    background: transparent !important;
+
+    text-decoration: none !important;
+
+    overflow: visible !important;
+  }
+
+
+  .site-header .mobile-whatsapp-text {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    flex: 1 1 auto;
+
+    min-width: 0;
+
+    overflow: visible !important;
+
+    white-space: nowrap;
+  }
+
+
+  .site-header .mobile-order-hindi {
+    font-size: 9px !important;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+  }
+
+
+  .site-header .mobile-order-whatsapp {
+    margin-top: 3px;
+
+    font-size: 12px !important;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+  }
+
+
+  .site-header .mobile-whatsapp-icon {
+    flex: 0 0 auto;
+
+    font-size: 27px !important;
+
+    color: #25d366;
+  }
+}
+
+
+/* =====================================================
+   IPHONE / 390px
+===================================================== */
+
+@media screen and (max-width: 390px) {
+
+  .site-header {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+
+  .site-header .header-logo-image,
+  .site-header .sahjo-logo-img {
+    width: 40px !important;
+    height: 40px !important;
+
+    flex-basis: 40px !important;
+  }
+
+
+  .site-header .sahjo-text {
+    font-size: 21px !important;
+  }
+
+
+  .site-header .mart-text {
+    font-size: 15px !important;
+  }
+
+
+  .site-header .shopping-tagline {
+    font-size: 8px !important;
+  }
+
+
+  .site-header .mobile-whatsapp-order {
+    flex-basis: 103px !important;
+
+    width: 103px !important;
+
+    min-width: 103px !important;
+
+    max-width: 103px !important;
+  }
+
+
+  .site-header .mobile-order-hindi {
+    font-size: 8px !important;
+  }
+
+
+  .site-header .mobile-order-whatsapp {
+    font-size: 11px !important;
+  }
+
+
+  .site-header .mobile-whatsapp-icon {
+    font-size: 24px !important;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONE
+===================================================== */
+
+@media screen and (max-width: 350px) {
+
+  .site-header .header-logo-image,
+  .site-header .sahjo-logo-img {
+    width: 37px !important;
+    height: 37px !important;
+
+    flex-basis: 37px !important;
+  }
+
+
+  .site-header .sahjo-text {
+    font-size: 18px !important;
+  }
+
+
+  .site-header .mart-text {
+    font-size: 14px !important;
+  }
+
+
+  .site-header .shopping-tagline {
+    font-size: 7px !important;
+  }
+
+
+  .site-header .mobile-whatsapp-order {
+    flex-basis: 94px !important;
+
+    width: 94px !important;
+
+    min-width: 94px !important;
+
+    max-width: 94px !important;
+  }
+
+
+  .site-header .mobile-whatsapp-icon {
+    font-size: 22px !important;
+  }
 }

@@ -1,147 +1,65 @@
 import React, {
   useEffect,
-  useId,
-  useRef,
+  useMemo,
   useState,
 } from "react";
 
 import "./CategorySlider.css";
 
-function CategorySlider({
+const CategorySlider = ({
   id,
   title,
   description,
   items = [],
-}) {
+}) => {
   /* =====================================================
-     REFS
+     DEVICE
   ===================================================== */
 
-  const trackRef = useRef(null);
-
-  const positionRef = useRef(0);
-
-  const animationRef = useRef(null);
-
-  const pausedRef = useRef(false);
-
-  const currentIndexRef = useRef(0);
-
-  const firstFadeRef = useRef(true);
-
-  const reactId = useId();
-
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined"
+      ? window.innerWidth <= 600
+      : false
+  );
 
   /* =====================================================
-     STATES
+     MOBILE STATES
   ===================================================== */
 
-  const [currentIndex, setCurrentIndex] =
+  const [mobileIndex, setMobileIndex] =
     useState(0);
 
-  const [isPaused, setIsPaused] =
+  const [mobileAnimate, setMobileAnimate] =
+    useState(true);
+
+  const [mobilePaused, setMobilePaused] =
     useState(false);
 
-  const [isMobile, setIsMobile] =
-    useState(() => {
-      if (typeof window === "undefined") {
-        return false;
-      }
-
-      return window.innerWidth <= 768;
-    });
-
-
   /* =====================================================
-     DATA
+     SAFE ITEMS
   ===================================================== */
 
-  const originalLength = items.length;
-
-  const extendedItems = [
-    ...items,
-    ...items,
-    ...items,
-  ];
-
-
-  /* =====================================================
-     DIFFERENT TIMING FOR EACH CATEGORY SLIDER
-  ===================================================== */
-
-  const timingRef = useRef(null);
-
-  if (timingRef.current === null) {
-    /*
-      id + title + React unique id
-
-      Isse har CategorySlider ka
-      timer different rahega.
-    */
-
-    const key = `${id || ""}-${
-      title || ""
-    }-${reactId}`;
-
-    let hash = 0;
-
-    for (
-      let i = 0;
-      i < key.length;
-      i++
-    ) {
-      hash =
-        (
-          hash * 31 +
-          key.charCodeAt(i)
-        ) %
-        100000;
+  const safeItems = useMemo(() => {
+    if (!Array.isArray(items)) {
+      return [];
     }
 
-    timingRef.current = {
-      /*
-        First change:
-        1.4 sec se 3.8 sec ke beech
-      */
-
-      firstDelay:
-        1400 +
-        (hash % 2400),
-
-      /*
-        Uske baad:
-        5.2 sec se 7.7 sec ke beech
-      */
-
-      interval:
-        5200 +
-        (hash % 2500),
-    };
-  }
-
+    return items.filter(
+      (item) =>
+        item &&
+        typeof item.image === "string" &&
+        item.image.trim() !== ""
+    );
+  }, [items]);
 
   /* =====================================================
-     UPDATE CURRENT INDEX
-  ===================================================== */
-
-  const updateCurrentIndex = (
-    index
-  ) => {
-    currentIndexRef.current =
-      index;
-
-    setCurrentIndex(index);
-  };
-
-
-  /* =====================================================
-     MOBILE / DESKTOP DETECTION
+     CHECK SCREEN
   ===================================================== */
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(
-        window.innerWidth <= 768
+        window.innerWidth <= 600
       );
     };
 
@@ -152,341 +70,64 @@ function CategorySlider({
       handleResize
     );
 
+    window.addEventListener(
+      "orientationchange",
+      handleResize
+    );
+
     return () => {
       window.removeEventListener(
         "resize",
+        handleResize
+      );
+
+      window.removeEventListener(
+        "orientationchange",
         handleResize
       );
     };
   }, []);
 
-
   /* =====================================================
-     RESET FIRST MOBILE FADE
+     RESET WHEN CATEGORY CHANGES
   ===================================================== */
 
   useEffect(() => {
-    if (isMobile) {
-      firstFadeRef.current =
-        true;
-    }
-  }, [isMobile]);
+    setMobileIndex(0);
 
+    setMobileAnimate(true);
+
+    setMobilePaused(false);
+  }, [id]);
 
   /* =====================================================
-     GET DESKTOP SLIDE WIDTH
+     UNIQUE CATEGORY NUMBER
+
+     Har category ki timing alag hogi
   ===================================================== */
 
-  const getSlideWidth = () => {
-    const track =
-      trackRef.current;
-
-    if (!track) {
-      return 0;
+  const uniqueNumber = useMemo(() => {
+    if (!id) {
+      return 1;
     }
 
-    const card =
-      track.querySelector(
-        ".slide-card"
+    return id
+      .split("")
+      .reduce(
+        (total, character) =>
+          total +
+          character.charCodeAt(0),
+        0
       );
-
-    if (!card) {
-      return 0;
-    }
-
-    const cardWidth =
-      card.getBoundingClientRect()
-        .width;
-
-    const styles =
-      window.getComputedStyle(
-        track
-      );
-
-    const gap =
-      parseFloat(
-        styles.gap
-      ) || 0;
-
-    return cardWidth + gap;
-  };
-
+  }, [id]);
 
   /* =====================================================
-     DESKTOP AUTO SLIDER
-  ===================================================== */
-
-  useEffect(() => {
-    /*
-      Mobile par horizontal
-      animation nahi chalegi.
-    */
-
-    if (isMobile) {
-      return;
-    }
-
-    const track =
-      trackRef.current;
-
-    if (
-      !track ||
-      !originalLength
-    ) {
-      return;
-    }
-
-    let running = true;
-
-    let lastTime =
-      performance.now();
-
-    /*
-      Desktop slider speed
-    */
-
-    const speed = 20;
-
-
-    /* =================================================
-       ANIMATION
-    ================================================= */
-
-    const animate = (time) => {
-      if (!running) {
-        return;
-      }
-
-      let delta =
-        time - lastTime;
-
-      lastTime = time;
-
-
-      /*
-        Browser tab change ke baad
-        sudden jump prevent karta hai.
-      */
-
-      if (delta > 50) {
-        delta = 50;
-      }
-
-
-      const width =
-        getSlideWidth();
-
-
-      if (
-        width &&
-        !pausedRef.current
-      ) {
-        const oneSetWidth =
-          width *
-          originalLength;
-
-
-        /* =========================================
-           MOVE
-        ========================================= */
-
-        positionRef.current +=
-          (
-            speed *
-            delta
-          ) /
-          1000;
-
-
-        /* =========================================
-           INFINITE LOOP
-        ========================================= */
-
-        if (
-          positionRef.current >=
-          oneSetWidth * 2
-        ) {
-          positionRef.current -=
-            oneSetWidth;
-        }
-
-
-        if (
-          positionRef.current <
-          oneSetWidth
-        ) {
-          positionRef.current +=
-            oneSetWidth;
-        }
-
-
-        /* =========================================
-           TRANSFORM
-        ========================================= */
-
-        track.style.transform =
-          `translate3d(${
-            -positionRef.current
-          }px, 0, 0)`;
-
-
-        /* =========================================
-           CURRENT DOT
-        ========================================= */
-
-        const index =
-          Math.floor(
-            positionRef.current /
-              width
-          ) %
-          originalLength;
-
-
-        const safeIndex =
-          index < 0
-            ? 0
-            : index;
-
-
-        if (
-          safeIndex !==
-          currentIndexRef.current
-        ) {
-          updateCurrentIndex(
-            safeIndex
-          );
-        }
-      }
-
-
-      animationRef.current =
-        requestAnimationFrame(
-          animate
-        );
-    };
-
-
-    /* =================================================
-       INITIALIZE
-    ================================================= */
-
-    const initialize = () => {
-      const width =
-        getSlideWidth();
-
-      if (!width) {
-        return;
-      }
-
-
-      /*
-        Middle duplicate set se
-        slider start hoga.
-      */
-
-      positionRef.current =
-        (
-          originalLength +
-          currentIndexRef.current
-        ) *
-        width;
-
-
-      track.style.transform =
-        `translate3d(${
-          -positionRef.current
-        }px, 0, 0)`;
-
-
-      lastTime =
-        performance.now();
-
-
-      animationRef.current =
-        requestAnimationFrame(
-          animate
-        );
-    };
-
-
-    const timer =
-      setTimeout(
-        initialize,
-        100
-      );
-
-
-    /* =================================================
-       DESKTOP RESIZE
-    ================================================= */
-
-    const handleResize = () => {
-      const width =
-        getSlideWidth();
-
-      if (!width) {
-        return;
-      }
-
-
-      positionRef.current =
-        (
-          originalLength +
-          currentIndexRef.current
-        ) *
-        width;
-
-
-      track.style.transform =
-        `translate3d(${
-          -positionRef.current
-        }px, 0, 0)`;
-    };
-
-
-    window.addEventListener(
-      "resize",
-      handleResize
-    );
-
-
-    /* =================================================
-       CLEANUP
-    ================================================= */
-
-    return () => {
-      running = false;
-
-      clearTimeout(timer);
-
-      window.removeEventListener(
-        "resize",
-        handleResize
-      );
-
-
-      if (
-        animationRef.current
-      ) {
-        cancelAnimationFrame(
-          animationRef.current
-        );
-      }
-
-
-      track.style.transform =
-        "translate3d(0, 0, 0)";
-    };
-
-  }, [
-    isMobile,
-    originalLength,
-  ]);
-
-
-  /* =====================================================
-     MOBILE AUTO CHANGE
-     DIFFERENT TIMING FOR EVERY CATEGORY
+     MOBILE AUTO SLIDER
+
+     - alag-alag timing
+     - fade
+     - jump
+     - tap pause/start
   ===================================================== */
 
   useEffect(() => {
@@ -494,414 +135,309 @@ function CategorySlider({
       return;
     }
 
-
-    if (
-      originalLength <= 1
-    ) {
+    if (safeItems.length <= 1) {
       return;
     }
 
-
-    /*
-      User ne pause kiya hai.
-    */
-
-    if (isPaused) {
+    if (mobilePaused) {
       return;
     }
 
-
-    const timing =
-      timingRef.current;
-
-
     /*
-      First time alag delay.
+      Har category ka alag interval
 
-      Uske baad category ka
-      apna unique interval.
+      Approx:
+      3200ms
+      3900ms
+      4600ms
+      5300ms
+      6000ms
     */
 
-    const delay =
-      firstFadeRef.current
-        ? timing.firstDelay
-        : timing.interval;
+    const intervalTime =
+      3200 +
+      (uniqueNumber % 5) * 700;
 
+    /*
+      Har category alag time
+      se first change karegi
+    */
 
-    const timer =
-      setTimeout(() => {
-        firstFadeRef.current =
-          false;
+    const firstDelay =
+      800 +
+      (uniqueNumber % 6) * 450;
 
+    let intervalId = null;
 
-        const nextIndex =
-          currentIndex >=
-          originalLength - 1
-            ? 0
-            : currentIndex + 1;
+    let firstTimeout = null;
 
+    let animationTimeout = null;
 
-        updateCurrentIndex(
-          nextIndex
-        );
+    /* =================================================
+       CHANGE IMAGE
+    ================================================= */
 
-      }, delay);
+    const changeSlide = () => {
+      /*
+        Old image fade out
+      */
 
+      setMobileAnimate(false);
 
-    return () => {
-      clearTimeout(timer);
+      animationTimeout =
+        setTimeout(() => {
+          /*
+            Next image
+          */
+
+          setMobileIndex(
+            (previousIndex) =>
+              (previousIndex + 1) %
+              safeItems.length
+          );
+
+          /*
+            New image fade + jump
+          */
+
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              setMobileAnimate(true);
+            });
+          });
+        }, 300);
     };
 
+    /* =================================================
+       START
+    ================================================= */
+
+    firstTimeout = setTimeout(() => {
+      changeSlide();
+
+      intervalId = setInterval(
+        changeSlide,
+        intervalTime
+      );
+    }, firstDelay);
+
+    /* =================================================
+       CLEANUP
+    ================================================= */
+
+    return () => {
+      if (firstTimeout) {
+        clearTimeout(firstTimeout);
+      }
+
+      if (animationTimeout) {
+        clearTimeout(
+          animationTimeout
+        );
+      }
+
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+
+      setMobileAnimate(true);
+    };
   }, [
     isMobile,
-    currentIndex,
-    originalLength,
-    isPaused,
+    mobilePaused,
+    safeItems.length,
+    uniqueNumber,
   ]);
 
-
   /* =====================================================
-     CLICK = PAUSE / RESUME
-     DESKTOP + MOBILE
+     DESKTOP ITEMS
+
+     Same list ko 2 baar duplicate
+     continuous infinite slider ke liye
   ===================================================== */
 
-  const handleSliderClick = (
-    event
-  ) => {
-    /*
-      View link ya buttons click
-      karne par pause/resume
-      trigger nahi hoga.
-    */
+  const desktopItems = useMemo(() => {
+    return [
+      ...safeItems,
+      ...safeItems,
+    ];
+  }, [safeItems]);
 
-    if (
-      event.target.closest(
-        "a, button"
-      )
-    ) {
+  /* =====================================================
+     MOBILE TAP PAUSE / START
+  ===================================================== */
+
+  const toggleMobileSlider = () => {
+    if (!isMobile) {
       return;
     }
 
+    if (safeItems.length <= 1) {
+      return;
+    }
 
-    const newPausedState =
-      !pausedRef.current;
-
-
-    pausedRef.current =
-      newPausedState;
-
-
-    setIsPaused(
-      newPausedState
+    setMobilePaused(
+      (previousState) =>
+        !previousState
     );
   };
-
-
-  /* =====================================================
-     DOT CLICK
-  ===================================================== */
-
 
   /* =====================================================
      EMPTY
   ===================================================== */
 
-  if (!items.length) {
+  if (safeItems.length === 0) {
     return null;
   }
 
-
   /* =====================================================
-     RENDER
+     RETURN
   ===================================================== */
 
   return (
     <section
-      className="section category-section"
+      className="category-section"
       id={id}
     >
+      <div className="category-container">
 
-      <div className="container">
+        {/* ===============================================
+            TITLE
+        =============================================== */}
 
+        <div className="category-heading">
 
-        {/* ==========================================
-            SECTION HEADER
-        ========================================== */}
+          <h2>
+            {title}
+          </h2>
 
-        <div className="section-head">
-
-          <div>
-
-            <span className="section-kicker">
-              Category
-            </span>
-
-
-            <h2>
-              {title}
-            </h2>
-
-
+          {description && (
             <p>
               {description}
             </p>
+          )}
+
+        </div>
+
+
+        {/* ===============================================
+            MOBILE
+        =============================================== */}
+
+        {isMobile ? (
+
+          <div
+            className={`category-mobile-slider ${
+              mobilePaused
+                ? "mobile-paused"
+                : ""
+            }`}
+            onClick={
+              toggleMobileSlider
+            }
+            role="button"
+            tabIndex={0}
+            aria-pressed={
+              mobilePaused
+            }
+            aria-label={
+              mobilePaused
+                ? `${title} slider start`
+                : `${title} slider pause`
+            }
+            onKeyDown={(event) => {
+              if (
+                event.key === "Enter" ||
+                event.key === " "
+              ) {
+                event.preventDefault();
+
+                toggleMobileSlider();
+              }
+            }}
+          >
+
+            <div
+              className={`category-mobile-card ${
+                mobileAnimate
+                  ? "mobile-slide-show"
+                  : "mobile-slide-hide"
+              }`}
+            >
+
+              <img
+                src={
+                  safeItems[
+                    mobileIndex
+                  ]?.image
+                }
+                alt={
+                  safeItems[
+                    mobileIndex
+                  ]?.alt ||
+                  `${title} ${
+                    mobileIndex + 1
+                  }`
+                }
+                draggable="false"
+              />
+
+            </div>
 
           </div>
 
-        </div>
+        ) : (
 
+          /* =============================================
+             PC / TABLET
+          ============================================= */
 
-        {/* ==========================================
-            SLIDER
-        ========================================== */}
+          <div className="category-desktop-viewport">
 
-        <div
-          className={`category-slider ${
-            isPaused
-              ? "slider-paused"
-              : ""
-          }`}
-          onClick={
-            handleSliderClick
-          }
-        >
+            <div className="category-desktop-track">
 
+              {desktopItems.map(
+                (item, index) => (
 
-          {/* ======================================
-              MOBILE / IPHONE / SAFARI
-              SLOW CROSS FADE
-          ====================================== */}
-
-          {isMobile ? (
-
-            <div className="mobile-fade-stage">
-
-              {items.map(
-                (
-                  item,
-                  index
-                ) => (
-
-                  <article
-                    key={`${item.title || "mobile"}-${index}`}
-                    className={`slide-card mobile-fade-card ${
-                      index ===
-                      currentIndex
-                        ? "active"
-                        : ""
-                    }`}
-                    aria-hidden={
-                      index !==
-                      currentIndex
-                    }
+                  <div
+                    className="category-desktop-slide"
+                    key={`${id}-${index}`}
                   >
 
-                    {/* IMAGE */}
+                    <div className="category-image-wrapper">
 
-                    <img
-                      src={
-                        item.image
-                      }
-                      alt={
-                        item.title ||
-                        "Category"
-                      }
-                      draggable="false"
-                    />
-
-
-                    {/* CONTENT */}
-
-                    <div className="slide-content">
-
-
-                      {item.label && (
-
-                        <span className="slide-label">
-                          {
-                            item.label
-                          }
-                        </span>
-
-                      )}
-
-
-                      <h3>
-                        {
-                          item.title
+                      <img
+                        src={
+                          item.image
                         }
-                      </h3>
-
-
-                      {item.description && (
-
-                        <p>
-                          {
-                            item.description
-                          }
-                        </p>
-
-                      )}
-
-
-                      {item.link && (
-
-                        <a
-                          href={
-                            item.link
-                          }
-                          tabIndex={
-                            index ===
-                            currentIndex
-                              ? 0
-                              : -1
-                          }
-                        >
-                          View
-                        </a>
-
-                      )}
+                        alt={
+                          item.alt ||
+                          `${title} ${
+                            (index %
+                              safeItems.length) +
+                            1
+                          }`
+                        }
+                        loading="lazy"
+                        draggable="false"
+                      />
 
                     </div>
 
-                  </article>
+                  </div>
 
                 )
               )}
 
             </div>
 
-          ) : (
+          </div>
 
-            /* ======================================
-               DESKTOP TRACK
-            ====================================== */
-
-            <div
-              className="category-track"
-              ref={trackRef}
-            >
-
-              {extendedItems.map(
-                (
-                  item,
-                  index
-                ) => (
-
-                  <article
-                    className="slide-card"
-                    key={`${item.title || "item"}-${index}`}
-                  >
-
-                    <img
-                      src={
-                        item.image
-                      }
-                      alt={
-                        item.title ||
-                        "Category"
-                      }
-                      draggable="false"
-                    />
-
-
-                    <div className="slide-content">
-
-                      {item.label && (
-
-                        <span className="slide-label">
-                          {
-                            item.label
-                          }
-                        </span>
-
-                      )}
-
-
-                      <h3>
-                        {
-                          item.title
-                        }
-                      </h3>
-
-
-                      {item.description && (
-
-                        <p>
-                          {
-                            item.description
-                          }
-                        </p>
-
-                      )}
-
-
-                      {item.link && (
-
-                        <a
-                          href={
-                            item.link
-                          }
-                        >
-                          View
-                        </a>
-
-                      )}
-
-                    </div>
-
-                  </article>
-
-                )
-              )}
-
-            </div>
-
-          )}
-
-        </div>
-
-
-        {/* ==========================================
-            DOTS
-        ========================================== */}
-{/* 
-        <div className="dots-container">
-
-          {items.map(
-            (_, index) => (
-
-              <button
-                key={index}
-                type="button"
-
-                className={`dot ${
-                  index ===
-                  currentIndex
-                    ? "active"
-                    : ""
-                }`}
-
-                onClick={() =>
-                  goToSlide(
-                    index
-                  )
-                }
-
-                aria-label={`Go to slide ${
-                  index + 1
-                }`}
-              />
-
-            )
-          )}
-
-        </div> */}
+        )}
 
       </div>
-
     </section>
   );
-}
+};
 
 export default CategorySlider;

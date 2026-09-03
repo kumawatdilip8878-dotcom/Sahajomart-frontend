@@ -4,99 +4,338 @@
 
 .category-section {
   width: 100%;
+
+  margin: 0;
+
+  padding: 20px 14px;
+
   box-sizing: border-box;
-}
-
-
-/* =====================================================
-   CATEGORY SLIDER VIEWPORT
-===================================================== */
-
-.category-slider {
-  width: 100%;
-  position: relative;
 
   overflow: hidden;
   overflow-x: hidden;
-  overflow-y: hidden;
 
-  padding: 4px 0 8px;
+  position: relative;
+
+  background: #ffffff;
+
+  -webkit-text-size-adjust: 100%;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.category-container {
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 0;
 
   box-sizing: border-box;
 
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  user-select: none;
-  -webkit-user-select: none;
-
-  scroll-behavior: auto;
-
-  touch-action: pan-y;
-}
-
-.category-slider::-webkit-scrollbar {
-  display: none;
+  min-width: 0;
 }
 
 
 /* =====================================================
-   MOVING TRACK
+   HEADING
 ===================================================== */
 
-.category-track {
-  display: flex;
+.category-heading {
+  width: 100%;
 
-  flex-direction: row;
-  flex-wrap: nowrap;
+  margin: 0 0 14px;
 
-  align-items: stretch;
-  justify-content: flex-start;
+  padding: 0;
 
-  gap: 15px;
+  box-sizing: border-box;
+}
 
-  width: max-content;
-  min-width: max-content;
 
-  will-change: transform;
+.category-heading h2 {
+  margin: 0;
 
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
+  padding: 0;
 
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  font-size: 23px;
 
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
+  line-height: 1.25;
+
+  font-weight: 800;
+
+  color: #222222;
+
+  word-break: break-word;
+}
+
+
+.category-heading p {
+  margin: 5px 0 0;
+
+  padding: 0;
+
+  max-width: 850px;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  color: #666666;
 }
 
 
 /* =====================================================
-   DESKTOP CARD
+   DESKTOP VIEWPORT
 ===================================================== */
 
-.slide-card {
-  flex: 0 0 250px;
+.category-desktop-viewport {
+  width: 100%;
 
-  width: 250px;
-  min-width: 250px;
-  max-width: 250px;
+  position: relative;
 
   overflow: hidden;
 
-  border-radius: 18px;
+  overflow-x: hidden;
 
-  border: 1px solid var(--border);
-
-  background: #fff;
+  overflow-y: hidden;
 
   box-sizing: border-box;
 
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform:
+    translateZ(0);
 
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  transform:
+    translateZ(0);
+
+  -webkit-backface-visibility:
+    hidden;
+
+  backface-visibility:
+    hidden;
+}
+
+
+/* =====================================================
+   DESKTOP TRACK
+===================================================== */
+
+.category-desktop-track {
+  display: flex;
+
+  flex-direction: row;
+
+  flex-wrap: nowrap;
+
+  align-items: stretch;
+
+  justify-content: flex-start;
+
+  gap: 12px;
+
+  width: max-content;
+
+  min-width: max-content;
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  animation-name:
+    categorySmoothScroll;
+
+  animation-duration: 28s;
+
+  animation-timing-function:
+    linear;
+
+  animation-iteration-count:
+    infinite;
+
+  will-change:
+    transform;
+
+  -webkit-backface-visibility:
+    hidden;
+
+  backface-visibility:
+    hidden;
+
+  -webkit-transform:
+    translate3d(
+      0,
+      0,
+      0
+    );
+
+  transform:
+    translate3d(
+      0,
+      0,
+      0
+    );
+}
+
+
+/* =====================================================
+   PC SLIDE
+===================================================== */
+
+.category-desktop-slide {
+  flex:
+    0
+    0
+    calc(
+      (100vw - 90px) / 4
+    );
+
+  width:
+    calc(
+      (100vw - 90px) / 4
+    );
+
+  min-width: 250px;
+
+  max-width: 340px;
+
+  box-sizing: border-box;
+
+  position: relative;
+
+  -webkit-transform:
+    translateZ(0);
+
+  transform:
+    translateZ(0);
+
+  -webkit-backface-visibility:
+    hidden;
+
+  backface-visibility:
+    hidden;
+}
+
+
+/* =====================================================
+   DESKTOP SMOOTH ANIMATION
+===================================================== */
+
+@-webkit-keyframes
+categorySmoothScroll {
+
+  from {
+    -webkit-transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+
+  to {
+    -webkit-transform:
+      translate3d(
+        calc(-50% - 6px),
+        0,
+        0
+      );
+
+    transform:
+      translate3d(
+        calc(-50% - 6px),
+        0,
+        0
+      );
+  }
+}
+
+
+@keyframes categorySmoothScroll {
+
+  from {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+
+  to {
+    transform:
+      translate3d(
+        calc(-50% - 6px),
+        0,
+        0
+      );
+  }
+}
+
+
+/* =====================================================
+   PC HOVER = PAUSE
+
+   Agar hover pause nahi chahiye
+   ye block delete kar dena.
+===================================================== */
+
+@media (
+  hover: hover
+) and (
+  pointer: fine
+) {
+
+  .category-desktop-viewport:hover
+  .category-desktop-track {
+    animation-play-state:
+      paused;
+  }
+
+}
+
+
+/* =====================================================
+   IMAGE WRAPPER
+===================================================== */
+
+.category-image-wrapper {
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  position: relative;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  border-radius: 12px;
+
+  background: #f4f4f4;
+
+  -webkit-transform:
+    translateZ(0);
+
+  transform:
+    translateZ(0);
+
+  -webkit-backface-visibility:
+    hidden;
+
+  backface-visibility:
+    hidden;
 }
 
 
@@ -104,164 +343,611 @@
    DESKTOP IMAGE
 ===================================================== */
 
-.slide-card img {
+.category-image-wrapper img {
   display: block;
 
   width: 100%;
-  height: 190px;
+
+  height: 100%;
+
+  max-width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  border: none;
 
   object-fit: cover;
 
+  object-position: center;
+
+  pointer-events: none;
+
   user-select: none;
+
   -webkit-user-select: none;
 
   -webkit-user-drag: none;
 
-  pointer-events: none;
+  -webkit-backface-visibility:
+    hidden;
 
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility:
+    hidden;
 
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  -webkit-transform:
+    translateZ(0);
+
+  transform:
+    translateZ(0);
 }
 
 
 /* =====================================================
-   CARD CONTENT
+   TABLET
+
+   TABLET PAR BHI PC JAISA
+   SMOOTH CONTINUOUS SLIDER
 ===================================================== */
 
-.slide-content {
-  width: 100%;
+@media screen and
+(max-width: 1024px) and
+(min-width: 601px) {
 
-  padding: 12px;
+  .category-desktop-track {
+    gap: 10px;
+
+    animation-duration: 25s;
+  }
+
+
+  .category-desktop-slide {
+    flex:
+      0
+      0
+      calc(
+        (100vw - 55px) / 2
+      );
+
+    width:
+      calc(
+        (100vw - 55px) / 2
+      );
+
+    min-width: 280px;
+
+    max-width: 450px;
+  }
+
+
+  .category-heading h2 {
+    font-size: 21px;
+  }
+
+}
+
+
+/* =====================================================
+   PHONE / IPHONE
+===================================================== */
+
+@media screen and
+(max-width: 600px) {
+
+  .category-section {
+    padding-top: 14px;
+
+    padding-bottom: 14px;
+
+    padding-left:
+      max(
+        12px,
+        env(
+          safe-area-inset-left
+        )
+      );
+
+    padding-right:
+      max(
+        12px,
+        env(
+          safe-area-inset-right
+        )
+      );
+  }
+
+
+  /* ===================================================
+     HEADING
+  =================================================== */
+
+  .category-heading {
+    margin-bottom: 10px;
+  }
+
+
+  .category-heading h2 {
+    font-size: 19px;
+
+    line-height: 1.25;
+  }
+
+
+  .category-heading p {
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+  }
+
+
+  /* ===================================================
+     MOBILE SLIDER
+  =================================================== */
+
+  .category-mobile-slider {
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    overflow-x: hidden;
+
+    overflow-y: hidden;
+
+    box-sizing: border-box;
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    touch-action: pan-y;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-tap-highlight-color:
+      transparent;
+
+    outline: none;
+
+    -webkit-transform:
+      translateZ(0);
+
+    transform:
+      translateZ(0);
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+  }
+
+
+  /* ===================================================
+     KEYBOARD FOCUS
+  =================================================== */
+
+  .category-mobile-slider:focus-visible {
+    outline:
+      2px solid
+      #f39200;
+
+    outline-offset:
+      3px;
+  }
+
+
+  /* ===================================================
+     MOBILE CARD
+  =================================================== */
+
+  .category-mobile-card {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    border-radius: 11px;
+
+    background: #f4f4f4;
+
+    transform-origin:
+      center center;
+
+    will-change:
+      opacity,
+      transform;
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+  }
+
+
+  /* ===================================================
+     SAFARI BORDER RADIUS FIX
+  =================================================== */
+
+  .category-mobile-card {
+    -webkit-mask-image:
+      -webkit-radial-gradient(
+        white,
+        black
+      );
+  }
+
+
+  /* ===================================================
+     MOBILE IMAGE
+  =================================================== */
+
+  .category-mobile-card img {
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    max-width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    border: none;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-user-drag: none;
+
+    -webkit-backface-visibility:
+      hidden;
+
+    backface-visibility:
+      hidden;
+
+    -webkit-transform:
+      translateZ(0);
+
+    transform:
+      translateZ(0);
+  }
+
+
+  /* ===================================================
+     MOBILE IMAGE SHOW
+     FADE + JUMP / POP
+  =================================================== */
+
+  .mobile-slide-show {
+    opacity: 1;
+
+    -webkit-transform:
+      translate3d(
+        0,
+        0,
+        0
+      )
+      scale(1);
+
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      )
+      scale(1);
+
+    transition:
+      opacity
+        500ms
+        ease,
+      transform
+        650ms
+        cubic-bezier(
+          0.34,
+          1.56,
+          0.64,
+          1
+        );
+  }
+
+
+  /* ===================================================
+     MOBILE IMAGE HIDE
+  =================================================== */
+
+  .mobile-slide-hide {
+    opacity: 0;
+
+    -webkit-transform:
+      translate3d(
+        0,
+        14px,
+        0
+      )
+      scale(0.96);
+
+    transform:
+      translate3d(
+        0,
+        14px,
+        0
+      )
+      scale(0.96);
+
+    transition:
+      opacity
+        300ms
+        ease,
+      transform
+        300ms
+        ease;
+  }
+
+
+  /* ===================================================
+     PLAY / PAUSE ICON
+  =================================================== */
+
+  .mobile-slider-status {
+    position: absolute;
+
+    right: 10px;
+
+    bottom: 10px;
+
+    z-index: 10;
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border-radius: 50%;
+
+    background:
+      rgba(
+        0,
+        0,
+        0,
+        0.48
+      );
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    opacity: 0.65;
+
+    -webkit-backdrop-filter:
+      blur(5px);
+
+    backdrop-filter:
+      blur(5px);
+
+    transition:
+      opacity
+        250ms
+        ease,
+      transform
+        250ms
+        ease;
+  }
+
+
+  /* ===================================================
+     PAUSED
+  =================================================== */
+
+  .mobile-paused
+  .mobile-slider-status {
+    opacity: 1;
+
+    -webkit-transform:
+      scale(1.08);
+
+    transform:
+      scale(1.08);
+  }
+
+
+  .mobile-paused
+  .category-mobile-card {
+    opacity: 1;
+
+    -webkit-transform:
+      translate3d(
+        0,
+        0,
+        0
+      )
+      scale(1);
+
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      )
+      scale(1);
+  }
+
+}
+
+
+/* =====================================================
+   SMALL IPHONE
+===================================================== */
+
+@media screen and
+(max-width: 390px) {
+
+  .category-section {
+    padding-left:
+      max(
+        10px,
+        env(
+          safe-area-inset-left
+        )
+      );
+
+    padding-right:
+      max(
+        10px,
+        env(
+          safe-area-inset-right
+        )
+      );
+  }
+
+
+  .category-heading h2 {
+    font-size: 18px;
+  }
+
+
+  .mobile-slider-status {
+    width: 30px;
+
+    height: 30px;
+
+    right: 8px;
+
+    bottom: 8px;
+
+    font-size: 12px;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONE
+===================================================== */
+
+@media screen and
+(max-width: 340px) {
+
+  .category-heading h2 {
+    font-size: 17px;
+  }
+
+
+  .category-heading p {
+    font-size: 11px;
+  }
+
+}
+.category-container {
+  width: calc(100% - 80px);
+
+  max-width: 1320px;
+
+  margin: 0 auto;
+
+  padding: 0;
 
   box-sizing: border-box;
+
+  min-width: 0;
+}
+/* TABLET */
+
+@media screen and (max-width: 1024px) {
+
+  .category-container {
+    width: calc(100% - 40px);
+  }
+
+}
+
+
+/* PHONE / IPHONE */
+
+@media screen and (max-width: 600px) {
+
+  .category-container {
+    width: calc(100% - 16px);
+
+    max-width: 100%;
+  }
+
+}
+
+
+/* SMALL IPHONE */
+
+@media screen and (max-width: 390px) {
+
+  .category-container {
+    width: calc(100% - 10px);
+  }
+
+
+
+
 }
 
 
 /* =====================================================
-   LABEL
+   CATEGORY WIDTH = HEADER WIDTH
 ===================================================== */
 
-.slide-label {
-  display: inline-block;
-
-  font-size: 11px;
-  font-weight: 700;
-
-  line-height: 14px;
-
-  margin: 0 0 5px;
+/* Section ka extra left-right padding remove */
+.category-section {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 
-/* =====================================================
-   TITLE
-===================================================== */
+/* DESKTOP - SAME AS HEADER */
 
-.slide-content h3 {
-  margin: 0 0 6px;
+.category-container {
+  width: calc(100% - 180px) !important;
+  max-width: 1250px !important;
 
-  font-size: 16px;
+  margin-left: auto !important;
+  margin-right: auto !important;
 
-  line-height: 21px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 
-  font-weight: 700;
-}
-
-
-/* =====================================================
-   DESCRIPTION
-===================================================== */
-
-.slide-content p {
-  margin: 0;
-
-  font-size: 12px;
-
-  line-height: 17px;
-}
-
-
-/* =====================================================
-   LINK
-===================================================== */
-
-.slide-content a {
-  display: inline-block;
-
-  margin-top: 7px;
-
-  font-size: 11px;
-
-  text-decoration: none;
-}
-
-
-/* =====================================================
-   LARGE DESKTOP
-===================================================== */
-
-@media (min-width: 1200px) {
-
-  .category-track {
-    gap: 15px;
-  }
-
-  .slide-card {
-
-    flex: 0 0 250px;
-
-    width: 250px;
-    min-width: 250px;
-    max-width: 250px;
-  }
-
-  .slide-card img {
-    height: 190px;
-  }
-}
-
-
-/* =====================================================
-   DESKTOP / LAPTOP
-===================================================== */
-
-@media (min-width: 1001px) and (max-width: 1199px) {
-
-  .category-track {
-    gap: 14px;
-  }
-
-  .slide-card {
-
-    flex: 0 0 230px;
-
-    width: 230px;
-    min-width: 230px;
-    max-width: 230px;
-
-    border-radius: 17px;
-  }
-
-  .slide-card img {
-    height: 180px;
-  }
-
-  .slide-content {
-    padding: 11px;
-  }
-
-  .slide-content h3 {
-    font-size: 15px;
-    line-height: 20px;
-  }
-
-  .slide-content p {
-    font-size: 12px;
-    line-height: 17px;
-  }
+  box-sizing: border-box;
 }
 
 
@@ -269,1985 +955,42 @@
    TABLET
 ===================================================== */
 
-@media (max-width: 1000px) and (min-width: 769px) {
+@media screen and (max-width: 1000px) {
 
-  .category-slider {
-    padding: 3px 0 8px;
+  .category-container {
+    width: calc(100% - 80px) !important;
   }
 
-  .category-track {
-    gap: 14px;
-  }
-
-  .slide-card {
-
-    flex: 0 0 300px;
-
-    width: 300px;
-    min-width: 300px;
-    max-width: 300px;
-
-    border-radius: 16px;
-  }
-
-  .slide-card img {
-    height: 180px;
-  }
-
-  .slide-content {
-    padding: 11px;
-  }
-
-  .slide-label {
-    font-size: 10px;
-  }
-
-  .slide-content h3 {
-    font-size: 15px;
-    line-height: 19px;
-  }
-
-  .slide-content p {
-    font-size: 11px;
-    line-height: 16px;
-  }
 }
 
 
 /* =====================================================
-   MOBILE
+   PHONE
 ===================================================== */
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
-  .category-slider {
-
-    width: 100%;
-
-    position: relative;
-
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-
-    padding: 3px 2px 7px;
-
-    box-sizing: border-box;
-
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    touch-action: pan-y;
-
-    -webkit-overflow-scrolling: auto;
-
-    user-select: none;
-    -webkit-user-select: none;
-  }
-
-
-  /* TRACK */
-
-  .category-track {
-
-    display: flex;
-
-    flex-direction: row;
-
-    flex-wrap: nowrap;
-
-    align-items: stretch;
-
-    justify-content: flex-start;
-
-    gap: 8px;
-
-    width: max-content;
-    min-width: max-content;
-
-    will-change: transform;
-
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-  }
-
-
-  /* =================================================
-     COMPACT MOBILE CARD
-  ================================================= */
-
-  .slide-card {
-
-    flex: 0 0 190px !important;
-
-    width: 190px !important;
-
-    min-width: 190px !important;
-
-    max-width: 190px !important;
-
-    border-radius: 14px;
-
-    overflow: hidden;
-
-    box-sizing: border-box;
-
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-
-
-  /* IMAGE */
-
-  .slide-card img {
-
-    display: block;
-
-    width: 100% !important;
-
-    height: 120px !important;
-
-    object-fit: cover;
-
-    pointer-events: none;
-
-    user-select: none;
-    -webkit-user-select: none;
-
-    -webkit-user-drag: none;
-
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-
-
-  /* CONTENT */
-
-  .slide-content {
-    padding: 8px;
-  }
-
-
-  /* LABEL */
-
-  .slide-label {
-    font-size: 9px;
-
-    line-height: 12px;
-
-    margin-bottom: 3px;
-  }
-
-
-  /* TITLE */
-
-  .slide-content h3 {
-
-    font-size: 13px;
-
-    line-height: 17px;
-
-    margin: 0 0 3px;
-  }
-
-
-  /* DESCRIPTION */
-
-  .slide-content p {
-
-    font-size: 10px;
-
-    line-height: 14px;
-
-    margin: 0;
-  }
-
-
-  /* LINK */
-
-  .slide-content a {
-
-    margin-top: 5px;
-
-    font-size: 10px;
-  }
-}
-
-
-/* =====================================================
-   SMALL MOBILE / IPHONE
-===================================================== */
-
-@media (max-width: 480px) {
-
-  .category-slider {
-
-    padding: 2px 2px 6px;
-  }
-
-
-  .category-track {
-
-    gap: 7px;
-  }
-
-
-  /* CARD */
-
-  .slide-card {
-
-    flex: 0 0 170px !important;
-
-    width: 170px !important;
-
-    min-width: 170px !important;
-
-    max-width: 170px !important;
-
-    border-radius: 13px;
-  }
-
-
-  /* IMAGE */
-
-  .slide-card img {
-
-    width: 100% !important;
-
-    height: 105px !important;
-  }
-
-
-  /* CONTENT */
-
-  .slide-content {
-
-    padding: 7px;
-  }
-
-
-  .slide-label {
-
-    font-size: 8px;
-
-    line-height: 11px;
-
-    margin-bottom: 2px;
-  }
-
-
-  .slide-content h3 {
-
-    font-size: 12px;
-
-    line-height: 15px;
-
-    margin-bottom: 2px;
-  }
-
-
-  .slide-content p {
-
-    font-size: 9px;
-
-    line-height: 13px;
-  }
-
-
-  .slide-content a {
-
-    font-size: 9px;
-
-    margin-top: 4px;
-  }
-}
-
-
-/* =====================================================
-   VERY SMALL IPHONE
-===================================================== */
-
-@media (max-width: 360px) {
-
-  .category-track {
-
-    gap: 6px;
-  }
-
-
-  /* CARD */
-
-  .slide-card {
-
-    flex: 0 0 155px !important;
-
-    width: 155px !important;
-
-    min-width: 155px !important;
-
-    max-width: 155px !important;
-
-    border-radius: 12px;
-  }
-
-
-  /* IMAGE */
-
-  .slide-card img {
-
-    width: 100% !important;
-
-    height: 95px !important;
-  }
-
-
-  /* CONTENT */
-
-  .slide-content {
-
-    padding: 6px;
-  }
-
-
-  .slide-label {
-
-    font-size: 8px;
-
-    line-height: 10px;
-  }
-
-
-  .slide-content h3 {
-
-    font-size: 11px;
-
-    line-height: 14px;
-
-    margin-bottom: 2px;
-  }
-
-
-  .slide-content p {
-
-    font-size: 8px;
-
-    line-height: 12px;
-  }
-
-
-  .slide-content a {
-
-    font-size: 8px;
-
-    margin-top: 3px;
-  }
-}
-
-
-/* =====================================================
-   IPHONE / SAFARI
-===================================================== */
-
-@supports (-webkit-touch-callout: none) {
-
-  .category-slider {
-
-    width: 100%;
-
-    overflow: hidden;
-
-    overflow-x: hidden;
-
-    overflow-y: hidden;
-
-    touch-action: pan-y;
-
-    -webkit-overflow-scrolling: auto;
-
-    overscroll-behavior: none;
-
-    scrollbar-width: none;
-
-    -ms-overflow-style: none;
-
-    -webkit-backface-visibility: hidden;
-
-    backface-visibility: hidden;
-  }
-
-
-  .category-track {
-
-    display: flex;
-
-    width: max-content;
-
-    min-width: max-content;
-
-    flex-wrap: nowrap;
-
-    will-change: transform;
-
-    transform: translate3d(0, 0, 0);
-
-    -webkit-transform: translate3d(0, 0, 0);
-
-    -webkit-backface-visibility: hidden;
-
-    backface-visibility: hidden;
-
-    -webkit-perspective: 1000px;
-
-    perspective: 1000px;
-  }
-
-
-  .slide-card {
-
-    flex-shrink: 0;
-
-    -webkit-user-select: none;
-
-    user-select: none;
-
-    -webkit-touch-callout: none;
-
-    -webkit-backface-visibility: hidden;
-
-    backface-visibility: hidden;
-  }
-
-
-  .slide-card img {
-
-    -webkit-user-drag: none;
-
-    -webkit-backface-visibility: hidden;
-
-    backface-visibility: hidden;
-  }
-}
-
-
-
-/* =====================================================
-   CATEGORY LISTS - MINIMUM GAP
-===================================================== */
-
-.category-section {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 1px !important;
-}
-
-.category-section + .category-section {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-
-/* =====================================================
-   MOBILE - ALMOST NO GAP
-===================================================== */
-
-@media (max-width: 768px) {
   .category-section {
-    margin: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
-  .category-section + .category-section {
-    margin: 0 !important;
-    padding-top: 0 !important;
-  }
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media (max-width: 480px) {
-  .category-section {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .category-section + .category-section {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
-
-/* =====================================================
-   DESKTOP CLICK PAUSE / RESUME
-===================================================== */
-
-@media (min-width: 769px) {
-
-  .category-slider {
-    cursor: pointer;
+  .category-container {
+    width: calc(100% - 30px) !important;
+    max-width: none !important;
   }
 
 }
 
 
 /* =====================================================
-   MOBILE / IPHONE / SAFARI
-   ONE BY ONE FADE
+   SMALL IPHONE
 ===================================================== */
 
-@media (max-width: 768px) {
+@media screen and (max-width: 390px) {
 
-  .category-slider {
-    width: 100%;
-
-    overflow: hidden;
-
-    padding: 4px 8px 8px;
-
-    box-sizing: border-box;
-
-    touch-action: pan-y;
-  }
-
-
-  /* =========================================
-     FADE WRAPPER
-  ========================================= */
-
-  .mobile-fade-slide {
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    animation:
-      mobileCategoryFade
-      3s ease-in-out;
-  }
-
-
-  /* =========================================
-     ONLY ONE CARD
-  ========================================= */
-
-  .category-slider
-  .mobile-fade-card {
-
-    flex:
-      0 0 100% !important;
-
-    width:
-      100% !important;
-
-    min-width:
-      0 !important;
-
-    max-width:
-      390px !important;
-
-    margin:
-      0 auto !important;
-
-    border-radius:
-      16px;
-
-    transform:
-      none !important;
-
-    -webkit-transform:
-      none !important;
-
-    -webkit-backface-visibility:
-      hidden;
-
-    backface-visibility:
-      hidden;
-  }
-
-
-  /* =========================================
-     IMAGE
-  ========================================= */
-
-  .category-slider
-  .mobile-fade-card
-  img {
-
-    width:
-      100% !important;
-
-    height:
-      190px !important;
-
-    display:
-      block;
-
-    object-fit:
-      cover;
-
-    transform:
-      none !important;
-
-    -webkit-transform:
-      none !important;
-  }
-
-
-  /* =========================================
-     CONTENT
-  ========================================= */
-
-  .category-slider
-  .mobile-fade-card
-  .slide-content {
-
-    padding:
-      12px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  .slide-label {
-
-    font-size:
-      10px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  h3 {
-
-    font-size:
-      15px;
-
-    line-height:
-      20px;
-
-    margin-bottom:
-      5px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  p {
-
-    font-size:
-      11px;
-
-    line-height:
-      16px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  a {
-
-    font-size:
-      10px;
-  }
-
-}
-
-
-/* =====================================================
-   FADE IN → STAY → FADE OUT
-===================================================== */
-
-@keyframes mobileCategoryFade {
-
-  0% {
-    opacity: 0;
-
-    transform:
-      scale(0.985);
-  }
-
-
-  12% {
-    opacity: 1;
-
-    transform:
-      scale(1);
-  }
-
-
-  88% {
-    opacity: 1;
-
-    transform:
-      scale(1);
-  }
-
-
-  100% {
-    opacity: 0;
-
-    transform:
-      scale(0.99);
-  }
-
-}
-
-
-/* =====================================================
-   IPHONE / SMALL MOBILE
-===================================================== */
-
-@media (max-width: 480px) {
-
-  .category-slider {
-    padding:
-      3px 6px 7px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card {
-
-    width:
-      100% !important;
-
-    min-width:
-      0 !important;
-
-    max-width:
-      350px !important;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  img {
-
-    width:
-      100% !important;
-
-    height:
-      165px !important;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  .slide-content {
-
-    padding:
-      10px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  h3 {
-
-    font-size:
-      14px;
-
-    line-height:
-      18px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  p {
-
-    font-size:
-      10px;
-
-    line-height:
-      15px;
-  }
-
-}
-
-
-/* =====================================================
-   VERY SMALL IPHONE
-===================================================== */
-
-@media (max-width: 360px) {
-
-  .category-slider
-  .mobile-fade-card {
-
-    width:
-      100% !important;
-
-    min-width:
-      0 !important;
-
-    max-width:
-      315px !important;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  img {
-
-    height:
-      145px !important;
-  }
-
-}
-
-
-/* =====================================================
-   SAFARI / IOS SMOOTHNESS
-===================================================== */
-
-@supports (-webkit-touch-callout: none) {
-
-  .mobile-fade-slide {
-    -webkit-backface-visibility:
-      hidden;
-
-    backface-visibility:
-      hidden;
-  }
-
-
-  .mobile-fade-card {
-    -webkit-transform:
-      translateZ(0);
-
-    -webkit-backface-visibility:
-      hidden;
-
-    backface-visibility:
-      hidden;
-  }
-
-}
-
-/* =====================================================
-   FINAL DESKTOP + MOBILE SLIDER BEHAVIOR
-===================================================== */
-
-
-/* =====================================================
-   DESKTOP
-   CLICK = PAUSE / RESUME
-===================================================== */
-
-@media (min-width: 769px) {
-
-  .category-slider {
-    cursor: pointer;
-  }
-
-}
-
-
-/* =====================================================
-   MOBILE / IPHONE / SAFARI
-   ONE CARD AT A TIME
-===================================================== */
-
-@media (max-width: 768px) {
-
-  .category-slider {
-    width: 100%;
-
-    position: relative;
-
-    overflow: hidden;
-
-    padding: 4px 8px 8px;
-
-    box-sizing: border-box;
-
-    touch-action: pan-y;
-
-    -webkit-tap-highlight-color:
-      transparent;
-  }
-
-
-  /* =================================================
-     FADE SLIDE WRAPPER
-  ================================================= */
-
-  .mobile-fade-slide {
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    box-sizing: border-box;
-
-    /*
-      Har new card mount hote waqt
-      fade in hoga.
-    */
-
-    animation:
-      mobileCategoryFadeIn
-      0.6s ease both;
-
-    -webkit-animation:
-      mobileCategoryFadeIn
-      0.6s ease both;
-  }
-
-
-  /* =================================================
-     MOBILE CARD
-  ================================================= */
-
-  .category-slider
-  .mobile-fade-card {
-
-    display: block !important;
-
-    flex:
-      0 0 100% !important;
-
-    width:
-      100% !important;
-
-    min-width:
-      0 !important;
-
-    max-width:
-      390px !important;
-
-    margin:
-      0 auto !important;
-
-    overflow:
-      hidden;
-
-    border-radius:
-      16px;
-
-    box-sizing:
-      border-box;
-
-    cursor:
-      pointer;
-
-
-    /*
-      Purane slider transforms remove
-    */
-
-    transform:
-      none !important;
-
-    -webkit-transform:
-      none !important;
-
-
-    -webkit-backface-visibility:
-      hidden;
-
-    backface-visibility:
-      hidden;
-  }
-
-
-  /* =================================================
-     IMAGE
-  ================================================= */
-
-  .category-slider
-  .mobile-fade-card
-  img {
-
-    display:
-      block;
-
-    width:
-      100% !important;
-
-    height:
-      190px !important;
-
-    object-fit:
-      cover;
-
-    pointer-events:
-      none;
-
-    user-select:
-      none;
-
-    -webkit-user-select:
-      none;
-
-    -webkit-user-drag:
-      none;
-
-    transform:
-      none !important;
-
-    -webkit-transform:
-      none !important;
-  }
-
-
-  /* =================================================
-     CONTENT
-  ================================================= */
-
-  .category-slider
-  .mobile-fade-card
-  .slide-content {
-
-    width:
-      100%;
-
-    padding:
-      12px;
-
-    box-sizing:
-      border-box;
-  }
-
-
-  /* LABEL */
-
-  .category-slider
-  .mobile-fade-card
-  .slide-label {
-
-    font-size:
-      10px;
-
-    line-height:
-      13px;
-  }
-
-
-  /* TITLE */
-
-  .category-slider
-  .mobile-fade-card
-  h3 {
-
-    margin:
-      0 0 5px;
-
-    font-size:
-      15px;
-
-    line-height:
-      20px;
-  }
-
-
-  /* DESCRIPTION */
-
-  .category-slider
-  .mobile-fade-card
-  p {
-
-    margin:
-      0;
-
-    font-size:
-      11px;
-
-    line-height:
-      16px;
-  }
-
-
-  /* LINK */
-
-  .category-slider
-  .mobile-fade-card
-  a {
-
-    display:
-      inline-block;
-
-    margin-top:
-      6px;
-
-    font-size:
-      10px;
-  }
-
-}
-
-
-/* =====================================================
-   FADE EFFECT
-===================================================== */
-
-@keyframes mobileCategoryFadeIn {
-
-  from {
-    opacity:
-      0;
-
-    transform:
-      scale(0.97);
-  }
-
-  to {
-    opacity:
-      1;
-
-    transform:
-      scale(1);
-  }
-
-}
-
-
-@-webkit-keyframes mobileCategoryFadeIn {
-
-  from {
-    opacity:
-      0;
-
-    -webkit-transform:
-      scale(0.97);
-  }
-
-  to {
-    opacity:
-      1;
-
-    -webkit-transform:
-      scale(1);
-  }
-
-}
-
-
-/* =====================================================
-   PAUSED MOBILE CARD
-===================================================== */
-
-@media (max-width: 768px) {
-
-  /*
-    Pause hone par card fully visible
-    hi rahe.
-  */
-
-  .category-slider.slider-paused
-  .mobile-fade-slide {
-
-    opacity:
-      1;
-  }
-
-
-  .category-slider.slider-paused
-  .mobile-fade-card {
-
-    opacity:
-      1;
-  }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE / IPHONE
-===================================================== */
-
-@media (max-width: 480px) {
-
-  .category-slider {
-    padding:
-      3px 6px 7px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card {
-
-    width:
-      100% !important;
-
-    min-width:
-      0 !important;
-
-    max-width:
-      350px !important;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  img {
-
-    width:
-      100% !important;
-
-    height:
-      165px !important;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  .slide-content {
-
-    padding:
-      10px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  .slide-label {
-
-    font-size:
-      9px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  h3 {
-
-    font-size:
-      14px;
-
-    line-height:
-      18px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  p {
-
-    font-size:
-      10px;
-
-    line-height:
-      15px;
-  }
-
-}
-
-
-/* =====================================================
-   VERY SMALL IPHONE
-===================================================== */
-
-@media (max-width: 360px) {
-
-  .category-slider {
-    padding:
-      2px 4px 6px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card {
-
-    width:
-      100% !important;
-
-    max-width:
-      315px !important;
-
-    min-width:
-      0 !important;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  img {
-
-    height:
-      145px !important;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  .slide-content {
-
-    padding:
-      9px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  h3 {
-
-    font-size:
-      13px;
-
-    line-height:
-      17px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  p {
-
-    font-size:
-      9px;
-
-    line-height:
-      14px;
-  }
-
-}
-
-
-/* =====================================================
-   IPHONE / SAFARI FIX
-===================================================== */
-
-@supports (-webkit-touch-callout: none) {
-
-  .mobile-fade-slide {
-
-    -webkit-backface-visibility:
-      hidden;
-
-    backface-visibility:
-      hidden;
-
-    -webkit-transform:
-      translateZ(0);
-
-    transform:
-      translateZ(0);
-  }
-
-
-  .category-slider
-  .mobile-fade-card {
-
-    -webkit-backface-visibility:
-      hidden;
-
-    backface-visibility:
-      hidden;
-
-    -webkit-font-smoothing:
-      antialiased;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  img {
-
-    -webkit-backface-visibility:
-      hidden;
-
-    backface-visibility:
-      hidden;
-  }
-
-}
-
-/* =====================================================
-   FINAL CATEGORY SLIDER
-   DESKTOP PAUSE + MOBILE SLOW CROSS FADE
-===================================================== */
-
-
-/* =====================================================
-   DESKTOP
-===================================================== */
-
-@media (min-width: 769px) {
-
-  .category-slider {
-    cursor: pointer;
-  }
-
-}
-
-
-/* =====================================================
-   MOBILE / TABLET
-===================================================== */
-
-@media (max-width: 768px) {
-
-  .category-slider {
-    width: 100%;
-
-    position: relative;
-
-    overflow: hidden;
-
-    padding: 4px 8px 8px;
-
-    box-sizing: border-box;
-
-    touch-action: pan-y;
-
-    -webkit-tap-highlight-color:
-      transparent;
-
-    cursor: pointer;
-  }
-
-
-  /* =================================================
-     FADE STAGE
-  ================================================= */
-
-  .mobile-fade-stage {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    align-items: stretch;
-
-    justify-items: center;
-
-    position: relative;
-
-    box-sizing: border-box;
-  }
-
-
-  /* =================================================
-     ALL MOBILE CARDS
-  ================================================= */
-
-  .category-slider
-  .mobile-fade-card {
-
-    grid-column: 1;
-
-    grid-row: 1;
-
-    display: block !important;
-
-    flex: none !important;
-
-    width: 100% !important;
-
-    min-width: 0 !important;
-
-    max-width: 390px !important;
-
-    margin: 0 auto !important;
-
-    overflow: hidden;
-
-    border-radius: 16px;
-
-    box-sizing: border-box;
-
-
-    /* Hidden by default */
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-
-    /*
-      Slow professional fade
-    */
-
-    transition:
-      opacity 1.6s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        ),
-      visibility 1.6s
-        ease;
-
-    -webkit-transition:
-      opacity 1.6s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        ),
-      visibility 1.6s
-        ease;
-
-
-    /* Old transforms remove */
-
-    transform:
-      translateZ(0) !important;
-
-    -webkit-transform:
-      translateZ(0) !important;
-
-
-    -webkit-backface-visibility:
-      hidden;
-
-    backface-visibility:
-      hidden;
-
-    will-change:
-      opacity;
-  }
-
-
-  /* =================================================
-     ACTIVE CARD
-  ================================================= */
-
-  .category-slider
-  .mobile-fade-card.active {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-
-    z-index: 2;
-  }
-
-
-  /* =================================================
-     IMAGE
-  ================================================= */
-
-  .category-slider
-  .mobile-fade-card
-  img {
-
-    display: block;
-
-    width:
-      100% !important;
-
-    height:
-      190px !important;
-
-    object-fit: cover;
-
-    pointer-events: none;
-
-    user-select: none;
-
-    -webkit-user-select:
-      none;
-
-    -webkit-user-drag:
-      none;
-
-    transform:
-      none !important;
-
-    -webkit-transform:
-      none !important;
-
-    -webkit-backface-visibility:
-      hidden;
-
-    backface-visibility:
-      hidden;
-  }
-
-
-  /* =================================================
-     CONTENT
-  ================================================= */
-
-  .category-slider
-  .mobile-fade-card
-  .slide-content {
-
-    width: 100%;
-
-    padding: 12px;
-
-    box-sizing: border-box;
-  }
-
-
-  /* LABEL */
-
-  .category-slider
-  .mobile-fade-card
-  .slide-label {
-
-    font-size: 10px;
-
-    line-height: 13px;
-
-    margin-bottom: 4px;
-  }
-
-
-  /* TITLE */
-
-  .category-slider
-  .mobile-fade-card
-  h3 {
-
-    margin:
-      0 0 5px;
-
-    font-size: 15px;
-
-    line-height: 20px;
-  }
-
-
-  /* DESCRIPTION */
-
-  .category-slider
-  .mobile-fade-card
-  p {
-
-    margin: 0;
-
-    font-size: 11px;
-
-    line-height: 16px;
-  }
-
-
-  /* LINK */
-
-  .category-slider
-  .mobile-fade-card
-  a {
-
-    display: inline-block;
-
-    margin-top: 6px;
-
-    font-size: 10px;
-  }
-
-}
-
-
-/* =====================================================
-   PAUSE
-===================================================== */
-
-@media (max-width: 768px) {
-
-  /*
-    Pause hone par active card
-    wahi visible rahega.
-  */
-
-  .category-slider.slider-paused
-  .mobile-fade-card.active {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-  }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE / IPHONE
-===================================================== */
-
-@media (max-width: 480px) {
-
-  .category-slider {
-
-    padding:
-      3px 6px 7px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card {
-
-    width:
-      100% !important;
-
-    min-width:
-      0 !important;
-
-    max-width:
-      350px !important;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  img {
-
-    width:
-      100% !important;
-
-    height:
-      165px !important;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  .slide-content {
-
-    padding: 10px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  .slide-label {
-
-    font-size: 9px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  h3 {
-
-    font-size: 14px;
-
-    line-height: 18px;
-
-    margin-bottom: 4px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  p {
-
-    font-size: 10px;
-
-    line-height: 15px;
-  }
-
-}
-
-
-/* =====================================================
-   VERY SMALL IPHONE
-===================================================== */
-
-@media (max-width: 360px) {
-
-  .category-slider {
-
-    padding:
-      2px 4px 6px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card {
-
-    width:
-      100% !important;
-
-    min-width:
-      0 !important;
-
-    max-width:
-      315px !important;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  img {
-
-    height:
-      145px !important;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  .slide-content {
-
-    padding: 9px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  h3 {
-
-    font-size: 13px;
-
-    line-height: 17px;
-  }
-
-
-  .category-slider
-  .mobile-fade-card
-  p {
-
-    font-size: 9px;
-
-    line-height: 14px;
-  }
-
-}
-
-
-/* =====================================================
-   IPHONE / SAFARI
-===================================================== */
-
-@supports (-webkit-touch-callout: none) {
-
-  .mobile-fade-stage {
-
-    -webkit-backface-visibility:
-      hidden;
-
-    backface-visibility:
-      hidden;
-
-    transform:
-      translateZ(0);
-
-    -webkit-transform:
-      translateZ(0);
-  }
-
-
-  .category-slider
-  .mobile-fade-card {
-
-    -webkit-backface-visibility:
-      hidden;
-
-    backface-visibility:
-      hidden;
-
-    -webkit-font-smoothing:
-      antialiased;
-  }
-
-}
-
-
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-
-@media (
-  prefers-reduced-motion:
-  reduce
-) {
-
-  .category-slider
-  .mobile-fade-card {
-
-    transition:
-      opacity 0.2s ease;
-
-    -webkit-transition:
-      opacity 0.2s ease;
-  }
-
-}
-.floating-3d-wrapper {
-  position: fixed;
-
-  left: 45px;
-  right: auto;
-
-  bottom: 90px;
-
-  z-index: 99999;
-
-  width: 120px;
-  height: 120px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
-  -webkit-tap-highlight-color: transparent;
-
-  /* SOFT FADE */
-  animation: floatingBoxFade 5s ease-in-out infinite;
-}
-/* =========================================
-   SOFT FADE EFFECT
-========================================= */
-
-@keyframes floatingBoxFade {
-  0% {
-    opacity: 0.72;
-  }
-
-  25% {
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 1;
+  .category-container {
+    width: calc(100% - 20px) !important;
   }
 
-  100% {
-    opacity: 0.72;
-  }
-}
-
-@-webkit-keyframes floatingBoxFade {
-  0% {
-    opacity: 0.72;
-  }
-
-  25% {
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.72;
-  }
 }
