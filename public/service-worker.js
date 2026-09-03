@@ -1,10 +1,13 @@
-const CACHE_NAME = 'sahjomart-v3';
+const CACHE_NAME = 'sahjomart-v4';
 const APP_SHELL = [
   '/',
   '/index.html',
   '/manifest.json',
   '/icons/icon-192.png',
-  '/icons/icon-512.png'
+  '/icons/icon-512.png',
+  '/icons/icon-maskable-192.png',
+  '/icons/icon-maskable-512.png',
+  '/icons/apple-touch-icon.png'
 ];
 
 // ✅ Static assets cache karne ke liye (build files automatically add hongi)

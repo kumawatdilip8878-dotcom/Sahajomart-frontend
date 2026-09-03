@@ -1,0 +1,873 @@
+/* =====================================================
+   SOCIAL SECTION
+===================================================== */
+
+.social-section {
+  width: 100%;
+
+  padding: 30px 0;
+
+  background: #fff8ef;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.social-container {
+  width: calc(100% - 180px);
+
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.social-heading {
+  width: 100%;
+
+  margin-bottom: 22px;
+
+  text-align: center;
+}
+
+
+.social-heading h2 {
+  margin: 0;
+
+  padding: 0;
+
+  color: #222222;
+
+  font-size: 26px;
+
+  font-weight: 900;
+
+  line-height: 1.2;
+}
+
+
+.social-heading p {
+  margin: 6px 0 0;
+
+  padding: 0;
+
+  color: #777777;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+}
+
+
+/* =====================================================
+   SLIDER VIEWPORT
+===================================================== */
+
+.social-slider {
+  width: 100%;
+
+  position: relative;
+
+  overflow: hidden;
+
+  overflow-x: hidden;
+
+  overflow-y: hidden;
+
+  padding: 10px 0 15px;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   MOVING TRACK
+===================================================== */
+
+.social-track {
+  display: flex;
+
+  flex-direction: row;
+
+  flex-wrap: nowrap;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  gap: 20px;
+
+  width: max-content;
+
+  min-width: max-content;
+
+  margin: 0;
+
+  padding: 0;
+
+  will-change: transform;
+
+  -webkit-transform:
+    translate3d(
+      0,
+      0,
+      0
+    );
+
+  transform:
+    translate3d(
+      0,
+      0,
+      0
+    );
+
+  -webkit-backface-visibility:
+    hidden;
+
+  backface-visibility:
+    hidden;
+}
+
+
+/* =====================================================
+   SOCIAL SET
+===================================================== */
+
+.social-set {
+  display: flex;
+
+  flex-direction: row;
+
+  flex-wrap: nowrap;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  gap: 20px;
+
+  width: max-content;
+
+  min-width: max-content;
+
+  flex: 0 0 auto;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+/* =====================================================
+   SOCIAL CARD
+===================================================== */
+
+.social-card {
+  position: relative;
+
+  flex: 0 0 120px;
+
+  width: 120px;
+
+  height: 120px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+/* =====================================================
+   DESKTOP HOVER
+===================================================== */
+
+@media screen and
+(min-width: 769px) {
+
+  .social-card:hover {
+    transform:
+      translateY(-6px)
+      scale(1.04);
+  }
+
+}
+
+
+/* =====================================================
+   BACK LAYERS
+===================================================== */
+
+.social-layer {
+  position: absolute;
+
+  width: 82px;
+
+  height: 90px;
+
+  border-radius: 5px;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+.social-card .layer-one {
+  transform:
+    rotate(14deg)
+    translate(
+      7px,
+      -3px
+    );
+
+  opacity: 0.8;
+}
+
+
+.social-card .layer-two {
+  transform:
+    rotate(-12deg)
+    translate(
+      -6px,
+      3px
+    );
+
+  opacity: 0.7;
+}
+
+
+/* =====================================================
+   FRONT CARD
+===================================================== */
+
+.social-front-card {
+  position: relative;
+
+  z-index: 3;
+
+  width: 88px;
+
+  height: 94px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffe9dc 0%,
+      #ffffff 30%,
+      #ffffff 100%
+    );
+
+  border: 6px solid;
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 6px 14px
+    rgba(
+      0,
+      0,
+      0,
+      0.13
+    );
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.social-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 48px;
+
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   FACEBOOK
+===================================================== */
+
+.facebook .social-front-card {
+  border-color: #63579f;
+}
+
+.facebook .social-icon {
+  color: #63579f;
+}
+
+.facebook .layer-one {
+  background: #ef57bd;
+}
+
+.facebook .layer-two {
+  background: #a67be9;
+}
+
+
+/* =====================================================
+   INSTAGRAM
+===================================================== */
+
+.instagram .social-front-card {
+  border-color: #ec328d;
+}
+
+.instagram .social-icon {
+  color: #ec328d;
+}
+
+.instagram .layer-one {
+  background: #ff9d22;
+}
+
+.instagram .layer-two {
+  background: #ff25b5;
+}
+
+
+/* =====================================================
+   SNAPCHAT
+===================================================== */
+
+.snapchat .social-front-card {
+  border-color: #ffd900;
+}
+
+.snapchat .social-icon {
+  color: #ffd900;
+}
+
+.snapchat .layer-one {
+  background: #fff000;
+}
+
+.snapchat .layer-two {
+  background: #fff65d;
+}
+
+
+/* =====================================================
+   TWITTER
+===================================================== */
+
+.twitter .social-front-card {
+  border-color: #5d82dd;
+}
+
+.twitter .social-icon {
+  color: #5d82dd;
+}
+
+.twitter .layer-one {
+  background: #a9c8ff;
+}
+
+.twitter .layer-two {
+  background: #8da8ed;
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp .social-front-card {
+  border-color: #34b233;
+}
+
+.whatsapp .social-icon {
+  color: #25b52d;
+}
+
+.whatsapp .layer-one {
+  background: #acd52d;
+}
+
+.whatsapp .layer-two {
+  background: #f0d731;
+}
+
+
+/* =====================================================
+   LINKEDIN
+===================================================== */
+
+.linkedin .social-front-card {
+  border-color: #536da7;
+}
+
+.linkedin .social-icon {
+  color: #536da7;
+}
+
+.linkedin .layer-one {
+  background: #ae79d5;
+}
+
+.linkedin .layer-two {
+  background: #899ce8;
+}
+
+
+/* =====================================================
+   DESKTOP
+   FIXED / STATIC
+===================================================== */
+
+@media screen and
+(min-width: 769px) {
+
+  .social-slider {
+    overflow: visible;
+  }
+
+
+  .social-track {
+    width: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    transform: none !important;
+
+    -webkit-transform:
+      none !important;
+  }
+
+
+  .social-set {
+    width: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+      space-between;
+
+    gap: 20px;
+  }
+
+
+  /*
+    DESKTOP PAR DUPLICATE HIDE
+  */
+
+  .social-set-duplicate {
+    display: none !important;
+  }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media screen and
+(max-width: 1000px) and
+(min-width: 769px) {
+
+  .social-container {
+    width:
+      calc(
+        100% - 80px
+      );
+  }
+
+
+  .social-set {
+    gap: 12px;
+  }
+
+
+  .social-card {
+    flex-basis: 100px;
+
+    width: 100px;
+
+    height: 105px;
+  }
+
+
+  .social-front-card {
+    width: 75px;
+
+    height: 82px;
+
+    border-width: 5px;
+  }
+
+
+  .social-layer {
+    width: 69px;
+
+    height: 77px;
+  }
+
+
+  .social-icon {
+    font-size: 40px;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+   SLOW INFINITE SLIDER
+===================================================== */
+
+@media screen and
+(max-width: 768px) {
+
+  .social-section {
+    padding:
+      22px 0;
+  }
+
+
+  .social-container {
+    width:
+      calc(
+        100% - 20px
+      );
+
+    max-width: none;
+
+    margin:
+      0 auto;
+  }
+
+
+  .social-heading {
+    margin-bottom: 12px;
+  }
+
+
+  .social-heading h2 {
+    font-size: 20px;
+  }
+
+
+  .social-heading p {
+    font-size: 11px;
+  }
+
+
+  /* ===============================================
+     VIEWPORT
+  =============================================== */
+
+  .social-slider {
+    width: 100%;
+
+    overflow: hidden;
+
+    overflow-x: hidden;
+
+    overflow-y: hidden;
+
+    padding:
+      8px 0 12px;
+
+    touch-action: pan-y;
+
+    -webkit-transform:
+      translateZ(0);
+
+    transform:
+      translateZ(0);
+  }
+
+
+  /* ===============================================
+     TRACK
+  =============================================== */
+
+  .social-track {
+    width: max-content;
+
+    min-width: max-content;
+
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+    justify-content:
+      flex-start;
+
+    gap: 12px;
+
+    will-change:
+      transform;
+  }
+
+
+  /* ===============================================
+     SET
+  =============================================== */
+
+  .social-set {
+    width: max-content;
+
+    min-width: max-content;
+
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+    justify-content:
+      flex-start;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+  }
+
+
+  /*
+    MOBILE PAR DUPLICATE SHOW
+  */
+
+  .social-set-duplicate {
+    display: flex !important;
+  }
+
+
+  /* ===============================================
+     CARD
+  =============================================== */
+
+  .social-card {
+    flex:
+      0 0 85px;
+
+    width: 85px;
+
+    height: 90px;
+  }
+
+
+  .social-front-card {
+    width: 65px;
+
+    height: 70px;
+
+    border-width: 4px;
+  }
+
+
+  .social-layer {
+    width: 59px;
+
+    height: 65px;
+  }
+
+
+  .social-icon {
+    font-size: 34px;
+  }
+
+
+  /*
+    MOBILE HOVER OFF
+  */
+
+  .social-card:hover {
+    transform: none;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE / IPHONE
+===================================================== */
+
+@media screen and
+(max-width: 390px) {
+
+  .social-container {
+    width:
+      calc(
+        100% - 12px
+      );
+  }
+
+
+  .social-track,
+  .social-set {
+    gap: 9px;
+  }
+
+
+  .social-card {
+    flex:
+      0 0 76px;
+
+    width: 76px;
+
+    height: 82px;
+  }
+
+
+  .social-front-card {
+    width: 59px;
+
+    height: 63px;
+
+    border-width: 4px;
+  }
+
+
+  .social-layer {
+    width: 53px;
+
+    height: 58px;
+  }
+
+
+  .social-icon {
+    font-size: 31px;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONE
+===================================================== */
+
+@media screen and
+(max-width: 350px) {
+
+  .social-track,
+  .social-set {
+    gap: 7px;
+  }
+
+
+  .social-card {
+    flex:
+      0 0 68px;
+
+    width: 68px;
+
+    height: 75px;
+  }
+
+
+  .social-front-card {
+    width: 53px;
+
+    height: 57px;
+
+    border-width: 3px;
+  }
+
+
+  .social-layer {
+    width: 48px;
+
+    height: 52px;
+  }
+
+
+  .social-icon {
+    font-size: 28px;
+  }
+
+}
+
+
+/* =====================================================
+   IPHONE / SAFARI
+===================================================== */
+
+@supports
+(-webkit-touch-callout: none) {
+
+  @media screen and
+  (max-width: 768px) {
+
+    .social-slider {
+      overflow: hidden;
+
+      touch-action: pan-y;
+
+      -webkit-backface-visibility:
+        hidden;
+
+      backface-visibility:
+        hidden;
+    }
+
+
+    .social-track,
+    .social-set {
+      -webkit-backface-visibility:
+        hidden;
+
+      backface-visibility:
+        hidden;
+    }
+
+  }
+
+}

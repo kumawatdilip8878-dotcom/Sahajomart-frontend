@@ -10,7 +10,7 @@ import CategorySlider from "../../components/CategorySlider/CategorySlider";
 import VideoSection from "../../components/VideoSection/VideoSection";
 import Footer from "../../components/Footer/Footer";
 import Floating3DBox from "../../components/Floating3DBox";
-
+import SocialMediaSection from "../../components/SocialMediaSection";
 import "./Home.css";
 
 
@@ -313,8 +313,8 @@ function Home() {
 
       </main>
 
-
       <VideoSection />
+<SocialMediaSection />
 
       <Footer />
 
