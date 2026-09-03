@@ -1250,3 +1250,19 @@
     font-size: 22px !important;
   }
 }
+@media screen and (max-width: 768px) {
+
+  .mobile-order-hindi {
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    line-height: 1.1;
+  }
+
+  .mobile-order-whatsapp {
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    line-height: 1.1;
+    margin-top: 3px;
+  }
+
+}

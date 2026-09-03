@@ -748,3 +748,25 @@
   }
 
 }
+
+/* =====================================================
+   DESKTOP - DUPLICATE LOCATION SET HIDE
+===================================================== */
+
+@media screen and (min-width: 769px) {
+  .location-track .location-set:nth-child(2) {
+    display: none !important;
+  }
+}
+
+
+/* =====================================================
+   MOBILE - DUPLICATE SET ENABLE
+   Infinite slider ke liye
+===================================================== */
+
+@media screen and (max-width: 768px) {
+  .location-track .location-set:nth-child(2) {
+    display: flex !important;
+  }
+}
