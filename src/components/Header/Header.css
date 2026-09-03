@@ -739,3 +739,9 @@
     font-size: 14px !important;
   }
 }
+.header-container {
+  width: calc(100% - 70px);
+  max-width: 1250px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
