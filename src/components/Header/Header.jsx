@@ -1,5 +1,4 @@
 import {
-  FaWhatsapp,
   FaPhoneAlt,
 } from "react-icons/fa";
 
@@ -12,6 +11,9 @@ const Header = () => {
     `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
       "Hello Sahjo Mart, I want to place an order."
     )}`;
+
+  const whatsappLogo =
+    "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg";
 
   return (
     <header className="site-header">
@@ -34,7 +36,6 @@ const Header = () => {
             />
           </div>
 
-
           {/* BRAND */}
 
           <div className="brand-copy">
@@ -50,7 +51,6 @@ const Header = () => {
               </span>
 
             </div>
-
 
             <div className="shopping-tagline">
               अब करें घर से ऑनलाइन शॉपिंग
@@ -75,11 +75,17 @@ const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaWhatsapp className="action-icon whatsapp-icon" />
+
+            <img
+              src={whatsappLogo}
+              alt="WhatsApp"
+              className="action-whatsapp-image"
+            />
 
             <span>
               Order on WhatsApp
             </span>
+
           </a>
 
 
@@ -89,18 +95,18 @@ const Header = () => {
             href="tel:+919876543210"
             className="btn btn-call desktop-action"
           >
+
             <FaPhoneAlt className="action-icon phone-icon" />
 
             <span>
               Order on Call
             </span>
+
           </a>
 
 
           {/* ========================================
-              PHONE WHATSAPP BUTTON
-
-              ☰ / 3 DOT KI JAGAH YE DIKHEGA
+              MOBILE WHATSAPP BUTTON
           ======================================== */}
 
           <a
@@ -118,15 +124,34 @@ const Header = () => {
               </span>
 
               <span className="mobile-order-whatsapp">
-                WhatsApp पर
+                WhatsApp
+
+                <span
+                  className="mobile-order-par"
+                  style={{
+                    fontSize: "18px",
+                    color: "orange"
+                  }}
+                >
+                  {" "}पर
+                </span>
+
               </span>
 
             </div>
 
 
-            <FaWhatsapp
-              className="mobile-whatsapp-icon"
-            />
+            {/* WHATSAPP IMAGE LOGO */}
+
+            <div className="mobile-whatsapp-logo-box">
+
+              <img
+                src={whatsappLogo}
+                alt="WhatsApp"
+                className="mobile-whatsapp-logo-img"
+              />
+
+            </div>
 
           </a>
 

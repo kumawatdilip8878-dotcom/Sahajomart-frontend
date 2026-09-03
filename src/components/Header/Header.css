@@ -1818,3 +1818,116 @@
   }
 
 }
+
+/* =========================================
+   FINAL MOBILE ORDER TEXT COLORS
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* अभी ऑर्डर करें
+     Sahjo Mart tagline jaisa orange */
+  .site-header .mobile-order-hindi {
+    color: #e07116 !important;
+  }
+
+  /* WhatsApp पर - BLACK */
+  .site-header .mobile-order-whatsapp {
+    color: #171717 !important;
+  }
+
+}
+/* =========================================
+   WHATSAPP LOGO WITH FLICK / PULSE LINES
+========================================= */
+
+.mobile-whatsapp-logo-box {
+  width: 48px;
+  height: 48px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+
+/* FIRST PULSE LINE */
+
+.mobile-whatsapp-logo-box::before {
+  content: "";
+
+  position: absolute;
+
+  width: 44px;
+  height: 44px;
+
+  border: 2px solid #25d366;
+  border-radius: 50%;
+
+  z-index: -1;
+
+  animation: whatsappPulse 1.6s infinite ease-out;
+}
+
+
+/* SECOND PULSE LINE */
+
+.mobile-whatsapp-logo-box::after {
+  content: "";
+
+  position: absolute;
+
+  width: 44px;
+  height: 44px;
+
+  border: 2px solid #25d366;
+  border-radius: 50%;
+
+  z-index: -2;
+
+  animation: whatsappPulse 1.6s infinite ease-out;
+  animation-delay: 0.6s;
+}
+
+
+/* WHATSAPP IMAGE */
+
+.mobile-whatsapp-logo-img {
+  width: 42px;
+  height: 42px;
+
+  display: block;
+  object-fit: contain;
+
+  position: relative;
+  z-index: 5;
+
+  border-radius: 50%;
+}
+
+
+/* FLICK / SIGNAL ANIMATION */
+
+@keyframes whatsappPulse {
+
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+
+  70% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+
+}
