@@ -1819,115 +1819,166 @@
 
 }
 
-/* =========================================
-   FINAL MOBILE ORDER TEXT COLORS
-========================================= */
+/* MOBILE WHATSAPP LOGO */
+.mobile-whatsapp-logo {
+  display: none;
+}
 
-@media screen and (max-width: 768px) {
-
-  /* अभी ऑर्डर करें
-     Sahjo Mart tagline jaisa orange */
-  .site-header .mobile-order-hindi {
-    color: #e07116 !important;
+@media (max-width: 768px) {
+  .mobile-whatsapp-logo {
+    display: block;
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
-  /* WhatsApp पर - BLACK */
-  .site-header .mobile-order-whatsapp {
-    color: #171717 !important;
+  .mobile-order-par {
+    font-size: 18px;
+    color: orange;
+  }
+}
+
+/* =====================================================
+   MOBILE WHATSAPP ANIMATION
+   ONLY PHONE RESPONSIVE
+===================================================== */
+
+.mobile-whatsapp-logo-wrap {
+  display: none;
+}
+
+
+/* =====================================================
+   ONLY MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .mobile-whatsapp-logo-wrap {
+    display: flex;
+
+    width: 48px;
+    height: 48px;
+
+    position: relative;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    overflow: visible;
   }
 
-}
-/* =========================================
-   WHATSAPP LOGO WITH FLICK / PULSE LINES
-========================================= */
 
-.mobile-whatsapp-logo-box {
-  width: 48px;
-  height: 48px;
+  /* WHATSAPP LOGO */
 
-  position: relative;
+  .mobile-whatsapp-logo {
+    width: 42px;
+    height: 42px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: block;
 
-  flex-shrink: 0;
-  z-index: 1;
-}
+    object-fit: contain;
 
+    position: relative;
 
-/* FIRST PULSE LINE */
+    z-index: 5;
 
-.mobile-whatsapp-logo-box::before {
-  content: "";
-
-  position: absolute;
-
-  width: 44px;
-  height: 44px;
-
-  border: 2px solid #25d366;
-  border-radius: 50%;
-
-  z-index: -1;
-
-  animation: whatsappPulse 1.6s infinite ease-out;
-}
-
-
-/* SECOND PULSE LINE */
-
-.mobile-whatsapp-logo-box::after {
-  content: "";
-
-  position: absolute;
-
-  width: 44px;
-  height: 44px;
-
-  border: 2px solid #25d366;
-  border-radius: 50%;
-
-  z-index: -2;
-
-  animation: whatsappPulse 1.6s infinite ease-out;
-  animation-delay: 0.6s;
-}
-
-
-/* WHATSAPP IMAGE */
-
-.mobile-whatsapp-logo-img {
-  width: 42px;
-  height: 42px;
-
-  display: block;
-  object-fit: contain;
-
-  position: relative;
-  z-index: 5;
-
-  border-radius: 50%;
-}
-
-
-/* FLICK / SIGNAL ANIMATION */
-
-@keyframes whatsappPulse {
-
-  0% {
-    transform: scale(0.85);
-    opacity: 0.9;
+    border-radius: 50%;
   }
 
-  70% {
-    transform: scale(1.55);
+
+  /* MOVING GREEN RINGS */
+
+  .whatsapp-ring {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 40px;
+    height: 40px;
+
+    border: 2px solid rgba(37, 211, 102, 0.85);
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%) scale(0.8);
+
     opacity: 0;
+
+    pointer-events: none;
+
+    animation: whatsappWave 1.8s infinite ease-out;
   }
 
-  100% {
-    transform: scale(1.55);
-    opacity: 0;
+
+  .ring-1 {
+    animation-delay: 0s;
+  }
+
+
+  .ring-2 {
+    animation-delay: 0.55s;
+  }
+
+
+  .ring-3 {
+    animation-delay: 1.1s;
+  }
+
+
+  /* ANIMATION */
+
+  @keyframes whatsappWave {
+
+    0% {
+      transform:
+        translate(-50%, -50%)
+        scale(0.75);
+
+      opacity: 0.9;
+    }
+
+    60% {
+      opacity: 0.4;
+    }
+
+    100% {
+      transform:
+        translate(-50%, -50%)
+        scale(1.55);
+
+      opacity: 0;
+    }
+
+  }
+
+
+  /* "पर" TEXT */
+
+  .mobile-order-par {
+    font-size: 18px;
+    color: orange;
+  }
+
+}
+@media (max-width: 768px) {
+
+  .mobile-order-hindi {
+    color: #f6a04d;
+  }
+
+  .mobile-order-whatsapp {
+    color: #e57a07;
+    font-weight: 700;
+  }
+
+  .mobile-order-par {
+    color: #f6a04d;
+    font-size: 18px;
   }
 
 }

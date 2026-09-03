@@ -1,4 +1,5 @@
 import {
+  FaWhatsapp,
   FaPhoneAlt,
 } from "react-icons/fa";
 
@@ -11,9 +12,6 @@ const Header = () => {
     `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
       "Hello Sahjo Mart, I want to place an order."
     )}`;
-
-  const whatsappLogo =
-    "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg";
 
   return (
     <header className="site-header">
@@ -35,8 +33,6 @@ const Header = () => {
               alt="Sahjo Mart Logo"
             />
           </div>
-
-          {/* BRAND */}
 
           <div className="brand-copy">
 
@@ -62,7 +58,7 @@ const Header = () => {
 
 
         {/* ==========================================
-            DESKTOP ACTIONS
+            ACTIONS
         ========================================== */}
 
         <div className="nav-actions">
@@ -75,17 +71,11 @@ const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-
-            <img
-              src={whatsappLogo}
-              alt="WhatsApp"
-              className="action-whatsapp-image"
-            />
+            <FaWhatsapp className="action-icon whatsapp-icon" />
 
             <span>
               Order on WhatsApp
             </span>
-
           </a>
 
 
@@ -95,19 +85,17 @@ const Header = () => {
             href="tel:+919876543210"
             className="btn btn-call desktop-action"
           >
-
             <FaPhoneAlt className="action-icon phone-icon" />
 
             <span>
               Order on Call
             </span>
-
           </a>
 
 
-          {/* ========================================
-              MOBILE WHATSAPP BUTTON
-          ======================================== */}
+          {/* ==========================================
+              MOBILE WHATSAPP
+          ========================================== */}
 
           <a
             href={whatsappLink}
@@ -124,16 +112,10 @@ const Header = () => {
               </span>
 
               <span className="mobile-order-whatsapp">
-                WhatsApp
+                WhatsApp{" "}
 
-                <span
-                  className="mobile-order-par"
-                  style={{
-                    fontSize: "18px",
-                    color: "orange"
-                  }}
-                >
-                  {" "}पर
+                <span className="mobile-order-par">
+                  पर
                 </span>
 
               </span>
@@ -141,14 +123,18 @@ const Header = () => {
             </div>
 
 
-            {/* WHATSAPP IMAGE LOGO */}
+            {/* WHATSAPP LOGO + MOVING RINGS */}
 
-            <div className="mobile-whatsapp-logo-box">
+            <div className="mobile-whatsapp-logo-wrap">
+
+              <span className="whatsapp-ring ring-1"></span>
+              <span className="whatsapp-ring ring-2"></span>
+              <span className="whatsapp-ring ring-3"></span>
 
               <img
-                src={whatsappLogo}
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
                 alt="WhatsApp"
-                className="mobile-whatsapp-logo-img"
+                className="mobile-whatsapp-logo"
               />
 
             </div>
